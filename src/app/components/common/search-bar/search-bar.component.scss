@@ -1,0 +1,63 @@
+.banner-form {
+    padding: 0.5vw 0.6vw ;
+    background-color: var(--whiteColor);
+    border-radius: 0.5vw;
+    width: 100%;
+}
+
+.input-box-area{
+    width: 80%;
+}
+
+.input-width {
+    width: 48.5%;
+    padding: 0 !important;
+}
+
+.input-btn-width {
+    width: 20%;
+}
+
+.default-btn{
+    background-color: var(--primaryColor);
+    transition: var(--transition);
+    color: var(--whiteColor);
+    display: inline-block;
+    border-radius: 5px;
+    padding: 0.52vw 0;
+    width: 100%;
+    box-shadow: unset;
+    border: 0;
+    font-size: 0.85vw;
+    font-family: "mon-light";
+    border-radius: 3px;
+    &:hover{
+        background-color: transparent;
+        border: 0.12vw solid var(--pinkColor);
+        color: var(--pinkColor);
+    }
+}
+
+.f-input {
+    border-right: 1.3px solid black;
+}
+
+.form-group img {
+    width: 1.5vw;
+    height: 1.5vw;
+    position: absolute;
+    top: 5px;
+}
+
+.form-group input,
+.form-group select {
+    border: 0;
+    height: 2vw;
+}
+
+.form-control,
+.form-select {
+    padding: 0 0 0 2.5vw;
+    font-size: 0.7vw;
+    font-family: 'mon-bold';
+}
