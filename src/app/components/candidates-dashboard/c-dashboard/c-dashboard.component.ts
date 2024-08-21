@@ -55,7 +55,7 @@ export class CDashboardComponent {
                 enabled: false
             },
             colors: [
-                "#1cbe72"
+                "#3a4e90"
             ],
             stroke: {
                 curve: "straight"

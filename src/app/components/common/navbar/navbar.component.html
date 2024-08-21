@@ -192,7 +192,7 @@
 
                 <div class="others-option d-md-flex align-items-center">
                     <div class="option-item">
-                        <span class="d-block login-register" (click)="openPopup()">
+                        <span class="d-block login-register" (click)="popup.openPopup()">
                             <i class="ri-user-line"></i>
                             Login/Register
                         </span>
@@ -210,7 +210,9 @@
 </div>
 
 <!-- Modal -->
-<div class="modal fade loginRegisterModal" tabindex="-1" aria-hidden="true" *ngIf="isOpen">
+<app-auth-popup #popup></app-auth-popup>
+ 
+<!-- <div class="modal fade loginRegisterModal" tabindex="-1" aria-hidden="true" *ngIf="isOpen">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-body">
@@ -259,20 +261,7 @@
                             <button type="submit" class="default-popup-btn d-block w-100">
                                 Login Now
                             </button>
-                            <!-- <div class="login-with-socials text-center">
-                                <span class="d-block fw-medium">
-                                    Or Continue with
-                                </span>
-                                <a href="#" target="_blank" class="facebook d-inline-block">
-                                    <i class="ri-facebook-fill"></i>
-                                </a>
-                                <a href="#" target="_blank" class="google d-inline-block">
-                                    <i class="ri-google-fill"></i>
-                                </a>
-                                <a href="#" target="_blank" class="linkedin d-inline-block">
-                                    <i class="ri-linkedin-fill"></i>
-                                </a>
-                            </div> -->
+                            
                         </form>
                     </div>
                     <div class="tab-pane fade d-block opacity-100" *ngIf="currentTab === 'tab2'">
@@ -435,4 +424,4 @@
         </div>
     </div>
     <div class="modal-backdrop fade show"></div>
-</div>
+</div> -->

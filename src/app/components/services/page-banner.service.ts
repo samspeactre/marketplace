@@ -14,6 +14,10 @@ export class PageBannerService {
     '/terms-conditions': 'Terms & Conditions',
     '/privacy-policy': 'Privacy Policy',
     '/contact': 'Contact Us',
+    '/employers': 'Employers',
+    '/employer-details': 'Employer Details',
+    '/candidates': 'Candidates',
+    '/candidates-details': 'Candidates Details',
     // Add more routes and titles as needed
   };
 
