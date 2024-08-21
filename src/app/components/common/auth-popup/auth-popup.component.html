@@ -18,6 +18,7 @@
                     </li>
                 </ul>
                 <div class="tab-content">
+
                     <div class="tab-pane fade d-block opacity-100" *ngIf="currentTab === 'tab1'">
                         <div class="info">
                             <p>
@@ -50,6 +51,7 @@
                             </button>
                         </form>
                     </div>
+
                     <div class="tab-pane fade d-block opacity-100" *ngIf="currentTab === 'tab2'">
                         <ul class="nav nav-tabs d-block border-0">
                             <li class="nav-item d-inline-block" [ngClass]="{'active': currentInnerTab === 'innerTab1'}">
@@ -129,12 +131,13 @@
                                                 Policy</a>
                                         </label>
                                     </div>
-                                    <button type="submit" class="default-btn d-block w-100">
+                                    <button type="submit" class="default-popup-btn d-block w-100">
                                         Register Now
                                     </button>
+                                    
                                 </form>
                             </div>
-                            
+
                             <div class="tab-pane fade d-block opacity-100" *ngIf="currentInnerTab === 'innerTab2'">
                                 <form class="authentication-form">
                                     <div class="row">

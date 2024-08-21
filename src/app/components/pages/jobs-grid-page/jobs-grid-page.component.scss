@@ -1,3 +1,8 @@
+.main{
+    width: 90%;
+    margin: auto;
+}
+
 .job-item {
     border-radius: 10px;
     margin-bottom: 25px;
@@ -5,25 +10,23 @@
     border: 1px solid var(--borderColor);
 
     .content {
-        padding: 20px;
+        padding: 1.8vw;
 
         .company-logo {
-            width: 100px;
-            height: 100px;
+            width: 7.5vw;
+            height: 7.5vw;
             position: relative;
             border-radius: 50%;
             text-align: center;
             background-color: #f4f7fb;
-            margin: {
-                left: auto;
-                right: auto;
-                bottom: 18px;
-            };
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 1.2vw;
             img {
                 left: 0;
                 right: 0;
                 top: 50%;
-                max-width: 80px;
+                width: 3.5vw;
                 position: absolute;
                 transform: translateY(-50%);
                 margin: {
@@ -33,55 +36,66 @@
             }
         }
         h3 {
-            font-size: 18px;
-            margin-bottom: 6px;
+            font-size: 1.32vw;
+            margin-bottom: 0.3vw;
+            font-family: "mon-bold";
         }
         .location {
-            font-size: 17px;
-            margin-bottom: 8px;
+            font-size: 1.1vw;
+            font-family: "mon-reg";
         }
         .job-type {
-            color: var(--primaryColor);
-            margin-right: 10px;
+            color: #4086f6;
+            font-size: 1vw;
+            font-family: "mon-reg";
+            margin-right: 0.7vw;
         }
         .deadline {
-            margin-left: 10px;
+            margin-left: 0.8vw;
+            font-size: 0.95vw;
 
             span {
+                font-family: 'mon-semi';
                 color: #d8342b;
 
                 &:nth-child(2) {
-                    color: var(--primaryColor);
+                    font-family: 'mon-reg';
+                    color: #4086f6;
                 }
             }
         }
     }
     .info {
-        border-top: 1px solid var(--borderColor);
-        padding: 15px 20px;
+        border-top: 0.1vw solid var(--borderColor);
+        padding: 1vw 2.3vw;
 
         .salary {
+            font-size: 0.95vw;
             span {
+                font-family: 'mon-semi';
                 color: var(--headingColor);
 
                 &:nth-child(2) {
-                    color: var(--primaryColor);
+                    font-family: 'mon-reg';
+                    color: #4086f6;
                 }
             }
         }
         .link-btn {
-            color: var(--primaryColor);
-            padding-right: 17px;
+            color: #4086f6;
+            padding-right: 1.1vw;
+            font-size: 1.1vw;
+            font-family: 'mon-reg';
 
             i {
                 top: 50%;
-                right: -3px;
-                margin-top: .8px;
+                right: -0.1vw;
+                margin-top: 0.02vw;
                 position: absolute;
                 transform: translateY(-50%);
             }
             &:hover {
-                color: var(--secondaryColor);
+                color: var(--pinkColor);
             }
         }
     }
@@ -91,18 +105,18 @@
         display: inline-block;
         position: absolute;
         border-radius: 50%;
-        font-size: 23px;
-        height: 45px;
-        width: 45px;
-        right: 20px;
+        font-size: 1.8vw;
+        height: 2vw;
+        width: 2vw;
+        right: 1.5vw;
         border: 0;
-        top: 20px;
+        top: 1.8vw;
 
         i {
             left: 0;
             right: 0;
             top: 50%;
-            margin-top: 1px;
+            margin-top: 0.01vw;
             position: absolute;
             transform: translateY(-50%);
         }
@@ -130,11 +144,16 @@
         transform: translateY(-5px);
     }
 }
+
+.jobs-area{
+    padding: 7.5vw 0 3vw;
+}
+
 .jobs-search-form {
     border: 1px solid var(--borderColor);
-    padding: 10px 10px 10px 20px;
-    margin-bottom: 25px;
-    border-radius: 10px;
+    padding: 0.8vw 0.8vw 0.8vw 1.3vw;
+    margin-bottom: 2.1vw;
+    border-radius: 0.8vw;
 
     .col-4 {
         width: 39.5%;
@@ -152,8 +171,7 @@
         i {
             left: 0;
             top: 50%;
-            font-size: 22px;
-            margin-top: -.4px;
+            font-size: 1.9vw;
             position: absolute;
             color: var(--primaryColor);
             transform: translateY(-50%);
@@ -161,15 +179,14 @@
         .form-control {
             height: auto;
             border: none;
-            font-size: var(--fontSize);
+            font-size: 1vw;
+            font-family: 'mon-reg';
             color: var(--headingColor);
             box-shadow: unset !important;
-            padding: {
-                bottom: 13px;
-                left: 30px;
-                top: 13px;
-                right: 0;
-            };
+            padding-bottom: 1vw;
+            padding-left: 2.5vw;
+            padding-top: 1vw;
+            padding-right: 0;
             &::placeholder {
                 color: var(--bodyColor);
             }
@@ -179,15 +196,14 @@
             border: none;
             cursor: pointer;
             color: var(--bodyColor);
-            font-size: var(--fontSize);
             box-shadow: unset !important;
             background-position: right 0 center;
-            padding: {
-                bottom: 13px;
-                left: 30px;
-                top: 13px;
-                right: 0;
-            };
+            padding-bottom: 1vw;
+            padding-left: 2.5vw;
+            padding-top: 1vw;
+            padding-right: 0;
+            font-size: 1vw;
+            font-family: 'mon-reg';
         }
     }
     .default-btn {
@@ -199,47 +215,56 @@
         };
     }
 }
+
 .jove-grid-sorting {
-    margin-bottom: 25px;
+    margin-bottom: 2.2vw;
 
     .result-count {
         p {
+            font-size: 1.1vw;
+            font-family: 'mon-reg';
+            margin-bottom: 0;
+
             .count {
-                font-weight: 600;
+                font-family: 'mon-semi';
                 color: var(--headingColor);
             }
         }
     }
+
     .ordering {
         text-align: end;
 
         label {
             color: var(--bodyColor);
             display: inline-block;
-            font-weight: 500;
+            font-size: 1.1vw;
+            font-family: 'mon-reg';
+
             margin: {
                 right: 5px;
                 bottom: 0;
-            };
+            }
+
+            ;
         }
+
         select {
-            height: 45px;
-            width: 215px;
+            height: 3.3vw;
+            width: 13vw;
             cursor: pointer;
-            line-height: 44px;
             box-shadow: unset;
-            padding: 0 0 0 15px;
+            padding: 0 0 0 1vw;
             display: inline-block;
             border-color: #eeeeee;
             color: var(--headingColor);
             background-color: #f8f8f8;
             transition: var(--transition);
-            font: {
-                size: var(--fontSize);
-                weight: 500;
-            };
+            font-size: 1.1vw;
+            font-family: 'mon-reg';
+
             &:hover {
-                border-color: var(--primaryColor);
+                border-color: #3a4e90;
                 background-color: transparent;
             }
         }
@@ -422,32 +447,32 @@
 }
 
 /* Min width 992px to Max width 1199px */
-@media only screen and (min-width : 992px) and (max-width : 1199px) {
+// @media only screen and (min-width : 992px) and (max-width : 1199px) {
 
-    .job-item {
-        .content {
-            .location {
-                font-size: 16px;
-            }
-        }
-    }
-    .jobs-search-form {
-        padding-left: 15px;
+//     .job-item {
+//         .content {
+//             .location {
+//                 font-size: 16px;
+//             }
+//         }
+//     }
+//     .jobs-search-form {
+//         padding-left: 15px;
 
-        .form-group {
-            .form-control {
-                padding-right: 20px;
-            }
-        }
-        .default-btn {
-            padding: {
-                left: 15px;
-                right: 15px;
-            };
-        }
-    }
+//         .form-group {
+//             .form-control {
+//                 padding-right: 20px;
+//             }
+//         }
+//         .default-btn {
+//             padding: {
+//                 left: 15px;
+//                 right: 15px;
+//             };
+//         }
+//     }
 
-}
+// }
 
 /* Min width 1200px to Max width 1399px */
 @media only screen and (min-width: 1200px) and (max-width: 1399px) {}
