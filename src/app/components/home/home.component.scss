@@ -19,7 +19,7 @@ h2 {
   font-family: "noh-bold";
   font-size: 3.55vw;
   letter-spacing: 0.25vw;
-  line-height: 4vw;
+  line-height: 3.5vw;
   width: 80%;
   margin-bottom: 1.5vw;
 }
@@ -57,15 +57,13 @@ h2 {
 }
 
 .right {
-  width: 43.7%;
-}
-
-.right img {
-  width: 97.2%;
-  height: 100%;
-  margin: auto;
-  padding-top: 2.1vw;
-  object-fit: cover;
+  margin-top: 2vw;
+  width: 46.7%;
+  height: 35vw;
+  background-image: url(../../../assets/images/cover-img-poster.png);
+  background-position: center;
+  background-size: 93%;
+  background-repeat: no-repeat;
 }
 
 // Sec 2 //
@@ -418,3 +416,17 @@ h2 {
 }
 
 // Sec 4 //
+
+/* Max width 767px */
+@media only screen and (max-width : 767px) {
+
+  .cover-img {
+    padding: 0vw 4dvw;
+  }
+
+  .left,
+  .right {
+    width: 100% !important;
+  }
+
+}
