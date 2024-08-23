@@ -1,48 +1,56 @@
 // Breadcrumb Title
 .breadcrumb-title {
-    margin-bottom: 25px;
+    margin-bottom: 2vw;
     
     h1 {
-        font-size: 24px;
+        font-size: 1.7vw;
+        font-family: "mon-bold";
+        color: black;
     }
 }
 
 // Card
 .jove-card {
     background-color: var(--whiteColor);
-    margin-bottom: 25px;
-    border-radius: 15px;
-    padding: 30px;
+    margin-bottom: 2vw;
+    border-radius: 1vw;
+    padding: 2.5vw;
 
     .title {
-        font-size: 18px;
-        margin-bottom: 25px;
-        border-bottom: 1px solid var(--borderColor);
+        font-size: 1.2vw;
+        font-family: 'mon-bold';
+        color: black;
+        margin-bottom: 2vw;
+        border-bottom: 0.1vw solid var(--borderColor);
         padding: {
-            left: 30px;
-            right: 30px;
-            bottom: 12px;
+            left: 2.5vw;
+            right: 2.5vw;
+            bottom: 0.85vw;
         };
         margin: {
-            left: -30px;
-            right: -30px;
+            left: -2.5vw;
+            right: -2.5vw;
         };
     }
     form {
         .form-group {
-            margin-bottom: 25px;
+            margin-bottom: 2vw;
 
             label {
                 display: block;
-                margin-bottom: 8px;
+                margin-bottom: 0.5vw;
+                color: black;
+                font-size: 1vw !important;
+                font-family: 'mon-semi' !important;
             }
             .form-control {
-                height: 50px;
-                padding: 10px 20px;
-                border-radius: 5px;
-                font-size: var(--fontSize);
+                height: 3.3vw;
+                padding: 0.8vw 1vw;
+                border-radius: 0.3vw;
+                font-size: 1vw;
+                font-family: 'mon-reg';
                 color: var(--headingColor);
-                border: 1px solid #e0e6e9;
+                border: 0.1vw solid #e0e6e9;
                 background-color: #f9fafb;
                 transition: var(--transition);
 
@@ -54,17 +62,17 @@
                 }
             }
             .form-select {
-                height: 50px;
+                height: 3.3vw;
                 cursor: pointer;
-                padding: 10px 20px;
-                border-radius: 5px;
+                padding: 0.8vw 1vw;
+                border-radius: 0.3vw;
                 font-size: var(--fontSize);
                 color: var(--headingColor);
-                border: 1px solid #e0e6e9;
+                border: 0.1vw solid #e0e6e9;
                 transition: var(--transition);
                 background: {
                     color: #f9fafb;
-                    position: right 20px center;
+                    position: right 1.5vw center;
                 };
                 &:focus {
                     border-color: var(--primaryColor);
@@ -72,18 +80,18 @@
             }
             textarea.form-control {
                 height: auto;
-                padding-top: 20px;
+                padding-top: 1.5vw;
             }
             &.upload-photo {
-                padding-bottom: 25px;
-                border-bottom: 1px solid var(--borderColor);
+                padding-bottom: 2vw;
+                border-bottom: 0.1vw solid var(--borderColor);
 
                 input[type="file" i] {
-                    margin-top: 5px;
+                    margin-top: 0.3vw;
                 }
                 p {
                     line-height: initial;
-                    margin-top: 12px;
+                    margin-top: 0.85vw;
                     font: {
                         size: 14px;
                         style: italic;
@@ -107,46 +115,46 @@
     // Card
     .jove-card {
         border-radius: 5px;
-        padding: 20px 15px;
+        padding: 20px 1vw;
     
         .title {
             font-size: 16px;
-            margin-bottom: 15px;
+            margin-bottom: 1vw;
             padding: {
-                left: 15px;
-                right: 15px;
+                left: 1vw;
+                right: 1vw;
                 bottom: 10px;
             };
             margin: {
-                left: -15px;
-                right: -15px;
+                left: -1vw;
+                right: -1vw;
             };
         }
         form {
             .form-group {
-                margin-bottom: 15px;
+                margin-bottom: 1vw;
     
                 label {
                     margin-bottom: 7px;
                 }
                 .form-control {
                     height: 48px;
-                    font-size: 15px;
-                    padding: 10px 15px;
+                    font-size: 1vw;
+                    padding: 10px 1vw;
                 }
                 .form-select {
                     height: 48px;
-                    font-size: 15px;
-                    padding: 10px 15px;
+                    font-size: 1vw;
+                    padding: 10px 1vw;
                     background: {
                         position: right 20px center;
                     };
                 }
                 textarea.form-control {
-                    padding-top: 15px;
+                    padding-top: 1vw;
                 }
                 &.upload-photo {
-                    padding-bottom: 15px;
+                    padding-bottom: 1vw;
     
                     p {
                         font-size: 13px;
@@ -158,81 +166,72 @@
 
 }
 
-/* Min width 576px to Max width 767px */
-@media only screen and (min-width : 576px) and (max-width : 767px) {}
+/* Min width 768px to Max width 990.1vw */
+// @media only screen and (min-width : 768px) and (max-width : 990.1vw) {
 
-/* Min width 768px to Max width 991px */
-@media only screen and (min-width : 768px) and (max-width : 991px) {
+//     // Breadcrumb Title
+//     .breadcrumb-title {
+//         h1 {
+//             font-size: 22px;
+//         }
+//     }
 
-    // Breadcrumb Title
-    .breadcrumb-title {
-        h1 {
-            font-size: 22px;
-        }
-    }
-
-    // Card
-    .jove-card {
-        border-radius: 10px;
-        padding: 25px;
+//     // Card
+//     .jove-card {
+//         border-radius: 10px;
+//         padding: 2vw;
     
-        .title {
-            font-size: 18px;
-            padding: {
-                left: 25px;
-                right: 25px;
-                bottom: 12px;
-            };
-            margin: {
-                left: -25px;
-                right: -25px;
-            };
-        }
-        form {
-            .form-group {
-                .form-control {
-                    padding: 10px 18px;
-                    font-size: 15px;
-                }
-                .form-select {
-                    padding: 10px 18px;
-                    font-size: 15px;
-                    background: {
-                        position: right 18px center;
-                    };
-                }
-                textarea.form-control {
-                    padding-top: 18px;
-                }
-            }
-        }
-    }
+//         .title {
+//             font-size: 1.2vw;
+//             padding: {
+//                 left: 2vw;
+//                 right: 2vw;
+//                 bottom: 0.85vw;
+//             };
+//             margin: {
+//                 left: -2vw;
+//                 right: -2vw;
+//             };
+//         }
+//         form {
+//             .form-group {
+//                 .form-control {
+//                     padding: 10px 1.2vw;
+//                     font-size: 1vw;
+//                 }
+//                 .form-select {
+//                     padding: 10px 1.2vw;
+//                     font-size: 1vw;
+//                     background: {
+//                         position: right 1.2vw center;
+//                     };
+//                 }
+//                 textarea.form-control {
+//                     padding-top: 1.2vw;
+//                 }
+//             }
+//         }
+//     }
 
-}
+// }
 
 /* Min width 992px to Max width 1199px */
-@media only screen and (min-width : 992px) and (max-width : 1199px) {
+// @media only screen and (min-width : 992px) and (max-width : 1199px) {
 
-    // Card
-    .jove-card {
-        padding: 25px;
+//     // Card
+//     .jove-card {
+//         padding: 2vw;
     
-        .title {
-            padding: {
-                left: 25px;
-                right: 25px;
-            };
-            margin: {
-                left: -25px;
-                right: -25px;
-            };
-        }
-    }
+//         .title {
+//             padding: {
+//                 left: 2vw;
+//                 right: 2vw;
+//             };
+//             margin: {
+//                 left: -2vw;
+//                 right: -2vw;
+//             };
+//         }
+//     }
 
-}
-
-/* Min width 1200px to Max width 1399px */
-@media only screen and (min-width: 1200px) and (max-width: 1399px) {}
-
-/* Min width 1600px */
-@media only screen and (min-width: 1600px) {}
+// }

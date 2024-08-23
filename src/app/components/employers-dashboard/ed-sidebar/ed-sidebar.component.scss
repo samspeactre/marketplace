@@ -182,29 +182,29 @@
 }
 
 /* Min width 992px to Max width 1199px */
-@media only screen and (min-width : 992px) and (max-width : 1199px) {
+// @media only screen and (min-width : 992px) and (max-width : 1199px) {
 
-    .sidebar-area {
-        opacity: 0;
-        width: 270px;
-        visibility: hidden;
+//     .sidebar-area {
+//         opacity: 0;
+//         width: 270px;
+//         visibility: hidden;
 
-        padding: {
-            top: 105px;
-            left: 25px;
-            right: 25px;
-            bottom: 25px;
-        }
+//         padding: {
+//             top: 105px;
+//             left: 25px;
+//             right: 25px;
+//             bottom: 25px;
+//         }
 
-        ;
+//         ;
 
-        &.active {
-            opacity: 1;
-            visibility: visible;
-        }
-    }
+//         &.active {
+//             opacity: 1;
+//             visibility: visible;
+//         }
+//     }
 
-}
+// }
 
 /* Min width 1200px to Max width 1399px */
 @media only screen and (min-width: 1200px) and (max-width: 1399px) {}

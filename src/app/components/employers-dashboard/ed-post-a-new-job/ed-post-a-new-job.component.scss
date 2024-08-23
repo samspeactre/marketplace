@@ -1,48 +1,56 @@
 // Breadcrumb Title
 .breadcrumb-title {
-    margin-bottom: 25px;
+    margin-bottom: 2vw;
     
     h1 {
-        font-size: 24px;
+        font-size: 1.7vw;
+        font-family: "mon-bold";
+        color: black;
     }
 }
 
 // Card
 .jove-card {
     background-color: var(--whiteColor);
-    margin-bottom: 25px;
-    border-radius: 15px;
-    padding: 30px;
+    margin-bottom: 2vw;
+    border-radius: 1vw;
+    padding: 2.5vw;
 
     .title {
-        font-size: 18px;
-        margin-bottom: 25px;
-        border-bottom: 1px solid var(--borderColor);
+        font-size: 1.2vw;
+        font-family: 'mon-bold';
+        color: black;
+        margin-bottom: 2vw;
+        border-bottom: 0.1vw solid var(--borderColor);
         padding: {
-            left: 30px;
-            right: 30px;
-            bottom: 12px;
+            left: 2.5vw;
+            right: 2.5vw;
+            bottom: 0.85vw;
         };
         margin: {
-            left: -30px;
-            right: -30px;
+            left: -2.5vw;
+            right: -2.5vw;
         };
     }
     form {
         .form-group {
-            margin-bottom: 25px;
+            margin-bottom: 2vw;
 
             label {
                 display: block;
-                margin-bottom: 8px;
+                margin-bottom: 0.5vw;
+                color: black;
+                font-size: 1vw !important;
+                font-family: 'mon-semi' !important;
             }
             .form-control {
-                height: 50px;
-                padding: 10px 20px;
-                border-radius: 5px;
-                font-size: var(--fontSize);
+                height: 3.3vw;
+                padding: 0.8vw 1vw;
+                border-radius: 0.3vw;
+                font-size: 1vw;
+                font-family: 'mon-reg';
                 color: var(--headingColor);
-                border: 1px solid #e0e6e9;
+                border: 0.1vw solid #e0e6e9;
                 background-color: #f9fafb;
                 transition: var(--transition);
 
@@ -54,17 +62,17 @@
                 }
             }
             .form-select {
-                height: 50px;
+                height: 3.3vw;
                 cursor: pointer;
-                padding: 10px 20px;
-                border-radius: 5px;
+                padding: 0.8vw 1vw;
+                border-radius: 0.3vw;
                 font-size: var(--fontSize);
                 color: var(--headingColor);
-                border: 1px solid #e0e6e9;
+                border: 0.1vw solid #e0e6e9;
                 transition: var(--transition);
                 background: {
                     color: #f9fafb;
-                    position: right 20px center;
+                    position: right 1.5vw center;
                 };
                 &:focus {
                     border-color: var(--primaryColor);
@@ -72,18 +80,18 @@
             }
             textarea.form-control {
                 height: auto;
-                padding-top: 20px;
+                padding-top: 1.5vw;
             }
             &.upload-photo {
-                padding-bottom: 25px;
-                border-bottom: 1px solid var(--borderColor);
+                padding-bottom: 2vw;
+                border-bottom: 0.1vw solid var(--borderColor);
 
                 input[type="file" i] {
-                    margin-top: 5px;
+                    margin-top: 0.3vw;
                 }
                 p {
                     line-height: initial;
-                    margin-top: 12px;
+                    margin-top: 0.85vw;
                     font: {
                         size: 14px;
                         style: italic;
