@@ -139,12 +139,17 @@ h2 {
 }
 
 .card {
-  width: 30%;
+  width: 31%;
+  margin-right: 3.33%;
   padding: 3.6vw 3vw;
   border: 2.8px solid black;
   border-radius: 0.85vw;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   margin-bottom: 3.5vw;
+}
+
+.card:nth-child(3n) {
+  margin-right: 0;
 }
 
 .card img {
@@ -186,7 +191,7 @@ h2 {
   font-size: 0.95vw;
   font-family: "mon-bold";
   color: #4c8df5;
-  margin-top: -.6vw;
+  margin-top: -0.4vw;
 }
 
 .card-skill {
@@ -218,20 +223,20 @@ h2 {
 }
 
 .see-more {
-  width: 18%;
+  width: 100%;
   margin: auto;
 }
 
 .see-more button {
-  width: 100%;
+  width: 17%;
+  margin: -0.85vw 41.5% 0;
   padding: 0.5vw 0;
   font-size: 1.8vw;
-  font-family: 'mon-reg';
+  font-family: "mon-reg";
   color: var(--whiteColor);
   background-color: var(--tabColor);
   border-radius: 0.5vw;
   border: 0;
-  margin-top: -0.85vw;
   transition: all ease 0.5s;
 }
 
@@ -420,13 +425,212 @@ h2 {
 /* Max width 767px */
 @media only screen and (max-width : 767px) {
 
+  h2 {
+    font-family: 'mon-bold';
+    font-size: 3vw;
+    color: var(--whiteColor);
+  }
+
   .cover-img {
+    width: 100%;
     padding: 0vw 4dvw;
+    display: block;
   }
 
-  .left,
+  .left {
+    width: 100%;
+    margin: auto;
+  }
+
+  .left h1 {
+    font-size: 8.5vw;
+    letter-spacing: 0.2vw;
+    line-height: 10vw;
+    width: 100%;
+    margin-bottom: 0vw;
+    text-align: center;
+  }
+
+  .left h2 {
+    width: 100%;
+    word-spacing: 0.1vw;
+    line-height: 4vw;
+    text-align: center;
+  }
+
+  .left p {
+    font-size: 2.5vw;
+    margin-top: 1.5vw;
+    padding: 0;
+    margin-bottom: 1.5vw;
+  }
+
+  .search-bold-text {
+    margin: 1.5vw 0 0;
+    padding-bottom: 3vw;
+
+    span {
+      font-size: 2.5vw;
+      margin-left: 1vw;
+    }
+  }
+
   .right {
-    width: 100% !important;
+    display: none;
   }
 
+  .sec-2 {
+    padding: 6vw 4vw 0;
+
+    .popular-jobs {
+      padding: 2.8vw 2.7vw;
+
+      h1 {
+        font-size: 6vw;
+      }
+
+      .tabs-container {
+        .tabs {
+          width: 100%;
+
+          .tab {
+            height: 7vw;
+            flex-grow: 1;
+            font-size: 2.3vw;
+          }
+        }
+      }
+
+      .content-container {
+        .card-container {
+          .card {
+            width: 48.5%;
+            margin-right: 3%;
+            padding: 3.5vw;
+            border: 1.5px solid black;
+            border-radius: 1vw;
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 2px 8px;
+
+
+
+            .img-content {
+              img {
+                width: 10vw;
+                height: 10vw;
+              }
+
+              .head-para {
+                width: 66%;
+
+                .main-head {
+                  font-size: 2vw;
+                  letter-spacing: 0;
+                }
+
+                .para {
+                  font-size: 2vw;
+                }
+              }
+            }
+
+            .card-heading {
+              font-size: 2.7vw;
+              margin-top: 1.5vw;
+              letter-spacing: 0vw;
+            }
+
+            .card-tag {
+              font-size: 2vw;
+              margin-top: -0.2vw;
+            }
+
+            .card-skill {
+              font-size: 1.8vw;
+              margin-top: 1.8vw;
+            }
+
+            .card-amount,
+            .card-amount span {
+              font-size: 2vw;
+            }
+
+            .card-button {
+              font-size: 1.5vw;
+              padding: 1vw 2vw;
+              border-radius: 0.7vw;
+            }
+          }
+
+          .card:nth-child(2n) {
+            margin-right: 0;
+          }
+
+          .see-more {
+            button {
+              width: 23%;
+              margin: -0.85vw 38.5% 0;
+              padding: 1vw 0;
+              font-size: 2.5vw;
+
+              i {
+                font-size: 2.2vw;
+              }
+            }
+          }
+
+        }
+      }
+
+    }
+  }
+
+  .sec-3 {
+    padding: 0 4dvw;
+
+    .radical {
+      height: 67dvw;
+
+      .acc-head {
+        font-size: 5dvw;
+        padding-top: 5.5dvw;
+      }
+
+      .acc-box {
+        width: 100%;
+        margin-top: 4vw;
+
+        .accordion-container {
+          .accordion-item {
+            margin-bottom: 1.8vw;
+
+            .accordion-header {
+              padding: 0 3.2vw;
+              height: 9vw;
+
+              h2 {
+                font-size: 2.7vw;
+              }
+
+              .acc-icon {
+                height: 5.5vw;
+                width: 5.5vw;
+
+                img {
+                  width: 4dvw;
+                }
+              }
+            }
+
+            .accordion-content {
+              padding: 1.5vw 3.5vw;
+
+              p {
+                font-size: 2.5vw;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
 }

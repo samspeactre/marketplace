@@ -11,7 +11,7 @@
                     <p>Find the right Job</p>
                     <p>Looking to hire talents?</p>
                 </div>
-                <app-search-bar></app-search-bar>
+                <app-search-bar style="padding: 0;"></app-search-bar>
                 <div class="search-bold-text d-flex">
                     <p>Popular Searches:</p>
                     <span>Designer, Developer, Tester, Writing</span>
@@ -37,7 +37,7 @@
 
         <div class="content-container">
             <ng-container *ngIf="selectedTab !== null">
-                <div class="card-container d-flex justify-content-between">
+                <div class="card-container d-flex">
                     <div class="card" *ngFor="let card of tabs[selectedTab].cards">
                         <div class="d-flex justify-content-between img-content">
                             <img [src]="card.image" alt="Card Image" class="card-image" />
@@ -78,31 +78,29 @@
         </h1>
         <div class="acc-box">
             <div class="accordion-container">
-              <div class="accordion-item" *ngFor="let item of accordionItems; let i = index">
-                <div class="accordion-header" (click)="toggleAccordion(i)">
-                  <h2>{{ item.title }}</h2>
-                  <div class="acc-icon">
-                    <img
-                      class="icon"
-                      [src]="item.open ? 'assets/images/minus-icon.svg' : 'assets/images/plus-icon.svg'"
-                      alt="Accordion Toggle"
-                    />
-                  </div>
+                <div class="accordion-item" *ngFor="let item of accordionItems; let i = index">
+                    <div class="accordion-header" (click)="toggleAccordion(i)">
+                        <h2>{{ item.title }}</h2>
+                        <div class="acc-icon">
+                            <img class="icon"
+                                [src]="item.open ? 'assets/images/minus-icon.svg' : 'assets/images/plus-icon.svg'"
+                                alt="Accordion Toggle" />
+                        </div>
+                    </div>
+                    <div class="accordion-content" [ngStyle]="{ 'display': item.open ? 'block' : 'none' }">
+                        <p>{{ item.content }}</p>
+                    </div>
                 </div>
-                <div class="accordion-content" [ngStyle]="{ 'display': item.open ? 'block' : 'none' }">
-                  <p>{{ item.content }}</p>
-                </div>
-              </div>
             </div>
-          
+
             <div class="see-more">
-              <button>
-                See More
-                <i class="fa-solid fa-chevron-right"></i>
-              </button>
+                <button>
+                    See More
+                    <i class="fa-solid fa-chevron-right"></i>
+                </button>
             </div>
-          </div>
-          
+        </div>
+
     </div>
 </section>
 
@@ -128,4 +126,3 @@
 <app-custom-footer></app-custom-footer>
 
 <!-- footer -->
-
