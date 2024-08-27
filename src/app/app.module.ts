@@ -87,6 +87,8 @@ import { PageBannerComponent } from './components/common/page-banner/page-banner
 import { CommonModule } from '@angular/common';
 import { AuthPopupComponent } from './components/common/auth-popup/auth-popup.component';
 import {ReactiveFormsModule} from '@angular/forms';
+import { ToastrModule } from 'ngx-toastr';
+import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -182,6 +184,9 @@ import {ReactiveFormsModule} from '@angular/forms';
         BrowserAnimationsModule,
         CommonModule,
         ReactiveFormsModule,
+        HttpClientModule,
+        ToastrModule.forRoot(),
+
 
     ],
     providers: [],

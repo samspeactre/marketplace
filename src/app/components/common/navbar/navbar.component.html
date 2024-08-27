@@ -237,11 +237,37 @@
 
                 <div class="others-option d-md-flex align-items-center">
                     <div class="option-item">
-                        <span class="d-block login-register" (click)="popup.openPopup()">
+                        <ng-container *ngIf="isLoggedIn; else loginRegister">
+                          <!-- Show Candidate Dashboard if user role is 'candidate' -->
+                          <ng-container *ngIf="userRole === 'candidate';">
+                            <span class="d-block dashboard-btn">
+                              <a [routerLink]="['/candidates-dashboard']">
+                                <i class="ri-dashboard-line"></i>
+                                Candidate Dashboard
+                              </a>
+                            </span>
+                          </ng-container>
+                          <!-- Placeholder for employer or other user roles -->
+                          <ng-container *ngIf="userRole === 'employer';">
+                            <span class="d-block dashboard-btn">
+                              <a [routerLink]="['/dashboard']">
+                                <i class="ri-dashboard-line"></i>
+                                    Employer Dashboard
+                              </a>
+                            </span>
+                          </ng-container>
+                        </ng-container>
+                        
+                        <!-- Login/Register option for users who are not logged in -->
+                        <ng-template #loginRegister>
+                          <span class="d-block login-register" (click)="popup.openPopup()">
                             <i class="ri-user-line"></i>
                             Login/Register
-                        </span>
-                    </div>
+                          </span>
+                        </ng-template>
+                      </div>
+                      
+                      
                     <div class="option-item">
                         <a routerLink="/dashboard/post-a-new-job" class="default-btn">
                             Post A Job
