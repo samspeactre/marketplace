@@ -7,46 +7,62 @@
 
 <!-- Post A New Job -->
 <div class="jove-card">
-    <form>
+    <form [formGroup]="postJobForm">
         <div class="row">
             <div class="col-lg-12 col-md-12">
                 <div class="form-group">
-                    <label>
+                    <label for="jobTitle">
                         Job title
                     </label>
-                    <input type="text" class="form-control shadow-none" placeholder="Title">
+                    <input id="jobTitle" type="text" class="form-control shadow-none" placeholder="Title" formControlName="jobTitle">
+                    <div *ngIf="(postJobForm.get('jobTitle')?.touched || postJobForm.get('jobTitle')?.invalid) && next" class="text-danger">
+                        <small *ngIf="postJobForm.get('jobTitle')?.errors?.['required']" class="text-danger">Job title is required.</small>
+                        <small *ngIf="postJobForm.get('jobTitle')?.errors?.['minlength']" class="text-danger">Job title must be at least 5 characters long.</small>
+                    </div>
                 </div>
             </div>
             <div class="col-lg-12 col-md-12">
                 <div class="form-group">
-                    <label>
+                    <label for="jobDescription">
                         Job description
                     </label>
-                    <textarea class="form-control shadow-none" cols="30" rows="8" placeholder="Welcome to a world of endless possibilities at Jove! It's not just a job search; it's a career evolution. Uncover your potential, chase your ambitions, and step into a realm where your dream job is not just a fantasy – it's waiting for you."></textarea>
+                    <textarea id="jobDescription" class="form-control shadow-none" cols="30" rows="8" placeholder="Welcome to a world of endless possibilities at Jove! It's not just a job search; it's a career evolution. Uncover your potential, chase your ambitions, and step into a realm where your dream job is not just a fantasy – it's waiting for you." formControlName="jobDescription"></textarea>
+                    <div *ngIf="(postJobForm.get('jobDescription')?.touched || postJobForm.get('jobDescription')?.invalid) && next" class="text-danger">
+                        <small *ngIf="postJobForm.get('jobDescription')?.errors?.['required']">Job Description is required</small>
+                        <small *ngIf="postJobForm.get('jobDescription')?.errors?.['minlength']">Job Description must be at least 10 characters</small>
+                    </div>
                 </div>
             </div>
             <div class="col-lg-6 col-md-6">
                 <div class="form-group">
-                    <label>
+                    <label for="email">
                         Email address
                     </label>
-                    <input type="email" class="form-control shadow-none">
+                    <input id="email" type="email" class="form-control shadow-none" formControlName="email">
+                    <div *ngIf="(postJobForm.get('email')?.touched || postJobForm.get('email')?.invalid) && next" class="text-danger">
+                        <small *ngIf="postJobForm.get('email')?.errors?.['required']">Email is required.</small>
+                        <small *ngIf="postJobForm.get('email')?.errors?.['email']"> Please enter valid email address.</small>
+                    </div>
                 </div>
             </div>
             <div class="col-lg-6 col-md-6">
                 <div class="form-group">
-                    <label>
+                    <label for="username">
                         Username
                     </label>
-                    <input type="text" class="form-control shadow-none">
+                    <input id="username" type="text" class="form-control shadow-none" formControlName="username">
+                    <div *ngIf="(postJobForm.get('username')?.touched || postJobForm.get('username')?.invalid) && next" class="text-danger">
+                        <small *ngIf="postJobForm.get('username')?.errors?.['required']">Username is required.</small>
+                        <small *ngIf="postJobForm.get('username')?.errors?.['minlength']">Username must be 4 characters long.</small>
+                    </div>
                 </div>
             </div>
             <div class="col-lg-6 col-md-6">
                 <div class="form-group">
-                    <label>
+                    <label for="specialisms">
                         Specialisms
                     </label>
-                    <select class="form-select shadow-none">
+                    <select id="specialisms" class="form-select shadow-none" formControlName="specialisms">
                         <option selected>Category</option>
                         <option value="1">Engineering</option>
                         <option value="2">Banking</option>
@@ -55,14 +71,17 @@
                         <option value="5">Construction</option>
                         <option value="6">Finance</option>
                     </select>
+                    <div *ngIf="(postJobForm.get('specialisms')?.touched || postJobForm.get('specialisms')?.invalid) && next">
+                        <small *ngIf="(postJobForm.get('specialisms')?.errors?.['required'] && postJobForm.get('specialisms')?.errors?.['invalidDropdown'])" class="text-danger">Please select a valid specialism.</small>
+                    </div>
                 </div>
             </div>
             <div class="col-lg-6 col-md-6">
                 <div class="form-group">
-                    <label>
+                    <label for="jobType">
                         Job type
                     </label>
-                    <select class="form-select shadow-none">
+                    <select  id="jobType" class="form-select shadow-none" formControlName="jobType">
                         <option selected>Select</option>
                         <option value="1">Engineering</option>
                         <option value="2">Banking</option>
@@ -71,14 +90,17 @@
                         <option value="5">Construction</option>
                         <option value="6">Finance</option>
                     </select>
+                    <div *ngIf="(postJobForm.get('jobType')?.touched || postJobForm.get('jobType')?.invalid) && next">
+                        <small *ngIf="(postJobForm.get('jobType')?.errors?.['required'] && postJobForm.get('jobType')?.errors?.['invalidDropdown'])" class="text-danger">Please select a valid job type.</small>
+                    </div>
                 </div>
             </div>
             <div class="col-lg-6 col-md-6">
                 <div class="form-group">
-                    <label>
+                    <label for="offeredSalary">
                         Offered salary (monthly)
                     </label>
-                    <select class="form-select shadow-none">
+                    <select id="offeredSalary" class="form-select shadow-none" formControlName="offeredSalary">
                         <option selected>Select</option>
                         <option value="1">$1000</option>
                         <option value="2">$2000</option>
@@ -87,14 +109,17 @@
                         <option value="5">$5000</option>
                         <option value="6">$6000</option>
                     </select>
+                    <div *ngIf="(postJobForm.get('offeredSalary')?.touched || postJobForm.get('offeredSalary')?.invalid) && next">
+                        <small *ngIf="(postJobForm.get('offeredSalary')?.errors?.['required'] && postJobForm.get('offeredSalary')?.errors?.['invalidDropdown'])" class="text-danger">Please select salary.</small>
+                    </div>
                 </div>
             </div>
             <div class="col-lg-6 col-md-6">
                 <div class="form-group">
-                    <label>
+                    <label for="careerLevel">
                         Career level
                     </label>
-                    <select class="form-select shadow-none">
+                    <select id="careerLevel" class="form-select shadow-none" formControlName="careerLevel">
                         <option selected>Select</option>
                         <option value="1">Manager</option>
                         <option value="2">Officer</option>
@@ -102,14 +127,17 @@
                         <option value="4">Executive</option>
                         <option value="5">Others</option>
                     </select>
+                    <div *ngIf="(postJobForm.get('careerLevel')?.touched || postJobForm.get('careerLevel')?.invalid) && next">
+                        <small *ngIf="(postJobForm.get('careerLevel')?.errors?.['required'] && postJobForm.get('careerLevel')?.errors?.['invalidDropdown'])" class="text-danger">Please select career level.</small>
+                    </div>
                 </div>
             </div>
             <div class="col-lg-6 col-md-6">
                 <div class="form-group">
-                    <label>
+                    <label for="experience">
                         Experience
                     </label>
-                    <select class="form-select shadow-none">
+                    <select id="experience" class="form-select shadow-none" formControlName="experience">
                         <option selected>Select</option>
                         <option value="1">Fresher</option>
                         <option value="2">1 year</option>
@@ -117,27 +145,33 @@
                         <option value="4">3 years</option>
                         <option value="5">4 years</option>
                     </select>
+                    <div *ngIf="(postJobForm.get('experience')?.touched || postJobForm.get('experience')?.invalid) && next">
+                        <small *ngIf="(postJobForm.get('experience')?.errors?.['required'] && postJobForm.get('experience')?.errors?.['invalidDropdown'])" class="text-danger">Please select experience.</small>
+                    </div>
                 </div>
             </div>
             <div class="col-lg-6 col-md-6">
                 <div class="form-group">
-                    <label>
+                    <label for="gender">
                         Gender
                     </label>
-                    <select class="form-select shadow-none">
+                    <select id="gender" class="form-select shadow-none" formControlName="gender" >
                         <option selected>Select</option>
                         <option value="1">Male</option>
                         <option value="2">Female</option>
                         <option value="3">Custom</option>
                     </select>
+                    <div *ngIf="(postJobForm.get('gender')?.touched || postJobForm.get('gender')?.invalid) && next">
+                        <small *ngIf="(postJobForm.get('gender')?.errors?.['required'] && postJobForm.get('gender')?.errors?.['invalidDropdown'])" class="text-danger">Please select gender.</small>
+                    </div>
                 </div>
             </div>
             <div class="col-lg-6 col-md-6">
                 <div class="form-group">
-                    <label>
+                    <label for="industry">
                         Industry
                     </label>
-                    <select class="form-select shadow-none">
+                    <select id="industry" class="form-select shadow-none" formControlName="industry">
                         <option selected>Select</option>
                         <option value="1">Engineering</option>
                         <option value="2">Banking</option>
@@ -146,14 +180,17 @@
                         <option value="5">Construction</option>
                         <option value="6">Finance</option>
                     </select>
+                    <div *ngIf="(postJobForm.get('industry')?.touched || postJobForm.get('industry')?.invalid) && next">
+                        <small *ngIf="(postJobForm.get('industry')?.errors?.['required'] && postJobForm.get('industry')?.errors?.['invalidDropdown'])" class="text-danger">Please select Industry.</small>
+                    </div>
                 </div>
             </div>
             <div class="col-lg-6 col-md-6">
                 <div class="form-group">
-                    <label>
+                    <label for="qualification">
                         Qualification
                     </label>
-                    <select class="form-select shadow-none">
+                    <select id="qualification" class="form-select shadow-none" formControlName="qualification">
                         <option selected>Select</option>
                         <option value="1">Certificate</option>
                         <option value="2">Diploma</option>
@@ -161,22 +198,30 @@
                         <option value="4">Master’s Degree</option>
                         <option value="5">Associate</option>
                     </select>
+                    <div *ngIf="(postJobForm.get('qualification')?.touched || postJobForm.get('qualification')?.invalid) && next">
+                        <small *ngIf="(postJobForm.get('qualification')?.errors?.['required'] && postJobForm.get('qualification')?.errors?.['invalidDropdown'])" class="text-danger">Please select qualification.</small>
+                    </div>
                 </div>
             </div>
             <div class="col-lg-12 col-md-12">
                 <div class="form-group">
-                    <label>
+                    <label for="applicationDeadline">
                         Application deadline date
                     </label>
-                    <input type="text" class="form-control shadow-none" placeholder="10 Nov 2023">
+                    <input id="applicationDeadline" type="text" class="form-control shadow-none" placeholder="10 Nov 2023" formControlName="applicationDeadline">
+                    <div *ngIf="(postJobForm.get('applicationDeadline')?.touched || postJobForm.get('applicationDeadline')?.invalid) && next">
+                        <small *ngIf="postJobForm.get('applicationDeadline')?.errors?.['required']" class="text-danger">Application deadline date is required.</small>
+                        <small *ngIf="postJobForm.get('applicationDeadline')?.errors?.['invalidDate']" class="text-danger"> Please enter a valid date.</small>
+                        <small *ngIf="postJobForm.get('applicationDeadline')?.errors?.['pastDate']" class="text-danger">The date cannot be in the past.</small>
+                    </div>
                 </div>
             </div>
             <div class="col-lg-6 col-md-6">
                 <div class="form-group">
-                    <label>
+                    <label for="country">
                         Country
                     </label>
-                    <select class="form-select shadow-none">
+                    <select id="country" class="form-select shadow-none" formControlName="country">
                         <option value="1" selected>Japan</option>
                         <option value="2">USA</option>
                         <option value="3">England</option>
@@ -194,14 +239,17 @@
                         <option value="15">Netherlands</option>
                         <option value="16">France</option>
                     </select>
+                    <div *ngIf="(postJobForm.get('country')?.touched || postJobForm.get('country')?.invalid) && next">
+                        <small *ngIf="(postJobForm.get('country')?.errors?.['required'] && postJobForm.get('country')?.errors?.['invalidDropdown'])" class="text-danger">Please select country.</small>
+                    </div>
                 </div>
             </div>
             <div class="col-lg-6 col-md-6">
                 <div class="form-group">
-                    <label>
+                    <label for="city">
                         City
                     </label>
-                    <select class="form-select shadow-none">
+                    <select id="city" class="form-select shadow-none" formControlName="city">
                         <option value="1" selected>Tokyo</option>
                         <option value="2">New York</option>
                         <option value="3">London</option>
@@ -223,34 +271,57 @@
                         <option value="19">Amsterdam</option>
                         <option value="20">Paris</option>
                     </select>
+                    <div *ngIf="(postJobForm.get('city')?.touched || postJobForm.get('city')?.invalid) && next">
+                        <small *ngIf="(postJobForm.get('city')?.errors?.['required'] && postJobForm.get('city')?.errors?.['invalidDropdown'])" class="text-danger">Please select city.</small>
+                    </div>
                 </div>
             </div>
             <div class="col-lg-12 col-md-12">
                 <div class="form-group">
-                    <label>
+                    <label for="completeAddress">
                         Complete address
                     </label>
-                    <input type="text" class="form-control shadow-none" placeholder="84 Wexham Road RH19 8EA, USA">
+                    <input id="completeAddress" type="text" class="form-control shadow-none" placeholder="84 Wexham Road RH19 8EA, USA" formControlName="completeAddress">
+                    <div *ngIf="(postJobForm.get('completeAddress')?.touched || postJobForm.get('completeAddress')?.invalid) && next">
+                        <small *ngIf="postJobForm.get('completeAddress')?.errors?.['required']" class="text-danger">Complete address is required.</small>
+                        <small *ngIf="postJobForm.get('completeAddress')?.errors?.['minlength']" class="text-danger">Address must be 10 characters long.</small>
+                    </div>
                 </div>
             </div>
             <div class="col-lg-6 col-md-6">
                 <div class="form-group">
-                    <label>
+                    <label for="latitude">
                         Latitude
                     </label>
-                    <input type="text" class="form-control shadow-none">
+                    <input id="latitude" type="text" class="form-control shadow-none" formControlName="latitude">
+                    <div *ngIf="(postJobForm.get('latitude')?.touched || postJobForm.get('latitude')?.invalid) && next">
+                        <small *ngIf="postJobForm.get('latitude')?.errors?.['required']" class="text-danger">
+                          Latitude is required.
+                        </small>
+                        <small *ngIf="postJobForm.get('latitude')?.errors?.['invalidLatitude']" class="text-danger">
+                          Latitude must be a number between -90 and 90.
+                        </small>
+                      </div>
                 </div>
             </div>
             <div class="col-lg-6 col-md-6">
                 <div class="form-group">
-                    <label>
+                    <label for="longitude">
                         Longitude
                     </label>
-                    <input type="text" class="form-control shadow-none">
+                    <input id="longitude" type="text" class="form-control shadow-none" formControlName="longitude">
+                    <div *ngIf="(postJobForm.get('longitude')?.touched || postJobForm.get('longitude')?.invalid) && next">
+                        <small *ngIf="postJobForm.get('longitude')?.errors?.['required']" class="text-danger">
+                          Longitude is required.
+                        </small>
+                        <small *ngIf="postJobForm.get('longitude')?.errors?.['invalidLongitude']" class="text-danger">
+                          Longitude must be a number between -180 and 180.
+                        </small>
+                      </div>
                 </div>
             </div>
         </div>
-        <button type="submit" class="default-btn">
+        <button type="submit" class="default-btn" (click)="nextFunction()">
             Next
         </button>
     </form>
