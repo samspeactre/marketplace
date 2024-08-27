@@ -86,6 +86,9 @@ import { CustomFooterComponent } from './components/common/custom-footer/custom-
 import { PageBannerComponent } from './components/common/page-banner/page-banner.component';
 import { CommonModule } from '@angular/common';
 import { AuthPopupComponent } from './components/common/auth-popup/auth-popup.component';
+import { SubPageBannerComponent } from './components/common/sub-page-banner/sub-page-banner.component';
+import { EdEditAccountComponent } from './components/employers-dashboard/ed-edit-account/ed-edit-account.component';
+import { CdEditAccountComponent } from './components/candidates-dashboard/cd-edit-account/cd-edit-account.component';
 
 
 
@@ -168,7 +171,11 @@ import { AuthPopupComponent } from './components/common/auth-popup/auth-popup.co
         LogoSliderComponent,
         CustomFooterComponent,
         PageBannerComponent,
-        AuthPopupComponent
+        AuthPopupComponent,
+        SubPageBannerComponent,
+        EdEditAccountComponent,
+        CdEditAccountComponent
+        
     ],
     imports: [
         BrowserModule,

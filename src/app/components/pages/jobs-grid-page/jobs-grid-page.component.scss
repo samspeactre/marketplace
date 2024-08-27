@@ -1,4 +1,4 @@
-.main{
+.main {
     width: 90%;
     margin: auto;
 }
@@ -22,6 +22,7 @@
             margin-left: auto;
             margin-right: auto;
             margin-bottom: 1.2vw;
+
             img {
                 left: 0;
                 right: 0;
@@ -29,27 +30,34 @@
                 width: 3.5vw;
                 position: absolute;
                 transform: translateY(-50%);
+
                 margin: {
                     left: auto;
                     right: auto;
-                };
+                }
+
+                ;
             }
         }
+
         h3 {
             font-size: 1.32vw;
             margin-bottom: 0.3vw;
             font-family: "mon-bold";
         }
+
         .location {
             font-size: 1.1vw;
             font-family: "mon-reg";
         }
+
         .job-type {
             color: #4086f6;
             font-size: 1vw;
             font-family: "mon-reg";
             margin-right: 0.7vw;
         }
+
         .deadline {
             margin-left: 0.8vw;
             font-size: 0.95vw;
@@ -65,12 +73,14 @@
             }
         }
     }
+
     .info {
         border-top: 0.1vw solid var(--borderColor);
         padding: 1vw 2.3vw;
 
         .salary {
             font-size: 0.95vw;
+
             span {
                 font-family: 'mon-semi';
                 color: var(--headingColor);
@@ -81,6 +91,7 @@
                 }
             }
         }
+
         .link-btn {
             color: #4086f6;
             padding-right: 1.1vw;
@@ -94,11 +105,13 @@
                 position: absolute;
                 transform: translateY(-50%);
             }
+
             &:hover {
                 color: var(--pinkColor);
             }
         }
     }
+
     .fav {
         transition: var(--transition);
         background-color: #f8f8fb;
@@ -120,32 +133,36 @@
             position: absolute;
             transform: translateY(-50%);
         }
+
         &:hover {
             color: var(--whiteColor);
             background-color: var(--primaryColor);
         }
     }
+
     .tag {
         background-color: var(--primaryColor);
         transform: rotate(-45deg);
         color: var(--whiteColor);
         position: absolute;
-        padding: 3px 50px;
-        left: -42px;
-        top: 23px;
+        padding: 0.1vw 4.5vw;
+        left: -3.5vw;
+        top: 2.1vw;
 
         &.urgent {
-            top: 23px;
-            left: -37px;
+            padding: 0.1vw 4.9vw;
+            left: -3.5vw;
+            top: 2.1vw;
             background-color: #d8342b;
         }
     }
+
     &:hover {
         transform: translateY(-5px);
     }
 }
 
-.jobs-area{
+.jobs-area {
     padding: 7.5vw 0 3vw;
 }
 
@@ -163,10 +180,12 @@
                 padding-right: 30px;
             }
         }
+
         &:last-child {
             width: 21%;
         }
     }
+
     .form-group {
         i {
             left: 0;
@@ -176,6 +195,7 @@
             color: var(--primaryColor);
             transform: translateY(-50%);
         }
+
         .form-control {
             height: auto;
             border: none;
@@ -187,10 +207,12 @@
             padding-left: 2.5vw;
             padding-top: 1vw;
             padding-right: 0;
+
             &::placeholder {
                 color: var(--bodyColor);
             }
         }
+
         .form-select {
             height: auto;
             border: none;
@@ -206,13 +228,17 @@
             font-family: 'mon-reg';
         }
     }
+
     .default-btn {
         display: block;
         width: 100%;
+
         padding: {
             left: 30px;
             right: 30px;
-        };
+        }
+
+        ;
     }
 }
 
@@ -276,33 +302,39 @@
 
     .job-item {
         border-radius: 5px;
-    
+
         .content {
             padding: 15px;
-    
+
             .company-logo {
                 width: 90px;
                 height: 90px;
                 margin-bottom: 15px;
             }
+
             h3 {
                 font-size: 16px;
                 margin-bottom: 6px;
             }
+
             .location {
                 font-size: 14px;
                 margin-bottom: 8px;
             }
+
             .job-type {
                 margin-right: 8px;
             }
+
             .deadline {
                 margin-left: 8px;
             }
         }
+
         .info {
             padding: 12px 15px;
         }
+
         .fav {
             font-size: 20px;
             height: 40px;
@@ -310,17 +342,19 @@
             right: 15px;
             top: 15px;
         }
+
         .tag {
             padding: 2px 50px;
             left: -49px;
             top: 18px;
-    
+
             &.urgent {
                 top: 17px;
                 left: -42.5px;
             }
         }
     }
+
     .jobs-search-form {
         padding: 0;
         border-radius: 5px;
@@ -335,40 +369,54 @@
                     padding-right: 0;
                 }
             }
+
             &:last-child {
                 width: 100%;
             }
         }
+
         .form-group {
             padding: {
                 left: 14px;
                 right: 14px;
-            };
+            }
+
+            ;
+
             i {
                 left: 15px;
                 font-size: 20px;
             }
+
             .form-control {
                 font-size: 14px;
+
                 padding: {
                     bottom: 14px;
                     left: 28px;
                     top: 14px;
                     right: 0;
-                };
+                }
+
+                ;
             }
+
             .form-select {
                 background-position: right 15px center;
                 font-size: 14px;
+
                 padding: {
                     bottom: 14px;
                     left: 28px;
                     top: 14px;
                     right: 0;
-                };
+                }
+
+                ;
             }
         }
     }
+
     .jove-grid-sorting {
         text-align: center;
 
@@ -392,15 +440,18 @@
                 font-size: 15px;
             }
         }
+
         .info {
             padding: 15px 20px;
         }
+
         .fav {
             font-size: 21px;
             height: 41px;
             width: 41px;
         }
     }
+
     .jobs-search-form {
         padding-left: 10px;
         border-radius: 10px;
@@ -412,6 +463,7 @@
                 }
             }
         }
+
         .form-group {
             padding-left: 10px;
 
@@ -419,28 +471,39 @@
                 left: 10px;
                 font-size: 20px;
             }
+
             .form-control {
                 font-size: 15px;
+
                 padding: {
                     bottom: 12px;
                     left: 28px;
                     top: 12px;
-                };
+                }
+
+                ;
             }
+
             .form-select {
                 font-size: 15px;
+
                 padding: {
                     bottom: 12px;
                     left: 28px;
                     top: 12px;
-                };
+                }
+
+                ;
             }
         }
+
         .default-btn {
             padding: {
                 left: 25px;
                 right: 25px;
-            };
+            }
+
+            ;
         }
     }
 
