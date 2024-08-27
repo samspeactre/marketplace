@@ -44,6 +44,7 @@ import { CdCompanyProfileComponent } from './components/candidates-dashboard/cd-
 import { CdManageJobsComponent } from './components/candidates-dashboard/cd-manage-jobs/cd-manage-jobs.component';
 import { CdAllApplicantsComponent } from './components/candidates-dashboard/cd-all-applicants/cd-all-applicants.component';
 import { CdEditAccountComponent } from './components/candidates-dashboard/cd-edit-account/cd-edit-account.component';
+import { CdPostANewJobComponent } from './components/candidates-dashboard/cd-post-a-new-job/cd-post-a-new-job.component';
 
 const routes: Routes = [
     // {path: '', component: HomeDemoOneComponent},
@@ -86,8 +87,8 @@ const routes: Routes = [
         component: CandidatesDashboardComponent,
         children: [
             {path: '', component: CDashboardComponent},
-            {path: 'company-profile', component: EdPostANewJobComponent},
-            {path: 'post-a-new-job', component: EdPostANewJobComponent},
+            {path: 'company-profile', component: CdCompanyProfileComponent},
+            {path: 'post-a-new-job', component: CdPostANewJobComponent},
             {path: 'manage-jobs', component: CdManageJobsComponent},
             {path: 'all-applicants', component: CdAllApplicantsComponent},
             {path: 'resumes', component: CdResumeComponent},
