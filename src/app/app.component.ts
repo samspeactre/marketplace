@@ -3,6 +3,7 @@ import { Router, NavigationCancel, NavigationEnd } from '@angular/router';
 import { Location, LocationStrategy, PathLocationStrategy } from '@angular/common';
 import { filter } from 'rxjs/operators';
 import * as AOS from "aos";
+import { LoaderService } from './shared/services/loader.service';
 declare let $: any;
 
 @Component({
@@ -22,6 +23,7 @@ export class AppComponent {
     
     location: any;
     routerSubscription: any;
+    loader:boolean = false
 
     constructor(
         public router: Router
@@ -31,6 +33,10 @@ export class AppComponent {
 
     ngOnInit(){
         this.recallJsFuntions();
+        LoaderService.loader.subscribe((res:any) => {
+            this.loader = res
+            console.log(res, 'loader')
+        })
     }
 
     recallJsFuntions() {
