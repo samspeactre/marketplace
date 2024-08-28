@@ -17,24 +17,42 @@
     padding: 2.5vw;
 
     .title {
-        font-size: 18px;
-        margin-bottom: 25px;
-        border-bottom: 1px solid var(--borderColor);
+        font-size: 1.2vw;
+        font-family: "mon-bold";
+        color: black;
+        margin-bottom: 2vw;
+        border-bottom: 0.1vw solid var(--borderColor);
+        padding-left: 2.5vw;
+        padding-right: 2.5vw;
+        padding-bottom: 0.85vw;
+        margin-left: -2.5vw;
+        margin-right: -2.5vw;
+    }
 
-        padding: {
-            left: 2.5vw;
-            right: 2.5vw;
-            bottom: 0.85vw;
+    form {
+        .form-group {
+            margin-bottom: 1.5vw;
+
+            label {
+                display: block;
+                margin-bottom: 0.5vw;
+                color: black;
+                font-size: 1vw !important;
+                font-family: "mon-semi" !important;
+            }
+
+            .form-control {
+                height: 3.3vw;
+                padding: 0.8vw 1vw;
+                border-radius: 0.3vw;
+                font-size: 1vw;
+                font-family: "mon-reg";
+                color: var(--headingColor);
+                border: 0.1vw solid #e0e6e9;
+                background-color: #f9fafb;
+                transition: var(--transition);
+            }
         }
-
-        ;
-
-        margin: {
-            left: -2.5vw;
-            right: -2.5vw;
-        }
-
-        ;
     }
 
     .recent-applicants {
@@ -142,6 +160,45 @@
                 }
             }
         }
+    }
+}
+
+.add-btn,
+.remove-btn {
+    font-size: 1vw;
+    font-family: 'mon-bold';
+    background-color: #3a4e90;
+    padding: 0vw 1vw;
+    border: 0;
+    border-radius: 0.4vw;
+    color: var(--whiteColor);
+    transition: var(--transition);
+
+    &:hover {
+        border: 0.1vw solid #3a4e90;
+        background-color: transparent;
+        color: #3a4e90;
+    }
+
+    .add-btn-icon {
+        font-size: 1.3vw;
+        padding-right: 0.5vw;
+    }
+
+}
+
+.remove-btn {
+    background-color: red;
+    position: absolute;
+    right: 11.5%;
+    padding-top: 0.75vw;
+    padding-bottom: 0.75vw;
+    &:hover{
+        border: 0.1vw solid red;
+        color: red;
+    }
+    .add-btn-icon {
+        margin-left: 16%;
     }
 }
 

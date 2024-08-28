@@ -89,6 +89,7 @@ import { AuthPopupComponent } from './components/common/auth-popup/auth-popup.co
 import { SubPageBannerComponent } from './components/common/sub-page-banner/sub-page-banner.component';
 import { EdEditAccountComponent } from './components/employers-dashboard/ed-edit-account/ed-edit-account.component';
 import { CdEditAccountComponent } from './components/candidates-dashboard/cd-edit-account/cd-edit-account.component';
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -186,7 +187,9 @@ import { CdEditAccountComponent } from './components/candidates-dashboard/cd-edi
         BrowserAnimationsModule,
         TabsModule.forRoot(),
         BrowserAnimationsModule,
-        CommonModule
+        CommonModule,
+        FormsModule,
+        ReactiveFormsModule 
 
     ],
     providers: [],
