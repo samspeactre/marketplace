@@ -1,83 +1,118 @@
 // Breadcrumb Title
 .breadcrumb-title {
-    margin-bottom: 25px;
-    
+    margin-bottom: 2vw;
+
     h1 {
-        font-size: 24px;
+        font-size: 1.7vw;
+        font-family: "mon-bold";
+        color: black;
     }
 }
 
 // Card
 .jove-card {
     background-color: var(--whiteColor);
-    margin-bottom: 25px;
-    border-radius: 15px;
-    padding: 30px;
+    margin-bottom: 2.2vw;
+    border-radius: 1.1vw;
+    padding: 2.5vw;
 
     .title {
         font-size: 18px;
         margin-bottom: 25px;
         border-bottom: 1px solid var(--borderColor);
+
         padding: {
-            left: 30px;
-            right: 30px;
-            bottom: 12px;
-        };
+            left: 2.5vw;
+            right: 2.5vw;
+            bottom: 0.85vw;
+        }
+
+        ;
+
         margin: {
-            left: -30px;
-            right: -30px;
-        };
+            left: -2.5vw;
+            right: -2.5vw;
+        }
+
+        ;
     }
+
     .recent-applicants {
-        margin-bottom: -25px;
+        margin-bottom: -2.2vw;
     }
+
     .single-candidate-box {
-        padding: 20px;
-        margin-bottom: 25px;
-        border-radius: 15px;
+        padding: 1.7vw;
+        margin-bottom: 2.2vw;
+        border-radius: 1.1vw;
         background-color: var(--whiteColor);
         border: 1px solid var(--borderColor);
-    
+
         .image {
-            max-width: 90px;
+            width: 6vw;
+
+            img {
+                width: 100%;
+                height: 6vw;
+                object-fit: cover;
+            }
         }
+
         .content {
-            margin-left: 15px;
-    
+            margin-left: 1.1vw;
+
             h3 {
-                font-size: 17px;
-                margin-bottom: 6px;
+                font-size: 1.3vw;
+                margin-bottom: 0.35vw;
+                font-family: 'mon-semi';
+                color: black;
             }
+
             .designation {
-                margin-bottom: 6px;
+                font-size: 1.2vw;
+                margin-bottom: 0.3vw;
+                font-family: 'mon-reg';
             }
+
             .location {
+                font-size: 1.1vw;
+                font-family: "mon-reg";
+
                 span {
-                    color: var(--primaryColor);
+                    color: #4086f6;
                 }
             }
         }
+
         .view-profile {
+            font-size: 1vw;
+            font-family: 'mon-bold';
+            color: black;
+
             span {
-                margin-right: 15px;
+                margin-right: 1vw;
 
                 a {
                     text-decoration: underline;
                 }
             }
+
             ul {
                 li {
                     margin: {
-                        left: 2px;
-                        right: 2px;
-                    };
+                        left: 0.05vw;
+                        right: 0.05vw;
+                    }
+
+                    ;
+
                     button {
                         padding: 0;
-                        width: 32px;
-                        height: 32px;
+                        width: 2.5vw;
+                        height: 2.5vw;
                         border: none;
                         cursor: pointer;
-                        font-size: 16px;
+                        font-size: 1.2vw;
                         position: relative;
                         color: var(--primaryColor);
                         background-color: #f5f9fc;
@@ -90,14 +125,17 @@
                             position: absolute;
                             transform: translateY(-50%);
                         }
+
                         &:hover {
                             color: var(--whiteColor);
                             background-color: var(--primaryColor);
                         }
                     }
+
                     &:first-child {
                         margin-left: 0;
                     }
+
                     &:last-child {
                         margin-right: 0;
                     }
@@ -121,56 +159,75 @@
     .jove-card {
         border-radius: 5px;
         padding: 20px 15px;
-    
+
         .title {
             font-size: 16px;
             margin-bottom: 15px;
+
             padding: {
                 left: 15px;
                 right: 15px;
                 bottom: 10px;
-            };
+            }
+
+            ;
+
             margin: {
                 left: -15px;
                 right: -15px;
-            };
+            }
+
+            ;
         }
+
         .recent-applicants {
             margin-bottom: -15px;
         }
+
         .single-candidate-box {
             padding: 15px;
             border-radius: 5px;
             text-align: center;
             margin-bottom: 15px;
-        
+
             .image {
                 margin: {
                     left: auto;
                     right: auto;
-                };
+                }
+
+                ;
             }
+
             .content {
                 margin: {
                     left: 0;
                     top: 15px;
-                };
+                }
+
+                ;
+
                 h3 {
                     font-size: 16px;
                     margin-bottom: 5px;
                 }
+
                 .designation {
                     margin-bottom: 5px;
                 }
             }
+
             .view-profile {
                 span {
                     margin: {
                         bottom: 7px;
                         top: 5px;
                         right: 0;
-                    };
+                    }
+
+                    ;
                 }
+
                 ul {
                     li {
                         button {
@@ -193,26 +250,34 @@
     .jove-card {
         .single-candidate-box {
             text-align: start;
-        
+
             .image {
                 margin: {
                     left: auto;
                     right: auto;
-                };
+                }
+
+                ;
             }
+
             .content {
                 margin: {
                     left: 15px;
                     top: 0;
-                };
+                }
+
+                ;
             }
+
             .view-profile {
                 span {
                     margin: {
                         top: 0;
                         bottom: 0;
                         right: 10px;
-                    };
+                    }
+
+                    ;
                 }
             }
         }
@@ -234,23 +299,30 @@
     .jove-card {
         border-radius: 10px;
         padding: 25px;
-    
+
         .title {
             font-size: 18px;
+
             padding: {
                 left: 25px;
                 right: 25px;
                 bottom: 12px;
-            };
+            }
+
+            ;
+
             margin: {
                 left: -25px;
                 right: -25px;
-            };
+            }
+
+            ;
         }
+
         .single-candidate-box {
             padding: 20px;
             border-radius: 10px;
-        
+
             .content {
                 h3 {
                     font-size: 16px;
@@ -267,16 +339,21 @@
     // Card
     .jove-card {
         padding: 25px;
-    
+
         .title {
             padding: {
                 left: 25px;
                 right: 25px;
-            };
+            }
+
+            ;
+
             margin: {
                 left: -25px;
                 right: -25px;
-            };
+            }
+
+            ;
         }
     }
 
@@ -292,27 +369,33 @@
     .jove-card {
         .single-candidate-box {
             padding: 25px;
-        
+
             .image {
                 max-width: 100px;
             }
+
             .content {
                 margin-left: 18px;
-        
+
                 h3 {
                     font-size: 18px;
                 }
             }
+
             .view-profile {
                 span {
                     margin-right: 25px;
                 }
+
                 ul {
                     li {
                         margin: {
                             left: 4px;
                             right: 4px;
-                        };
+                        }
+
+                        ;
+
                         button {
                             width: 35px;
                             height: 35px;

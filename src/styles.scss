@@ -1,5 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
-*{
+* {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
@@ -14,7 +14,7 @@
     --bodyColor: #62646A;
     --whiteColor: #FFFFFF;
     --borderColor: #e0e6e9;
-    --transition: all ease 0.5s; 
+    --transition: all ease 0.5s;
     --fontSize: 16px;
 
     --black: 404145;
@@ -22,8 +22,6 @@
     --blueColor: #1f3163;
     --tabColor: #3b4e90;
     --darkBlue: #290164;
-
-    
 
 }
 
@@ -87,25 +85,50 @@
     src: url(assets/fonts/Lato-Bold.ttf);
 }
 
+.default-btn {
+    font-size: 1vw !important;
+    font-family: "mon-reg";
+    padding: 0.75vw 2vw;
+    background-color: var(--pinkColor);
+    border-radius: 5px;
+    color: var(--whiteColor);
+    border: 0;
+    transition: all 0.5s ease;
+
+    &:hover {
+        background-color: transparent;
+        border: 0.12vw solid var(--pinkColor);
+        color: var(--pinkColor);
+    }
+}
+
+.display{
+    display: flex;
+}
+
 body {
     margin: 0;
     padding: 0;
     color: var(--bodyColor);
+
     font: {
         size: var(--fontSize);
         family: var(--fontFamily);
-    };
+    }
+
+    ;
 }
 
-label{
+label {
     font-size: 0.96vw;
     font-family: 'mon-med';
     color: #929497;
 }
 
-.textCenter{
+.textCenter {
     text-align: center;
 }
+
 a {
     transition: var(--transition);
     color: var(--headingColor);
@@ -117,9 +140,11 @@ a {
         text-decoration: none;
     }
 }
+
 :focus {
     outline: 0 !important;
 }
+
 .d-table {
     width: 100%;
     height: 100%;
@@ -128,55 +153,74 @@ a {
         vertical-align: middle;
     }
 }
+
 img {
     max-width: 100%;
     height: auto;
 }
+
 .ptb-100 {
     padding: {
         top: 100px;
         bottom: 100px;
-    };
+    }
+
+    ;
 }
+
 .pt-100 {
     padding-top: 100px;
 }
+
 .pb-100 {
     padding-bottom: 100px;
 }
+
 .ptb-75 {
     padding: {
         top: 75px;
         bottom: 75px;
-    };
+    }
+
+    ;
 }
+
 .pt-75 {
     padding-top: 75px;
 }
+
 .pb-75 {
     padding-bottom: 75px;
 }
+
 .bg-eaf0f3 {
     background-color: #eaf0f3;
 }
+
 .bg-f8f8fb {
     background-color: #f8f8fb;
 }
+
 .bg-fafafa {
     background-color: #fafafa;
 }
+
 .bg-f5f9fc {
     background-color: #f5f9fc;
 }
+
 .bg-c29a94 {
     background-color: #c29a94;
 }
+
 .bg-faf5f2 {
     background-color: #faf5f2;
 }
+
 .bg-f4f5f7 {
     background-color: #f4f5f7;
 }
+
 .bg-e9e7e7 {
     background-color: #e9e7e7;
 }
@@ -210,15 +254,20 @@ img {
             color: var(--headingColor);
             transform: translateY(-50%);
             transition: var(--transition);
+
             font: {
                 size: 28px;
                 family: remixicon;
-            };
+            }
+
+            ;
         }
     }
+
     svg {
         display: none !important;
     }
+
     &:hover {
         background-color: var(--primaryColor) !important;
 
@@ -235,10 +284,14 @@ img {
 // Page Banner CSS
 .page-banner-area {
     background-color: #f4f7fb;
+
     padding: {
-        top: 30px;
-        bottom: 30px;
-    };
+        top: 2.5vw;
+        bottom: 2.5vw;
+    }
+
+    ;
+
     h1 {
         font-size: 24px;
         margin-bottom: 0;
@@ -248,17 +301,17 @@ img {
 
 // Pagination CSS
 .pagination-area {
-    margin-top: 35px;
-    
+    margin-top: 3vw;
+
     .page-numbers {
-        width: 50px;
-        height: 50px;
-        margin: 0 3px;
-        font-size: 18px;
-        line-height: 48px;
+        width: 3.6vw;
+        height: 3.6vw;
+        margin: 0 0.1vw;
+        font-size: 1.2vw;
+        line-height: 3.5vw;
         text-align: center;
         position: relative;
-        border-radius: 3px;
+        border-radius: 0.2vw;
         display: inline-block;
         text-decoration: none;
         color: var(--bodyColor);
@@ -266,11 +319,13 @@ img {
         background-color: var(--whiteColor);
         border: 1px solid var(--borderColor);
 
-        &.current, &:hover {
-            background-color: var(--primaryColor);
+        &.current,
+        &:hover {
+            background-color: #3b4e90;
             border-color: var(--primaryColor);
             color: var(--whiteColor);
         }
+
         &.current {
             pointer-events: none;
         }
@@ -284,30 +339,41 @@ img {
     body {
         font-size: 14px;
     }
+
     p {
         font-size: 14px;
     }
+
     .ptb-100 {
         padding: {
             top: 60px;
             bottom: 60px;
-        };
+        }
+
+        ;
     }
+
     .pt-100 {
         padding-top: 60px;
     }
+
     .pb-100 {
         padding-bottom: 60px;
     }
+
     .ptb-75 {
         padding: {
             top: 35px;
             bottom: 35px;
-        };
+        }
+
+        ;
     }
+
     .pt-75 {
         padding-top: 35px;
     }
+
     .pb-75 {
         padding-bottom: 35px;
     }
@@ -327,13 +393,18 @@ img {
     // Page Banner CSS
     .page-banner-area {
         text-align: center;
+
         padding: {
             top: 30px;
             bottom: 30px;
-        };
+        }
+
+        ;
+
         h1 {
             font-size: 20px;
         }
+
         ul {
             text-align: center;
             margin-top: 10px;
@@ -343,7 +414,7 @@ img {
     // Pagination CSS
     .pagination-area {
         margin-top: 5px;
-        
+
         .page-numbers {
             width: 35px;
             height: 35px;
@@ -354,12 +425,16 @@ img {
 
 }
 
-body{
+body {
     overflow-x: hidden;
 }
 
 /* Min width 576px to Max width 767px */
-@media only screen and (min-width : 576px) and (max-width : 767px) {}
+@media only screen and (max-width : 767px) {
+    .display{
+        display: block;
+    }
+}
 
 /* Min width 768px to Max width 991px */
 @media only screen and (min-width : 768px) and (max-width : 991px) {
@@ -368,30 +443,41 @@ body{
     body {
         font-size: 15px;
     }
+
     p {
         font-size: 15px;
     }
+
     .ptb-100 {
         padding: {
             top: 80px;
             bottom: 80px;
-        };
+        }
+
+        ;
     }
+
     .pt-100 {
         padding-top: 80px;
     }
+
     .pb-100 {
         padding-bottom: 80px;
     }
+
     .ptb-75 {
         padding: {
             top: 55px;
             bottom: 55px;
-        };
+        }
+
+        ;
     }
+
     .pt-75 {
         padding-top: 55px;
     }
+
     .pb-75 {
         padding-bottom: 55px;
     }
@@ -411,13 +497,18 @@ body{
     // Page Banner CSS
     .page-banner-area {
         text-align: center;
+
         padding: {
             top: 35px;
             bottom: 35px;
-        };
+        }
+
+        ;
+
         h1 {
             font-size: 22px;
         }
+
         ul {
             text-align: center;
             margin-top: 10px;
@@ -427,7 +518,7 @@ body{
     // Pagination CSS
     .pagination-area {
         margin-top: 10px;
-        
+
         .page-numbers {
             width: 45px;
             height: 45px;
@@ -450,7 +541,7 @@ body{
     // Pagination CSS
     .pagination-area {
         margin-top: 25px;
-        
+
         .page-numbers {
             width: 45px;
             height: 45px;

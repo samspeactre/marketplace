@@ -1,45 +1,18 @@
 <app-navbar></app-navbar>
 
-<!-- Page Banner -->
-<div class="page-banner-area">
-    <div class="container">
-        <div class="row align-items-center">
-            <div class="col-lg-8 col-md-12">
-                <h1>
-                    Candidate Details
-                </h1>
-            </div>
-            <div class="col-lg-4 col-md-12">
-                <ul class="ps-0 mb-0 list-unstyled">
-                    <li class="d-inline-block position-relative">
-                        <a routerLink="/">
-                            Home
-                        </a>
-                    </li>
-                    <li class="d-inline-block position-relative">
-                        <a routerLink="/candidates">
-                            Candidates
-                        </a>
-                    </li>
-                    <li class="d-inline-block position-relative">
-                        Candidate Details
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- End Page Banner -->
+<app-page-banner></app-page-banner>
 
 <!-- Candidate Details Area -->
 <div class="candidate-details-area ptb-100">
-    <div class="container">
+    <div class="main">
         <div class="row">
             <div class="col-lg-8 col-md-12">
+
                 <div class="single-candidate-box d-sm-flex align-items-center justify-content-between">
                     <div class="d-sm-flex align-items-center">
                         <div class="image">
-                            <img src="assets/images/candidates/candidate1.jpg" class="rounded-circle" alt="candidate-image">
+                            <img src="../../../../assets/images/profile-pic.jpg" class="rounded-circle"
+                                alt="candidate-image">
                         </div>
                         <div class="content">
                             <h3 class="fw-semibold">
@@ -59,13 +32,16 @@
                         </a>
                     </div>
                 </div>
+
                 <div class="candidate-details-description">
-                    <h3>
+                    <h3 class="about-head">
                         About me
                     </h3>
-                    <p>
-                        Enim urna pulvinar orci leo viverra. A augue nisl convallis amet pellentesque sollicitudin. Commodo volutpat euismod nec duis iaculis mattis quam diam. Sollicitudin eu mi aliquet at tellus sed pellentesque. Id non in pharetra massa urna ullamcorper tempor. Leo tempus pharetra mi mattis ut porttitor viverra. Suspendisse massa eros pulvinar eu tortor semper sit. In tempus euismod id scelerisque convallis praesent. Viverra tortor sit volutpat elementum nibh leo rhoncus viverra vestibulum. At non nunc fames vulputate nibh pharetra eu nulla aenean. Fusce pretium purus pellentesque faucibus sed neque diam a maecenas.
-                    </p>
+                    <div class="video-player">
+                        <video #videoPlayer [src]="videoUrls[currentVideoIndex]" controls>
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
                     <h3>
                         Education
                     </h3>
@@ -81,7 +57,10 @@
                                 <span>Walters University</span> - (2020-2021)
                             </span>
                             <p>
-                                Commodo volutpat euismod nec duis iaculis mattis quam diam. Sollicitudin eu mi aliquet at tellus sed pellentesque. Id non in pharetra massa urna ullamcorper tempor. Leo tempus pharetra mi mattis ut porttitor viverra. Suspendisse massa eros pulvinar eu tortor semper sit.
+                                Commodo volutpat euismod nec duis iaculis mattis quam diam. Sollicitudin eu mi aliquet
+                                at tellus sed pellentesque. Id non in pharetra massa urna ullamcorper tempor. Leo tempus
+                                pharetra mi mattis ut porttitor viverra. Suspendisse massa eros pulvinar eu tortor
+                                semper sit.
                             </p>
                         </li>
                         <li class="position-relative">
@@ -95,7 +74,9 @@
                                 <span>University of California</span> - (2016-2020)
                             </span>
                             <p>
-                                Viverra tortor sit volutpat elementum nibh leo rhoncus viverra vestibulum. At non nunc fames vulputate nibh pharetra eu nulla aenean. Fusce pretium purus pellentesque faucibus sed neque diam a maecenas.
+                                Viverra tortor sit volutpat elementum nibh leo rhoncus viverra vestibulum. At non nunc
+                                fames vulputate nibh pharetra eu nulla aenean. Fusce pretium purus pellentesque faucibus
+                                sed neque diam a maecenas.
                             </p>
                         </li>
                     </ul>
@@ -114,7 +95,10 @@
                                 <span>Jove</span> - (2020-2023)
                             </span>
                             <p>
-                                Commodo volutpat euismod nec duis iaculis mattis quam diam. Sollicitudin eu mi aliquet at tellus sed pellentesque. Id non in pharetra massa urna ullamcorper tempor. Leo tempus pharetra mi mattis ut porttitor viverra. Suspendisse massa eros pulvinar eu tortor semper sit.
+                                Commodo volutpat euismod nec duis iaculis mattis quam diam. Sollicitudin eu mi aliquet
+                                at tellus sed pellentesque. Id non in pharetra massa urna ullamcorper tempor. Leo tempus
+                                pharetra mi mattis ut porttitor viverra. Suspendisse massa eros pulvinar eu tortor
+                                semper sit.
                             </p>
                         </li>
                         <li class="position-relative">
@@ -128,7 +112,10 @@
                                 <span>Cirku</span> - (2018-2020)
                             </span>
                             <p>
-                                Sollicitudin eu mi aliquet at tellus sed pellentesque. Id non in pharetra massa urna ullamcorper tempor. Leo tempus pharetra mi mattis ut porttitor viverra. Suspendisse massa eros pulvinar eu tortor semper sit. In tempus euismod id scelerisque convallis praesent.
+                                Sollicitudin eu mi aliquet at tellus sed pellentesque. Id non in pharetra massa urna
+                                ullamcorper tempor. Leo tempus pharetra mi mattis ut porttitor viverra. Suspendisse
+                                massa eros pulvinar eu tortor semper sit. In tempus euismod id scelerisque convallis
+                                praesent.
                             </p>
                         </li>
                         <li class="position-relative">
@@ -142,7 +129,10 @@
                                 <span>HiBootstrap</span> - (2016-2018)
                             </span>
                             <p>
-                                Sollicitudin eu mi aliquet at tellus sed pellentesque. Id non in pharetra massa urna ullamcorper tempor. Leo tempus pharetra mi mattis ut porttitor viverra. Suspendisse massa eros pulvinar eu tortor semper sit. In tempus euismod id scelerisque convallis praesent.
+                                Sollicitudin eu mi aliquet at tellus sed pellentesque. Id non in pharetra massa urna
+                                ullamcorper tempor. Leo tempus pharetra mi mattis ut porttitor viverra. Suspendisse
+                                massa eros pulvinar eu tortor semper sit. In tempus euismod id scelerisque convallis
+                                praesent.
                             </p>
                         </li>
                     </ul>
@@ -150,49 +140,59 @@
                         Passion and future goals
                     </h3>
                     <p>
-                        Enim urna pulvinar orci leo viverra. A augue nisl convallis amet pellentesque sollicitudin. Commodo volutpat euismod nec duis iaculis mattis quam diam. Sollicitudin eu mi aliquet at tellus sed pellentesque. Id non in pharetra massa urna ullamcorper tempor. Leo tempus pharetra mi mattis ut porttitor viverra. Suspendisse massa eros pulvinar eu tortor semper sit. In tempus euismod id scelerisque convallis praesent.
+                        Enim urna pulvinar orci leo viverra. A augue nisl convallis amet pellentesque sollicitudin.
+                        Commodo volutpat euismod nec duis iaculis mattis quam diam. Sollicitudin eu mi aliquet at tellus
+                        sed pellentesque. Id non in pharetra massa urna ullamcorper tempor. Leo tempus pharetra mi
+                        mattis ut porttitor viverra. Suspendisse massa eros pulvinar eu tortor semper sit. In tempus
+                        euismod id scelerisque convallis praesent.
                     </p>
                     <p>
-                        Viverra tortor sit volutpat elementum nibh leo rhoncus viverra vestibulum. At non nunc fames vulputate nibh pharetra eu nulla aenean. Fusce pretium purus pellentesque faucibus sed neque diam a maecenas.
+                        Viverra tortor sit volutpat elementum nibh leo rhoncus viverra vestibulum. At non nunc fames
+                        vulputate nibh pharetra eu nulla aenean. Fusce pretium purus pellentesque faucibus sed neque
+                        diam a maecenas.
                     </p>
                 </div>
             </div>
+
             <div class="col-lg-4 col-md-12">
                 <aside class="sidebar-area">
+
                     <div class="box">
                         <h3>
                             Contact information
                         </h3>
                         <ul class="contact-information ps-0 mb-0 list-unstyled">
                             <li>
-                                <span class="fw-medium">Email:</span> <a href="mailto:hello@jove.com">hello&#64;jove.com</a>
+                                <span>Email:</span> <a href="mailto:hello@jove.com">hello&#64;jove.com</a>
                             </li>
                             <li>
-                                <span class="fw-medium">Phone:</span> <a href="tel:+1 (514) 312-5678">+1 (514) 312-5678</a>
+                                <span>Phone:</span> <a href="tel:+1 (514) 312-5678">+1 (514)
+                                    312-5678</a>
                             </li>
                             <li>
-                                <span class="fw-medium">Offered Salary:</span> $50/ hour
+                                <span>Offered Salary:</span> $50/ hour
                             </li>
                             <li>
-                                <span class="fw-medium">Experience:</span> 4 Years
+                                <span>Experience:</span> 4 Years
                             </li>
                             <li>
-                                <span class="fw-medium">Gender:</span> Male
+                                <span>Gender:</span> Male
                             </li>
                             <li>
-                                <span class="fw-medium">Age:</span> 30
+                                <span>Age:</span> 30
                             </li>
                             <li>
-                                <span class="fw-medium">Qualification:</span> Doctorate Degree
+                                <span>Qualification:</span> Doctorate Degree
                             </li>
                             <li>
-                                <span class="fw-medium">Languages:</span> English
+                                <span>Languages:</span> English
                             </li>
                             <li>
-                                <span class="fw-medium">Professional Skills:</span> Angular and TypeScript
+                                <span>Professional Skills:</span> Angular and TypeScript
                             </li>
                         </ul>
                     </div>
+
                     <div class="box">
                         <h3>
                             Social profiles
@@ -224,6 +224,7 @@
                             </li>
                         </ul>
                     </div>
+
                     <div class="box">
                         <h3>
                             Download CV
@@ -245,7 +246,8 @@
                             </a>
                         </div>
                     </div>
-                    <div class="box">
+
+                    <!-- <div class="box">
                         <h3>
                             Contact with me
                         </h3>
@@ -272,15 +274,18 @@
                                 Send Message
                             </button>
                         </form>
-                    </div>
+                    </div> -->
                 </aside>
             </div>
+
         </div>
     </div>
 </div>
 
-<app-subscribe></app-subscribe>
+<!-- <app-subscribe></app-subscribe>
 
-<app-footer></app-footer>
+<app-footer></app-footer> -->
+
+<app-custom-footer></app-custom-footer>
 
 <ngx-scrolltop></ngx-scrolltop>

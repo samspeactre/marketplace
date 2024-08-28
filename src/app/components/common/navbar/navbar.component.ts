@@ -1,5 +1,6 @@
-import { Component, HostListener } from '@angular/core';
+import { Component, HostListener, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthPopupComponent } from '../auth-popup/auth-popup.component';
 
 @Component({
     selector: 'app-navbar',
@@ -8,6 +9,8 @@ import { Router } from '@angular/router';
 })
 
 export class NavbarComponent {
+
+    @ViewChild(AuthPopupComponent) authPopup!: AuthPopupComponent;
 
     // Navbar Sticky
     isSticky: boolean = false;

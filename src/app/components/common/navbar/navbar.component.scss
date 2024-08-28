@@ -121,8 +121,7 @@
                 position: relative;
 
                 margin: {
-                    left: 17px;
-                    right: 17px;
+                    right: 0.6vw;
                 }
 
                 ;
@@ -165,12 +164,12 @@
                         position: absolute;
                         content: "\ea4e";
                         line-height: 1;
-                        right: -5px;
+                        right: -0.3vw;
                         top: 1vw;
 
                         font: {
                             family: remixicon;
-                            size: 17px;
+                            size: 1.3vw;
                             weight: 700;
                         }
 
@@ -180,7 +179,7 @@
 
                 .dropdown-menu {
                     left: 0;
-                    top: 54px;
+                    top: 3.9vw;
                     opacity: 0;
                     z-index: 99;
                     border: none;
@@ -367,8 +366,8 @@
                     cursor: pointer;
                     color: var(--headingColor);
                     transition: var(--transition);
-                    font-size: 0.95vw;
-                    font-family: 'mon-bold';
+                    font-size: 1vw;
+                    font-family: "mon-semi";
 
                     i {
                         width: 30px;
@@ -704,15 +703,10 @@
                             padding: 0;
                             border: none;
                             color: #8d8d8d;
-                            padding-bottom: 3px;
-                            border-bottom: 2px solid transparent;
-
-                            font: {
-                                size: 1.6vw;
-                                family: 'mon-reg';
-                            }
-
-                            ;
+                            padding-bottom: 0.1vw;
+                            border-bottom: 0.15vw solid transparent;
+                            font-size: 1.5vw;
+                            font-family: "mon-reg";
                         }
 
                         &.active {
@@ -957,20 +951,14 @@
 @media only screen and (max-width : 767px) {
 
     .navbar-area {
-        padding: {
-            top: 15px;
-            bottom: 15px;
-        }
+        padding: 2dvw 4dvw;
 
-        ;
-
-        .container-fluid {
-            padding: {
-                left: calc(var(--bs-gutter-x) * 0.5);
-                right: calc(var(--bs-gutter-x) * 0.5);
+        .navbar {
+            .navbar-brand {
+                img {
+                    width: 22vw;
+                }
             }
-
-            ;
         }
 
         &.sticky {
@@ -2056,7 +2044,7 @@
 }
 
 .nav-item {
-    margin-right: 7px !important;
+    margin-left: 0.3vw;
 }
 
 .nav-item a {
@@ -2069,7 +2057,7 @@
     font-family: "mon-reg";
     padding: 0.75vw 2vw;
     background-color: var(--pinkColor);
-    border-radius: 5px;
+    border-radius: 0.3vw;
     color: var(--whiteColor);
     transition: all 0.5s ease;
 
@@ -2081,5 +2069,5 @@
 }
 
 .nav-link {
-    padding: 10px !important;
+    padding: 0.7vw 1vw !important;
 }

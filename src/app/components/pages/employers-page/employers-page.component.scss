@@ -3,8 +3,11 @@
 
     .result-count {
         p {
+            font-size: 1.1vw;
+            font-family: 'mon-reg';
+            margin-bottom: 0;
             .count {
-                font-weight: 600;
+                font-family: 'mon-semi';
                 color: var(--headingColor);
             }
         }
@@ -15,45 +18,44 @@
         label {
             color: var(--bodyColor);
             display: inline-block;
-            font-weight: 500;
+            font-size: 1.1vw;
+            font-family: 'mon-reg';
             margin: {
                 right: 5px;
                 bottom: 0;
             };
         }
         select {
-            height: 45px;
-            width: 215px;
+            height: 3.3vw;
+            width: 13vw;
             cursor: pointer;
-            line-height: 44px;
             box-shadow: unset;
-            padding: 0 0 0 15px;
+            padding: 0 0 0 1vw;
             display: inline-block;
             border-color: #eeeeee;
             color: var(--headingColor);
             background-color: #f8f8f8;
             transition: var(--transition);
-            font: {
-                size: var(--fontSize);
-                weight: 500;
-            };
+            font-size: 1.1vw;
+            font-family: 'mon-reg';
             &:hover {
-                border-color: var(--primaryColor);
+                border-color: #3a4e90;
                 background-color: transparent;
             }
         }
     }
 }
+
 .single-employer-box {
-    padding: 25px;
-    margin-bottom: 25px;
-    border-radius: 15px;
+    padding: 1.6vw;
+    margin-bottom: 1.6vw;
+    border-radius: 1.2vw;
     background-color: var(--whiteColor);
-    border: 1px solid var(--borderColor);
+    border: 0.1vw solid var(--borderColor);
 
     .image {
-        width: 100px;
-        height: 100px;
+        width: 7.5vw;
+        height: 7.5vw;
         position: relative;
         border-radius: 50%;
         text-align: center;
@@ -63,7 +65,7 @@
             left: 0;
             right: 0;
             top: 50%;
-            max-width: 80px;
+            width: 3vw;
             position: absolute;
             transform: translateY(-50%);
             margin: {
@@ -76,16 +78,24 @@
         margin-left: 20px;
 
         h3 {
-            font-size: 18px;
-            margin-bottom: 6px;
+            font-size: 1.2vw;
+            font-family: 'mon-semi';
+            color: black;
+        }
+
+        span{
+            font-size: 1vw;
+            font-family: 'mon-reg';
+            color: black;
         }
     }
     .jobs-open {
         a {
-            font-size: 15px;
-            border-radius: 30px;
-            padding: 4px 20px 4.5px;
-            color: var(--primaryColor);
+            font-size: 1vw;
+            font-family: 'mon-bold';
+            border-radius: 2vw;
+            padding: .5vw 1.3vw 0.45vw;
+            color: #3a4e90;
             background-color: #f4f7fb;
         }
     }
@@ -93,30 +103,33 @@
         .jobs-open {
             a {
                 color: var(--whiteColor);
-                background-color: var(--primaryColor);
+                background-color: #3a4e90;
             }
         }
     }
 }
+
 .sidebar-area {
-    padding: 30px;
-    border-radius: 10px;
+    padding: 2.5vw;
+    border-radius: 0.7vw;
     background-color: #f5f9fc;
 
     h3 {
-        font-size: 18px;
-        margin-bottom: 20px;
+        font-size: 1.2vw;
+        font-family: 'mon-bold';
+        margin-bottom: 1.7vw;
     }
     form {
         .search-box {
-            margin-bottom: 20px;
+            margin-bottom: 1.7vw;
 
             .input-search {
                 width: 100%;
-                height: 50px;
+                height: 3.3vw;
                 display: block;
-                border-radius: 5px;
-                font-size: var(--fontSize);
+                border-radius: 0.3vw;
+                font-size: 1.1vw;
+                font-family: 'mon-reg';
                 color: var(--headingColor);
                 border: 1px solid #e0e6e9;
                 padding: 10px 20px 11px 48px;
@@ -153,8 +166,10 @@
             }
             .form-select {
                 cursor: pointer;
-                padding: 12px 18px;
-                font-size: var(--fontSize);
+                padding: 0.7vw 1.3vw;
+                font-size: 1.1vw;
+                font-family: 'mon-reg';
+                color: black;
     
                 &:focus {
                     border-color: var(--primaryColor);
@@ -163,12 +178,22 @@
         }
         .default-btn {
             padding: {
-                top: 14px;
-                bottom: 14px;
+                top: 1vw;
+                bottom: 1vw;
             };
         }
     }
 }
+
+.main{
+    width: 90%;
+    margin: auto;
+}
+
+.jobs-area{
+    padding: 2.5vw 0 7vw;
+}
+
 
 /* Max width 767px */
 @media only screen and (max-width : 767px) {

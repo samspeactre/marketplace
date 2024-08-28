@@ -6,8 +6,9 @@
 </div>
 
 <!-- Stats -->
-<div class="row">
-    <div class="col-xxl-3 col-xl-6 col-lg-3 col-6">
+<div class="d-flex justify-content-between ">
+
+    <div class="employee-tab">
         <div class="single-stats-box d-md-flex align-items-center">
             <div class="icon">
                 <i class="ri-briefcase-line"></i>
@@ -22,7 +23,8 @@
             </div>
         </div>
     </div>
-    <div class="col-xxl-3 col-xl-6 col-lg-3 col-6">
+
+    <div class="employee-tab">
         <div class="single-stats-box d-md-flex align-items-center">
             <div class="icon">
                 <i class="ri-article-line"></i>
@@ -37,7 +39,8 @@
             </div>
         </div>
     </div>
-    <div class="col-xxl-3 col-xl-6 col-lg-3 col-6">
+
+    <div class="employee-tab">
         <div class="single-stats-box d-md-flex align-items-center">
             <div class="icon">
                 <i class="ri-message-2-line"></i>
@@ -52,7 +55,8 @@
             </div>
         </div>
     </div>
-    <div class="col-xxl-3 col-xl-6 col-lg-3 col-6">
+
+    <div class="employee-tab">
         <div class="single-stats-box d-md-flex align-items-center">
             <div class="icon">
                 <i class="ri-bookmark-line"></i>
@@ -70,27 +74,22 @@
 </div>
 
 <!-- Profile Views & Notifications -->
-<div class="row">
-    <div class="col-xxl-7 col-md-12">
+<div class="d-flex justify-content-between">
+
+    <div class="profile-box">
         <div class="jove-card">
             <h3 class="title">
                 Profile views
             </h3>
             <div class="chart">
-                <apx-chart
-                    [series]="chartOptions.series!"
-                    [chart]="chartOptions.chart!"
-                    [xaxis]="chartOptions.xaxis!"
-                    [dataLabels]="chartOptions.dataLabels!"
-                    [grid]="chartOptions.grid!"
-                    [yaxis]="chartOptions.yaxis!"
-                    [stroke]="chartOptions.stroke!"
-                    [colors]="chartOptions.colors!"
-                ></apx-chart>
+                <apx-chart [series]="chartOptions.series!" [chart]="chartOptions.chart!" [xaxis]="chartOptions.xaxis!"
+                    [dataLabels]="chartOptions.dataLabels!" [grid]="chartOptions.grid!" [yaxis]="chartOptions.yaxis!"
+                    [stroke]="chartOptions.stroke!" [colors]="chartOptions.colors!"></apx-chart>
             </div>
         </div>
     </div>
-    <div class="col-xxl-5 col-md-12">
+
+    <div class="Notifications-box">
         <div class="jove-card">
             <h3 class="title">
                 Notifications
@@ -100,43 +99,50 @@
                     <div class="icon">
                         <i class="ri-briefcase-line"></i>
                     </div>
-                    <span class="fw-semibold">Donald Darnell</span> applied for a job <span class="color">Software Engineer</span>
+                    <span class="fw-semibold">Donald Darnell</span> <span class="job-apply">applied for a job</span> <span class="color">Software
+                        Engineer</span>
                 </li>
                 <li class="position-relative">
                     <div class="icon">
                         <i class="ri-briefcase-line"></i>
                     </div>
-                    <span class="fw-semibold">Olivie Riquier</span> applied for a job <span class="color">Accountant</span>
+                    <span class="fw-semibold">Olivie Riquier</span> <span class="job-apply">applied for a job</span> <span
+                        class="color">Accountant</span>
                 </li>
                 <li class="position-relative color">
                     <div class="icon">
                         <i class="ri-briefcase-line"></i>
                     </div>
-                    <span class="fw-semibold">Edwin Lloyd</span> applied for a job <span class="color">Data Scientist</span>
+                    <span class="fw-semibold">Edwin Lloyd</span> <span class="job-apply">applied for a job</span> <span class="color">Data
+                        Scientist</span>
                 </li>
                 <li class="position-relative">
                     <div class="icon">
                         <i class="ri-briefcase-line"></i>
                     </div>
-                    <span class="fw-semibold">Bryant Hills</span> applied for a job <span class="color">UI/UX Designer</span>
+                    <span class="fw-semibold">Bryant Hills</span> <span class="job-apply">applied for a job</span> <span class="color">UI/UX
+                        Designer</span>
                 </li>
                 <li class="position-relative color">
                     <div class="icon">
                         <i class="ri-briefcase-line"></i>
                     </div>
-                    <span class="fw-semibold">Melissa Rodgers</span> applied for a job <span class="color">Pharmacist</span>
+                    <span class="fw-semibold">Melissa Rodgers</span> <span class="job-apply">applied for a job</span> <span
+                        class="color">Pharmacist</span>
                 </li>
                 <li class="position-relative">
                     <div class="icon">
                         <i class="ri-briefcase-line"></i>
                     </div>
-                    <span class="fw-semibold">Jeanne Richardson</span> applied for a job <span class="color">Marketing Manager</span>
+                    <span class="fw-semibold">Jeanne Richardson</span> <span class="job-apply">applied for a job</span> <span class="color">Marketing
+                        Manager</span>
                 </li>
                 <li class="position-relative">
                     <div class="icon">
                         <i class="ri-briefcase-line"></i>
                     </div>
-                    <span class="fw-semibold">Bruce Saunders</span> applied for a job <span class="color">Systems Analyst</span>
+                    <span class="fw-semibold">Bruce Saunders</span> <span class="job-apply">applied for a job</span> <span class="color">Systems
+                        Analyst</span>
                 </li>
             </ul>
         </div>
@@ -144,17 +150,19 @@
 </div>
 
 <!-- Jobs Applied Recently -->
-<div class="jove-card">
+<div class="jove-card applicants">
     <h3 class="title">
         Jobs applied recently
     </h3>
-    <div class="row jobs-applied-recently">
-        <div class="col-xxl-12">
+    <div class="row recent-applicants justify-content-between">
+
+        <div class="applicant-box">
             <div class="single-job-box">
-                <div class="d-sm-flex align-items-center justify-content-between">
-                    <div class="d-sm-flex align-items-center">
+
+                <div class="d-flex content-area align-items-center justify-content-between">
+                    <div class="d-flex image-head align-items-center">
                         <div class="image">
-                            <img src="assets/images/companies/company8.png" alt="company-image">
+                            <img src="../../../../assets/images/candidate-dash-logo.png" alt="company-image">
                         </div>
                         <div class="content">
                             <h3 class="fw-semibold">
@@ -171,10 +179,10 @@
                         </div>
                     </div>
                     <div class="custom-info d-sm-flex align-items-center">
-                        <span class="active fw-medium d-block">
-                            Active
+                        <span class="active fw-medium closed d-block">
+                            Closed
                         </span>
-                        <ul class="ps-0 mb-0 list-unstyled">
+                        <ul class="ps-0 mb-0 d-flex justify-content-between list-unstyled">
                             <li class="d-inline-block">
                                 <button type="button" class="d-inline-block rounded-circle">
                                     <i class="ri-eye-line"></i>
@@ -193,29 +201,34 @@
                         </ul>
                     </div>
                 </div>
+
+                <div class="center-line"></div>
+
                 <div class="info d-sm-flex align-items-center justify-content-between">
                     <span class="salary d-block">
                         <span class="fw-semibold">Salary:</span>
-                        <span>$1K - $3K</span>
+                        <span class="salary-num">$11K - $23K</span>
                         /monthly
                     </span>
                     <span class="created d-block">
-                        <span class="fw-semibold">Created:</span>
+                        <span class="fw-semibold" style="color: #485997;">Created:</span>
                         Oct 21, 2023
                     </span>
                     <span class="deadline d-block">
-                        <span class="fw-semibold">Deadline:</span>
-                        Oct 30, 2023
+                        <span class="fw-semibold" style="color: red;">Deadline:</span>
+                        Nov 13, 2023
                     </span>
                 </div>
             </div>
         </div>
-        <div class="col-xxl-12">
+
+        <div class="applicant-box">
             <div class="single-job-box">
-                <div class="d-sm-flex align-items-center justify-content-between">
-                    <div class="d-sm-flex align-items-center">
+
+                <div class="d-flex content-area align-items-center justify-content-between">
+                    <div class="d-flex image-head align-items-center">
                         <div class="image">
-                            <img src="assets/images/companies/company9.png" alt="company-image">
+                            <img src="../../../../assets/images/candidate-dash-logo-2.png" alt="company-image">
                         </div>
                         <div class="content">
                             <h3 class="fw-semibold">
@@ -227,7 +240,7 @@
                                 Zayper in Barcelona
                             </span>
                             <span class="job-type d-block">
-                                Part Time
+                                Full Time
                             </span>
                         </div>
                     </div>
@@ -235,7 +248,7 @@
                         <span class="active fw-medium closed d-block">
                             Closed
                         </span>
-                        <ul class="ps-0 mb-0 list-unstyled">
+                        <ul class="ps-0 mb-0 d-flex justify-content-between list-unstyled">
                             <li class="d-inline-block">
                                 <button type="button" class="d-inline-block rounded-circle">
                                     <i class="ri-eye-line"></i>
@@ -254,29 +267,34 @@
                         </ul>
                     </div>
                 </div>
+
+                <div class="center-line"></div>
+
                 <div class="info d-sm-flex align-items-center justify-content-between">
                     <span class="salary d-block">
                         <span class="fw-semibold">Salary:</span>
-                        <span>$10 - $50</span>
-                        /hourly
+                        <span class="salary-num">$11K - $23K</span>
+                        /monthly
                     </span>
                     <span class="created d-block">
-                        <span class="fw-semibold">Created:</span>
+                        <span class="fw-semibold" style="color: #485997;">Created:</span>
                         Oct 21, 2023
                     </span>
                     <span class="deadline d-block">
-                        <span class="fw-semibold">Deadline:</span>
-                        Nov 10, 2023
+                        <span class="fw-semibold" style="color: red;">Deadline:</span>
+                        Nov 13, 2023
                     </span>
                 </div>
             </div>
         </div>
-        <div class="col-xxl-12">
+
+        <div class="applicant-box">
             <div class="single-job-box">
-                <div class="d-sm-flex align-items-center justify-content-between">
-                    <div class="d-sm-flex align-items-center">
+
+                <div class="d-flex content-area align-items-center justify-content-between">
+                    <div class="d-flex image-head align-items-center">
                         <div class="image">
-                            <img src="assets/images/companies/company10.png" alt="company-image">
+                            <img src="../../../../assets/images/candidate-dash-logo-2.png" alt="company-image">
                         </div>
                         <div class="content">
                             <h3 class="fw-semibold">
@@ -293,10 +311,10 @@
                         </div>
                     </div>
                     <div class="custom-info d-sm-flex align-items-center">
-                        <span class="active fw-medium d-block">
-                            Active
+                        <span class="active fw-medium closed d-block">
+                            Closed
                         </span>
-                        <ul class="ps-0 mb-0 list-unstyled">
+                        <ul class="ps-0 mb-0 d-flex justify-content-between list-unstyled">
                             <li class="d-inline-block">
                                 <button type="button" class="d-inline-block rounded-circle">
                                     <i class="ri-eye-line"></i>
@@ -315,29 +333,34 @@
                         </ul>
                     </div>
                 </div>
+
+                <div class="center-line"></div>
+
                 <div class="info d-sm-flex align-items-center justify-content-between">
                     <span class="salary d-block">
                         <span class="fw-semibold">Salary:</span>
-                        <span>$6K - $7K</span>
+                        <span class="salary-num">$11K - $23K</span>
                         /monthly
                     </span>
                     <span class="created d-block">
-                        <span class="fw-semibold">Created:</span>
+                        <span class="fw-semibold" style="color: #485997;">Created:</span>
                         Oct 21, 2023
                     </span>
                     <span class="deadline d-block">
-                        <span class="fw-semibold">Deadline:</span>
-                        Nov 11, 2023
+                        <span class="fw-semibold" style="color: red;">Deadline:</span>
+                        Nov 13, 2023
                     </span>
                 </div>
             </div>
         </div>
-        <div class="col-xxl-12">
+
+        <div class="applicant-box">
             <div class="single-job-box">
-                <div class="d-sm-flex align-items-center justify-content-between">
-                    <div class="d-sm-flex align-items-center">
+
+                <div class="d-flex content-area align-items-center justify-content-between">
+                    <div class="d-flex image-head align-items-center">
                         <div class="image">
-                            <img src="assets/images/companies/company11.png" alt="company-image">
+                            <img src="../../../../assets/images/candidate-dash-logo.png" alt="company-image">
                         </div>
                         <div class="content">
                             <h3 class="fw-semibold">
@@ -354,10 +377,10 @@
                         </div>
                     </div>
                     <div class="custom-info d-sm-flex align-items-center">
-                        <span class="active fw-medium d-block">
-                            Active
+                        <span class="active fw-medium closed d-block">
+                            Closed
                         </span>
-                        <ul class="ps-0 mb-0 list-unstyled">
+                        <ul class="ps-0 mb-0 d-flex justify-content-between list-unstyled">
                             <li class="d-inline-block">
                                 <button type="button" class="d-inline-block rounded-circle">
                                     <i class="ri-eye-line"></i>
@@ -376,29 +399,35 @@
                         </ul>
                     </div>
                 </div>
+
+                <div class="center-line"></div>
+
                 <div class="info d-sm-flex align-items-center justify-content-between">
                     <span class="salary d-block">
                         <span class="fw-semibold">Salary:</span>
-                        <span>$2K - $3K</span>
+                        <span class="salary-num">$11K - $23K</span>
                         /monthly
                     </span>
                     <span class="created d-block">
-                        <span class="fw-semibold">Created:</span>
+                        <span class="fw-semibold" style="color: #485997;">Created:</span>
                         Oct 21, 2023
                     </span>
                     <span class="deadline d-block">
-                        <span class="fw-semibold">Deadline:</span>
-                        Nov 12, 2023
+                        <span class="fw-semibold" style="color: red;">Deadline:</span>
+                        Nov 13, 2023
                     </span>
                 </div>
             </div>
         </div>
-        <div class="col-xxl-12">
+
+
+        <div class="applicant-box">
             <div class="single-job-box">
-                <div class="d-sm-flex align-items-center justify-content-between">
-                    <div class="d-sm-flex align-items-center">
+
+                <div class="d-flex content-area align-items-center justify-content-between">
+                    <div class="d-flex image-head align-items-center">
                         <div class="image">
-                            <img src="assets/images/companies/company12.png" alt="company-image">
+                            <img src="../../../../assets/images/candidate-dash-logo.png" alt="company-image">
                         </div>
                         <div class="content">
                             <h3 class="fw-semibold">
@@ -418,7 +447,7 @@
                         <span class="active fw-medium closed d-block">
                             Closed
                         </span>
-                        <ul class="ps-0 mb-0 list-unstyled">
+                        <ul class="ps-0 mb-0 d-flex justify-content-between list-unstyled">
                             <li class="d-inline-block">
                                 <button type="button" class="d-inline-block rounded-circle">
                                     <i class="ri-eye-line"></i>
@@ -437,29 +466,34 @@
                         </ul>
                     </div>
                 </div>
+
+                <div class="center-line"></div>
+
                 <div class="info d-sm-flex align-items-center justify-content-between">
                     <span class="salary d-block">
                         <span class="fw-semibold">Salary:</span>
-                        <span>$11K - $23K</span>
+                        <span class="salary-num">$11K - $23K</span>
                         /monthly
                     </span>
                     <span class="created d-block">
-                        <span class="fw-semibold">Created:</span>
+                        <span class="fw-semibold" style="color: #485997;">Created:</span>
                         Oct 21, 2023
                     </span>
                     <span class="deadline d-block">
-                        <span class="fw-semibold">Deadline:</span>
+                        <span class="fw-semibold" style="color: red;">Deadline:</span>
                         Nov 13, 2023
                     </span>
                 </div>
             </div>
         </div>
-        <div class="col-xxl-12">
+
+        <div class="applicant-box">
             <div class="single-job-box">
-                <div class="d-sm-flex align-items-center justify-content-between">
-                    <div class="d-sm-flex align-items-center">
+
+                <div class="d-flex content-area align-items-center justify-content-between">
+                    <div class="d-flex image-head align-items-center">
                         <div class="image">
-                            <img src="assets/images/companies/company13.png" alt="company-image">
+                            <img src="../../../../assets/images/candidate-dash-logo-2.png" alt="company-image">
                         </div>
                         <div class="content">
                             <h3 class="fw-semibold">
@@ -476,10 +510,10 @@
                         </div>
                     </div>
                     <div class="custom-info d-sm-flex align-items-center">
-                        <span class="active fw-medium d-block">
-                            Active
+                        <span class="active fw-medium closed d-block">
+                            Closed
                         </span>
-                        <ul class="ps-0 mb-0 list-unstyled">
+                        <ul class="ps-0 mb-0 d-flex justify-content-between list-unstyled">
                             <li class="d-inline-block">
                                 <button type="button" class="d-inline-block rounded-circle">
                                     <i class="ri-eye-line"></i>
@@ -498,29 +532,34 @@
                         </ul>
                     </div>
                 </div>
+
+                <div class="center-line"></div>
+
                 <div class="info d-sm-flex align-items-center justify-content-between">
                     <span class="salary d-block">
                         <span class="fw-semibold">Salary:</span>
-                        <span>$50 - $100</span>
-                        /hourly
+                        <span class="salary-num">$11K - $23K</span>
+                        /monthly
                     </span>
                     <span class="created d-block">
-                        <span class="fw-semibold">Created:</span>
+                        <span class="fw-semibold" style="color: #485997;">Created:</span>
                         Oct 21, 2023
                     </span>
                     <span class="deadline d-block">
-                        <span class="fw-semibold">Deadline:</span>
-                        Nov 14, 2023
+                        <span class="fw-semibold" style="color: red;">Deadline:</span>
+                        Nov 13, 2023
                     </span>
                 </div>
             </div>
         </div>
-        <div class="col-xxl-12">
+
+        <div class="applicant-box">
             <div class="single-job-box">
-                <div class="d-sm-flex align-items-center justify-content-between">
-                    <div class="d-sm-flex align-items-center">
+
+                <div class="d-flex content-area align-items-center justify-content-between">
+                    <div class="d-flex image-head align-items-center">
                         <div class="image">
-                            <img src="assets/images/companies/company14.png" alt="company-image">
+                            <img src="../../../../assets/images/candidate-dash-logo-2.png" alt="company-image">
                         </div>
                         <div class="content">
                             <h3 class="fw-semibold">
@@ -537,10 +576,10 @@
                         </div>
                     </div>
                     <div class="custom-info d-sm-flex align-items-center">
-                        <span class="active fw-medium d-block">
-                            Active
+                        <span class="active fw-medium closed d-block">
+                            Closed
                         </span>
-                        <ul class="ps-0 mb-0 list-unstyled">
+                        <ul class="ps-0 mb-0 d-flex justify-content-between list-unstyled">
                             <li class="d-inline-block">
                                 <button type="button" class="d-inline-block rounded-circle">
                                     <i class="ri-eye-line"></i>
@@ -559,29 +598,34 @@
                         </ul>
                     </div>
                 </div>
+
+                <div class="center-line"></div>
+
                 <div class="info d-sm-flex align-items-center justify-content-between">
                     <span class="salary d-block">
                         <span class="fw-semibold">Salary:</span>
-                        <span>$10K - $33K</span>
+                        <span class="salary-num">$11K - $23K</span>
                         /monthly
                     </span>
                     <span class="created d-block">
-                        <span class="fw-semibold">Created:</span>
+                        <span class="fw-semibold" style="color: #485997;">Created:</span>
                         Oct 21, 2023
                     </span>
                     <span class="deadline d-block">
-                        <span class="fw-semibold">Deadline:</span>
-                        Nov 15, 2023
+                        <span class="fw-semibold" style="color: red;">Deadline:</span>
+                        Nov 13, 2023
                     </span>
                 </div>
             </div>
         </div>
-        <div class="col-xxl-12">
+
+        <div class="applicant-box">
             <div class="single-job-box">
-                <div class="d-sm-flex align-items-center justify-content-between">
-                    <div class="d-sm-flex align-items-center">
+
+                <div class="d-flex content-area align-items-center justify-content-between">
+                    <div class="d-flex image-head align-items-center">
                         <div class="image">
-                            <img src="assets/images/companies/company15.png" alt="company-image">
+                            <img src="../../../../assets/images/candidate-dash-logo.png" alt="company-image">
                         </div>
                         <div class="content">
                             <h3 class="fw-semibold">
@@ -598,10 +642,10 @@
                         </div>
                     </div>
                     <div class="custom-info d-sm-flex align-items-center">
-                        <span class="active fw-medium d-block">
-                            Active
+                        <span class="active fw-medium closed d-block">
+                            Closed
                         </span>
-                        <ul class="ps-0 mb-0 list-unstyled">
+                        <ul class="ps-0 mb-0 d-flex justify-content-between list-unstyled">
                             <li class="d-inline-block">
                                 <button type="button" class="d-inline-block rounded-circle">
                                     <i class="ri-eye-line"></i>
@@ -620,29 +664,34 @@
                         </ul>
                     </div>
                 </div>
+
+                <div class="center-line"></div>
+
                 <div class="info d-sm-flex align-items-center justify-content-between">
                     <span class="salary d-block">
                         <span class="fw-semibold">Salary:</span>
-                        <span>$3K - $5K</span>
+                        <span class="salary-num">$11K - $23K</span>
                         /monthly
                     </span>
                     <span class="created d-block">
-                        <span class="fw-semibold">Created:</span>
+                        <span class="fw-semibold" style="color: #485997;">Created:</span>
                         Oct 21, 2023
                     </span>
                     <span class="deadline d-block">
-                        <span class="fw-semibold">Deadline:</span>
-                        Nov 16, 2023
+                        <span class="fw-semibold" style="color: red;">Deadline:</span>
+                        Nov 13, 2023
                     </span>
                 </div>
             </div>
         </div>
-        <div class="col-xxl-12">
+
+        <div class="applicant-box">
             <div class="single-job-box">
-                <div class="d-sm-flex align-items-center justify-content-between">
-                    <div class="d-sm-flex align-items-center">
+
+                <div class="d-flex content-area align-items-center justify-content-between">
+                    <div class="d-flex image-head align-items-center">
                         <div class="image">
-                            <img src="assets/images/companies/company16.png" alt="company-image">
+                            <img src="../../../../assets/images/candidate-dash-logo.png" alt="company-image">
                         </div>
                         <div class="content">
                             <h3 class="fw-semibold">
@@ -659,10 +708,10 @@
                         </div>
                     </div>
                     <div class="custom-info d-sm-flex align-items-center">
-                        <span class="active fw-medium d-block">
-                            Active
+                        <span class="active fw-medium closed d-block">
+                            Closed
                         </span>
-                        <ul class="ps-0 mb-0 list-unstyled">
+                        <ul class="ps-0 mb-0 d-flex justify-content-between list-unstyled">
                             <li class="d-inline-block">
                                 <button type="button" class="d-inline-block rounded-circle">
                                     <i class="ri-eye-line"></i>
@@ -681,29 +730,34 @@
                         </ul>
                     </div>
                 </div>
+
+                <div class="center-line"></div>
+
                 <div class="info d-sm-flex align-items-center justify-content-between">
                     <span class="salary d-block">
                         <span class="fw-semibold">Salary:</span>
-                        <span>$2K - $2.5K</span>
+                        <span class="salary-num">$11K - $23K</span>
                         /monthly
                     </span>
                     <span class="created d-block">
-                        <span class="fw-semibold">Created:</span>
+                        <span class="fw-semibold" style="color: #485997;">Created:</span>
                         Oct 21, 2023
                     </span>
                     <span class="deadline d-block">
-                        <span class="fw-semibold">Deadline:</span>
-                        Nov 17, 2023
+                        <span class="fw-semibold" style="color: red;">Deadline:</span>
+                        Nov 13, 2023
                     </span>
                 </div>
             </div>
         </div>
-        <div class="col-xxl-12">
+
+        <div class="applicant-box">
             <div class="single-job-box">
-                <div class="d-sm-flex align-items-center justify-content-between">
-                    <div class="d-sm-flex align-items-center">
+
+                <div class="d-flex content-area align-items-center justify-content-between">
+                    <div class="d-flex image-head align-items-center">
                         <div class="image">
-                            <img src="assets/images/companies/company17.png" alt="company-image">
+                            <img src="../../../../assets/images/candidate-dash-logo-2.png" alt="company-image">
                         </div>
                         <div class="content">
                             <h3 class="fw-semibold">
@@ -720,10 +774,10 @@
                         </div>
                     </div>
                     <div class="custom-info d-sm-flex align-items-center">
-                        <span class="active fw-medium d-block">
-                            Active
+                        <span class="active fw-medium closed d-block">
+                            Closed
                         </span>
-                        <ul class="ps-0 mb-0 list-unstyled">
+                        <ul class="ps-0 mb-0 d-flex justify-content-between list-unstyled">
                             <li class="d-inline-block">
                                 <button type="button" class="d-inline-block rounded-circle">
                                     <i class="ri-eye-line"></i>
@@ -742,22 +796,26 @@
                         </ul>
                     </div>
                 </div>
+
+                <div class="center-line"></div>
+
                 <div class="info d-sm-flex align-items-center justify-content-between">
                     <span class="salary d-block">
                         <span class="fw-semibold">Salary:</span>
-                        <span>$15 - $25</span>
-                        /hourly
+                        <span class="salary-num">$11K - $23K</span>
+                        /monthly
                     </span>
                     <span class="created d-block">
-                        <span class="fw-semibold">Created:</span>
+                        <span class="fw-semibold" style="color: #485997;">Created:</span>
                         Oct 21, 2023
                     </span>
                     <span class="deadline d-block">
-                        <span class="fw-semibold">Deadline:</span>
-                        Nov 18, 2023
+                        <span class="fw-semibold" style="color: red;">Deadline:</span>
+                        Nov 13, 2023
                     </span>
                 </div>
             </div>
         </div>
+
     </div>
 </div>

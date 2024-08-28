@@ -56,18 +56,19 @@
 
     &:hover {
         .icon {
+            border: 2px solid var(--whiteColor);
             color: var(--whiteColor);
-            background-color: var(--primaryColor);
+            background-color: transparent;
         }
     }
 }
 
 .Notifications-box {
-    width: 43%;
+    width: 45%;
 }
 
 .profile-box {
-    width: 54%;
+    width: 53.5%;
 }
 
 .Notifications-box,
@@ -95,34 +96,36 @@
 .jove-card {
     background-color: var(--whiteColor);
     margin-bottom: 1.5vw;
-    border-radius: 0.8vw;
-    padding: 2vw 1vw 2vw 2vw;
+    border-radius: 1vw;
+    padding: 1.95vw;
+
 
     .title {
         font-size: 1vw;
-        font-family: "mon-bold";
-        margin-bottom: 1.2vw;
+        margin-bottom: 1.5vw;
+        font-family: 'mon-bold';
         border-bottom: 1px solid var(--borderColor);
-        padding-left: 1.5vw;
-        padding-right: 1vw;
-        padding-bottom: 0.7vw;
-        margin-left: -2vw;
-        margin-right: -1vw;
+        padding-left: 1.3vw;
+        padding-right: 0.8vw;
+        padding-bottom: 0.9vw;
+        margin-left: -1.95vw;
+        margin-right: -1.95vw;
     }
 
     .notifications-list {
         margin-left: -1vw;
+
         li {
-            margin-bottom: 0.5vw;
-            padding-top: 0.5vw;
-            padding-left: 2.7vw;
-            padding-bottom: 0.3vw;
+            margin-bottom: 1.2vw;
+            padding-top: 0.2vw;
+            padding-left: 3vw;
+            padding-bottom: 0.55vw;
 
             .icon {
                 left: 0;
                 top: 50%;
-                width: 2.3vw;
-                height: 2.3vw;
+                width: 2.2vw;
+                height: 2.2vw;
                 position: absolute;
                 border-radius: 50%;
                 text-align: center;
@@ -134,7 +137,7 @@
                 i {
                     left: 1%;
                     right: 0;
-                    top: 53%;
+                    top: 47%;
                     position: absolute;
                     transform: translateY(-50%);
                 }
@@ -142,13 +145,19 @@
 
             span {
                 color: var(--headingColor);
-                font-size: 15.3px;
+                font-size: 0.95vw;
+                font-family: 'mon-reg';
 
                 &.color {
-                    color: #4086F6;
-                    font-size: 0.95vw;
-                    font-family: 'mon-reg';
+                    color: var(--primaryColor);
                 }
+            }
+
+            .job-apply {
+                font-size: 0.95vw;
+                font-family: 'mon-reg';
+                color: black;
+                padding: 0 0.3vw;
             }
 
             &:hover {
@@ -165,7 +174,8 @@
     }
 
     .recent-applicants {
-        margin-bottom: -25px;
+        margin-bottom: -1.7vw;
+        width: 100%;
     }
 
     .single-candidate-box {
@@ -176,31 +186,43 @@
         border: 1px solid var(--borderColor);
 
         .image {
-            max-width: 90px;
+            width: 5.3vw;
+        }
+
+        .image img {
+            width: 100%;
+            height: 5.3vw;
+            object-fit: cover;
         }
 
         .content {
             margin-left: 15px;
 
             h3 {
-                font-size: 17px;
-                margin-bottom: 6px;
+                font-size: 1.05vw;
+                font-family: 'mon-semi';
             }
 
             .designation {
-                margin-bottom: 6px;
+                font-size: 0.95vw;
+                font-family: 'mon-reg';
             }
 
             .location {
+                font-size: 1vw;
+                font-family: 'mon-reg';
+
                 span {
-                    color: var(--primaryColor);
+                    color: #4086f6;
                 }
             }
         }
 
         .view-profile {
             span {
-                margin-right: 15px;
+                margin-right: 0.7vw;
+                font-size: 0.9vw;
+                font-family: 'mon-bold';
             }
 
             ul {
@@ -214,11 +236,11 @@
 
                     button {
                         padding: 0;
-                        width: 32px;
-                        height: 32px;
+                        width: 2vw;
+                        height: 2vw;
                         border: none;
                         cursor: pointer;
-                        font-size: 16px;
+                        font-size: 1vw;
                         position: relative;
                         color: var(--primaryColor);
                         background-color: #f5f9fc;
@@ -260,12 +282,29 @@
     }
 }
 
+.applicants {
+    background-color: var(--pinkColor);
+    margin-bottom: 1.5vw;
+    border-radius: 1vw;
+    padding: 1.8vw 1.05vw 1.8vw 2vw;
+}
+
+.applicants .title {
+    color: var(--whiteColor);
+}
+
+.applicant-box {
+    width: 49%;
+    padding: 0;
+}
+
 ::ng-deep {
     .chart {
         .apexcharts-text {
             tspan {
-                font-family: var(--fontFamily);
-                font-size: 15px;
+                font-family: 'mon-reg';
+                font-size: 1vw;
+                color: black;
             }
         }
 
@@ -278,8 +317,8 @@
                     border-color: var(--borderColor);
 
                     font: {
-                        size: 15px !important;
-                        family: var(--fontFamily) !important;
+                        size: 1vw !important;
+                        family: 'mon-reg' !important;
                     }
 
                     ;
@@ -289,8 +328,8 @@
 
         .apexcharts-tooltip * {
             font: {
-                size: 14px;
-                family: var(--fontFamily);
+                size: 0.95vw;
+                family: 'mon-reg';
             }
 
             ;

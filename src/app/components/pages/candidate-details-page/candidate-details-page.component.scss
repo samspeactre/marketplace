@@ -1,51 +1,120 @@
+.main {
+    width: 90%;
+    margin: auto;
+}
+
+.candidate-details-area {
+    padding: 7.5vw 0 3vw;
+}
+
 .single-candidate-box {
-    padding: 25px;
-    margin-bottom: 40px;
-    border-radius: 15px;
+    padding: 2.2vw;
+    margin-bottom: 2.2vw;
+    border-radius: 1.1vw;
     background-color: var(--whiteColor);
     border: 1px solid var(--borderColor);
 
     .image {
-        max-width: 100px;
+        width: 6.5vw;
+
+        img {
+            width: 100%;
+            height: 6.5vw;
+            object-fit: cover;
+        }
     }
+
     .content {
-        margin-left: 20px;
+        margin-left: 1.2vw;
 
         h3 {
-            font-size: 18px;
-            margin-bottom: 6px;
+            font-size: 1.1vw;
+            font-family: 'mon-semi';
+            margin-bottom: 0.45vw;
+            color: black;
         }
+
         .designation {
-            margin-bottom: 6px;
+            margin-bottom: 0.45vw;
+            font-size: 1vw;
+            font-family: 'mon-reg';
+            color: black;
         }
+
         .location {
+            font-size: 1vw;
+            font-family: 'mon-reg';
+
             span {
-                color: var(--primaryColor);
+                color: #4086f6;
             }
         }
     }
+
+    .view-profile {
+        span {
+            margin-right: 2.2vw;
+            font-size: 1.1vw;
+            font-family: 'mon-semi';
+        }
+
+
+    }
+
     .download-cv {
         .default-btn {
-            padding: 8px 30px 10px;
-            font-weight: normal;
+            font-family: 'mon-bold' !important;
         }
     }
 }
+
+
 .candidate-details-description {
+
+    .about-head {
+        font-size: 3vw;
+        margin-bottom: 1vw;
+        font-family: "mon-bold";
+        text-align: center;
+        color: black;
+    }
+
     h3 {
-        font-size: 20px;
-        margin-bottom: 12px;
+        font-size: 1.4vw;
+        margin-bottom: 2vw;
+        font-family: "mon-bold";
+        color: black;
 
         &:not(:first-child) {
-            margin-top: 30px;
+            margin-top: 2.5vw;
         }
     }
+
+    .video-player {
+        width: 100%;
+
+        video {
+            width: 100%;
+            height: 30vw;
+        }
+    }
+
+    p {
+        font-size: 1.1vw;
+        font-family: "mon-reg";
+        color: black;
+    }
+
     ul {
         padding-left: 0;
+
         margin: {
             top: 25px;
             bottom: 25px;
-        };
+        }
+
+        ;
+
         li {
             padding-left: 70px;
             padding-bottom: 25px;
@@ -62,25 +131,32 @@
                 display: inline-block;
                 background-color: #f9fafb;
                 border: 1px solid #e0e6e9;
+
                 font: {
                     size: 18px;
                     weight: 600;
-                };
+                }
+
+                ;
             }
+
             h4 {
-                margin-bottom: 9px;
-                font: {
-                    size: 16px;
-                    weight: 600;
-                };
+                margin-bottom: 0.9vw;
+                font-size: 1.2vw;
+                font-family: 'mon-semi';
+                color: black;
             }
+
             .designation {
-                margin-bottom: 8px;
+                margin-bottom: 0.65vw;
+                font-size: 1.2vw;
+                font-family: 'mon-reg';
 
                 span {
-                    color: var(--primaryColor);
+                    color: #4086f6;
                 }
             }
+
             &::before {
                 top: 0;
                 left: 25px;
@@ -91,6 +167,7 @@
                 position: absolute;
                 border-left: 1px solid #e0e6e9;
             }
+
             &:last-child {
                 padding-bottom: 0;
 
@@ -101,28 +178,34 @@
         }
     }
 }
+
 .sidebar-area {
     background-color: #f5f9fc;
-    border-radius: 10px;
+    border-radius: 0.9vw;
 
     .box {
-        padding: 30px;
-        border-bottom: 1px solid var(--borderColor);
+        padding: 2.5vw;
+        border-bottom: 0.1vw solid var(--borderColor);
 
         h3 {
-            font-size: 18px;
-            margin-bottom: 20px;
+            font-size: 1.15vw;
+            font-family: 'mon-bold';
+            margin-bottom: 1.7vw;
+            color: black;
         }
+
         .contact-information {
             font-family: var(--headingFontFamily);
 
             li {
-                font-size: 15px;
-                margin-bottom: 14px;
-                
+                font-size: 1.05vw;
+                margin-bottom: 1vw;
+
                 span {
+                    font-family: 'mon-semi';
                     color: var(--headingColor);
                 }
+
                 a {
                     color: var(--bodyColor);
                     margin-left: 2px;
@@ -131,79 +214,91 @@
                         color: var(--primaryColor);
                     }
                 }
+
                 &:last-child {
                     margin-bottom: 0;
                 }
             }
         }
+
         .socials-link {
             li {
-                margin-bottom: 10px;
-    
+                margin-bottom: 0.83vw;
+
                 a {
                     color: var(--bodyColor);
-    
+
                     span {
-                        width: 35px;
-                        height: 35px;
-                        line-height: 33px;
+                        width: 2.5vw;
+                        height: 2.5vw;
+                        line-height: 2.5vw;
                         text-align: center;
                         border-radius: 50%;
-                        margin-right: 10px;
+                        margin-right: 0.9vw;
                         color: var(--whiteColor);
                         transition: var(--transition);
                         background-color: var(--primaryColor);
                     }
+
                     &.facebook {
                         span {
                             background-color: #1877f2;
                         }
                     }
+
                     &.twitter {
                         span {
                             background-color: #000000;
                         }
                     }
+
                     &.linkedin {
                         span {
                             background-color: #0077b5;
                         }
                     }
+
                     &:hover {
                         color: var(--primaryColor);
                     }
                 }
+
                 &:last-child {
                     margin-bottom: 0;
                 }
             }
         }
+
         .download-cv {
             a {
                 background-color: var(--whiteColor);
-                margin-bottom: 15px;
-                border-radius: 5px;
-                padding: 15px 20px;
-                font-size: 18px;
+                margin-bottom: 1vw;
+                border-radius: 0.3vw;
+                padding: 1vw 1.4vw;
+                font-size: 1.2vw;
+                font-family: 'mon-semi';
 
                 span {
                     color: #666666;
-                    margin-bottom: 4px;
-                    font-size: var(--fontSize);
+                    margin-bottom: 0.1vw;
+                    font-family: 'mon-reg';
                 }
+
                 i {
                     top: 50%;
-                    right: 20px;
-                    font-size: 35px;
+                    right: 1.7vw;
+                    font-size: 2.7vw;
                     position: absolute;
                     color: var(--primaryColor);
                     transform: translateY(-50%);
                 }
+
                 &:last-child {
                     margin-bottom: 0;
                 }
             }
         }
+
         form {
             .form-group {
                 margin-bottom: 15px;
@@ -212,6 +307,7 @@
                     display: block;
                     margin-bottom: 8px;
                 }
+
                 .form-control {
                     height: 50px;
                     padding: 10px 15px;
@@ -220,25 +316,28 @@
                     color: var(--headingColor);
                     border: 1px solid #e0e6e9;
                     transition: var(--transition);
-    
+
                     &::placeholder {
                         color: var(--bodyColor);
                         transition: var(--transition);
                     }
+
                     &:focus {
                         border-color: var(--primaryColor);
-    
+
                         &::placeholder {
                             color: transparent;
                         }
                     }
                 }
+
                 textarea.form-control {
                     height: auto;
                     padding-top: 15px;
                 }
             }
         }
+
         &:last-child {
             border-bottom: none;
         }
@@ -253,103 +352,125 @@
         border-radius: 5px;
         text-align: center;
         margin-bottom: 25px;
-    
+
         .image {
             margin: {
                 left: auto;
                 right: auto;
-            };
+            }
+
+            ;
         }
+
         .content {
             margin: {
                 left: 0;
                 top: 15px;
-            };
+            }
+
+            ;
+
             h3 {
                 font-size: 16px;
             }
         }
+
         .download-cv {
             margin-top: 10px;
         }
     }
+
     .candidate-details-description {
         h3 {
             font-size: 18px;
             margin-bottom: 10px;
-    
+
             &:not(:first-child) {
                 margin-top: 25px;
             }
         }
+
         ul {
             margin: {
                 top: 20px;
                 bottom: 25px;
-            };
+            }
+
+            ;
+
             li {
                 padding-left: 53px;
                 padding-bottom: 20px;
-    
+
                 .number {
                     width: 40px;
                     height: 40px;
                     font-size: 15px;
                     line-height: 37px;
                 }
+
                 h4 {
                     font-size: 15px;
                     margin-bottom: 7px;
                 }
+
                 .designation {
                     margin-bottom: 7px;
                 }
+
                 &::before {
                     left: 20px;
                 }
             }
         }
     }
+
     .sidebar-area {
         border-radius: 5px;
         margin-top: 25px;
-    
+
         .box {
             padding: 20px;
-    
+
             h3 {
                 font-size: 16px;
                 margin-bottom: 15px;
             }
+
             .contact-information {
                 li {
                     font-size: 14px;
                     margin-bottom: 12px;
                 }
             }
+
             .download-cv {
                 a {
                     padding: 13px 18px;
                     font-size: 16px;
-    
+
                     span {
                         font-size: 14px;
                     }
+
                     i {
                         font-size: 30px;
                     }
                 }
             }
+
             form {
                 .form-group {
                     label {
                         margin-bottom: 7px;
                     }
+
                     .form-control {
                         height: 45px;
                         font-size: 14px;
                         padding: 10px 12px;
                     }
+
                     textarea.form-control {
                         padding-top: 12px;
                     }
@@ -365,13 +486,16 @@
 
     .single-candidate-box {
         text-align: start;
-    
+
         .content {
             margin: {
                 left: 15px;
                 top: 0;
-            };
+            }
+
+            ;
         }
+
         .download-cv {
             margin-top: 0;
         }
@@ -386,47 +510,53 @@
         padding: 20px;
         border-radius: 10px;
         margin-bottom: 30px;
-    
+
         .content {
             margin-left: 17px;
         }
     }
+
     .candidate-details-description {
         h3 {
             font-size: 20px;
             margin-bottom: 10px;
-    
+
             &:not(:first-child) {
                 margin-top: 25px;
             }
         }
     }
+
     .sidebar-area {
         margin-top: 25px;
-    
+
         .box {
             padding: 25px;
-    
+
             h3 {
                 margin-bottom: 15px;
             }
+
             .contact-information {
                 li {
                     font-size: 14px;
                 }
             }
+
             .download-cv {
                 a {
                     font-size: 17px;
-    
+
                     span {
                         font-size: 15px;
                     }
+
                     i {
                         font-size: 30px;
                     }
                 }
             }
+
             form {
                 .form-group {
                     .form-control {
@@ -434,6 +564,7 @@
                         font-size: 15px;
                         padding: 10px 12px;
                     }
+
                     textarea.form-control {
                         padding-top: 12px;
                     }
@@ -450,11 +581,12 @@
     .single-candidate-box {
         padding: 20px;
         margin-bottom: 35px;
-    
+
         .content {
             margin-left: 18px;
         }
     }
+
     .sidebar-area {
         .box {
             padding: 25px;

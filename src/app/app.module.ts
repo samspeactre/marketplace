@@ -84,6 +84,11 @@ import { trigger, style, animate, transition } from '@angular/animations';
 import { LogoSliderComponent } from './components/common/logo-slider/logo-slider.component';
 import { CustomFooterComponent } from './components/common/custom-footer/custom-footer.component';
 import { PageBannerComponent } from './components/common/page-banner/page-banner.component';
+import { CommonModule } from '@angular/common';
+import { AuthPopupComponent } from './components/common/auth-popup/auth-popup.component';
+import { SubPageBannerComponent } from './components/common/sub-page-banner/sub-page-banner.component';
+import { EdEditAccountComponent } from './components/employers-dashboard/ed-edit-account/ed-edit-account.component';
+import { CdEditAccountComponent } from './components/candidates-dashboard/cd-edit-account/cd-edit-account.component';
 
 
 
@@ -166,6 +171,11 @@ import { PageBannerComponent } from './components/common/page-banner/page-banner
         LogoSliderComponent,
         CustomFooterComponent,
         PageBannerComponent,
+        AuthPopupComponent,
+        SubPageBannerComponent,
+        EdEditAccountComponent,
+        CdEditAccountComponent
+        
     ],
     imports: [
         BrowserModule,
@@ -176,6 +186,7 @@ import { PageBannerComponent } from './components/common/page-banner/page-banner
         BrowserAnimationsModule,
         TabsModule.forRoot(),
         BrowserAnimationsModule,
+        CommonModule
 
     ],
     providers: [],

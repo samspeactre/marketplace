@@ -39,6 +39,12 @@ import { CdAlertJobsComponent } from './components/candidates-dashboard/cd-alert
 import { CdMessageComponent } from './components/candidates-dashboard/cd-message/cd-message.component';
 import { CdChangePasswordComponent } from './components/candidates-dashboard/cd-change-password/cd-change-password.component';
 import { HomeComponent } from './components/home/home.component';
+import { EdEditAccountComponent } from './components/employers-dashboard/ed-edit-account/ed-edit-account.component';
+import { CdCompanyProfileComponent } from './components/candidates-dashboard/cd-company-profile/cd-company-profile.component';
+import { CdManageJobsComponent } from './components/candidates-dashboard/cd-manage-jobs/cd-manage-jobs.component';
+import { CdAllApplicantsComponent } from './components/candidates-dashboard/cd-all-applicants/cd-all-applicants.component';
+import { CdEditAccountComponent } from './components/candidates-dashboard/cd-edit-account/cd-edit-account.component';
+import { CdPostANewJobComponent } from './components/candidates-dashboard/cd-post-a-new-job/cd-post-a-new-job.component';
 
 const routes: Routes = [
     // {path: '', component: HomeDemoOneComponent},
@@ -47,14 +53,14 @@ const routes: Routes = [
     // {path: 'index-3', component: HomeDemoThreeComponent},
     {path: 'about', component: AboutPageComponent},
     {path: 'pricing', component: PricingPageComponent},
-    // {path: 'jobs-grid', component: JobsGridPageComponent},
-    // {path: 'jobs-listing', component: JobsListingPageComponent},
-    // {path: 'job-details', component: JobDetailsPageComponent},
+    {path: 'jobs-grid', component: JobsGridPageComponent},
+    {path: 'jobs-listing', component: JobsListingPageComponent},
+    {path: 'job-details', component: JobDetailsPageComponent},
     // {path: 'categories', component: CategoriesPageComponent},
-    // {path: 'candidates', component: CandidatesPageComponent},
-    // {path: 'candidate-details', component: CandidateDetailsPageComponent},
-    // {path: 'employers', component: EmployersPageComponent},
-    // {path: 'employer-details', component: EmployerDetailsPageComponent},
+    {path: 'candidates', component: CandidatesPageComponent},
+    {path: 'candidate-details', component: CandidateDetailsPageComponent},
+    {path: 'employers', component: EmployersPageComponent},
+    {path: 'employer-details', component: EmployerDetailsPageComponent},
     // {path: 'faq', component: FaqPageComponent},
     {path: 'privacy-policy', component: PrivacyPolicyPageComponent},
     {path: 'terms-conditions', component: TermsConditionsPageComponent},
@@ -73,6 +79,7 @@ const routes: Routes = [
             {path: 'resumes', component: EdResumesComponent},
             {path: 'message', component: EdMessageComponent},
             {path: 'change-password', component: EdChangePasswordComponent},
+            {path: 'edit-account', component: EdEditAccountComponent},
         ]
     },
     {
@@ -80,13 +87,12 @@ const routes: Routes = [
         component: CandidatesDashboardComponent,
         children: [
             {path: '', component: CDashboardComponent},
-            {path: 'my-profile', component: CdProfileComponent},
-            {path: 'resume', component: CdResumeComponent},
-            {path: 'bookmarks', component: CdBookmarksComponent},
-            {path: 'applied-jobs', component: CdAppliedJobsComponent},
-            {path: 'alert-jobs', component: CdAlertJobsComponent},
-            {path: 'message', component: CdMessageComponent},
-            {path: 'change-password', component: CdChangePasswordComponent},
+            {path: 'company-profile', component: CdCompanyProfileComponent},
+            {path: 'post-a-new-job', component: CdPostANewJobComponent},
+            {path: 'manage-jobs', component: CdManageJobsComponent},
+            {path: 'all-applicants', component: CdAllApplicantsComponent},
+            {path: 'resumes', component: CdResumeComponent},
+            {path: 'edit-account', component: CdEditAccountComponent},
         ]
     },
     // Here add new pages component
