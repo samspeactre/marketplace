@@ -9,6 +9,39 @@ import { FormBuilder, FormGroup, FormArray, Validators } from '@angular/forms';
 export class CdResumeComponent implements OnInit {
   mainForm!: FormGroup;
 
+  selectedFile: File | null = null;
+
+  onFileChange(event: Event): void {
+    const input = event.target as HTMLInputElement;
+    if (input.files && input.files.length > 0) {
+      this.selectedFile = input.files[0];
+    }
+  }
+
+  onVideoSubmit(): void {
+    if (this.selectedFile) {
+      // Handle file upload logic here
+      console.log('File selected:', this.selectedFile);
+    }
+  }
+
+  onCVFileChange(event: any) {
+    const file = event.target.files[0];
+    if (file && file.type === 'application/pdf') {
+      this.selectedFile = file;
+    } else {
+      alert('Please select a PDF file.');
+      this.selectedFile = null;
+    }
+  }
+
+  onCVSubmit() {
+    if (this.selectedFile) {
+      // Handle file upload logic here
+      console.log('File selected:', this.selectedFile.name);
+    }
+  }
+
   constructor(private fb: FormBuilder) { }
 
   ngOnInit(): void {
