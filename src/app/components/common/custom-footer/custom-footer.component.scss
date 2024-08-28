@@ -1,19 +1,23 @@
-footer{
+footer {
     background-color: #415499;
     padding: 7.7vw 2.8vw 10vw;
 }
 
-.logo-sec{
+.logo-sec {
     width: 31%;
 }
 
-.logo-sec a img{
+.logo-sec .image {
     width: 18.5vw;
+}
+
+.logo-sec .image img {
+    width: 64%;
     object-fit: cover;
     margin-bottom: 3vw;
 }
 
-.logo-sec h2{
+.logo-sec h2 {
     color: var(--whiteColor);
     font-size: 1.38vw;
     font-family: "mon-black";
@@ -21,82 +25,91 @@ footer{
     margin-bottom: 0;
 }
 
-.social-icon{
+.social-icon {
     width: 62%;
 }
 
-.icon-size a img{
+.icon-size a img {
     margin-top: 0.2vw;
     width: 4.8vw;
 }
 
-.seeker{
+.seeker {
     width: 21%;
     margin-top: 0.48vw;
     padding-left: 0.4vw;
 }
 
-.seeker-sec{
+.seeker-sec {
     margin-bottom: 1.2vw;
 }
 
-.seeker h4{
+.seeker h4 {
     color: var(--whiteColor);
     font-size: 0.9vw;
     font-family: 'mon-bold';
 }
 
-.seeker ul{
+.seeker ul {
     padding: 0;
     margin: 1.25vw 0 0;
 }
 
-.seeker ul li{
+.seeker ul li {
     text-decoration: none;
     list-style: none;
     font-size: 0.94vw;
     font-family: "mon-reg";
     color: var(--whiteColor);
-    line-height: 1.1vw;
+    line-height: 1.5vw;
 }
 
 .seeker-sec h3,
-.contact h3{
+.contact h3 {
     font-family: 'mon-reg';
     font-size: 1vw;
     color: var(--whiteColor);
     letter-spacing: 0.5px;
 }
 
-.seeker-sec .info li{
+.seeker-sec .info li {
     font-size: 1.05vw;
-    line-height: 1.3vw;
+    line-height: 1.6vw;
 }
 
-.company-info{
+.company-info {
     width: 23.3% !important;
 }
 
-.contact{
+.contact {
     margin-top: 0.6vw;
     width: 24.7%;
 }
 
-.contact h3{
+.contact h3 {
     font-size: 1.1vw;
     font-family: 'mon-reg';
     color: var(--whiteColor);
 }
 
-.address{
+.address {
     margin-top: 1.4vw;
     margin-bottom: 1.8vw;
 }
 
-.address h6{
+.address h6 {
     font-size: 1.12vw;
     font-family: "mon-light";
     color: var(--whiteColor);
     letter-spacing: 0.02vw;
-    line-height: 0.9vw;
+    line-height: 1.3vw;
+}
+
+/* Max width 767px */
+@media only screen and (max-width : 767px) {
+
+    footer {
+        padding: 7vw 4vw;
+    }
+
 }

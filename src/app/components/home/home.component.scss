@@ -485,7 +485,7 @@ h2 {
       padding: 2.8vw 2.7vw;
 
       h1 {
-        font-size: 6vw;
+        font-size: 6.3vw;
       }
 
       .tabs-container {
@@ -493,9 +493,9 @@ h2 {
           width: 100%;
 
           .tab {
-            height: 7vw;
+            height: 8vw;
             flex-grow: 1;
-            font-size: 2.3vw;
+            font-size: 2.5vw;
           }
         }
       }
@@ -505,7 +505,7 @@ h2 {
           .card {
             width: 48.5%;
             margin-right: 3%;
-            padding: 3.5vw;
+            padding: 3.5vw 0 3.5vw 3.5vw;
             border: 1.5px solid black;
             border-radius: 1vw;
             box-shadow: rgba(0, 0, 0, 0.35) 0px 2px 8px;
@@ -519,38 +519,43 @@ h2 {
               }
 
               .head-para {
-                width: 66%;
+                width: 69%;
 
                 .main-head {
-                  font-size: 2vw;
+                  font-size: 2.2vw;
                   letter-spacing: 0;
                 }
 
                 .para {
-                  font-size: 2vw;
+                  font-size: 2.2vw;
                 }
               }
             }
 
             .card-heading {
-              font-size: 2.7vw;
-              margin-top: 1.5vw;
+              font-size: 3vw;
+              margin-top: 2vw;
               letter-spacing: 0vw;
             }
 
             .card-tag {
-              font-size: 2vw;
+              font-size: 2.2vw;
               margin-top: -0.2vw;
             }
 
             .card-skill {
-              font-size: 1.8vw;
-              margin-top: 1.8vw;
+              font-size: 2.2vw;
+              margin-top: 5vw;
+              padding-right: 3.5vw;
+            }
+
+            .ss-btn{
+              padding-right: 3.5vw;
             }
 
             .card-amount,
             .card-amount span {
-              font-size: 2vw;
+              font-size: 2.2vw;
             }
 
             .card-button {
@@ -566,13 +571,14 @@ h2 {
 
           .see-more {
             button {
-              width: 23%;
-              margin: -0.85vw 38.5% 0;
-              padding: 1vw 0;
-              font-size: 2.5vw;
+              width: 27%;
+              margin: -0.85vw 36.5% 0;
+              padding: 1.5vw 0;
+              font-size: 2.7vw;
+              border-radius: 1vw;
 
               i {
-                font-size: 2.2vw;
+                font-size: 2.3vw;
               }
             }
           }
@@ -587,7 +593,7 @@ h2 {
     padding: 0 4dvw;
 
     .radical {
-      height: 67dvw;
+      height: 88dvw;
 
       .acc-head {
         font-size: 5dvw;
@@ -604,10 +610,10 @@ h2 {
 
             .accordion-header {
               padding: 0 3.2vw;
-              height: 9vw;
+              height: 10vw;
 
               h2 {
-                font-size: 2.7vw;
+                font-size: 2.9vw;
               }
 
               .acc-icon {
@@ -629,6 +635,47 @@ h2 {
             }
           }
         }
+
+        .see-more{
+          width: 100%;
+          margin: auto;
+          margin-top: 3vw;
+          button{
+            width: 27%;
+            margin: -0.85vw 36.5% 0;
+            padding: 1.5vw 0;
+            font-size: 2.7vw;
+            border-radius: 1vw;
+
+            i {
+              font-size: 2.3vw;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .vector-bg{
+    padding: 7vw 0;
+    background-position: 46vw -12vw;
+    h1{
+      font-size: 6.8vw;
+    }
+    h2{
+      font-size: 3vw;
+      padding: 0 12vw;
+    }
+
+    .auth-btn{
+      width: 45%;
+      margin: auto;
+      margin-top: 4.5vw;
+
+      button{
+         font-size: 2.7vw;
+         padding: 1.2vw 0;
+         border-radius: 0.8vw;
       }
     }
   }
