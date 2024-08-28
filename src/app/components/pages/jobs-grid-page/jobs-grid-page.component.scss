@@ -1,4 +1,4 @@
-.main{
+.main {
     width: 90%;
     margin: auto;
 }
@@ -29,12 +29,16 @@
                 width: 3.5vw;
                 position: absolute;
                 transform: translateY(-50%);
+
                 margin: {
                     left: auto;
                     right: auto;
-                };
+                }
+
+                ;
             }
         }
+
         h3 {
             font-size: 1.32vw;
             margin-bottom: 0.3vw;
@@ -130,22 +134,24 @@
         transform: rotate(-45deg);
         color: var(--whiteColor);
         position: absolute;
-        padding: 3px 50px;
-        left: -42px;
-        top: 23px;
+        padding: 0.1vw 4.5vw;
+        left: -3.5vw;
+        top: 2.1vw;
 
         &.urgent {
-            top: 23px;
-            left: -37px;
+            padding: 0.1vw 4.9vw;
+            left: -3.5vw;
+            top: 2.1vw;
             background-color: #d8342b;
         }
     }
+
     &:hover {
         transform: translateY(-5px);
     }
 }
 
-.jobs-area{
+.jobs-area {
     padding: 7.5vw 0 3vw;
 }
 
@@ -206,13 +212,17 @@
             font-family: 'mon-reg';
         }
     }
+
     .default-btn {
         display: block;
         width: 100%;
+
         padding: {
             left: 30px;
             right: 30px;
-        };
+        }
+
+        ;
     }
 }
 
@@ -276,10 +286,10 @@
 
     .job-item {
         border-radius: 5px;
-    
+
         .content {
             padding: 15px;
-    
+
             .company-logo {
                 width: 90px;
                 height: 90px;
@@ -293,16 +303,20 @@
                 font-size: 14px;
                 margin-bottom: 8px;
             }
+
             .job-type {
                 margin-right: 8px;
             }
+
             .deadline {
                 margin-left: 8px;
             }
         }
+
         .info {
             padding: 12px 15px;
         }
+
         .fav {
             font-size: 20px;
             height: 40px;
@@ -314,7 +328,6 @@
             padding: 2px 50px;
             left: -49px;
             top: 18px;
-    
             &.urgent {
                 top: 17px;
                 left: -42.5px;
@@ -343,32 +356,44 @@
             padding: {
                 left: 14px;
                 right: 14px;
-            };
+            }
+
+            ;
+
             i {
                 left: 15px;
                 font-size: 20px;
             }
+
             .form-control {
                 font-size: 14px;
+
                 padding: {
                     bottom: 14px;
                     left: 28px;
                     top: 14px;
                     right: 0;
-                };
+                }
+
+                ;
             }
+
             .form-select {
                 background-position: right 15px center;
                 font-size: 14px;
+
                 padding: {
                     bottom: 14px;
                     left: 28px;
                     top: 14px;
                     right: 0;
-                };
+                }
+
+                ;
             }
         }
     }
+
     .jove-grid-sorting {
         text-align: center;
 
@@ -392,9 +417,11 @@
                 font-size: 15px;
             }
         }
+
         .info {
             padding: 15px 20px;
         }
+
         .fav {
             font-size: 21px;
             height: 41px;
@@ -419,28 +446,39 @@
                 left: 10px;
                 font-size: 20px;
             }
+
             .form-control {
                 font-size: 15px;
+
                 padding: {
                     bottom: 12px;
                     left: 28px;
                     top: 12px;
-                };
+                }
+
+                ;
             }
+
             .form-select {
                 font-size: 15px;
+
                 padding: {
                     bottom: 12px;
                     left: 28px;
                     top: 12px;
-                };
+                }
+
+                ;
             }
         }
+
         .default-btn {
             padding: {
                 left: 25px;
                 right: 25px;
-            };
+            }
+
+            ;
         }
     }
 
