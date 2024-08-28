@@ -23,8 +23,6 @@
     --tabColor: #3b4e90;
     --darkBlue: #290164;
 
-
-
 }
 
 @font-face {
@@ -102,6 +100,10 @@
         border: 0.12vw solid var(--pinkColor);
         color: var(--pinkColor);
     }
+}
+
+.display{
+    display: flex;
 }
 
 body {
@@ -428,7 +430,11 @@ body {
 }
 
 /* Min width 576px to Max width 767px */
-@media only screen and (min-width : 576px) and (max-width : 767px) {}
+@media only screen and (max-width : 767px) {
+    .display{
+        display: block;
+    }
+}
 
 /* Min width 768px to Max width 991px */
 @media only screen and (min-width : 768px) and (max-width : 991px) {

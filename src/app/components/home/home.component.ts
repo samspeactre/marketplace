@@ -42,16 +42,16 @@ export class HomeComponent {
           amount: '5000',
           buttonText: 'Apply Now'
         },
-        {
-          image: '../../../assets/images/nextech.png',
-          mainHead: 'NexTech Solutions',
-          address: 'New York, USA',
-          heading: 'Software Developer',
-          cardTag: 'Full Time',
-          skills: 'CSS3, HTML5, Javascript, Bootstrap.',
-          amount: '5000',
-          buttonText: 'Apply Now'
-        },
+        // {
+        //   image: '../../../assets/images/nextech.png',
+        //   mainHead: 'NexTech Solutions',
+        //   address: 'New York, USA',
+        //   heading: 'Software Developer',
+        //   cardTag: 'Full Time',
+        //   skills: 'CSS3, HTML5, Javascript, Bootstrap.',
+        //   amount: '5000',
+        //   buttonText: 'Apply Now'
+        // },
         {
           image: '../../../assets/images/greenfield.png',
           mainHead: 'GreenField Organics',

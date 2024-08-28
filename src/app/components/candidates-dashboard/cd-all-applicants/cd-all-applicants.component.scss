@@ -91,10 +91,6 @@
 
             span {
                 margin-right: 1vw;
-
-                a {
-                    text-decoration: underline;
-                }
             }
 
             ul {
@@ -197,50 +193,52 @@
                 }
 
                 ;
+
+
             }
 
-            .content {
+        }
+
+        .content {
+            margin: {
+                left: 0;
+                top: 15px;
+            }
+
+            ;
+
+            h3 {
+                font-size: 16px;
+                margin-bottom: 5px;
+            }
+
+            .designation {
+                margin-bottom: 5px;
+            }
+        }
+
+        .view-profile {
+            span {
                 margin: {
-                    left: 0;
-                    top: 15px;
+                    bottom: 7px;
+                    top: 5px;
+                    right: 0;
                 }
 
                 ;
-
-                h3 {
-                    font-size: 16px;
-                    margin-bottom: 5px;
-                }
-
-                .designation {
-                    margin-bottom: 5px;
-                }
             }
 
-            .view-profile {
-                span {
-                    margin: {
-                        bottom: 7px;
-                        top: 5px;
-                        right: 0;
-                    }
-
-                    ;
-                }
-
-                ul {
-                    li {
-                        button {
-                            width: 34px;
-                            height: 34px;
-                            font-size: 16px;
-                        }
+            ul {
+                li {
+                    button {
+                        width: 34px;
+                        height: 34px;
+                        font-size: 16px;
                     }
                 }
             }
         }
     }
-
 }
 
 /* Min width 576px to Max width 767px */
@@ -339,6 +337,7 @@
     // Card
     .jove-card {
         padding: 25px;
+
         .title {
             padding: {
                 left: 25px;

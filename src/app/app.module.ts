@@ -89,6 +89,9 @@ import { AuthPopupComponent } from './components/common/auth-popup/auth-popup.co
 import {ReactiveFormsModule} from '@angular/forms';
 import { ToastrModule } from 'ngx-toastr';
 import { HttpClientModule } from '@angular/common/http';
+import { SubPageBannerComponent } from './components/common/sub-page-banner/sub-page-banner.component';
+import { EdEditAccountComponent } from './components/employers-dashboard/ed-edit-account/ed-edit-account.component';
+import { CdEditAccountComponent } from './components/candidates-dashboard/cd-edit-account/cd-edit-account.component';
 
 
 
@@ -171,7 +174,11 @@ import { HttpClientModule } from '@angular/common/http';
         LogoSliderComponent,
         CustomFooterComponent,
         PageBannerComponent,
-        AuthPopupComponent
+        AuthPopupComponent,
+        SubPageBannerComponent,
+        EdEditAccountComponent,
+        CdEditAccountComponent
+        
     ],
     imports: [
         BrowserModule,
@@ -187,6 +194,7 @@ import { HttpClientModule } from '@angular/common/http';
         HttpClientModule,
         ToastrModule.forRoot(),
 
+        CommonModule
 
     ],
     providers: [],

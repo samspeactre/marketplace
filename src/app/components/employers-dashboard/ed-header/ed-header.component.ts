@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
+import { AuthPopupComponent } from '../../common/auth-popup/auth-popup.component';
 
 @Component({
     selector: 'app-ed-header',
@@ -6,6 +7,8 @@ import { Component } from '@angular/core';
     styleUrls: ['./ed-header.component.scss']
 })
 export class EdHeaderComponent {
+
+    @ViewChild(AuthPopupComponent) authPopup!: AuthPopupComponent;
 
     constructor() { }
 
