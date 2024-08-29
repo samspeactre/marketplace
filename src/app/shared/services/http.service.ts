@@ -26,16 +26,15 @@ header = {
   }),
 };
 
-  get headerToken() {
-    const token:any = localStorage.getItem('token');
-    return {
-      headers: new HttpHeaders({
-        'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': '*',
-        Authorization: `Bearer ${JSON.parse(token)}`,
-      }),
-    };
-  }
+get headerToken() {
+  const token:any = localStorage.getItem('token');
+  return {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${(token)}`,
+    }),
+  };
+}
 
   post(url: string, data: any, token: boolean) {
     LoaderService.loader.next(true);

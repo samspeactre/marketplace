@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ValidatorFn, AbstractControl, ValidationErrors } from '@angular/forms';
+import { HttpService } from 'src/app/shared/services/http.service';
 
 @Component({
   selector: 'app-ed-post-a-new-job',
@@ -11,6 +12,9 @@ import { ValidatorFn, AbstractControl, ValidationErrors } from '@angular/forms';
 
 export class EdPostANewJobComponent {
   next: boolean = false;
+
+  constructor( private http: HttpService,) {}
+
 
   // Custom Validator for dropdowns
   dropdownValidator(): ValidatorFn {
@@ -53,24 +57,27 @@ export class EdPostANewJobComponent {
   }
 
   postJobForm = new FormGroup({
-    jobTitle: new FormControl(null, [Validators.required, Validators.minLength(5)]),
-    jobDescription: new FormControl(null, [Validators.required, Validators.minLength(10)]),
+    title: new FormControl(null, [Validators.required, Validators.minLength(5)]),
+    description: new FormControl(null, [Validators.required, Validators.minLength(10)]),
     email: new FormControl(null, [Validators.required, Validators.email]),
     username: new FormControl(null, [Validators.required, Validators.minLength(4)]),
-    specialisms: new FormControl(null, [Validators.required,this.dropdownValidator()]),    //dropdown
+    specialism: new FormControl(null, [Validators.required,this.dropdownValidator()]),    //dropdown
+    category_id: new FormControl(null, [Validators.required,this.dropdownValidator()]),    //dropdown
     jobType: new FormControl(null, [Validators.required, this.dropdownValidator()]),       //dropdown
-    offeredSalary: new FormControl(null, [Validators.required, this.dropdownValidator()]), //dropdown
+    salary: new FormControl(null, [Validators.required, this.dropdownValidator()]), //dropdown
     careerLevel: new FormControl(null, [Validators.required, this.dropdownValidator()]),   //dropdown
     experience: new FormControl(null, [Validators.required, this.dropdownValidator()]),    //dropdown
     gender: new FormControl(null, [Validators.required, this.dropdownValidator()]),        //dropdown
     industry: new FormControl(null, [Validators.required, this.dropdownValidator()]),      //dropdown
     qualification: new FormControl(null, [Validators.required, this.dropdownValidator()]), //dropdown
-    applicationDeadline: new FormControl(null, [Validators.required,this.dateValidator()]),
+    deadline: new FormControl(null, [Validators.required,this.dateValidator()]),
     country: new FormControl(null, [Validators.required ,this.dropdownValidator()]),       //dropdown
     city: new FormControl(null, [Validators.required, this.dropdownValidator()]),          //dropdown
     completeAddress: new FormControl(null, [Validators.required, Validators.minLength(10)]),
     latitude: new FormControl(null, [Validators.required,  this.latitudeValidator()]),
-    longitude: new FormControl(null, [Validators.required, this.longitudeValidator()])
+    longitude: new FormControl(null, [Validators.required, this.longitudeValidator()]),
+    company: new FormControl('hello')
+
   })
 
     nextFunction() {
@@ -81,5 +88,18 @@ export class EdPostANewJobComponent {
         console.log('Form is invalid');
       }
   }
+
+  async jobPost() {
+    this.next = true;
+
+    if (this.postJobForm.valid) {
+    await this.http.post('jobs/create', this.postJobForm.value, true).subscribe((res: any) => {
+        this.postJobForm.reset();
+      });
+    } else {
+      console.log(this.postJobForm.value, 'Form is invalid');
+    }
+  }
+
 
 }
