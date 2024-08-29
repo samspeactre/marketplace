@@ -225,7 +225,7 @@
                         <option value="15">Netherlands</option>
                         <option value="16">France</option>
                     </select>
-                    <div *ngIf="(contactInformation.get('country')?.touched || contactInformation.get('country')?.invalid) && save">
+                    <div *ngIf="(contactInformation.get('country')?.touched || contactInformation.get('country')?.invalid) && saveContact">
                       <small *ngIf="(contactInformation.get('country')?.errors?.['required'])" class="text-danger">Please select country.</small>
                   </div>
                 </div>
@@ -258,7 +258,7 @@
                         <option value="20">Paris</option>
                     </select>
                     <div *ngIf="(contactInformation.get('city')?.touched || contactInformation.get('city')?.invalid) && saveContact">
-                      <small *ngIf="(contactInformation.get('city')?.errors?.['required'])" class="text-danger">Please select country.</small>
+                      <small *ngIf="(contactInformation.get('city')?.errors?.['required'])" class="text-danger">Please select city.</small>
                   </div>
                 </div>
             </div>
@@ -268,7 +268,9 @@
                         Complete address
                     </label>
                     <input id="completeAddress" type="text" class="form-control shadow-none" value="84 Wexham Road RH19 8EA, USA" formControlName="completeAddress">
-
+                    <div *ngIf="(contactInformation.get('completeAddress')?.touched || contactInformation.get('completeAddress')?.invalid) && saveContact">
+                        <small *ngIf="contactInformation.get('completeAddress')?.errors?.['required']" class="text-danger">Complete Address is required</small>
+                      </div>
                 </div>
             </div>
             <div class="col-lg-6 col-md-6">
@@ -277,6 +279,9 @@
                         Latitude
                     </label>
                     <input id="latitude" type="text" class="form-control shadow-none" formControlName="latitude">
+                    <div *ngIf="(contactInformation.get('latitude')?.touched || contactInformation.get('latitude')?.invalid) && saveContact">
+                        <small *ngIf="contactInformation.get('latitude')?.errors?.['required']" class="text-danger">latitude is required</small>
+                      </div>
                 </div>
             </div>
             <div class="col-lg-6 col-md-6">
@@ -285,10 +290,13 @@
                         Longitude
                     </label>
                     <input id="longitude" type="text" class="form-control shadow-none" formControlName="longitude">
+                    <div *ngIf="(contactInformation.get('longitude')?.touched || contactInformation.get('longitude')?.invalid) && saveContact">
+                        <small *ngIf="contactInformation.get('longitude')?.errors?.['required']" class="text-danger">longitude is required</small>
+                      </div>
                 </div>
             </div>
         </div>
-        <button type="submit" class="default-btn" onclick="saveContactFunction()">
+        <button type="submit" class="default-btn" (click)="saveContactFunction()">
             Save
         </button>
     </form>

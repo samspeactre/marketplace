@@ -11,32 +11,32 @@
     <h3 class="title">
         Employer Information
     </h3>
-    <form>
+    <form [formGroup]="employeeInformation">
         <div class="row">
             <div class="col-lg-12 col-md-12">
             </div>
             <div class="col-lg-6 col-md-6">
                 <div class="form-group">
-                    <label>
+                    <label for="firstName">
                         First Name
                     </label>
-                    <input type="text" class="form-control shadow-none" value="Enter Name">
+                    <input id="firstName" type="text" class="form-control shadow-none" value="Enter Name" formControlName="firstName">
                 </div>
             </div>
             <div class="col-lg-6 col-md-6">
                 <div class="form-group">
-                    <label>
+                    <label for="lastName">
                         Last Name
                     </label>
-                    <input type="text" class="form-control shadow-none" value="Enter Name">
+                    <input id="lastName" type="text" class="form-control shadow-none" value="Enter Name" formControlName="lastName">
                 </div>
             </div>
             <div class="col-lg-6 col-md-6">
                 <div class="form-group">
-                    <label>
+                    <label for="username">
                         Username
                     </label>
-                    <input type="text" class="form-control shadow-none" value="Enter Username">
+                    <input id="username" type="text" class="form-control shadow-none" value="Enter Username" formControlName="username">
                 </div>
             </div>
             <div class="col-lg-6 col-md-6">
