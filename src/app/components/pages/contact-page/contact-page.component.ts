@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { HttpService } from 'src/app/shared/services/http.service';
 
 @Component({
   selector: 'app-contact-page',
@@ -11,6 +12,7 @@ export class ContactPageComponent {
 
   title = 'Contact Us - Jove';
   submit:boolean = false;
+  settings: any; 
   // Name = new FormControl('');
 
   ContactPageForm = new FormGroup({
@@ -36,10 +38,24 @@ export class ContactPageComponent {
     }
   }
 
-  constructor(private titleService: Title) { }
+  constructor(private titleService: Title,  private http: HttpService) { }
 
   ngOnInit() {
     this.titleService.setTitle(this.title);
+    this.fetchSettings();
   }
+
+  fetchSettings() {
+    this.http.get('setting/get_settings', false).subscribe(
+      (data) => {
+        this.settings = data; // Parse JSON if the response is valid
+        console.log('Settings fetched successfully:', this.settings);
+      },
+      (error) => {
+        console.error('Error fetching settings:', error);
+      }
+    );
+  }
+  
 
 }
