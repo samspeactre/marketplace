@@ -86,7 +86,6 @@ import { CustomFooterComponent } from './components/common/custom-footer/custom-
 import { PageBannerComponent } from './components/common/page-banner/page-banner.component';
 import { CommonModule } from '@angular/common';
 import { AuthPopupComponent } from './components/common/auth-popup/auth-popup.component';
-import {ReactiveFormsModule} from '@angular/forms';
 import { ToastrModule } from 'ngx-toastr';
 import { HttpClientModule } from '@angular/common/http';
 import { SubPageBannerComponent } from './components/common/sub-page-banner/sub-page-banner.component';
@@ -191,11 +190,12 @@ import { FormsModule,ReactiveFormsModule } from '@angular/forms';
         TabsModule.forRoot(),
         BrowserAnimationsModule,
         CommonModule,
+        FormsModule,
         ReactiveFormsModule,
         HttpClientModule,
         ToastrModule.forRoot(),
 
-        CommonModule
+        CommonModule 
 
     ],
     providers: [],
