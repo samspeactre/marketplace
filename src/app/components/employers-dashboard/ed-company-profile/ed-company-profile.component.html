@@ -14,25 +14,26 @@
         <div class="row">
             <div class="col-lg-12 col-md-12">
                 <div class="form-group upload-photo">
-                    <label for="uploadPic">
+                    <label for="main_logo">
                         Upload new photo
                     </label>
-                    <input id="uploadPic" type="file" id="img" name="img" accept="image/*" formControlName="uploadPic">
+                    <input id="main_logo" type="file"  (change)="onLogoSelected($event)" id="img" name="img" accept="image/*" formControlName="main_logo">
+
                     <p>Maximum file size: 2 MB</p>
-                    <div *ngIf="(companyProfile.get('uploadPic')?.touched || companyProfile.get('uploadPic')?.invalid) && save">
-                      <small *ngIf="companyProfile.get('uploadPic')?.errors?.['required']" class="text-danger"> Picture is required.</small>
+                    <div *ngIf="(companyProfile.get('main_logo')?.touched || companyProfile.get('main_logo')?.invalid) && save">
+                      <small *ngIf="companyProfile.get('main_logo')?.errors?.['required']" class="text-danger"> Picture is required.</small>
                     </div>
                 </div>
             </div>
             <div class="col-lg-6 col-md-6">
                 <div class="form-group">
-                    <label for="companyName">
+                    <label for="company_name">
                         Company name
                     </label>
-                    <input id="companyName" type="text" class="form-control shadow-none" value="Doca" formControlName="companyName">
-                    <div *ngIf="(companyProfile.get('companyName')?.touched || companyProfile.get('companyName')?.invalid) && save">
-                      <small *ngIf="companyProfile.get('companyName')?.errors?.['required']" class="text-danger"> Company name is required.</small>
-                      <small *ngIf="companyProfile.get('companyName')?.errors?.['minlength']" class="text-danger"> Company name must be at least 5 characters long.</small>
+                    <input id="company_name" type="text" class="form-control shadow-none" value="Doca" formControlName="company_name">
+                    <div *ngIf="(companyProfile.get('company_name')?.touched || companyProfile.get('company_name')?.invalid) && save">
+                      <small *ngIf="companyProfile.get('company_name')?.errors?.['required']" class="text-danger"> Company name is required.</small>
+                      <small *ngIf="companyProfile.get('company_name')?.errors?.['minlength']" class="text-danger"> Company name must be at least 5 characters long.</small>
                     </div>
                 </div>
             </div>
@@ -50,12 +51,12 @@
             </div>
             <div class="col-lg-6 col-md-6">
                 <div class="form-group">
-                    <label for="phone">
-                        Phone
+                    <label for="phone_number">
+                        Phone No
                     </label>
-                    <input id="phone" type="text" class="form-control shadow-none" value="+1 (514) 312-5678" formControlName="phone">
-                    <div *ngIf="(companyProfile.get('phone')?.touched || companyProfile.get('phone')?.invalid) && save">
-                      <small *ngIf="companyProfile.get('phone')?.errors?.['required']" class="text-danger">Phone number is required</small>
+                    <input id="phone_number" type="text" class="form-control shadow-none" value="+1 (514) 312-5678" formControlName="phone_number">
+                    <div *ngIf="(companyProfile.get('phone_number')?.touched || companyProfile.get('phone_number')?.invalid) && save">
+                      <small *ngIf="companyProfile.get('phone_number')?.errors?.['required']" class="text-danger">phone_number number is required</small>
                     </div>
                 </div>
             </div>
@@ -64,7 +65,7 @@
                     <label for="website">
                         Website
                     </label>
-                    <input id="website" type="text" class="form-control shadow-none" value="https://www.doca.com/" formControlName="formControlName">
+                    <input id="website" type="text" class="form-control shadow-none" value="https://www.doca.com/" formControlName="website">
                     <div *ngIf="(companyProfile.get('website')?.touched || companyProfile.get('website')?.invalid) && save">
                       <small *ngIf="companyProfile.get('website')?.errors?.['required']" class="text-danger">Website is required</small>
                     </div>
@@ -83,18 +84,13 @@
             </div>
             <div class="col-lg-6 col-md-6">
                 <div class="form-group">
-                    <label for="teamSize">
+                    <label for="team_size">
                         Team size
                     </label>
-                    <select id="teamSize" class="form-select shadow-none" formControlName="teamSize">
-                        <option selected>10 - 20</option>
-                        <option value="1">20 - 30</option>
-                        <option value="2">30 - 40</option>
-                        <option value="3">50 - 60</option>
-                    </select>
-                    <div *ngIf="(companyProfile.get('teamSize')?.touched || companyProfile.get('teamSize')?.invalid) && save">
-                      <small *ngIf="(companyProfile.get('teamSize')?.errors?.['required'])" class="text-danger">Please select Team size.</small>
-                  </div>
+                    <input id="team_size" type="text" class="form-control shadow-none" value="+1 (514) 312-5678" formControlName="team_size">
+                    <div *ngIf="(companyProfile.get('team_size')?.touched || companyProfile.get('team_size')?.invalid) && save">
+                      <small *ngIf="companyProfile.get('team_size')?.errors?.['required']" class="text-danger">Team Size  is required</small>
+                    </div>
                 </div>
             </div>
             <div class="col-lg-6 col-md-6">
@@ -110,50 +106,28 @@
             </div>
             <div class="col-lg-6 col-md-6">
                 <div class="form-group">
-                    <label for="allowSearchListing">
+                    <label for="allow_in_search">
                         Allow in search listing
                     </label>
-                    <select id="allowSearchListing" class="form-select shadow-none" formControlName="allowSearchListing">
-                        <option selected>Yes</option>
-                        <option value="1">No</option>
+                    <select id="allow_in_search" class="form-select shadow-none" formControlName="allow_in_search">
+                        <option selected>Please Select</option>
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
                     </select>
-                    <div *ngIf="(companyProfile.get('allowSearchListing')?.touched || companyProfile.get('allowSearchListing')?.invalid) && save">
-                      <small *ngIf="(companyProfile.get('allowSearchListing')?.errors?.['required'])" class="text-danger">Please select Team size.</small>
+                    <div *ngIf="(companyProfile.get('allow_in_search')?.touched || companyProfile.get('allow_in_search')?.invalid) && save">
+                      <small *ngIf="(companyProfile.get('allow_in_search')?.errors?.['required'])" class="text-danger">Please select Team size.</small>
                   </div>
                 </div>
             </div>
-            <div class="col-lg-12 col-md-12">
-                <div class="form-group">
-                    <label for="aboutCompany">
-                        About company
-                    </label>
-                    <textarea id="aboutCompany" class="form-control shadow-none" cols="30" rows="8" formControlName="aboutCompany">Welcome to a world of endless possibilities at Jove! It's not just a job search; it's a career evolution. Uncover your potential, chase your ambitions, and step into a realm where your dream job is not just a fantasy – it's waiting for you.</textarea>
-                    <div *ngIf="(companyProfile.get('aboutCompany')?.touched || companyProfile.get('aboutCompany')?.invalid) && save">
-                      <small *ngIf="companyProfile.get('aboutCompany')?.errors?.['required']" class="text-danger">About company is required</small>
-                      <small *ngIf="companyProfile.get('aboutCompany')?.errors?.['minlength']" class="text-danger">About company must be at least 10 characters long</small>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <button type="submit" class="default-btn" (click)="saveFunction()">
-            Save
-        </button>
-    </form>
-</div>
-<div class="jove-card">
-    <h3 class="title">
-        Social Network
-    </h3>
-    <form [formGroup]="SocialNetwork">
-        <div class="row">
+
             <div class="col-lg-6 col-md-6">
                 <div class="form-group">
                     <label for="facebook">
                         Facebook
                     </label>
                     <input id="facebook" type="text" class="form-control shadow-none" value="https://www.facebook.com/" formControlName="facebook">
-                    <div *ngIf="(SocialNetwork.get('facebook')?.touched || SocialNetwork.get('facebook')?.invalid) && saveSocialMedia">
-                      <small *ngIf="SocialNetwork.get('facebook')?.errors?.['required']" class="text-danger">Facebook url is required</small>
+                    <div *ngIf="(companyProfile.get('facebook')?.touched || companyProfile.get('facebook')?.invalid) && saveSocialMedia">
+                      <small *ngIf="companyProfile.get('facebook')?.errors?.['required']" class="text-danger">Facebook url is required</small>
                     </div>
                 </div>
             </div>
@@ -163,8 +137,8 @@
                         Twitter
                     </label>
                     <input id="twitter" type="text" class="form-control shadow-none" value="https://twitter.com/" formControlName="twitter">
-                    <div *ngIf="(SocialNetwork.get('twitter')?.touched || SocialNetwork.get('twitter')?.invalid) && saveSocialMedia">
-                      <small *ngIf="SocialNetwork.get('twitter')?.errors?.['required']" class="text-danger">Twitter url is required</small>
+                    <div *ngIf="(companyProfile.get('twitter')?.touched || companyProfile.get('twitter')?.invalid) && saveSocialMedia">
+                      <small *ngIf="companyProfile.get('twitter')?.errors?.['required']" class="text-danger">Twitter url is required</small>
                     </div>
                 </div>
             </div>
@@ -174,8 +148,8 @@
                         Linkedin
                     </label>
                     <input id="linkedin" type="text" class="form-control shadow-none" value="https://www.linkedin.com/" formControlName="linkedin">
-                    <div *ngIf="(SocialNetwork.get('linkedin')?.touched || SocialNetwork.get('linkedin')?.invalid) && saveSocialMedia">
-                      <small *ngIf="SocialNetwork.get('linkedin')?.errors?.['required']" class="text-danger">Linkedin url is required</small>
+                    <div *ngIf="(companyProfile.get('linkedin')?.touched || companyProfile.get('linkedin')?.invalid) && saveSocialMedia">
+                      <small *ngIf="companyProfile.get('linkedin')?.errors?.['required']" class="text-danger">Linkedin url is required</small>
                     </div>
                 </div>
             </div>
@@ -185,17 +159,31 @@
                         Instagram
                     </label>
                     <input id="instagram" type="text" class="form-control shadow-none" value="https://www.instagram.com/" formControlName="instagram">
-                    <div *ngIf="(SocialNetwork.get('instagram')?.touched || SocialNetwork.get('instagram')?.invalid) && saveSocialMedia">
-                      <small *ngIf="SocialNetwork.get('instagram')?.errors?.['required']" class="text-danger">Linkedin url is required</small>
+                    <div *ngIf="(companyProfile.get('instagram')?.touched || companyProfile.get('instagram')?.invalid) && saveSocialMedia">
+                      <small *ngIf="companyProfile.get('instagram')?.errors?.['required']" class="text-danger">Linkedin url is required</small>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-12 col-md-12">
+                <div class="form-group">
+                    <label for="about_company">
+                        About company
+                    </label>
+                    <textarea id="about_company" class="form-control shadow-none" cols="30" rows="8" formControlName="about_company">Welcome to a world of endless possibilities at Jove! It's not just a job search; it's a career evolution. Uncover your potential, chase your ambitions, and step into a realm where your dream job is not just a fantasy – it's waiting for you.</textarea>
+                    <div *ngIf="(companyProfile.get('about_company')?.touched || companyProfile.get('about_company')?.invalid) && save">
+                      <small *ngIf="companyProfile.get('about_company')?.errors?.['required']" class="text-danger">About company is required</small>
+                      <small *ngIf="companyProfile.get('about_company')?.errors?.['minlength']" class="text-danger">About company must be at least 10 characters long</small>
                     </div>
                 </div>
             </div>
         </div>
-        <button type="submit" class="default-btn" (click)="saveFunctionSocialMedia()">
+        <button type="submit" class="default-btn" (click)="saveFunction()">
             Save
         </button>
     </form>
 </div>
+
 <div class="jove-card">
     <h3 class="title">
         Contact Information
