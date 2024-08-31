@@ -17,18 +17,18 @@
             </div>
             <div class="col-lg-6 col-md-6">
                 <div class="form-group">
-                    <label for="firstName">
+                    <label for="first_name">
                         First Name
                     </label>
-                    <input id="firstName" type="text" class="form-control shadow-none" value="Enter Name" formControlName="firstName">
+                    <input id="first_name" type="text" class="form-control shadow-none"  formControlName="first_name">
                 </div>
             </div>
             <div class="col-lg-6 col-md-6">
                 <div class="form-group">
-                    <label for="lastName">
+                    <label for="last_name">
                         Last Name
                     </label>
-                    <input id="lastName" type="text" class="form-control shadow-none" value="Enter Name" formControlName="lastName">
+                    <input id="last_name" type="text" class="form-control shadow-none"  formControlName="last_name">
                 </div>
             </div>
             <div class="col-lg-6 col-md-6">
@@ -36,7 +36,7 @@
                     <label for="username">
                         Username
                     </label>
-                    <input id="username" type="text" class="form-control shadow-none" value="Enter Username" formControlName="username">
+                    <input id="username" type="text" class="form-control shadow-none" formControlName="username">
                 </div>
             </div>
             <div class="col-lg-6 col-md-6">
@@ -44,44 +44,16 @@
                     <label>
                         Phone
                     </label>
-                    <input type="text" class="form-control shadow-none" value="+1 (514) 312-5678">
+                    <input type="text" class="form-control shadow-none"  formControlName="phone_number" >
                 </div>
             </div>
-            <div class="col-lg-6 col-md-6">
-                <div class="form-group">
-                    <label>
-                        Password
-                    </label>
-                    <input type="text" class="form-control shadow-none" value="Enter Password">
-                </div>
-            </div>
-            <div class="col-lg-6 col-md-6">
-                <div class="form-group">
-                    <label>
-                        Confirm Password
-                    </label>
-                    <input type="text" class="form-control shadow-none" value="Enter Confirm Password">
-                </div>
-            </div>
-        </div>
-        <button type="submit" class="default-btn">
-            Save
-        </button>
-    </form>
-</div>
-
-<div class="jove-card">
-    <h3 class="title">
-        Social Network
-    </h3>
-    <form>
-        <div class="row">
+           
             <div class="col-lg-6 col-md-6">
                 <div class="form-group">
                     <label>
                         Facebook
                     </label>
-                    <input type="text" class="form-control shadow-none" value="https://www.facebook.com/">
+                    <input type="text" class="form-control shadow-none" formControlName="facebook" >
                 </div>
             </div>
             <div class="col-lg-6 col-md-6">
@@ -89,7 +61,7 @@
                     <label>
                         Twitter
                     </label>
-                    <input type="text" class="form-control shadow-none" value="https://twitter.com/">
+                    <input type="text" class="form-control shadow-none" formControlName="twitter">
                 </div>
             </div>
             <div class="col-lg-6 col-md-6">
@@ -97,7 +69,7 @@
                     <label>
                         Linkedin
                     </label>
-                    <input type="text" class="form-control shadow-none" value="https://www.linkedin.com/">
+                    <input type="text" class="form-control shadow-none" formControlName="linkedin" >
                 </div>
             </div>
             <div class="col-lg-6 col-md-6">
@@ -105,12 +77,13 @@
                     <label>
                         Instagram
                     </label>
-                    <input type="text" class="form-control shadow-none" value="https://www.instagram.com/">
+                    <input type="text" class="form-control shadow-none" formControlName="instagram" >
                 </div>
             </div>
         </div>
-        <button type="submit" class="default-btn">
+        <button type="submit" class="default-btn" (click)="employeUpdate()">
             Save
         </button>
     </form>
 </div>
+

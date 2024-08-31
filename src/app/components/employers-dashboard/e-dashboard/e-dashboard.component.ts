@@ -10,6 +10,7 @@ import {
     ApexStroke,
     ApexGrid
 } from "ng-apexcharts";
+import { HttpService } from "src/app/shared/services/http.service";
 
 export type ChartOptions = {
     series: ApexAxisChartSeries;
@@ -23,6 +24,8 @@ export type ChartOptions = {
     title: ApexTitleSubtitle;
 };
 
+
+
 @Component({
     selector: 'app-e-dashboard',
     templateUrl: './e-dashboard.component.html',
@@ -32,8 +35,10 @@ export class EDashboardComponent {
 
     @ViewChild("chart") chart: ChartComponent | undefined;
     public chartOptions: Partial<ChartOptions>;
+    public user: any;
+    public Job: number = 0;
 
-    constructor() {
+    constructor(private http: HttpService) {
         this.chartOptions = {
             series: [
                 {
@@ -107,5 +112,33 @@ export class EDashboardComponent {
             }
         };
     }
+
+    ngOnInit() {
+        this.loadData();
+      }
+      
+      
+      
+      async loadData() {
+        await Promise.all([this.getUser()]);
+      }
+
+    async getUser() {
+        try {
+          const res: any = await this.http.get('auth/me', true).toPromise();
+          this.user = res?.user;
+        } catch (error) {
+          console.error('Error fetching users:', error);
+        }
+
+        try {
+            const res: any = await this.http.get('jobs/get-my-jobs', true).toPromise();
+            console.log(res);
+            this.Job = res?.jobs?.length || 0;
+          } catch (error) {
+            console.error('Error fetching contractors:', error);
+          }
+      }
+      
 
 }
