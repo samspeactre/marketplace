@@ -45,6 +45,7 @@ import { CdManageJobsComponent } from './components/candidates-dashboard/cd-mana
 import { CdAllApplicantsComponent } from './components/candidates-dashboard/cd-all-applicants/cd-all-applicants.component';
 import { CdEditAccountComponent } from './components/candidates-dashboard/cd-edit-account/cd-edit-account.component';
 import { CdPostANewJobComponent } from './components/candidates-dashboard/cd-post-a-new-job/cd-post-a-new-job.component';
+import { AuthGuard } from './shared/services/auth.guard';
 
 const routes: Routes = [
     // {path: '', component: HomeDemoOneComponent},
@@ -70,6 +71,8 @@ const routes: Routes = [
     {
         path: 'dashboard',
         component: EmployersDashboardComponent,
+        canActivate: [AuthGuard],
+
         children: [
             {path: '', component: EDashboardComponent},
             {path: 'company-profile', component: EdCompanyProfileComponent},
@@ -85,6 +88,8 @@ const routes: Routes = [
     {
         path: 'candidates-dashboard',
         component: CandidatesDashboardComponent,
+        canActivate: [AuthGuard],
+
         children: [
             {path: '', component: CDashboardComponent},
             {path: 'company-profile', component: CdCompanyProfileComponent},

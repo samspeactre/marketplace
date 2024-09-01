@@ -18,13 +18,13 @@
                             </div>
                             <div class="content">
                                 <h3 class="fw-semibold">
-                                    Mechanical Engineer
+                                   {{ jobDetail?.title }}
                                 </h3>
                                 <span class="location d-block">
-                                    Topoint in London
+                                    {{jobDetail?.category?.title}}
                                 </span>
                                 <span class="job-type d-block">
-                                    Full Time
+                                    {{ jobDetail?.jobType }}
                                 </span>
                             </div>
                         </div>
@@ -249,31 +249,31 @@
                         </h3>
                         <ul class="job-summary ps-0 mb-0 list-unstyled">
                             <li>
-                                <span>Published on:</span> 29 Oct 2023
+                                <span>Published on:</span>   {{ jobDetail?.created_at | date:'dd-MM-yyyy' }}
                             </li>
                             <li>
-                                <span>Vacancy:</span> 01
+                                <span>Vacancy:</span> {{ jobDetail?.jobOpen }}
                             </li>
                             <li>
-                                <span>Job type:</span> Full time
+                                <span>Job type:</span>   {{ jobDetail?.jobType }}
                             </li>
                             <li>
-                                <span>Experience:</span> At least 5 Year(s)
+                                <span>Experience:</span>  {{ jobDetail?.experience }}
                             </li>
                             <li>
-                                <span>Job location:</span> London
+                                <span>Job location:</span>  {{ jobDetail?.country }}
                             </li>
                             <li>
                                 <span>Category:</span> Engineer
                             </li>
                             <li>
-                                <span>Gender:</span> Both
+                                <span>Gender:</span> {{ jobDetail?.gender }}
                             </li>
                             <li>
-                                <span>Salary:</span> $1K - $3K
+                                <span>Salary:</span> {{ jobDetail?.salary }}
                             </li>
                             <li>
-                                <span>Application deadline:</span> 15 Nov 2023
+                                <span>Application deadline:</span>  {{ jobDetail?.deadline | date:'dd-MM-yyyy' }}
                             </li>
                         </ul>
                     </div>

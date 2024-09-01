@@ -17,7 +17,7 @@
                     <label for="main_logo">
                         Upload new photo
                     </label>
-                    <input id="main_logo" type="file"  (change)="onLogoSelected($event)" id="img" name="img" accept="image/*" formControlName="main_logo">
+                    <input id="main_logo" type="file"  (change)="onLogoSelected($event)" id="main_logo" name="main_logo" accept="image/*" formControlName="main_logo">
 
                     <p>Maximum file size: 2 MB</p>
                     <div *ngIf="(companyProfile.get('main_logo')?.touched || companyProfile.get('main_logo')?.invalid) && save">
@@ -25,6 +25,10 @@
                     </div>
                 </div>
             </div>
+    
+
+
+        
             <div class="col-lg-6 col-md-6">
                 <div class="form-group">
                     <label for="company_name">
@@ -42,7 +46,7 @@
                     <label for="email">
                         Email address
                     </label>
-                    <input id="email" type="email" class="form-control shadow-none" value="hello@doca.com" formControlName="email">
+                    <input id="email" type="email" class="form-control shadow-none" value="hello@doca.com" formControlName="email" readonly>
                     <div *ngIf="(companyProfile.get('email')?.touched || companyProfile.get('email')?.invalid) && save">
                       <small *ngIf="companyProfile.get('email')?.errors?.['required']" class="text-danger"> Email is required.</small>
                       <small *ngIf="companyProfile.get('email')?.errors?.['email']" class="text-danger"> Please enter valid email.</small>
@@ -178,7 +182,7 @@
                 </div>
             </div>
         </div>
-        <button type="submit" class="default-btn" (click)="saveFunction()">
+        <button type="submit" class="default-btn" (click)="employeUpdate()">
             Save
         </button>
     </form>

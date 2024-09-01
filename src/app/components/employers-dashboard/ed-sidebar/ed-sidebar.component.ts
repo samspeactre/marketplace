@@ -12,4 +12,11 @@ export class EdSidebarComponent {
         this.classApplied = !this.classApplied;
     }
 
+
+    logout() {
+        localStorage.clear();
+
+          window.location.reload();
+      }
+
 }
