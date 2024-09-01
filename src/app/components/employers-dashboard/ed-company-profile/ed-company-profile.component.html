@@ -126,7 +126,7 @@
                         Facebook
                     </label>
                     <input id="facebook" type="text" class="form-control shadow-none" value="https://www.facebook.com/" formControlName="facebook">
-                    <div *ngIf="(companyProfile.get('facebook')?.touched || companyProfile.get('facebook')?.invalid) && saveSocialMedia">
+                    <div *ngIf="(companyProfile.get('facebook')?.touched || companyProfile.get('facebook')?.invalid) && save">
                       <small *ngIf="companyProfile.get('facebook')?.errors?.['required']" class="text-danger">Facebook url is required</small>
                     </div>
                 </div>
@@ -137,7 +137,7 @@
                         Twitter
                     </label>
                     <input id="twitter" type="text" class="form-control shadow-none" value="https://twitter.com/" formControlName="twitter">
-                    <div *ngIf="(companyProfile.get('twitter')?.touched || companyProfile.get('twitter')?.invalid) && saveSocialMedia">
+                    <div *ngIf="(companyProfile.get('twitter')?.touched || companyProfile.get('twitter')?.invalid) && save">
                       <small *ngIf="companyProfile.get('twitter')?.errors?.['required']" class="text-danger">Twitter url is required</small>
                     </div>
                 </div>
@@ -148,7 +148,7 @@
                         Linkedin
                     </label>
                     <input id="linkedin" type="text" class="form-control shadow-none" value="https://www.linkedin.com/" formControlName="linkedin">
-                    <div *ngIf="(companyProfile.get('linkedin')?.touched || companyProfile.get('linkedin')?.invalid) && saveSocialMedia">
+                    <div *ngIf="(companyProfile.get('linkedin')?.touched || companyProfile.get('linkedin')?.invalid) && save">
                       <small *ngIf="companyProfile.get('linkedin')?.errors?.['required']" class="text-danger">Linkedin url is required</small>
                     </div>
                 </div>
@@ -159,8 +159,8 @@
                         Instagram
                     </label>
                     <input id="instagram" type="text" class="form-control shadow-none" value="https://www.instagram.com/" formControlName="instagram">
-                    <div *ngIf="(companyProfile.get('instagram')?.touched || companyProfile.get('instagram')?.invalid) && saveSocialMedia">
-                      <small *ngIf="companyProfile.get('instagram')?.errors?.['required']" class="text-danger">Linkedin url is required</small>
+                    <div *ngIf="(companyProfile.get('instagram')?.touched || companyProfile.get('instagram')?.invalid) && save">
+                      <small *ngIf="companyProfile.get('instagram')?.errors?.['required']" class="text-danger">Instagram url is required</small>
                     </div>
                 </div>
             </div>

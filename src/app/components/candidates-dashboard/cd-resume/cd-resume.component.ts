@@ -1,3 +1,4 @@
+
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormArray, Validators } from '@angular/forms';
 
@@ -8,159 +9,110 @@ import { FormBuilder, FormGroup, FormArray, Validators } from '@angular/forms';
 })
 export class CdResumeComponent implements OnInit {
   mainForm!: FormGroup;
-
-  selectedFile: File | null = null;
-
-  onFileChange(event: Event): void {
-    const input = event.target as HTMLInputElement;
-    if (input.files && input.files.length > 0) {
-      this.selectedFile = input.files[0];
-    }
-  }
-
-  onVideoSubmit(): void {
-    if (this.selectedFile) {
-      // Handle file upload logic here
-      console.log('File selected:', this.selectedFile);
-    }
-  }
-
-  onCVFileChange(event: any) {
-    const file = event.target.files[0];
-    if (file && file.type === 'application/pdf') {
-      this.selectedFile = file;
-    } else {
-      alert('Please select a PDF file.');
-      this.selectedFile = null;
-    }
-  }
-
-  onCVSubmit() {
-    if (this.selectedFile) {
-      // Handle file upload logic here
-      console.log('File selected:', this.selectedFile.name);
-    }
-  }
+  personalDetailsForm!: FormGroup;
+  videoUploadForm!: FormGroup;
+  saveDetails: boolean=false;
+  saveVideo: boolean =false;
 
   constructor(private fb: FormBuilder) { }
 
   ngOnInit(): void {
     this.mainForm = this.fb.group({
-      // Career/Application Section
-      objective: [''],
-      presentSalary: [''],
-      expectedSalary: [''],
-      jobLevel: [''],
-      jobType: [''],
-      additionalForms: this.fb.array([]),  // For dynamic career/application sections
+      education: this.fb.array([this.createEducationFormGroup()]), // Default one entry
+      experience: this.fb.array([this.createExperienceFormGroup()]) // Default one entry
+    });
 
-      // Education Section
-      eductionLevel: [''],
-      degreeTitle: [''],
-      majorGroup: [''],
-      instituteName: [''],
-      result: [''],
-      marks: [''],
-      yearPass: [''],
-      durationYears: [''],
-      additionalEducationForms: this.fb.array([]),  // For dynamic education sections
+    this.personalDetailsForm = this.fb.group({
+      firstName: [null, [Validators.required, Validators.minLength(3)]],
+      lastName: [null, [Validators.required, Validators.minLength(3)]],
+      email: [null, [Validators.required, Validators.email]],
+      phone: [null, [Validators.required, Validators.pattern(/^[\+\d\s\(\)-]{10,}$/)]], // Example pattern
+      dateOfBirth: [null, Validators.required],
+      gender: [null, Validators.required],
+      maritalStatus: [null, Validators.required],
+      nationality: [null, Validators.required],
+      address: [null, Validators.required]
+    });
 
+    this.videoUploadForm=this.fb.group({
+      video:[null,[Validators.required]]
+    })
+  }
 
-      // Experience Section
-      companyName: [''],
-      companyBusiness: [''],
-      designation: [''],
-      department: [''],
-      responsibilities: [''],
-      companyLocation: [''],
-      employmentPeriod: [''],
-      experiences: this.fb.array([])
+  // Getter for Education FormArray
+  get education(): FormArray {
+    return this.mainForm.get('education') as FormArray;
+  }
+
+  // Method to create a new education form group
+  createEducationFormGroup(): FormGroup {
+    return this.fb.group({
+      degreeName: ['', Validators.required],
+      universityName: ['', Validators.required],
+      fromYear: ['', Validators.required],
+      toYear: ['', Validators.required],
+      description: ['', Validators.required]
     });
   }
 
-  // Getters for FormArrays
-  get additionalForms(): FormArray {
-    return this.mainForm.get('additionalForms') as FormArray;
+  // Method to add a new education form group
+  addEducationFormGroup(): void {
+    this.education.push(this.createEducationFormGroup());
   }
 
-  get additionalEducationForms(): FormArray {
-    return this.mainForm.get('additionalEducationForms') as FormArray;
+  // Method to remove an education form group
+  removeEducationFormGroup(index: number): void {
+    if (this.education.length > 1) {
+      this.education.removeAt(index);
+    }
   }
 
-  get experiences(): FormArray {
-    return this.mainForm.get('experiences') as FormArray;
+  // Getter for Experience FormArray
+  get experience(): FormArray {
+    return this.mainForm.get('experience') as FormArray;
   }
 
-  // Method to add a new dynamic form group to the Career/Application section
-  addForm(): void {
-    this.additionalForms.push(this.fb.group({
-      objective: [''],
-      presentSalary: [''],
-      expectedSalary: [''],
-      jobLevel: [''],
-      jobType: ['']
-    }));
-  }
-
-  // Method to remove a dynamic form group from the Career/Application section
-  removeForm(index: number): void {
-    this.additionalForms.removeAt(index);
-  }
-
-  // Method to handle Career/Application form submission
-  onSubmit(): void {
-    console.log('Career/Application Form Submitted', this.mainForm.value);
-    // Handle form submission logic here
-  }
-
-
-
-  // Method to add a new dynamic form group to the Education section
-  addEducationForm(): void {
-    this.additionalEducationForms.push(this.fb.group({
-      eductionLevel: [''],
-      degreeTitle: [''],
-      majorGroup: [''],
-      instituteName: [''],
-      result: [''],
-      marks: [''],
-      yearPass: [''],
-      durationYears: ['']
-    }));
-  }
-
-  // Method to remove a dynamic form group from the Education section
-  removeEductionForm(index: number): void {
-    this.additionalEducationForms.removeAt(index);
-  }
-
-  onEductionSubmit(): void {
-    console.log('Education Form Submitted', this.mainForm.value);
-    // Handle form submission logic here
-  }
-
-
-  // Method to add a new dynamic form group to the Experience section
-  addExperienceForm(): void {
-    this.experiences.push(this.fb.group({
+  // Method to create a new experience form group
+  createExperienceFormGroup(): FormGroup {
+    return this.fb.group({
+      position: ['', Validators.required],
       companyName: ['', Validators.required],
-      companyBusiness: ['', Validators.required],
-      designation: ['', Validators.required],
-      department: ['', Validators.required],
-      responsibilities: ['', Validators.required],
-      companyLocation: ['', Validators.required],
-      employmentPeriod: ['', Validators.required]
-    }));
+      fromYear: ['', Validators.required],
+      toYear: ['', Validators.required],
+      description: ['', Validators.required]
+    });
   }
 
-  // Method to remove a dynamic form group from the Experience section
-  removeExperienceForm(index: number): void {
-    this.experiences.removeAt(index);
+  // Method to add a new experience form group
+  addExperienceFormGroup(): void {
+    this.experience.push(this.createExperienceFormGroup());
   }
 
-  // Method to handle Career/Application form submission
-  onExperienceSubmit(): void {
-    console.log('Form Submitted', this.mainForm.value);
-    // Handle form submission logic here
+  // Method to remove an experience form group
+  removeExperienceFormGroup(index: number): void {
+    if (this.experience.length > 1) {
+      this.experience.removeAt(index);
+    }
+  }
+
+  // Method to handle form submission
+  onSubmit(): void {
+    this.saveDetails= true
+    if (this.mainForm.valid) {
+      console.log(this.mainForm.value);
+      // Handle form submission logic here
+    }else{
+      console.log('Form is invalid')
+    }
+  }
+
+  onSubmitVideo(): void {
+    this.saveDetails= true
+    if (this.mainForm.valid) {
+      console.log(this.mainForm.value);
+      // Handle form submission logic here
+    }else{
+      console.log('Form is invalid')
+    }
   }
 }

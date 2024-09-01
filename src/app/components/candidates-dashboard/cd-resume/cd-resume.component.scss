@@ -29,6 +29,52 @@
         margin-right: -2.5vw;
     }
 
+    /* Form Container (Centering the Save Button) */
+    .form-container {
+        display: flex;
+        /* Use Flexbox for the container */
+        justify-content: center;
+        /* Horizontally center the button */
+        align-items: center;
+        /* Vertically center the button, if needed */
+        height: 100%;
+        /* Adjust based on your layout needs */
+    }
+
+    /* Default Button Styling */
+    .default-btn {
+        font-size: 1vw;
+        /* Font size */
+        font-family: 'mon-bold';
+        /* Font family */
+        background-color: var(--pinkColor);
+        /* Background color */
+        padding: 0.5vw 1.5vw;
+        /* Padding */
+        border: 0;
+        /* Remove default border */
+        border-radius: 0.4vw;
+        /* Border radius */
+        color: var(--whiteColor);
+        /* Text color */
+        transition: var(--transition);
+        /* Transition for hover effect */
+        cursor: pointer;
+        /* Pointer cursor on hover */
+        text-align: center;
+        /* Center text inside button */
+    }
+
+    /* Default Button Hover State */
+    .default-btn:hover {
+        border: 0.1vw solid #3a4e90;
+        /* Border on hover */
+        background-color: transparent;
+        /* Background color on hover */
+        color: #3a4e90;
+        /* Text color on hover */
+    }
+
     form {
         .form-group {
             margin-bottom: 1.5vw;
@@ -193,10 +239,12 @@
     right: 11.5%;
     padding-top: 0.75vw;
     padding-bottom: 0.75vw;
-    &:hover{
+
+    &:hover {
         border: 0.1vw solid red;
         color: red;
     }
+
     .add-btn-icon {
         margin-left: 16%;
     }
@@ -396,6 +444,7 @@
     // Card
     .jove-card {
         padding: 25px;
+
         .title {
             padding: {
                 left: 25px;
@@ -436,6 +485,26 @@
                 h3 {
                     font-size: 18px;
                 }
+            }
+
+            .form-container {
+                display: flex;
+                /* Use Flexbox for the container */
+                justify-content: center;
+                /* Horizontally center the button */
+                align-items: center;
+                /* Vertically center the button, if needed */
+                /* Optional: Set a height if needed to center vertically in a larger area */
+                height: 100%;
+                /* Adjust based on your layout needs */
+            }
+
+            .default-btn {
+                /* Add any additional styling for your button here */
+                padding: 10px 20px;
+                /* Example padding */
+                font-size: 16px;
+                /* Example font size */
             }
 
             .view-profile {

@@ -6,111 +6,141 @@
 </div>
 
 <!-- Resume -->
+
 <div class="jove-card">
     <h3 class="title">
         Personal Details
     </h3>
-    <form>
+    <form [formGroup]="personalDetailsForm" (ngSubmit)="onSubmit()">
         <div class="row">
             <div class="col-lg-6 col-md-6">
                 <div class="form-group">
-                    <label>
-                        First name
-                    </label>
-                    <input type="text" class="form-control shadow-none" value="Alina">
+                    <label>First name</label>
+                    <input type="text" formControlName="firstName" class="form-control shadow-none" placeholder="Alina">
+                    <div *ngIf="(personalDetailsForm.get('firstName')?.invalid || personalDetailsForm.get('firstName')?.touched) && saveDetails" class="text-danger">
+                        <small *ngIf="personalDetailsForm.get('firstName')?.errors?.['required']">First Name is required.</small>
+                        <small *ngIf="personalDetailsForm.get('firstName')?.errors?.['minlength']"> First Name must be atleast 3 characters long</small>
+                    </div>
                 </div>
             </div>
             <div class="col-lg-6 col-md-6">
                 <div class="form-group">
-                    <label>
-                        Last name
-                    </label>
-                    <input type="text" class="form-control shadow-none" value="Smith">
+                    <label>Last name</label>
+                    <input type="text" formControlName="lastName" class="form-control shadow-none" placeholder="Smith">
+                    <div *ngIf="(personalDetailsForm.get('lastName')?.invalid || personalDetailsForm.get('lastName')?.touched) && saveDetails" class="text-danger">
+                        <small *ngIf="personalDetailsForm.get('lastName')?.errors?.['required']">Last Name is required.</small>
+                        <small *ngIf="personalDetailsForm.get('lastName')?.errors?.['minlength']"> Last Name must be atleast 3 characters long</small>
+                    </div>
                 </div>
             </div>
             <div class="col-lg-6 col-md-6">
                 <div class="form-group">
-                    <label>
-                        Email address
-                    </label>
-                    <input type="email" class="form-control shadow-none" value="hello@doca.com">
+                    <label>Email address</label>
+                    <input type="email" formControlName="email" class="form-control shadow-none" placeholder="hello@doca.com">
+                    <div *ngIf="(personalDetailsForm.get('email')?.invalid || personalDetailsForm.get('email')?.touched) && saveDetails" class="text-danger">
+                        <small *ngIf="personalDetailsForm.get('email')?.errors?.['required']">Email is required.</small>
+                        <small *ngIf="personalDetailsForm.get('email')?.errors?.['email']">Invalid email.</small>
+                    </div>
                 </div>
             </div>
             <div class="col-lg-6 col-md-6">
                 <div class="form-group">
-                    <label>
-                        Phone
-                    </label>
-                    <input type="text" class="form-control shadow-none" value="+1 (514) 312-5678">
+                    <label>Phone</label>
+                    <input type="text" formControlName="phone" class="form-control shadow-none" placeholder="+1 (514) 312-5678">
+                    <div *ngIf="(personalDetailsForm.get('phone')?.invalid || personalDetailsForm.get('phone')?.touched) && saveDetails" class="text-danger">
+                        <small *ngIf="personalDetailsForm.get('phone')?.errors?.['required']">Phone number is required.</small>
+                    </div>
                 </div>
             </div>
             <div class="col-lg-6 col-md-6">
                 <div class="form-group">
-                    <label>
-                        Date of birth
-                    </label>
-                    <input type="date" class="form-control shadow-none">
+                    <label>Date of birth</label>
+                    <input type="date" formControlName="dateOfBirth" class="form-control shadow-none">
+                    <div *ngIf="(personalDetailsForm.get('dateOfBirth')?.invalid || personalDetailsForm.get('dateOfBirth')?.touched) && saveDetails" class="text-danger">
+                        <small *ngIf="personalDetailsForm.get('dateOfBirth')?.errors?.['required']">Date of birth is required.</small>
+                    </div>
                 </div>
             </div>
             <div class="col-lg-6 col-md-6">
                 <div class="form-group">
-                    <label>
-                        Gender
-                    </label>
-                    <select class="form-select shadow-none">
-                        <option selected>Select</option>
-                        <option value="1">Male</option>
-                        <option value="2">Female</option>
-                        <option value="3">Custom</option>
+                    <label>Gender</label>
+                    <select formControlName="gender" class="form-select shadow-none">
+                        <option value="">Select</option>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                        <option value="custom">Custom</option>
                     </select>
+                    <div *ngIf="(personalDetailsForm.get('gender')?.invalid || personalDetailsForm.get('gender')?.touched) && saveDetails" class="text-danger">
+                        <small *ngIf="personalDetailsForm.get('gender')?.errors?.['required']">gender is required.</small>
+                    </div>
                 </div>
             </div>
             <div class="col-lg-6 col-md-6">
                 <div class="form-group">
-                    <label>
-                        Marital status
-                    </label>
-                    <select class="form-select shadow-none">
-                        <option selected>Select</option>
-                        <option value="1">Married</option>
-                        <option value="2">Single</option>
-                        <option value="3">Complicated</option>
+                    <label>Marital status</label>
+                    <select formControlName="maritalStatus" class="form-select shadow-none">
+                        <option value="">Select</option>
+                        <option value="married">Married</option>
+                        <option value="single">Single</option>
+                        <option value="complicated">Complicated</option>
                     </select>
+                    <div *ngIf="(personalDetailsForm.get('maritalStatus')?.invalid || personalDetailsForm.get('maritalStatus')?.touched) && saveDetails" class="text-danger">
+                        <small *ngIf="personalDetailsForm.get('maritalStatus')?.errors?.['required']">Marital status is required.</small>
+                    </div>
                 </div>
             </div>
             <div class="col-lg-6 col-md-6">
                 <div class="form-group">
-                    <label>
-                        Nationality
-                    </label>
-                    <select class="form-select shadow-none">
-                        <option selected>Select</option>
-                        <option value="1">Japan</option>
-                        <option value="2">USA</option>
-                        <option value="3">England</option>
-                        <option value="4">China</option>
-                        <option value="5">Canada</option>
-                        <option value="6">Brazil</option>
-                        <option value="7">South Korea</option>
-                        <option value="8">Spain</option>
-                        <option value="9">Turkey</option>
-                        <option value="10">Japan</option>
-                        <option value="11">Denmark</option>
-                        <option value="12">Thailand</option>
-                        <option value="13">UAE</option>
-                        <option value="14">Australia</option>
-                        <option value="15">Netherlands</option>
-                        <option value="16">France</option>
+                    <label>Nationality</label>
+                    <select formControlName="nationality" class="form-select shadow-none">
+                        <option value="">Select</option>
+                        <option value="japan">Japan</option>
+                        <option value="usa">USA</option>
+                        <option value="england">England</option>
+                        <option value="china">China</option>
+                        <option value="canada">Canada</option>
+                        <option value="brazil">Brazil</option>
+                        <option value="south_korea">South Korea</option>
+                        <option value="spain">Spain</option>
+                        <option value="turkey">Turkey</option>
+                        <option value="denmark">Denmark</option>
+                        <option value="thailand">Thailand</option>
+                        <option value="uae">UAE</option>
+                        <option value="australia">Australia</option>
+                        <option value="netherlands">Netherlands</option>
+                        <option value="france">France</option>
                     </select>
+                    <div *ngIf="(personalDetailsForm.get('nationality')?.invalid || personalDetailsForm.get('nationality')?.touched) && saveDetails" class="text-danger">
+                        <small *ngIf="personalDetailsForm.get('nationality')?.errors?.['required']">Nationality is required.</small>
+                    </div>
                 </div>
             </div>
             <div class="col-lg-12 col-md-12">
                 <div class="form-group">
-                    <label>
-                        Address details
-                    </label>
-                    <textarea class="form-control shadow-none" cols="30" rows="8"></textarea>
+                    <label>Address details</label>
+                    <textarea formControlName="address" class="form-control shadow-none" cols="30" rows="8"></textarea>
+                    <div *ngIf="(personalDetailsForm.get('address')?.invalid || personalDetailsForm.get('address')?.touched) && saveDetails" class="text-danger">
+                        <small *ngIf="personalDetailsForm.get('address')?.errors?.['required']">Address is required.</small>
+                    </div>
                 </div>
+            </div>
+        </div>
+        <button type="submit" class="default-btn" >Save</button>
+    </form>
+</div>
+
+<!-- video form -->
+
+<div class="jove-card">
+    <h3 class="title">
+        Video
+    </h3>
+    <form [formGroup]="videoUploadForm" (ngSubmit)="onSubmitVideo()">
+        <div class="form-group">
+            <label for="video">Upload Video:</label>
+            <input type="file" id="video"  accept="video/*" />
+            <div *ngIf="(videoUploadForm.get('video')?.invalid || videoUploadForm.get('video')?.touched) && saveDetails" class="text-danger">
+                <small *ngIf="videoUploadForm.get('video')?.errors?.['required']">Video is required.</small>
             </div>
         </div>
         <button type="submit" class="default-btn">
@@ -119,30 +149,17 @@
     </form>
 </div>
 
-<div class="jove-card">
-    <h3 class="title">
-        Video
-    </h3>
-    <form (ngSubmit)="onVideoSubmit()" #videoForm="ngForm">
-        <div class="form-group">
-            <label for="video">Upload Video:</label>
-            <input type="file" id="video" (change)="onFileChange($event)" accept="video/*" />
-        </div>
-        <button type="submit" class="default-btn">
-            Save
-        </button>
-    </form>
-</div>
+<!--CV form-->
 
 <div class="jove-card">
     <h3 class="title">
         CV
     </h3>
 
-    <form (ngSubmit)="onCVSubmit()" #fileForm="ngForm">
+    <form >
         <div class="form-group">
             <label for="pdfFile">Upload CV:</label>
-            <input type="file" id="pdfFile" (change)="onCVFileChange($event)" accept=".pdf" required />
+            <input type="file" id="pdfFile" accept=".pdf" required />
         </div>
         <button type="submit" class="default-btn">
             Save
@@ -150,510 +167,132 @@
     </form>
 </div>
 
+
+<!--Education Form-->
+
 <div class="jove-card">
-    <h3 class="title">
-        Career & Application Information
-    </h3>
+    <h3 class="title">Education</h3>
     <form [formGroup]="mainForm" (ngSubmit)="onSubmit()">
-        <div class="row">
-            <div class="col-lg-12 col-md-12">
-                <div class="form-group">
-                    <label>Objective</label>
-                    <textarea class="form-control shadow-none" cols="30" rows="7"
-                        formControlName="objective"></textarea>
-                </div>
-            </div>
+        <div formArrayName="education">
+            <!-- Loop through the education form array -->
+            <div class="row" *ngFor="let educationGroup of education.controls; let i = index" [formGroupName]="i">
 
-            <div class="col-lg-6 col-md-6">
-                <div class="form-group">
-                    <label>Present salary</label>
-                    <input type="text" class="form-control shadow-none" placeholder="$2000"
-                        formControlName="presentSalary">
-                </div>
-            </div>
-
-            <div class="col-lg-6 col-md-6">
-                <div class="form-group">
-                    <label>Expected salary</label>
-                    <input type="text" class="form-control shadow-none" placeholder="$3000"
-                        formControlName="expectedSalary">
-                </div>
-            </div>
-
-            <div class="col-lg-6 col-md-6">
-                <div class="form-group">
-                    <label>Job level</label>
-                    <select class="form-select shadow-none" formControlName="jobLevel">
-                        <option selected>Select</option>
-                        <option value="1">High Level</option>
-                        <option value="2">Mid Level</option>
-                        <option value="3">Low Level</option>
-                    </select>
-                </div>
-            </div>
-
-            <div class="col-lg-6 col-md-6">
-                <div class="form-group">
-                    <label>Job type</label>
-                    <select class="form-select shadow-none" formControlName="jobType">
-                        <option selected>Select</option>
-                        <option value="1">Full Time</option>
-                        <option value="2">Part Time</option>
-                        <option value="3">Hourly</option>
-                    </select>
-                </div>
-            </div>
-
-            <!-- Dynamic Sections -->
-            <div formArrayName="additionalForms" *ngFor="let form of additionalForms.controls; let i = index">
-                <div [formGroupName]="i">
-
-                    <div class="row">
-                        <div class="col-lg-12 col-md-12">
-                            <div class="form-group">
-                                <label>Additional Objective</label>
-                                <textarea class="form-control shadow-none" cols="30" rows="7"
-                                    formControlName="objective"></textarea>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-6 col-md-6">
-                            <div class="form-group">
-                                <label>Additional Present salary</label>
-                                <input type="text" class="form-control shadow-none" placeholder="$2000"
-                                    formControlName="presentSalary">
-                            </div>
-                        </div>
-
-                        <div class="col-lg-6 col-md-6">
-                            <div class="form-group">
-                                <label>Additional Expected salary</label>
-                                <input type="text" class="form-control shadow-none" placeholder="$3000"
-                                    formControlName="expectedSalary">
-                            </div>
-                        </div>
-
-                        <div class="col-lg-6 col-md-6">
-                            <div class="form-group">
-                                <label>Job level</label>
-                                <select class="form-select shadow-none" formControlName="jobLevel">
-                                    <option selected>Select</option>
-                                    <option value="1">High Level</option>
-                                    <option value="2">Mid Level</option>
-                                    <option value="3">Low Level</option>
-                                </select>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-6 col-md-6">
-                            <div class="form-group">
-                                <label>Job type</label>
-                                <select class="form-select shadow-none" formControlName="jobType">
-                                    <option selected>Select</option>
-                                    <option value="1">Full Time</option>
-                                    <option value="2">Part Time</option>
-                                    <option value="3">Hourly</option>
-                                </select>
-                            </div>
-                        </div>
+                <div class="col-lg-6 col-md-6">
+                    <div class="form-group">
+                        <label>Degree Name</label>
+                        <input type="text" formControlName="degreeName" class="form-control shadow-none">
                     </div>
-
-                    <button type="button" class="remove-btn" (click)="removeForm(i)">
-                        <i class="fa-solid fa-trash add-btn-icon"></i>
-                    </button>
-
                 </div>
-            </div>
 
+                <div class="col-lg-6 col-md-6">
+                    <div class="form-group">
+                        <label>University Name</label>
+                        <input type="text" formControlName="universityName" class="form-control shadow-none">
+                    </div>
+                </div>
+
+                <div class="col-lg-6 col-md-6">
+                    <div class="form-group">
+                        <label>From Year</label>
+                        <input type="text" formControlName="fromYear" class="form-control shadow-none">
+                    </div>
+                </div>
+
+                <div class="col-lg-6 col-md-6">
+                    <div class="form-group">
+                        <label>To Year</label>
+                        <input type="text" formControlName="toYear" class="form-control shadow-none">
+                    </div>
+                </div>
+
+                <div class="col-lg-6 col-md-6">
+                    <div class="form-group">
+                        <label>Description</label>
+                        <textarea formControlName="description" class="form-control shadow-none" rows="5" style="height: 150px; width: 100%;"></textarea>
+                    </div>
+                </div>
+
+                <!-- Show the delete button only for entries after the first one -->
+                <div class="col-12" *ngIf="i > 0">
+                    <button type="button" class="remove-btn" (click)="removeEducationFormGroup(i)">
+                        <i class="fa-solid fa-trash"></i>
+                    </button>
+                </div>
+
+            </div>
         </div>
 
         <div class="display justify-content-between">
             <button type="submit" class="default-btn">Save</button>
-            <button type="button" class="add-btn" (click)="addForm()">
+            <button type="button" class="add-btn" (click)="addEducationFormGroup()">
                 <i class="fa-solid fa-plus add-btn-icon"></i>ADD
             </button>
         </div>
     </form>
 </div>
 
+
+
+
+<!--Experience form-->
+
 <div class="jove-card">
-    <h3 class="title">
-        Education
-    </h3>
-    <form [formGroup]="mainForm" (ngSubmit)="onEductionSubmit()">
-        <div class="row">
-            <div class="col-lg-6 col-md-6">
+    <h3 class="title">Experience</h3>
+    <form [formGroup]="mainForm" (ngSubmit)="onSubmit()">
+        <div formArrayName="experience">
+            <!-- Loop through the experience form array -->
+            <div class="row" *ngFor="let experienceGroup of experience.controls; let i = index" [formGroupName]="i">
 
-                <div class="form-group">
-                    <label>
-                        Level of education
-                    </label>
-                    <select class="form-select shadow-none" formControlName="eductionLevel">
-                        <option value="1" selected>Japan</option>
-                        <option value="2">First Class</option>
-                        <option value="3">Second Class</option>
-                    </select>
-                </div>
-            </div>
-
-            <div class="col-lg-6 col-md-6">
-                <div class="form-group">
-                    <label>
-                        Exam / Degree title
-                    </label>
-                    <select class="form-select shadow-none" formControlName="degreeTitle">
-                        <option value="1" selected>Select</option>
-                        <option value="2">B.S.C</option>
-                        <option value="3">C.S.C</option>
-                    </select>
-                </div>
-            </div>
-
-            <div class="col-lg-6 col-md-6">
-                <div class="form-group" formControlName="majorGroup">
-                    <label>
-                        Major/Group
-                    </label>
-                    <input type="text" class="form-control shadow-none">
-                </div>
-            </div>
-
-            <div class="col-lg-6 col-md-6">
-                <div class="form-group" formControlName="instituteName">
-                    <label>
-                        Institute name
-                    </label>
-                    <input type="text" class="form-control shadow-none">
-                </div>
-            </div>
-
-            <div class="col-lg-6 col-md-6">
-                <div class="form-group">
-                    <label>
-                        Result
-                    </label>
-                    <select class="form-select shadow-none" formControlName="result">
-                        <option value="1" selected>Select</option>
-                        <option value="2">CGPA 5</option>
-                        <option value="3">CGPA 4</option>
-                        <option value="4">CGPA 3</option>
-                    </select>
-                </div>
-            </div>
-
-            <div class="col-lg-6 col-md-6">
-                <div class="form-group" formControlName="marks">
-                    <label>
-                        Marks(%)
-                    </label>
-                    <input type="text" class="form-control shadow-none">
-                </div>
-            </div>
-
-            <div class="col-lg-6 col-md-6">
-                <div class="form-group">
-                    <label>
-                        Year of passing
-                    </label>
-                    <select class="form-select shadow-none" formControlName="yearPass">
-                        <option value="1" selected>Select</option>
-                        <option value="2">2023</option>
-                        <option value="3">2022</option>
-                        <option value="4">2021</option>
-                    </select>
-                </div>
-            </div>
-
-            <div class="col-lg-6 col-md-6">
-                <div class="form-group" formControlName="durationYears">
-                    <label>
-                        Duration (years)
-                    </label>
-                    <input type="text" class="form-control shadow-none">
-                </div>
-            </div>
-
-            <!-- Dynamic Sections -->
-            <div formArrayName="additionalEducationForms"
-                *ngFor="let form of additionalEducationForms.controls; let i = index">
-                <div [formGroupName]="i">
-
-                    <div class="row">
-                        <div class="col-lg-6 col-md-6">
-
-                            <div class="form-group">
-                                <label>
-                                    Level of education
-                                </label>
-                                <select class="form-select shadow-none" formControlName="eductionLevel">
-                                    <option value="1" selected>Japan</option>
-                                    <option value="2">First Class</option>
-                                    <option value="3">Second Class</option>
-                                </select>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-6 col-md-6">
-                            <div class="form-group">
-                                <label>
-                                    Exam / Degree title
-                                </label>
-                                <select class="form-select shadow-none" formControlName="degreeTitle">
-                                    <option value="1" selected>Select</option>
-                                    <option value="2">B.S.C</option>
-                                    <option value="3">C.S.C</option>
-                                </select>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-6 col-md-6">
-                            <div class="form-group" formControlName="majorGroup">
-                                <label>
-                                    Major/Group
-                                </label>
-                                <input type="text" class="form-control shadow-none">
-                            </div>
-                        </div>
-
-                        <div class="col-lg-6 col-md-6">
-                            <div class="form-group" formControlName="instituteName">
-                                <label>
-                                    Institute name
-                                </label>
-                                <input type="text" class="form-control shadow-none">
-                            </div>
-                        </div>
-
-                        <div class="col-lg-6 col-md-6">
-                            <div class="form-group">
-                                <label>
-                                    Result
-                                </label>
-                                <select class="form-select shadow-none" formControlName="result">
-                                    <option value="1" selected>Select</option>
-                                    <option value="2">CGPA 5</option>
-                                    <option value="3">CGPA 4</option>
-                                    <option value="4">CGPA 3</option>
-                                </select>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-6 col-md-6">
-                            <div class="form-group" formControlName="marks">
-                                <label>
-                                    Marks(%)
-                                </label>
-                                <input type="text" class="form-control shadow-none">
-                            </div>
-                        </div>
-
-                        <div class="col-lg-6 col-md-6">
-                            <div class="form-group">
-                                <label>
-                                    Year of passing
-                                </label>
-                                <select class="form-select shadow-none" formControlName="yearPass">
-                                    <option value="1" selected>Select</option>
-                                    <option value="2">2023</option>
-                                    <option value="3">2022</option>
-                                    <option value="4">2021</option>
-                                </select>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-6 col-md-6">
-                            <div class="form-group" formControlName="durationYears">
-                                <label>
-                                    Duration (years)
-                                </label>
-                                <input type="text" class="form-control shadow-none">
-                            </div>
-                        </div>
+                <div class="col-lg-6 col-md-6">
+                    <div class="form-group">
+                        <label>Position</label>
+                        <input type="text" formControlName="position" class="form-control shadow-none">
                     </div>
+                </div>
 
-                    <!-- Dynamic form fields here... -->
-                    <button type="button" class="remove-btn" (click)="removeEductionForm(i)">
-                        <i class="fa-solid fa-trash add-btn-icon"></i>
+                <div class="col-lg-6 col-md-6">
+                    <div class="form-group">
+                        <label>Company Name</label>
+                        <input type="text" formControlName="companyName" class="form-control shadow-none">
+                    </div>
+                </div>
+
+                <div class="col-lg-6 col-md-6">
+                    <div class="form-group">
+                        <label>From Year</label>
+                        <input type="text" formControlName="fromYear" class="form-control shadow-none">
+                    </div>
+                </div>
+
+                <div class="col-lg-6 col-md-6">
+                    <div class="form-group">
+                        <label>To Year</label>
+                        <input type="text" formControlName="toYear" class="form-control shadow-none">
+                    </div>
+                </div>
+
+                <div class="col-lg-6 col-md-6">
+                    <div class="form-group">
+                        <label>Description</label>
+                        <textarea formControlName="description" class="form-control shadow-none" rows="5" style="height: 150px; width: 100%;"></textarea>
+                    </div>
+                </div>
+
+                <!-- Show the delete button only for entries after the first one -->
+                <div class="col-12" *ngIf="i > 0">
+                    <button type="button" class="remove-btn" (click)="removeExperienceFormGroup(i)">
+                        <i class="fa-solid fa-trash"></i>
                     </button>
-
                 </div>
-            </div>
-
-        </div>
-
-        <div class="display justify-content-between">
-            <button type="submit" class="default-btn">Save</button>
-            <button type="button" class="add-btn" (click)="addEducationForm()">
-                <i class="fa-solid fa-plus add-btn-icon"></i>ADD
-            </button>
-        </div>
-
-    </form>
-</div>
-
-<div class="jove-card">
-    <h3 class="title">
-        Experience
-    </h3>
-    <form [formGroup]="mainForm" (ngSubmit)="onExperienceSubmit()">
-
-        <div class="row">
-
-            <div class="col-lg-6 col-md-6">
-                <div class="form-group" formControlName="companyName">
-                    <label>
-                        Company name
-                    </label>
-                    <input type="text" class="form-control shadow-none">
-                </div>
-            </div>
-
-            <div class="col-lg-6 col-md-6">
-                <div class="form-group" formControlName="companyBusiness">
-                    <label>
-                        Company business
-                    </label>
-                    <input type="text" class="form-control shadow-none">
-                </div>
-            </div>
-
-            <div class="col-lg-6 col-md-6">
-                <div class="form-group" formControlName="designation">
-                    <label>
-                        Designation
-                    </label>
-                    <input type="text" class="form-control shadow-none">
-                </div>
-            </div>
-
-            <div class="col-lg-6 col-md-6">
-                <div class="form-group" formControlName="department">
-                    <label>
-                        Department
-                    </label>
-                    <input type="text" class="form-control shadow-none">
-                </div>
-            </div>
-
-            <div class="col-lg-6 col-md-6">
-                <div class="form-group">
-                    <label>
-                        Responsibilities
-                    </label>
-                    <select class="form-select shadow-none" formControlName="responsibilities">
-                        <option value="1" selected>Japan</option>
-                        <option value="2">10 Roles and their lists of job responsibilities</option>
-                        <option value="3">Should you share job responsibilities in a resume?</option>
-                    </select>
-                </div>
-            </div>
-
-            <div class="col-lg-6 col-md-6">
-                <div class="form-group" formControlName="companyLocation">
-                    <label>
-                        Company location
-                    </label>
-                    <input type="text" class="form-control shadow-none">
-                </div>
-            </div>
-
-            <div class="col-lg-12 col-md-12">
-                <div class="form-group" formControlName="employmentPeriod">
-                    <label>
-                        Employment period
-                    </label>
-                    <input type="text" class="form-control shadow-none">
-                </div>
-            </div>
-
-            <!-- Dynamic Sections -->
-            <div formArrayName="experiences" *ngFor="let form of experiences.controls; let i = index">
-                <div [formGroupName]="i">
-                    <div class="row">
-
-                        <div class="col-lg-6 col-md-6">
-                            <div class="form-group" formControlName="companyName">
-                                <label>
-                                    Company name
-                                </label>
-                                <input type="text" class="form-control shadow-none">
-                            </div>
-                        </div>
-
-                        <div class="col-lg-6 col-md-6">
-                            <div class="form-group" formControlName="companyBusiness">
-                                <label>
-                                    Company business
-                                </label>
-                                <input type="text" class="form-control shadow-none">
-                            </div>
-                        </div>
-
-                        <div class="col-lg-6 col-md-6">
-                            <div class="form-group" formControlName="designation">
-                                <label>
-                                    Designation
-                                </label>
-                                <input type="text" class="form-control shadow-none">
-                            </div>
-                        </div>
-
-                        <div class="col-lg-6 col-md-6">
-                            <div class="form-group" formControlName="department">
-                                <label>
-                                    Department
-                                </label>
-                                <input type="text" class="form-control shadow-none">
-                            </div>
-                        </div>
-
-                        <div class="col-lg-6 col-md-6">
-                            <div class="form-group">
-                                <label>
-                                    Responsibilities
-                                </label>
-                                <select class="form-select shadow-none" formControlName="responsibilities">
-                                    <option value="1" selected>Japan</option>
-                                    <option value="2">10 Roles and their lists of job responsibilities</option>
-                                    <option value="3">Should you share job responsibilities in a resume?</option>
-                                </select>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-6 col-md-6">
-                            <div class="form-group" formControlName="companyLocation">
-                                <label>
-                                    Company location
-                                </label>
-                                <input type="text" class="form-control shadow-none">
-                            </div>
-                        </div>
-
-                        <div class="col-lg-12 col-md-12">
-                            <div class="form-group" formControlName="employmentPeriod">
-                                <label>
-                                    Employment period
-                                </label>
-                                <input type="text" class="form-control shadow-none">
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-                <!-- Dynamic form fields here... -->
-                <button type="button" class="remove-btn" (click)="removeExperienceForm(i)">
-                    <i class="fa-solid fa-trash add-btn-icon"></i>
-                </button>
 
             </div>
         </div>
 
         <div class="display justify-content-between">
             <button type="submit" class="default-btn">Save</button>
-            <button type="button" class="add-btn" (click)="addExperienceForm()">
+            <button type="button" class="add-btn" (click)="addExperienceFormGroup()">
                 <i class="fa-solid fa-plus add-btn-icon"></i>ADD
             </button>
         </div>
-
     </form>
 </div>
