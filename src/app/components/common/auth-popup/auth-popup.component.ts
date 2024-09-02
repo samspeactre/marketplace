@@ -14,6 +14,10 @@ export class AuthPopupComponent {
   public candidateLogin: FormGroup;
   public EmployerloginForm: FormGroup;
   public employerLogin: FormGroup;
+  RegisterCandidate: boolean=false;
+  RegisterEmployee:boolean=false;
+  LoginCandidate: boolean=false;
+  LoginEmployee: boolean=false;
 
   isFormValid: boolean = false;
 
@@ -32,12 +36,12 @@ export class AuthPopupComponent {
     private toastr: ToastrService,
   ) {
     this.CandidateloginForm = this.fb.group({
-      first_name: ['', [Validators.required]],
-      last_name: ['', [Validators.required]],
-      username: ['', [Validators.required]],
-      email: ['', [Validators.required, Validators.email]],
-      phone_number: ['', [Validators.required]],
-      password: ['', [Validators.required]],
+      first_name: [null, [Validators.required]],
+      last_name: [null, [Validators.required]],
+      username: [null, [Validators.required]],
+      email: [null, [Validators.required, Validators.email]],
+      phone_number: [null, [Validators.required]],
+      password: [null, [Validators.required]],
       role: ['candidate', [Validators.required]],
     });
 
@@ -46,18 +50,18 @@ export class AuthPopupComponent {
     });
 
     this.candidateLogin = this.fb.group({
-      email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required]],
+      email: [null, [Validators.required, Validators.email]],
+      password: [null, [Validators.required]],
       role: ['candidate', [Validators.required]],
     });
 
     this.EmployerloginForm = this.fb.group({
-      first_name: ['', [Validators.required]],
-      last_name: ['', [Validators.required]],
-      username: ['', [Validators.required]],
-      email: ['', [Validators.required, Validators.email]],
-      phone_number: ['', [Validators.required]],
-      password: ['', [Validators.required]],
+      first_name: [null, [Validators.required]],
+      last_name: [null, [Validators.required]],
+      username: [null, [Validators.required]],
+      email: [null, [Validators.required, Validators.email]],
+      phone_number: [null, [Validators.required]],
+      password: [null, [Validators.required]],
       role: ['employer', [Validators.required]],
     });
 
@@ -66,8 +70,8 @@ export class AuthPopupComponent {
     });
 
     this.employerLogin = this.fb.group({
-      email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required]],
+      email: [null, [Validators.required, Validators.email]],
+      password: [null, [Validators.required]],
       role: ['employer', [Validators.required]],
     });
   }
@@ -101,22 +105,26 @@ export class AuthPopupComponent {
   }
 
   createUserAccount() {
+    this.RegisterCandidate = true;
+    // Mark all fields as touched
     if (this.CandidateloginForm.valid) {
-      const formData = this.CandidateloginForm.value;
-      this.http.post('auth/signup', formData, false).subscribe(
-        (res: any) => {
-          this.currentTab = 'tab1';  // Switch to the login tab
-        },
-        (error: any) => {
-          this.toastr.error('Signup failed. Please try again.');
-        }
-      );
+        const formData = this.CandidateloginForm.value;
+        this.http.post('auth/signup', formData, false).subscribe(
+            (res: any) => {
+                this.currentTab = 'tab1';  // Switch to the login tab
+            },
+            (error: any) => {
+                this.toastr.error('Signup failed. Please try again.');
+            }
+        );
     } else {
-      this.toastr.warning('Please fill in all required fields.');
+        this.toastr.warning('Please fill in all required fields.');
     }
-  }
+}
+
 
   createEmployerAccount() {
+    this.RegisterEmployee=true;
     if (this.EmployerloginForm.valid) {
       const formData = this.EmployerloginForm.value;
       this.http.post('auth/signup', formData, false).subscribe(
@@ -133,6 +141,7 @@ export class AuthPopupComponent {
   }
 
   loginCandidate() {
+    this.LoginCandidate =true;
     this.http.post('auth/login', this.candidateLogin.value, false).subscribe(
       (res: any) => {
         console.log(res, "login response");
