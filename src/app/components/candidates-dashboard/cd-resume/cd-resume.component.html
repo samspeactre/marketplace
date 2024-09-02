@@ -172,63 +172,79 @@
 
 <div class="jove-card">
     <h3 class="title">Education</h3>
-    <form [formGroup]="mainForm" (ngSubmit)="onSubmit()">
-        <div formArrayName="education">
-            <!-- Loop through the education form array -->
-            <div class="row" *ngFor="let educationGroup of education.controls; let i = index" [formGroupName]="i">
+    <form [formGroup]="educationForm" (ngSubmit)="onSubmit()">
+      <div formArrayName="education">
+        <!-- Loop through the education form array -->
+        <div class="row" *ngFor="let educationGroup of education.controls; let i = index" [formGroupName]="i">
 
-                <div class="col-lg-6 col-md-6">
-                    <div class="form-group">
-                        <label>Degree Name</label>
-                        <input type="text" formControlName="degreeName" class="form-control shadow-none">
-                    </div>
-                </div>
-
-                <div class="col-lg-6 col-md-6">
-                    <div class="form-group">
-                        <label>University Name</label>
-                        <input type="text" formControlName="universityName" class="form-control shadow-none">
-                    </div>
-                </div>
-
-                <div class="col-lg-6 col-md-6">
-                    <div class="form-group">
-                        <label>From Year</label>
-                        <input type="text" formControlName="fromYear" class="form-control shadow-none">
-                    </div>
-                </div>
-
-                <div class="col-lg-6 col-md-6">
-                    <div class="form-group">
-                        <label>To Year</label>
-                        <input type="text" formControlName="toYear" class="form-control shadow-none">
-                    </div>
-                </div>
-
-                <div class="col-lg-6 col-md-6">
-                    <div class="form-group">
-                        <label>Description</label>
-                        <textarea formControlName="description" class="form-control shadow-none" rows="5" style="height: 150px; width: 100%;"></textarea>
-                    </div>
-                </div>
-
-                <!-- Show the delete button only for entries after the first one -->
-                <div class="col-12" *ngIf="i > 0">
-                    <button type="button" class="remove-btn" (click)="removeEducationFormGroup(i)">
-                        <i class="fa-solid fa-trash"></i>
-                    </button>
-                </div>
-
+          <div class="col-lg-6 col-md-6">
+            <div class="form-group">
+              <label>Degree Name</label>
+              <input type="text" formControlName="degreeName" class="form-control shadow-none">
+              <div *ngIf="educationGroup.get('degreeName')?.invalid && educationGroup.get('degreeName')?.touched" class="text-danger">
+                Degree Name is required.
+              </div>
             </div>
-        </div>
+          </div>
 
-        <div class="display justify-content-between">
-            <button type="submit" class="default-btn">Save</button>
-            <button type="button" class="add-btn" (click)="addEducationFormGroup()">
-                <i class="fa-solid fa-plus add-btn-icon"></i>ADD
+          <div class="col-lg-6 col-md-6">
+            <div class="form-group">
+              <label>University Name</label>
+              <input type="text" formControlName="universityName" class="form-control shadow-none">
+              <div *ngIf="educationGroup.get('universityName')?.invalid && educationGroup.get('universityName')?.touched" class="text-danger">
+                University Name is required.
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-6 col-md-6">
+            <div class="form-group">
+              <label>From Year</label>
+              <input type="text" formControlName="fromYear" class="form-control shadow-none">
+              <div *ngIf="educationGroup.get('fromYear')?.invalid && educationGroup.get('fromYear')?.touched" class="text-danger">
+                From Year is required and must be a valid year.
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-6 col-md-6">
+            <div class="form-group">
+              <label>To Year</label>
+              <input type="text" formControlName="toYear" class="form-control shadow-none">
+              <div *ngIf="educationGroup.get('toYear')?.invalid && educationGroup.get('toYear')?.touched" class="text-danger">
+                To Year is required and must be a valid year.
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-6 col-md-6">
+            <div class="form-group">
+              <label>Description</label>
+              <textarea formControlName="description" class="form-control shadow-none" rows="5" style="height: 150px; width: 100%;"></textarea>
+              <div *ngIf="educationGroup.get('description')?.invalid && educationGroup.get('description')?.touched" class="text-danger">
+                Description must be between 10 and 500 characters.
+              </div>
+            </div>
+          </div>
+
+          <!-- Show the delete button only for entries after the first one -->
+          <div class="col-12" *ngIf="i > 0">
+            <button type="button" class="remove-btn" (click)="removeEducationFormGroup(i)">
+              <i class="fa-solid fa-trash"></i>
             </button>
+          </div>
+
         </div>
+      </div>
+
+      <div class="display justify-content-between">
+        <button type="submit" class="default-btn" [disabled]="educationForm.invalid">Save</button>
+        <button type="button" class="add-btn" (click)="addEducationFormGroup()">
+          <i class="fa-solid fa-plus add-btn-icon"></i>ADD
+        </button>
+      </div>
     </form>
+
 </div>
 
 
@@ -238,61 +254,77 @@
 
 <div class="jove-card">
     <h3 class="title">Experience</h3>
-    <form [formGroup]="mainForm" (ngSubmit)="onSubmit()">
-        <div formArrayName="experience">
-            <!-- Loop through the experience form array -->
-            <div class="row" *ngFor="let experienceGroup of experience.controls; let i = index" [formGroupName]="i">
+    <form [formGroup]="experienceForm" (ngSubmit)="onSubmit()">
+      <div formArrayName="experience">
+        <!-- Loop through the experience form array -->
+        <div class="row" *ngFor="let experienceGroup of experience.controls; let i = index; track experienceGroup" [formGroupName]="i">
 
-                <div class="col-lg-6 col-md-6">
-                    <div class="form-group">
-                        <label>Position</label>
-                        <input type="text" formControlName="position" class="form-control shadow-none">
-                    </div>
-                </div>
-
-                <div class="col-lg-6 col-md-6">
-                    <div class="form-group">
-                        <label>Company Name</label>
-                        <input type="text" formControlName="companyName" class="form-control shadow-none">
-                    </div>
-                </div>
-
-                <div class="col-lg-6 col-md-6">
-                    <div class="form-group">
-                        <label>From Year</label>
-                        <input type="text" formControlName="fromYear" class="form-control shadow-none">
-                    </div>
-                </div>
-
-                <div class="col-lg-6 col-md-6">
-                    <div class="form-group">
-                        <label>To Year</label>
-                        <input type="text" formControlName="toYear" class="form-control shadow-none">
-                    </div>
-                </div>
-
-                <div class="col-lg-6 col-md-6">
-                    <div class="form-group">
-                        <label>Description</label>
-                        <textarea formControlName="description" class="form-control shadow-none" rows="5" style="height: 150px; width: 100%;"></textarea>
-                    </div>
-                </div>
-
-                <!-- Show the delete button only for entries after the first one -->
-                <div class="col-12" *ngIf="i > 0">
-                    <button type="button" class="remove-btn" (click)="removeExperienceFormGroup(i)">
-                        <i class="fa-solid fa-trash"></i>
-                    </button>
-                </div>
-
+          <div class="col-lg-6 col-md-6">
+            <div class="form-group">
+              <label>Position</label>
+              <input type="text" formControlName="position" class="form-control shadow-none">
+              <div *ngIf="experienceGroup.get('position')?.invalid && experienceGroup.get('position')?.touched" class="text-danger">
+                Position is required.
+              </div>
             </div>
-        </div>
+          </div>
 
-        <div class="display justify-content-between">
-            <button type="submit" class="default-btn">Save</button>
-            <button type="button" class="add-btn" (click)="addExperienceFormGroup()">
-                <i class="fa-solid fa-plus add-btn-icon"></i>ADD
+          <div class="col-lg-6 col-md-6">
+            <div class="form-group">
+              <label>Company Name</label>
+              <input type="text" formControlName="companyName" class="form-control shadow-none">
+              <div *ngIf="experienceGroup.get('companyName')?.invalid && experienceGroup.get('companyName')?.touched" class="text-danger">
+                Company Name is required.
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-6 col-md-6">
+            <div class="form-group">
+              <label>From Year</label>
+              <input type="text" formControlName="fromYear" class="form-control shadow-none">
+              <div *ngIf="experienceGroup.get('fromYear')?.invalid && experienceGroup.get('fromYear')?.touched" class="text-danger">
+                From Year is required and must be a valid year.
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-6 col-md-6">
+            <div class="form-group">
+              <label>To Year</label>
+              <input type="text" formControlName="toYear" class="form-control shadow-none">
+              <div *ngIf="experienceGroup.get('toYear')?.invalid && experienceGroup.get('toYear')?.touched" class="text-danger">
+                To Year is required and must be a valid year.
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-6 col-md-6">
+            <div class="form-group">
+              <label>Description</label>
+              <textarea formControlName="description" class="form-control shadow-none" rows="5" style="height: 150px; width: 100%;"></textarea>
+              <div *ngIf="experienceGroup.get('description')?.invalid && experienceGroup.get('description')?.touched" class="text-danger">
+                Description must be between 10 and 500 characters.
+              </div>
+            </div>
+          </div>
+
+          <!-- Show the delete button only for entries after the first one -->
+          <div class="col-12" *ngIf="i > 0">
+            <button type="button" class="remove-btn" (click)="removeExperienceFormGroup(i)">
+              <i class="fa-solid fa-trash"></i>
             </button>
+          </div>
+
         </div>
+      </div>
+
+      <div class="display justify-content-between">
+        <button type="submit" class="default-btn">Save</button>
+        <button type="button" class="add-btn" (click)="addExperienceFormGroup()">
+          <i class="fa-solid fa-plus add-btn-icon"></i>ADD
+        </button>
+      </div>
     </form>
+
 </div>

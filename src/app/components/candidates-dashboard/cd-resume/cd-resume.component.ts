@@ -8,7 +8,8 @@ import { FormBuilder, FormGroup, FormArray, Validators } from '@angular/forms';
   styleUrls: ['./cd-resume.component.scss']
 })
 export class CdResumeComponent implements OnInit {
-  mainForm!: FormGroup;
+  educationForm!: FormGroup;
+  experienceForm!: FormGroup;
   personalDetailsForm!: FormGroup;
   videoUploadForm!: FormGroup;
   saveDetails: boolean=false;
@@ -17,8 +18,10 @@ export class CdResumeComponent implements OnInit {
   constructor(private fb: FormBuilder) { }
 
   ngOnInit(): void {
-    this.mainForm = this.fb.group({
+    this.educationForm = this.fb.group({
       education: this.fb.array([this.createEducationFormGroup()]), // Default one entry
+    });
+    this.experienceForm = this.fb.group({
       experience: this.fb.array([this.createExperienceFormGroup()]) // Default one entry
     });
 
@@ -41,7 +44,7 @@ export class CdResumeComponent implements OnInit {
 
   // Getter for Education FormArray
   get education(): FormArray {
-    return this.mainForm.get('education') as FormArray;
+    return this.educationForm.get('education') as FormArray;
   }
 
   // Method to create a new education form group
@@ -69,17 +72,17 @@ export class CdResumeComponent implements OnInit {
 
   // Getter for Experience FormArray
   get experience(): FormArray {
-    return this.mainForm.get('experience') as FormArray;
+    return this.experienceForm.get('experience') as FormArray;
   }
 
   // Method to create a new experience form group
   createExperienceFormGroup(): FormGroup {
     return this.fb.group({
-      position: ['', Validators.required],
-      companyName: ['', Validators.required],
-      fromYear: ['', Validators.required],
-      toYear: ['', Validators.required],
-      description: ['', Validators.required]
+      position: [null, Validators.required],
+      companyName: [null, Validators.required],
+      fromYear: [null, Validators.required],
+      toYear: [null, Validators.required],
+      description: [null, Validators.required]
     });
   }
 
@@ -97,22 +100,14 @@ export class CdResumeComponent implements OnInit {
 
   // Method to handle form submission
   onSubmit(): void {
-    this.saveDetails= true
-    if (this.mainForm.valid) {
-      console.log(this.mainForm.value);
-      // Handle form submission logic here
-    }else{
-      console.log('Form is invalid')
-    }
+
   }
 
   onSubmitVideo(): void {
-    this.saveDetails= true
-    if (this.mainForm.valid) {
-      console.log(this.mainForm.value);
-      // Handle form submission logic here
-    }else{
-      console.log('Form is invalid')
-    }
+
+  }
+
+  onSubmitEducation() {
+
   }
 }
