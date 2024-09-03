@@ -16,23 +16,24 @@
             <div class="col-lg-6 col-md-6">
                 <div class="form-group">
                     <label>First name</label>
-                    <input type="text" formControlName="firstName" class="form-control shadow-none" placeholder="Alina">
-                    <div *ngIf="(personalDetailsForm.get('firstName')?.invalid || personalDetailsForm.get('firstName')?.touched) && saveDetails" class="text-danger">
-                        <small *ngIf="personalDetailsForm.get('firstName')?.errors?.['required']">First Name is required.</small>
-                        <small *ngIf="personalDetailsForm.get('firstName')?.errors?.['minlength']"> First Name must be atleast 3 characters long</small>
+                    <input type="text" formControlName="first_name" class="form-control shadow-none" placeholder="Alina">
+                    <div *ngIf="(personalDetailsForm.get('first_name')?.invalid || personalDetailsForm.get('first_name')?.touched) && saveDetails" class="text-danger">
+                        <small *ngIf="personalDetailsForm.get('first_name')?.errors?.['required']">First Name is required.</small>
+                        <small *ngIf="personalDetailsForm.get('first_name')?.errors?.['minlength']"> First Name must be atleast 3 characters long</small>
                     </div>
                 </div>
             </div>
             <div class="col-lg-6 col-md-6">
                 <div class="form-group">
                     <label>Last name</label>
-                    <input type="text" formControlName="lastName" class="form-control shadow-none" placeholder="Smith">
-                    <div *ngIf="(personalDetailsForm.get('lastName')?.invalid || personalDetailsForm.get('lastName')?.touched) && saveDetails" class="text-danger">
-                        <small *ngIf="personalDetailsForm.get('lastName')?.errors?.['required']">Last Name is required.</small>
-                        <small *ngIf="personalDetailsForm.get('lastName')?.errors?.['minlength']"> Last Name must be atleast 3 characters long</small>
+                    <input type="text" formControlName="last_name" class="form-control shadow-none" placeholder="Smith">
+                    <div *ngIf="(personalDetailsForm.get('last_name')?.invalid || personalDetailsForm.get('last_name')?.touched) && saveDetails" class="text-danger">
+                        <small *ngIf="personalDetailsForm.get('last_name')?.errors?.['required']">Last Name is required.</small>
+                        <small *ngIf="personalDetailsForm.get('last_name')?.errors?.['minlength']"> Last Name must be atleast 3 characters long</small>
                     </div>
                 </div>
             </div>
+
             <div class="col-lg-6 col-md-6">
                 <div class="form-group">
                     <label>Email address</label>
@@ -46,18 +47,18 @@
             <div class="col-lg-6 col-md-6">
                 <div class="form-group">
                     <label>Phone</label>
-                    <input type="text" formControlName="phone" class="form-control shadow-none" placeholder="+1 (514) 312-5678">
-                    <div *ngIf="(personalDetailsForm.get('phone')?.invalid || personalDetailsForm.get('phone')?.touched) && saveDetails" class="text-danger">
-                        <small *ngIf="personalDetailsForm.get('phone')?.errors?.['required']">Phone number is required.</small>
+                    <input type="text" formControlName="phone_number" class="form-control shadow-none" placeholder="+1 (514) 312-5678">
+                    <div *ngIf="(personalDetailsForm.get('phone_number')?.invalid || personalDetailsForm.get('phone_number')?.touched) && saveDetails" class="text-danger">
+                        <small *ngIf="personalDetailsForm.get('phone_number')?.errors?.['required']">Phone number is required.</small>
                     </div>
                 </div>
             </div>
             <div class="col-lg-6 col-md-6">
                 <div class="form-group">
                     <label>Date of birth</label>
-                    <input type="date" formControlName="dateOfBirth" class="form-control shadow-none">
-                    <div *ngIf="(personalDetailsForm.get('dateOfBirth')?.invalid || personalDetailsForm.get('dateOfBirth')?.touched) && saveDetails" class="text-danger">
-                        <small *ngIf="personalDetailsForm.get('dateOfBirth')?.errors?.['required']">Date of birth is required.</small>
+                    <input type="date" formControlName="dob" class="form-control shadow-none">
+                    <div *ngIf="(personalDetailsForm.get('dob')?.invalid || personalDetailsForm.get('dob')?.touched) && saveDetails" class="text-danger">
+                        <small *ngIf="personalDetailsForm.get('dob')?.errors?.['required']">Date of birth is required.</small>
                     </div>
                 </div>
             </div>
@@ -71,7 +72,7 @@
                         <option value="custom">Custom</option>
                     </select>
                     <div *ngIf="(personalDetailsForm.get('gender')?.invalid || personalDetailsForm.get('gender')?.touched) && saveDetails" class="text-danger">
-                        <small *ngIf="personalDetailsForm.get('gender')?.errors?.['required']">gender is required.</small>
+                        <small *ngIf="personalDetailsForm.get('gender')?.errors?.['required']">Gender is required.</small>
                     </div>
                 </div>
             </div>
@@ -172,7 +173,7 @@
 
 <div class="jove-card">
     <h3 class="title">Education</h3>
-    <form [formGroup]="educationForm" (ngSubmit)="onSubmit()">
+    <form [formGroup]="educationForm" (ngSubmit)="onSubmitEducation()">
       <div formArrayName="education">
         <!-- Loop through the education form array -->
         <div class="row" *ngFor="let educationGroup of education.controls; let i = index" [formGroupName]="i">
@@ -180,8 +181,8 @@
           <div class="col-lg-6 col-md-6">
             <div class="form-group">
               <label>Degree Name</label>
-              <input type="text" formControlName="degreeName" class="form-control shadow-none">
-              <div *ngIf="educationGroup.get('degreeName')?.invalid && educationGroup.get('degreeName')?.touched" class="text-danger">
+              <input type="text" formControlName="degree_name" class="form-control shadow-none">
+              <div *ngIf="educationGroup.get('degree_name')?.invalid && educationGroup.get('degree_name')?.touched" class="text-danger">
                 Degree Name is required.
               </div>
             </div>
@@ -190,8 +191,8 @@
           <div class="col-lg-6 col-md-6">
             <div class="form-group">
               <label>University Name</label>
-              <input type="text" formControlName="universityName" class="form-control shadow-none">
-              <div *ngIf="educationGroup.get('universityName')?.invalid && educationGroup.get('universityName')?.touched" class="text-danger">
+              <input type="text" formControlName="school" class="form-control shadow-none">
+              <div *ngIf="educationGroup.get('school')?.invalid && educationGroup.get('school')?.touched" class="text-danger">
                 University Name is required.
               </div>
             </div>
@@ -200,8 +201,8 @@
           <div class="col-lg-6 col-md-6">
             <div class="form-group">
               <label>From Year</label>
-              <input type="text" formControlName="fromYear" class="form-control shadow-none">
-              <div *ngIf="educationGroup.get('fromYear')?.invalid && educationGroup.get('fromYear')?.touched" class="text-danger">
+              <input type="text" formControlName="start_year" class="form-control shadow-none">
+              <div *ngIf="educationGroup.get('start_year')?.invalid && educationGroup.get('start_year')?.touched" class="text-danger">
                 From Year is required and must be a valid year.
               </div>
             </div>
@@ -210,8 +211,8 @@
           <div class="col-lg-6 col-md-6">
             <div class="form-group">
               <label>To Year</label>
-              <input type="text" formControlName="toYear" class="form-control shadow-none">
-              <div *ngIf="educationGroup.get('toYear')?.invalid && educationGroup.get('toYear')?.touched" class="text-danger">
+              <input type="text" formControlName="end_year" class="form-control shadow-none">
+              <div *ngIf="educationGroup.get('end_year')?.invalid && educationGroup.get('end_year')?.touched" class="text-danger">
                 To Year is required and must be a valid year.
               </div>
             </div>
