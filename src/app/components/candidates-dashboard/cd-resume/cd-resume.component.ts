@@ -78,10 +78,10 @@ export class CdResumeComponent implements OnInit {
   createExperienceFormGroup(): FormGroup {
     return this.fb.group({
       position: [null, Validators.required],
-      companyName: [null, Validators.required],
-      fromYear: [null, Validators.required],
-      toYear: [null, Validators.required],
-      description: [null, Validators.required]
+      company_name: [null, Validators.required],
+      start_year: ['', Validators.required],
+      end_year: ['', Validators.required],
+      description: ['', Validators.required]
     });
   }
 
@@ -151,6 +151,21 @@ export class CdResumeComponent implements OnInit {
     }
 }
 
+async ExperienceCreate() {
+  try {
+      const userId = this.id; // Assuming this.id holds the user_id
+      const experienceData = this.experienceForm.value.experience.map((exp: any) => ({
+          ...exp,
+          user_id: userId // Add user_id to each education entry
+      }));
+
+      const res = await this.http.post('experience/create-experience', { data: experienceData }, true).toPromise();
+      console.log(res);
+  } catch (error) {
+      console.error('Error creating education entries:', error);
+  }
+}
+
   
 
   onSubmit(): void {
@@ -163,5 +178,9 @@ export class CdResumeComponent implements OnInit {
 
   onSubmitEducation() {
     this.EducationCreate();
+  }
+
+  onSubmitExperience() {
+    this.ExperienceCreate();
   }
 }
