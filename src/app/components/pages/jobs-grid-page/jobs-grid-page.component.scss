@@ -243,6 +243,7 @@
 }
 
 .jove-grid-sorting {
+    margin-top: 2vw;
     margin-bottom: 2.2vw;
 
     .result-count {
@@ -351,68 +352,6 @@
             &.urgent {
                 top: 17px;
                 left: -42.5px;
-            }
-        }
-    }
-
-    .jobs-search-form {
-        padding: 0;
-        border-radius: 5px;
-
-        .col-4 {
-            width: 100%;
-
-            &:nth-child(2) {
-                border-top: 1px solid var(--borderColor);
-
-                .form-group {
-                    padding-right: 0;
-                }
-            }
-
-            &:last-child {
-                width: 100%;
-            }
-        }
-
-        .form-group {
-            padding: {
-                left: 14px;
-                right: 14px;
-            }
-
-            ;
-
-            i {
-                left: 15px;
-                font-size: 20px;
-            }
-
-            .form-control {
-                font-size: 14px;
-
-                padding: {
-                    bottom: 14px;
-                    left: 28px;
-                    top: 14px;
-                    right: 0;
-                }
-
-                ;
-            }
-
-            .form-select {
-                background-position: right 15px center;
-                font-size: 14px;
-
-                padding: {
-                    bottom: 14px;
-                    left: 28px;
-                    top: 14px;
-                    right: 0;
-                }
-
-                ;
             }
         }
     }

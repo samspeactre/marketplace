@@ -519,6 +519,14 @@ export class HomeComponent {
   ];
 
   toggleAccordion(index: number) {
+    // Close any other open accordion
+    this.accordionItems.forEach((item, i) => {
+      if (i !== index) {
+        item.open = false;
+      }
+    });
+
+    // Toggle the current accordion
     this.accordionItems[index].open = !this.accordionItems[index].open;
   }
 }
