@@ -302,38 +302,68 @@
 @media only screen and (max-width : 767px) {
 
     .job-item {
-        border-radius: 5px;
+        border-radius: 1vw;
 
         .content {
-            padding: 15px;
+            padding: 4vw;
 
             .company-logo {
-                width: 90px;
-                height: 90px;
-                margin-bottom: 15px;
+                width: 23vw;
+                height: 23vw;
+                margin-bottom: 2vw;
+
+                img {
+                    width: 8vw;
+                }
             }
 
             h3 {
-                font-size: 16px;
-                margin-bottom: 6px;
+                font-size: 4vw;
+                margin-bottom: 0.8vw;
             }
 
             .location {
-                font-size: 14px;
-                margin-bottom: 8px;
+                font-size: 3.2vw;
+                margin-bottom: 1.5vw;
             }
 
             .job-type {
-                margin-right: 8px;
+                font-size: 3vw;
+                margin-right: 1vw;
+
             }
 
             .deadline {
-                margin-left: 8px;
+                margin-left: 1vw;
+                font-size: 3vw;
             }
         }
 
         .info {
-            padding: 12px 15px;
+            padding: 2.5vw 4vw;
+
+            .salary {
+                font-size: 3vw;
+
+                span {
+                    font-size: 3vw;
+                }
+            }
+
+            .deadline {
+                .link-btn {
+                    i {
+                        right: -0.5vw;
+                        font-size: 4vw;
+                    }
+                }
+
+                a {
+                    padding-right: 3.5vw;
+                    font-size: 3vw;
+                }
+            }
+
         }
 
         .fav {
@@ -345,13 +375,14 @@
         }
 
         .tag {
-            padding: 2px 50px;
-            left: -49px;
-            top: 18px;
+            padding: 0.5vw 11.5vw;
+            left: -10.5vw;
+            top: 4vw;
 
             &.urgent {
-                top: 17px;
-                left: -42.5px;
+                top: 4.5vw;
+                left: -8vw;
+                padding: 0.5vw 11.5vw;
             }
         }
     }
@@ -359,94 +390,115 @@
     .jove-grid-sorting {
         text-align: center;
 
+        .result-count {
+            p {
+                font-size: 2.5vw;
+            }
+
+        }
+
         .ordering {
             text-align: center;
-            margin-top: 12px;
-        }
-    }
+            margin-top: 2vw;
 
+            .select-box {
+                text-align: center;
+
+                label {
+                    font-size: 2.5vw;
+                }
+
+                .form-select {
+                    height: 10vw;
+                    width: 43vw;
+                    font-size: 2.8vw;
+                }
+            }
+        }
+
+
+
+    }
 }
 
-/* Min width 576px to Max width 767px */
-@media only screen and (min-width : 576px) and (max-width : 767px) {}
 
 /* Min width 768px to Max width 991px */
-@media only screen and (min-width : 768px) and (max-width : 991px) {
+// @media only screen and (min-width : 768px) and (max-width : 991px) {
 
-    .job-item {
-        .content {
-            .location {
-                font-size: 15px;
-            }
-        }
+//     .job-item {
+//         .content {
+//             .location {
+//                 font-size: 15px;
+//             }
+//         }
 
-        .info {
-            padding: 15px 20px;
-        }
+//         .info {
+//             padding: 15px 20px;
+//         }
 
-        .fav {
-            font-size: 21px;
-            height: 41px;
-            width: 41px;
-        }
-    }
+//         .fav {
+//             font-size: 21px;
+//             height: 41px;
+//             width: 41px;
+//         }
+//     }
 
-    .jobs-search-form {
-        padding-left: 10px;
-        border-radius: 10px;
+//     .jobs-search-form {
+//         padding-left: 10px;
+//         border-radius: 10px;
 
-        .col-4 {
-            &:nth-child(2) {
-                .form-group {
-                    padding-right: 20px;
-                }
-            }
-        }
+//         .col-4 {
+//             &:nth-child(2) {
+//                 .form-group {
+//                     padding-right: 20px;
+//                 }
+//             }
+//         }
 
-        .form-group {
-            padding-left: 10px;
+//         .form-group {
+//             padding-left: 10px;
 
-            i {
-                left: 10px;
-                font-size: 20px;
-            }
+//             i {
+//                 left: 10px;
+//                 font-size: 20px;
+//             }
 
-            .form-control {
-                font-size: 15px;
+//             .form-control {
+//                 font-size: 15px;
 
-                padding: {
-                    bottom: 12px;
-                    left: 28px;
-                    top: 12px;
-                }
+//                 padding: {
+//                     bottom: 12px;
+//                     left: 28px;
+//                     top: 12px;
+//                 }
 
-                ;
-            }
+//                 ;
+//             }
 
-            .form-select {
-                font-size: 15px;
+//             .form-select {
+//                 font-size: 15px;
 
-                padding: {
-                    bottom: 12px;
-                    left: 28px;
-                    top: 12px;
-                }
+//                 padding: {
+//                     bottom: 12px;
+//                     left: 28px;
+//                     top: 12px;
+//                 }
 
-                ;
-            }
-        }
+//                 ;
+//             }
+//         }
 
-        .default-btn {
-            padding: {
-                left: 25px;
-                right: 25px;
-            }
+//         .default-btn {
+//             padding: {
+//                 left: 25px;
+//                 right: 25px;
+//             }
 
-            ;
-        }
-    }
+//             ;
+//         }
+//     }
 
-}
+// }
 
 /* Min width 992px to Max width 1199px */
 // @media only screen and (min-width : 992px) and (max-width : 1199px) {

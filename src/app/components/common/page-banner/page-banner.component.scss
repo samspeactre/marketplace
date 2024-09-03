@@ -14,6 +14,15 @@ h1 {
     float: inline-end;
 }
 
+.center-ball {
+    display: inline-block;
+    border-radius: 50%;
+    width: 0.4vw;
+    height: 0.4vw;
+    background-color: rgba(128, 128, 128, 0.658);
+    margin: 0 0.5vw;
+}
+
 .list-unstyled span {
     padding: 0 0.5vw;
     font-size: 2vw;
@@ -35,12 +44,12 @@ h1 {
 @media only screen and (max-width : 767px) {
 
     h1 {
-        font-size: 2.7vw;
+        font-size: 4vw;
         padding-left: 0%;
-        text-align: start;
+        text-align: center;
     }
 
-    .container-width[_ngcontent-ng-c3435031141] {
+    .container-width {
         width: 88%;
     }
 
@@ -50,16 +59,25 @@ h1 {
         padding-bottom: 20px;
     }
 
-    .page-banner-area ul {
-        margin-top: 0;
+    .list-unstyled {
+        float: none;
+        text-align: center;
+        margin-top: 2vw;
+
+
+        .center-ball {
+            display: inline-block;
+            border-radius: 50%;
+            width: 1.5vw;
+            height: 1.5vw;
+            background-color: rgba(128, 128, 128, 0.658);
+            margin: 0 2vw;
+        }
+
     }
 
-    .list-unstyled span {
-        font-size: 3vw;
-    }
-    
     .list-unstyled li,
     .link a {
-        font-size: 2.5vw;
+        font-size: 3vw;
     }
 }
