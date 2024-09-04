@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormArray, Validators } from '@angular/forms';
+import { HelperService } from 'src/app/shared/services/helper.service';
 import { HttpService } from 'src/app/shared/services/http.service';
 
 @Component({
@@ -16,14 +17,15 @@ export class CdResumeComponent implements OnInit {
   saveVideo: boolean = false;
   public id: any;
 
-  constructor(private fb: FormBuilder, private http: HttpService) {
+  constructor(private fb: FormBuilder, private http: HttpService, private helper: HelperService) {
     this.educationForm = this.fb.group({
-      education: this.fb.array([this.createEducationFormGroup()]),
+      education: this.fb.array([])
     });
 
     this.experienceForm = this.fb.group({
-      experience: this.fb.array([this.createExperienceFormGroup()])
+      experience: this.fb.array([])
     });
+    
 
     this.personalDetailsForm = this.fb.group({
       first_name: [null, [Validators.required, Validators.minLength(3)]],
@@ -114,16 +116,64 @@ export class CdResumeComponent implements OnInit {
     catch (error) {
       console.error('Error fetching user profile:', error);
     }
-
+  
     try {
-      const res: any = await this.http.get('auth/me', true).toPromise();
-      console.log(res);
+      const res: any = await this.http.get('experience/get_experience', true).toPromise();
       
+      if (res && res.experiences) {
+        const experienceArray = this.experienceForm.get('experience') as FormArray;
+  
+        // Clear any existing form groups in the FormArray
+        while (experienceArray.length) {
+          experienceArray.removeAt(0);
+        }
+  
+        // Add the experiences from the API response
+        res.experiences.forEach((exp: any) => {
+          experienceArray.push(this.fb.group({
+            position: [exp.position, Validators.required],
+            company_name: [exp.company_name, Validators.required],
+            start_year: [exp.start_year, Validators.required],
+            end_year: [exp.end_year, Validators.required],
+            description: [exp.description, Validators.required],
+          }));
+        });
+      }
+      
+      console.log(res);
     } 
     catch (error) {
-      console.error('Error fetching user profile:', error);
+      console.error('Error fetching experience data:', error);
+    }
+
+    try {
+      const res: any = await this.http.get('education/get_education', true).toPromise();
+      
+      if (res && res.education) {
+        const educationArray = this.educationForm.get('education') as FormArray;
+  
+        while (educationArray.length) {
+          educationArray.removeAt(0);
+        }
+  
+        res.education.forEach((edu: any) => {
+          educationArray.push(this.fb.group({
+            degree_name: [edu.degree_name, Validators.required],
+            school: [edu.school, Validators.required],
+            start_year: [edu.start_year, Validators.required],
+            end_year: [edu.end_year, Validators.required],
+            description: [edu.description, Validators.required],
+          }));
+        });
+      }
+      
+      console.log(res);
+    } 
+    catch (error) {
+      console.error('Error fetching experience data:', error);
     }
   }
+  
 
   async candidateUpdate() {
     try {
@@ -138,10 +188,10 @@ export class CdResumeComponent implements OnInit {
 
   async EducationCreate() {
     try {
-        const userId = this.id; // Assuming this.id holds the user_id
+        const userId = this.id; 
         const educationData = this.educationForm.value.education.map((edu: any) => ({
             ...edu,
-            user_id: userId // Add user_id to each education entry
+            user_id: userId 
         }));
 
         const res = await this.http.post('education/create', { data: educationData }, true).toPromise();
@@ -153,10 +203,10 @@ export class CdResumeComponent implements OnInit {
 
 async ExperienceCreate() {
   try {
-      const userId = this.id; // Assuming this.id holds the user_id
+      const userId = this.id; 
       const experienceData = this.experienceForm.value.experience.map((exp: any) => ({
           ...exp,
-          user_id: userId // Add user_id to each education entry
+          user_id: userId 
       }));
 
       const res = await this.http.post('experience/create-experience', { data: experienceData }, true).toPromise();
@@ -173,8 +223,44 @@ async ExperienceCreate() {
   }
 
   onSubmitVideo(): void {
-    // Handle video submission
+    const fileInput = document.getElementById('video') as HTMLInputElement;
+    const file = fileInput?.files?.[0];
+    
+    if (file) {
+      this.helper
+    .videoUploadHttp(file)
+        .then((result: any) => {
+          this.videoUploadForm.patchValue({
+            video: result.data.video_url,
+          });
+          console.log(this.videoUploadForm.value);
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+    } else {
+      console.error('No file selected.');
+    }
   }
+
+
+  // onSubmitVideo(event: any) {
+  //   this.helper
+  //   .videoUploadHttp(event)
+  //   .then((result: any) => {
+  //     this.videoUploadForm.patchValue({
+  //      video: result.data.video_url,
+  //     });
+  //     this.videoUploadForm.patchValue({
+  //       ...this.videoUploadForm.value,
+  //      video: result.data.video_url,
+  //     });
+  //     console.log(this.videoUploadForm.value);
+  //   })
+  //   .catch((error) => {
+  //     console.error(error);
+  //   });
+  // }
 
   onSubmitEducation() {
     this.EducationCreate();

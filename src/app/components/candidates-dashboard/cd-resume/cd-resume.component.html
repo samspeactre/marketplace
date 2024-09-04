@@ -133,22 +133,19 @@
 <!-- video form -->
 
 <div class="jove-card">
-    <h3 class="title">
-        Video
-    </h3>
-    <form [formGroup]="videoUploadForm" (ngSubmit)="onSubmitVideo()">
-        <div class="form-group">
-            <label for="video">Upload Video:</label>
-            <input type="file" id="video"  accept="video/*" />
-            <div *ngIf="(videoUploadForm.get('video')?.invalid || videoUploadForm.get('video')?.touched) && saveDetails" class="text-danger">
-                <small *ngIf="videoUploadForm.get('video')?.errors?.['required']">Video is required.</small>
-            </div>
-        </div>
-        <button type="submit" class="default-btn">
-            Save
-        </button>
-    </form>
+  <h3 class="title">Video</h3>
+  <form [formGroup]="videoUploadForm" (ngSubmit)="onSubmitVideo()">
+      <div class="form-group">
+          <label for="video">Upload Video:</label>
+          <input type="file" id="video" accept="video/*" />
+          <div *ngIf="(videoUploadForm.get('video')?.invalid || videoUploadForm.get('video')?.touched) && saveDetails" class="text-danger">
+              <small *ngIf="videoUploadForm.get('video')?.errors?.['required']">Video is required.</small>
+          </div>
+      </div>
+      <button type="submit" class="default-btn">Save</button>
+  </form>
 </div>
+
 
 <!--CV form-->
 

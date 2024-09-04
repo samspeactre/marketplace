@@ -76,6 +76,7 @@ const routes: Routes = [
         children: [
             {path: '', component: EDashboardComponent},
             {path: 'company-profile', component: EdCompanyProfileComponent},
+
             {path: 'post-a-new-job', component: EdPostANewJobComponent},
             {path: 'manage-jobs', component: EdManageJobsComponent},
             {path: 'all-applicants', component: EdAllApplicantsComponent},
@@ -93,11 +94,16 @@ const routes: Routes = [
         children: [
             {path: '', component: CDashboardComponent},
             {path: 'company-profile', component: CdCompanyProfileComponent},
+            {path: 'bookmarks', component: CdBookmarksComponent},
+            {path: 'applied_jobs', component: CdAppliedJobsComponent},
+
             {path: 'post-a-new-job', component: CdPostANewJobComponent},
             {path: 'manage-jobs', component: CdManageJobsComponent},
             {path: 'all-applicants', component: CdAllApplicantsComponent},
             {path: 'resumes', component: CdResumeComponent},
             {path: 'edit-account', component: CdEditAccountComponent},
+            {path: 'change-password', component: CdChangePasswordComponent},
+
         ]
     },
     // Here add new pages component

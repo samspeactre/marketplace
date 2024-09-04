@@ -24,7 +24,11 @@ constructor(private fb: FormBuilder, private http: HttpService, private helper: 
     twitter: new FormControl(null, [Validators.required]),
     linkedin: new FormControl(null, [Validators.required]),
     instagram: new FormControl(null, [Validators.required]),
+    password: new FormControl(null, [Validators.required]),
+    confirm_password: new FormControl(null, [Validators.required]),
+
     user_id: new FormControl(null), 
+    
   })
   
   
