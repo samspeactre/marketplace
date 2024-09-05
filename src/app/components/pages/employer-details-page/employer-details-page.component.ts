@@ -9,9 +9,9 @@ import { Title } from '@angular/platform-browser';
 export class EmployerDetailsPageComponent {
 
     title = 'Employer Details - Jove';
- 
-    constructor(private titleService:Title) {}
-    
+
+    constructor(private titleService: Title) { }
+
     ngOnInit() {
         this.titleService.setTitle(this.title);
     }

@@ -5,13 +5,14 @@
     padding-bottom: 5vw;
 }
 
-.box-width{
+.box-width {
     width: 20%;
 }
 
 .funfact-box {
     margin-bottom: 25px;
     position: relative;
+    text-align: center;
 
     h2 {
         display: inline-block;
@@ -30,7 +31,7 @@
         }
     }
 
-    span{
+    span {
         font-size: .95vw;
         font-family: "mon-light";
         color: black;
@@ -68,7 +69,29 @@
 /* Max width 767px */
 @media only screen and (max-width : 767px) {
 
+    .main {
+        width: 100%;
+        padding: 6vw 4vw 0;
+
+        .flex-wrap {
+            flex-wrap: wrap;
+
+
+        }
+    }
+
+    .box-width {
+        width: 50% !important;
+    }
+
+    .box-width:nth-child(3) {
+        margin: 0 auto;
+    }
+
+
     .funfact-box {
+        width: 100%;
+
         h2 {
             font-size: 35px;
 
@@ -84,6 +107,10 @@
                 right: -20px;
                 font-size: 30px;
             }
+        }
+
+        span{
+            font-size: 3vw;
         }
 
         &::before {
@@ -105,75 +132,75 @@
 }
 
 /* Min width 768px to Max width 991px */
-@media only screen and (min-width : 768px) and (max-width : 991px) {
+// @media only screen and (min-width : 768px) and (max-width : 991px) {
 
-    .funfact-box {
-        h2 {
-            font-size: 45px;
+//     .funfact-box {
+//         h2 {
+//             font-size: 45px;
 
-            margin: {
-                bottom: 8px;
-                top: 0;
-            }
+//             margin: {
+//                 bottom: 8px;
+//                 top: 0;
+//             }
 
-            ;
+//             ;
 
-            sup {
-                top: 10px;
-                right: -25px;
-                font-size: 35px;
-            }
-        }
-    }
+//             sup {
+//                 top: 10px;
+//                 right: -25px;
+//                 font-size: 35px;
+//             }
+//         }
+//     }
 
-    .funfacts-inner {
-        border-radius: 10px;
+//     .funfacts-inner {
+//         border-radius: 10px;
 
-        padding: {
-            left: 15px;
-            right: 15px;
-        }
+//         padding: {
+//             left: 15px;
+//             right: 15px;
+//         }
 
-        ;
-    }
+//         ;
+//     }
 
-}
+// }
 
 /* Min width 992px to Max width 1199px */
-@media only screen and (min-width : 992px) and (max-width : 1199px) {
+// @media only screen and (min-width : 992px) and (max-width : 1199px) {
 
-    .funfact-box {
-        h2 {
-            font-size: 60px;
+//     .funfact-box {
+//         h2 {
+//             font-size: 60px;
 
-            margin: {
-                bottom: 7px;
-                top: -2px;
-            }
+//             margin: {
+//                 bottom: 7px;
+//                 top: -2px;
+//             }
 
-            ;
+//             ;
 
-            sup {
-                top: 11px;
-                right: -25px;
-                font-size: 35px;
-            }
-        }
-    }
+//             sup {
+//                 top: 11px;
+//                 right: -25px;
+//                 font-size: 35px;
+//             }
+//         }
+//     }
 
-}
+// }
 
 /* Min width 1200px to Max width 1399px */
-@media only screen and (min-width: 1200px) and (max-width: 1399px) {
+// @media only screen and (min-width: 1200px) and (max-width: 1399px) {
 
-    .funfact-box {
-        h2 {
-            font-size: 70px;
+//     .funfact-box {
+//         h2 {
+//             font-size: 70px;
 
-            sup {
-                font-size: 40px;
-            }
-        }
-    }
+//             sup {
+//                 font-size: 40px;
+//             }
+//         }
+//     }
 
-}
+// }

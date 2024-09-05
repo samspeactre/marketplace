@@ -60,7 +60,8 @@
         font-family: "mon-bold";
         border-radius: 5px;
         transition: all ease 0.5s;
-        &:hover{
+
+        &:hover {
             border: 1px solid var(--pinkColor);
             color: var(--pinkColor);
             background-color: transparent;
@@ -68,7 +69,8 @@
     }
 }
 
-.blog-area{
+.blog-area {
+    padding-top: 8vw;
     padding-bottom: 1vw;
 }
 
@@ -89,6 +91,18 @@
 
 /* Max width 767px */
 @media only screen and (max-width : 767px) {
+
+    .blog-area {
+        padding: 7vw 4vw 1vw;
+
+        .main-width {
+            .section-title {
+                h2 {
+                    font-size: 4vw;
+                }
+            }
+        }
+    }
 
     .single-pricing-box {
         padding: 20px;
@@ -111,7 +125,17 @@
         .features-list {
             li {
                 margin-bottom: 11px;
+                font-size: 3vw;
+
+                i {
+                    font-size: 3.5vw;
+                }
             }
+        }
+
+        a{
+            padding: 2vw;
+            font-size: 3vw !important;
         }
 
         .default-btn {

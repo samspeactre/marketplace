@@ -569,9 +569,12 @@
     .sidebar-area {
         border-radius: 0.5vw;
         margin-top: 4vw;
+        padding: 0 5vw;
 
         .box {
-            padding: 4vw;
+            padding: 4vw 6vw;
+            margin: 0 -5vw;
+
 
             h3 {
                 font-size: 4vw;
@@ -590,20 +593,24 @@
             }
 
             iframe {
-                border-radius: 5px;
+                border-radius: 0.5vw;
+                height: 30vw;
             }
 
-            .social-links {
-                width: 6.5vw;
-                height: 6.5vw;
-                line-height: 6.5vw;
+            .socials-link {
+                li {
+                    margin-bottom: 2vw;
 
-                li{
-                    margin-bottom: 3vw;
-                    a{
-                     font-size: 3vw;
+                    a {
+                        font-size: 3vw;
+
+                        span {
+                            width: 7vw;
+                            height: 7vw;
+                            line-height: 7vw;
+                            margin-right: 2vw;
+                        }
                     }
-
                 }
             }
         }
@@ -718,37 +725,37 @@
 // }
 
 /* Min width 992px to Max width 1199px */
-@media only screen and (min-width : 992px) and (max-width : 1199px) {
+// @media only screen and (min-width : 992px) and (max-width : 1199px) {
 
-    .single-job-box {
-        margin-bottom: 35px;
-    }
+//     .single-job-box {
+//         margin-bottom: 35px;
+//     }
 
-    .related-jobs {
-        margin-top: 40px;
-        padding-top: 40px;
-    }
+//     .related-jobs {
+//         margin-top: 40px;
+//         padding-top: 40px;
+//     }
 
-    .job-item {
-        .content {
-            .location {
-                font-size: 16px;
-            }
-        }
-    }
+//     .job-item {
+//         .content {
+//             .location {
+//                 font-size: 16px;
+//             }
+//         }
+//     }
 
-    .sidebar-area {
-        .box {
-            padding: 25px;
+//     .sidebar-area {
+//         .box {
+//             padding: 25px;
 
-            li {
-                margin-bottom: 13px;
-                font-size: 15px;
-            }
-        }
-    }
+//             li {
+//                 margin-bottom: 13px;
+//                 font-size: 15px;
+//             }
+//         }
+//     }
 
-}
+// }
 
 /* Min width 1200px to Max width 1399px */
 @media only screen and (min-width: 1200px) and (max-width: 1399px) {}
