@@ -6,12 +6,14 @@
             font-size: 1.1vw;
             font-family: 'mon-reg';
             margin-bottom: 0;
+
             .count {
                 font-family: 'mon-semi';
                 color: var(--headingColor);
             }
         }
     }
+
     .ordering {
         text-align: end;
 
@@ -20,11 +22,15 @@
             display: inline-block;
             font-size: 1.1vw;
             font-family: 'mon-reg';
+
             margin: {
                 right: 5px;
                 bottom: 0;
-            };
+            }
+
+            ;
         }
+
         select {
             height: 3.3vw;
             width: 13vw;
@@ -38,6 +44,7 @@
             transition: var(--transition);
             font-size: 1.1vw;
             font-family: 'mon-reg';
+
             &:hover {
                 border-color: #3a4e90;
                 background-color: transparent;
@@ -68,12 +75,16 @@
             width: 3vw;
             position: absolute;
             transform: translateY(-50%);
+
             margin: {
                 left: auto;
                 right: auto;
-            };
+            }
+
+            ;
         }
     }
+
     .content {
         margin-left: 20px;
 
@@ -83,12 +94,13 @@
             color: black;
         }
 
-        span{
+        span {
             font-size: 1vw;
             font-family: 'mon-reg';
             color: black;
         }
     }
+
     .jobs-open {
         a {
             font-size: 1vw;
@@ -99,6 +111,7 @@
             background-color: #f4f7fb;
         }
     }
+
     &:hover {
         .jobs-open {
             a {
@@ -119,6 +132,7 @@
         font-family: 'mon-bold';
         margin-bottom: 1.7vw;
     }
+
     form {
         .search-box {
             margin-bottom: 1.7vw;
@@ -135,19 +149,21 @@
                 padding: 10px 20px 11px 48px;
                 transition: var(--transition);
                 background-color: var(--whiteColor);
-    
+
                 &::placeholder {
                     color: var(--bodyColor);
                     transition: var(--transition);
                 }
+
                 &:focus {
                     border-color: var(--primaryColor);
-    
+
                     &::placeholder {
                         color: transparent;
                     }
                 }
             }
+
             i {
                 top: 50%;
                 left: 20px;
@@ -157,6 +173,7 @@
                 transform: translateY(-50%);
             }
         }
+
         .form-group {
             margin-bottom: 20px;
 
@@ -164,33 +181,37 @@
                 display: block;
                 margin-bottom: 8px;
             }
+
             .form-select {
                 cursor: pointer;
                 padding: 0.7vw 1.3vw;
                 font-size: 1.1vw;
                 font-family: 'mon-reg';
                 color: black;
-    
+
                 &:focus {
                     border-color: var(--primaryColor);
                 }
             }
         }
+
         .default-btn {
             padding: {
                 top: 1vw;
                 bottom: 1vw;
-            };
+            }
+
+            ;
         }
     }
 }
 
-.main{
+.main {
     width: 90%;
     margin: auto;
 }
 
-.jobs-area{
+.jobs-area {
     padding: 2.5vw 0 7vw;
 }
 
@@ -200,65 +221,133 @@
 
     .jove-grid-sorting {
         text-align: center;
+        padding: 2vw 0;
+
+        .result-count {
+            p {
+                font-size: 2.5vw;
+            }
+
+        }
 
         .ordering {
             text-align: center;
-            margin-top: 12px;
+            margin-top: 2vw;
+
+            .select-box {
+                text-align: center;
+
+                label {
+                    font-size: 2.5vw;
+                }
+
+                .form-select {
+                    height: 10vw;
+                    width: 43vw;
+                    font-size: 2.8vw;
+                }
+            }
         }
+
+
+
     }
+
     .single-employer-box {
+        margin-bottom: 6vw;
         text-align: center;
         border-radius: 5px;
-        padding: 15px;
-    
+        padding: 4vw;
+
         .image {
-            width: 90px;
-            height: 90px;
+            width: 23vw;
+            height: 23vw;
+
             margin: {
                 left: auto;
                 right: auto;
-            };
+            }
+
+            ;
+
+            img {
+                width: 8vw;
+            }
         }
+
         .content {
             margin: {
                 left: 0;
-                top: 12px;
-                bottom: 15px;
-            };
+                top: 3.5vw;
+                bottom: 4vw;
+            }
+
+            ;
+
             h3 {
-                font-size: 16px;
+                font-size: 4vw;
+            }
+
+            .location {
+                font-size: 3.2vw;
+            }
+
+            .job-type {
+                font-size: 3vw;
+            }
+        }
+
+        .jobs-open {
+            a {
+                font-size: 3.5vw;
+                border-radius: 5vw;
+                padding: 2vw 5.3vw 2vw;
             }
         }
     }
+
     .sidebar-area {
-        padding: 20px;
-        margin-top: 30px;
-        border-radius: 5px;
-    
+        border-radius: 0.5vw;
+        margin-top: 4vw;
+        padding: 5vw;
+
         h3 {
-            font-size: 16px;
-            margin-bottom: 15px;
+            font-size: 4vw;
+            margin-bottom: 3vw;
         }
+
         form {
             .search-box {
                 margin-bottom: 15px;
-    
+
                 .input-search {
                     height: 48px;
                     font-size: 14px;
                     padding: 10px 20px 11px 42px;
                 }
+
                 i {
                     left: 15px;
                 }
             }
+
             .form-group {
                 margin-bottom: 15px;
-    
+
+                label {
+                    font-size: 3vw;
+                }
+
                 .form-select {
                     padding: 11px 18px;
                     font-size: 14px;
                 }
+            }
+
+            .default-btn {
+                padding-top: 2vw;
+                padding-bottom: 2vw;
+                font-size: 4vw !important;
             }
         }
     }
@@ -266,44 +355,48 @@
 }
 
 /* Min width 576px to Max width 767px */
-@media only screen and (min-width : 576px) and (max-width : 767px) {
+// @media only screen and (min-width : 576px) and (max-width : 767px) {
 
-    .single-employer-box {
-        text-align: start;
+//     .single-employer-box {
+//         text-align: start;
 
-        .content {
-            margin: {
-                top: 0;
-                bottom: 0;
-                left: 15px;
-            };
-        }
-    }
+//         .content {
+//             margin: {
+//                 top: 0;
+//                 bottom: 0;
+//                 left: 15px;
+//             }
 
-}
+//             ;
+//         }
+//     }
+
+// }
 
 /* Min width 768px to Max width 991px */
 @media only screen and (min-width : 768px) and (max-width : 991px) {
 
     .single-employer-box {
         border-radius: 10px;
-    
+
         .content {
             h3 {
                 font-size: 18px;
             }
         }
     }
+
     .sidebar-area {
         padding: 25px;
         margin-top: 35px;
-    
+
         form {
             .search-box {
                 .input-search {
                     font-size: 15px;
                 }
             }
+
             .form-group {
                 .form-select {
                     font-size: 15px;

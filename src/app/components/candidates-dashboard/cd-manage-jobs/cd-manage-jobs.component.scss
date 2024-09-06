@@ -233,6 +233,10 @@
                 }
 
                 ;
+
+                img {
+                    width: 8vw;
+                }
             }
 
             .content {
@@ -251,10 +255,16 @@
                 .location {
                     font-size: 15px;
                 }
+
+                .job-type {
+                    font-size: 3vw;
+                }
             }
 
             .custom-info {
                 .active {
+                    font-size: 3vw;
+
                     margin: {
                         right: 0;
                         bottom: 15px;
@@ -271,6 +281,12 @@
                         }
 
                         ;
+
+                        button {
+                            width: 34px;
+                            height: 34px;
+                            font-size: 16px;
+                        }
                     }
                 }
             }
@@ -287,11 +303,17 @@
                 ;
 
                 .salary {
+                    font-size: 3vw;
                     margin-bottom: 5px;
                 }
 
                 .created {
+                    font-size: 3vw;
                     margin-bottom: 5px;
+                }
+
+                .deadline {
+                    font-size: 3vw;
                 }
             }
         }

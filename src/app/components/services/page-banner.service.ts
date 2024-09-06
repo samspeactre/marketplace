@@ -18,7 +18,7 @@ export class PageBannerService {
     '/candidates': { h1: 'Candidates', li: 'Candidates' },
     '/candidate-details': { h1: 'Candidate Details', li: 'Candidate Details' },
     '/job-details': { h1: 'There are 58,612 jobs for you', li: 'Job Details' },
-    '/jobs-grid': { h1: 'There are 58,612 jobs for you', li: 'Jobs Grid' },
+    '/jobs-grid': { h1: 'There are 58,612 jobs for you', li: 'Jobs' },
     // Add more routes and titles as needed
   };
 

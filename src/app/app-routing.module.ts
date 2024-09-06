@@ -46,6 +46,7 @@ import { CdAllApplicantsComponent } from './components/candidates-dashboard/cd-a
 import { CdEditAccountComponent } from './components/candidates-dashboard/cd-edit-account/cd-edit-account.component';
 import { CdPostANewJobComponent } from './components/candidates-dashboard/cd-post-a-new-job/cd-post-a-new-job.component';
 import { AuthGuard } from './shared/services/auth.guard';
+import { ResetEmailSendComponent } from './components/forget-pass/reset-email-send/reset-email-send.component';
 
 const routes: Routes = [
     // {path: '', component: HomeDemoOneComponent},
@@ -68,6 +69,7 @@ const routes: Routes = [
     // {path: 'blog', component: BlogPageComponent},
     // {path: 'blog-details', component: BlogDetailsPageComponent},
     {path: 'contact', component: ContactPageComponent},
+    {path: 'reset-pass', component: ResetEmailSendComponent},
     {
         path: 'dashboard',
         component: EmployersDashboardComponent,

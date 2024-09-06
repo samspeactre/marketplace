@@ -44,10 +44,17 @@ footer {
     margin-bottom: 1.2vw;
 }
 
-.seeker h4 {
-    color: var(--whiteColor);
-    font-size: 0.9vw;
-    font-family: 'mon-bold';
+.seeker .seeker-sec,
+.contact {
+    h3 {
+        color: var(--whiteColor);
+        font-size: 0.9vw;
+        font-family: 'mon-bold';
+    }
+}
+
+.no-mar {
+    margin: 0;
 }
 
 .seeker ul {
@@ -62,14 +69,6 @@ footer {
     font-family: "mon-reg";
     color: var(--whiteColor);
     line-height: 1.5vw;
-}
-
-.seeker-sec h3,
-.contact h3 {
-    font-family: 'mon-reg';
-    font-size: 1vw;
-    color: var(--whiteColor);
-    letter-spacing: 0.5px;
 }
 
 .seeker-sec .info li {
@@ -88,7 +87,7 @@ footer {
 
 .contact h3 {
     font-size: 1.1vw;
-    font-family: 'mon-reg';
+    font-family: 'mon-bold';
     color: var(--whiteColor);
 }
 
@@ -110,6 +109,90 @@ footer {
 
     footer {
         padding: 7vw 4vw;
+    }
+
+    .logo-sec {
+        width: 100%;
+        margin-bottom: 3vw;
+
+        .image {
+            img {
+                width: 50%;
+                object-fit: cover;
+                transform: translate(50%, 0);
+
+            }
+        }
+
+        h2 {
+            text-align: center;
+            font-size: 3vw;
+        }
+
+        .social-icon {
+            width: 27%;
+            margin: auto;
+            margin-bottom: 3vw;
+
+            .icon-size {
+                a {
+                    img {
+                        width: 6vw;
+                        margin-top: 3vw;
+                    }
+                }
+            }
+        }
+    }
+
+    .seeker,
+    .company-info {
+        width: 50% !important;
+        margin: 2vw 0 5vw;
+        padding-left: 4vw;
+
+        .seeker-sec {
+            margin-bottom: 3vw;
+
+            .no-mar {
+                margin-bottom: 3vw;
+            }
+
+            h4,
+            h3 {
+                font-size: 3.5vw;
+            }
+
+            ul {
+                margin: 3.25vw 0 0;
+
+                li {
+                    font-size: 3vw;
+                    line-height: 5vw;
+                }
+            }
+
+        }
+    }
+
+    .contact {
+        width: 100% !important;
+        margin: 2vw 0 5vw;
+        padding: 0 4vw;
+
+        h3 {
+            font-size: 3.5vw;
+        }
+
+        .address {
+            h6 {
+                font-size: 3vw;
+                font-family: "mon-light";
+                color: var(--whiteColor);
+                letter-spacing: 0.02vw;
+                line-height: 4.5vw;
+            }
+        }
     }
 
 }

@@ -86,6 +86,10 @@ h2 {
 
 // tabs //
 
+.sec-3{
+  height: 100%;
+}
+
 .tabs-container {
   display: flex;
   justify-content: center;
@@ -225,6 +229,7 @@ h2 {
 .see-more {
   width: 100%;
   margin: auto;
+  padding-bottom: 3vw;
 }
 
 .see-more button {
@@ -272,7 +277,7 @@ h2 {
   background-position: center;
   background-size: 100%;
   background-repeat: no-repeat;
-  height: 58vw;
+  height: 100%;
 }
 
 .acc-head {
@@ -361,7 +366,7 @@ h2 {
 // Sec 4 //
 
 .vector-bg {
-  padding: 5.4vw 0;
+  padding: 3vw 0 3.3vw;
   background-color: #415499;
   background-image: url('../../../assets/images/vector-bg.png');
   background-repeat: no-repeat;
@@ -432,7 +437,7 @@ h2 {
 
   .cover-img {
     width: 100%;
-    padding: 0vw 4dvw;
+    padding: 0vw 4dvw 4vw;
     display: block;
   }
 
@@ -570,6 +575,7 @@ h2 {
           }
 
           .see-more {
+            padding-bottom: 2vw;
             button {
               width: 27%;
               margin: -0.85vw 36.5% 0;
@@ -593,7 +599,7 @@ h2 {
     padding: 0 4dvw;
 
     .radical {
-      height: 88dvw;
+      height: 100%;
 
       .acc-head {
         font-size: 5dvw;
@@ -640,6 +646,7 @@ h2 {
           width: 100%;
           margin: auto;
           margin-top: 3vw;
+          padding-bottom: 5vw;
           button{
             width: 27%;
             margin: -0.85vw 36.5% 0;
@@ -664,13 +671,13 @@ h2 {
     }
     h2{
       font-size: 3vw;
-      padding: 0 12vw;
+      padding: 0 8vw;
     }
 
     .auth-btn{
       width: 45%;
       margin: auto;
-      margin-top: 4.5vw;
+      margin-top: 3.5vw;
 
       button{
          font-size: 2.7vw;

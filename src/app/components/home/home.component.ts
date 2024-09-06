@@ -492,7 +492,7 @@ export class HomeComponent {
 
   accordionItems = [
     {
-      title: 'How do i create a profile on this job site?',
+      title: 'How can I upload my video?',
       content: 'Content for Accordion 1',
       open: false
     },
@@ -519,6 +519,14 @@ export class HomeComponent {
   ];
 
   toggleAccordion(index: number) {
+    // Close any other open accordion
+    this.accordionItems.forEach((item, i) => {
+      if (i !== index) {
+        item.open = false;
+      }
+    });
+
+    // Toggle the current accordion
     this.accordionItems[index].open = !this.accordionItems[index].open;
   }
 }

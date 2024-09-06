@@ -3,7 +3,7 @@
     margin: auto;
 }
 
-.employer-details-area{
+.employer-details-area {
     padding: 7vw 0vw 2vw;
 }
 
@@ -289,14 +289,14 @@
 @media only screen and (max-width : 767px) {
 
     .single-employer-box {
-        margin-bottom: 25px;
+        margin-bottom: 6vw;
         text-align: center;
         border-radius: 5px;
-        padding: 15px;
+        padding: 4vw;
 
         .image {
-            width: 90px;
-            height: 90px;
+            width: 23vw;
+            height: 23vw;
 
             margin: {
                 left: auto;
@@ -304,75 +304,106 @@
             }
 
             ;
+
+            img {
+                width: 8vw;
+            }
         }
 
         .content {
             margin: {
                 left: 0;
-                top: 12px;
-                bottom: 15px;
+                top: 3.5vw;
+                bottom: 4vw;
             }
 
             ;
 
             h3 {
-                font-size: 16px;
+                font-size: 4vw;
+            }
+
+            .location {
+                font-size: 3.2vw;
+            }
+
+            .job-type {
+                font-size: 3vw;
+            }
+        }
+
+        .jobs-open {
+            span {
+                font-size: 3.5vw;
+                border-radius: 5vw;
+                padding: 2vw 5.3vw 2vw;
+                font-family: "mon-bold";
             }
         }
     }
 
     .employer-details-description {
         h3 {
-            font-size: 18px;
-            margin-bottom: 10px;
+            font-size: 4vw;
+            margin-bottom: 1.8vw;
 
             &:not(:first-child) {
-                margin-top: 25px;
+                margin-top: 2.2vw;
             }
         }
 
+        p {
+            font-size: 3vw;
+        }
+
         ul {
-            padding-left: 17px;
+            padding-left: 3.5vw;
 
             margin: {
-                top: 15px;
-                bottom: 20px;
+                top: 0vw;
+                bottom: 4vw;
             }
 
             ;
 
             li {
                 margin-bottom: 0.85vw;
+                font-size: 3vw;
             }
         }
 
         .images {
-            margin-bottom: 20px;
+            margin-bottom: 4vw;
 
             img {
-                border-radius: 5px;
+                border-radius: 0.5vw;
             }
         }
     }
 
     .sidebar-area {
-        border-radius: 5px;
-        margin-top: 25px;
+        border-radius: 0.5vw;
+        margin-top: 4vw;
+        padding: 0 5vw;
 
         .box {
-            padding: 20px;
+            padding: 4vw 6vw;
+            margin: 0 -5vw;
+        
 
             h3 {
-                font-size: 16px;
-                margin-bottom: 15px;
+                font-size: 4vw;
+                margin-bottom: 3vw;
             }
 
             .information {
                 li {
-                    font-size: 1vw;
-                    margin-bottom: 1.02vw;
-                    font-family: 'mon-reg';
-                    color: black;
+                    font-size: 3vw;
+
+                    span {
+                        font-size: 3vw;
+                        margin-bottom: 1vw;
+                    }
                 }
             }
 
@@ -393,29 +424,51 @@
                     }
                 }
             }
+
+            .socials-link {
+                li {
+                    margin-bottom: 2vw;
+
+                    a {
+                        font-size: 3vw;
+
+                        span {
+                            width: 7vw;
+                            height: 7vw;
+                            line-height: 7vw;
+                            margin-right: 2vw;
+                        }
+                    }
+                }
+            }
+
+            iframe {
+                border-radius: 0.5vw;
+                height: 30vw;
+            }
         }
     }
 
 }
 
 /* Min width 576px to Max width 767px */
-@media only screen and (min-width : 576px) and (max-width : 767px) {
+// @media only screen and (min-width : 576px) and (max-width : 767px) {
 
-    .single-employer-box {
-        text-align: start;
+//     .single-employer-box {
+//         text-align: start;
 
-        .content {
-            margin: {
-                top: 0;
-                bottom: 0;
-                left: 15px;
-            }
+//         .content {
+//             margin: {
+//                 top: 0;
+//                 bottom: 0;
+//                 left: 15px;
+//             }
 
-            ;
-        }
-    }
+//             ;
+//         }
+//     }
 
-}
+// }
 
 /* Min width 768px to Max width 991px */
 @media only screen and (min-width : 768px) and (max-width : 991px) {
@@ -481,4 +534,3 @@
     }
 
 }
-

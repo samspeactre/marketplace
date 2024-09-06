@@ -98,3 +98,33 @@ h4 {
     width: 88%;
     margin: auto;
 }
+
+/* Max width 767px */
+@media only screen and (max-width : 767px) {
+
+    .terms-conditions-area{
+        padding: 7vw 4vw 5vw;
+
+        .content-width{
+            width: 100%;
+
+            .terms-conditions-content{
+                p{
+                    font-size: 3vw;
+                    line-height: 4.5vw;
+                    padding-bottom: 2vw;
+
+                    strong{
+                        font-weight: 500;
+                    }
+                }
+
+                h4{
+                    font-size: 4vw;
+                    margin-bottom: 2vw;
+                }
+            }
+        }
+    }
+
+}

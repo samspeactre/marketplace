@@ -14,6 +14,20 @@ export class SubPageBannerService {
       li2: 'Job Details', 
       li1Link: '/jobs-grid' // Add the link here
     },
+
+    '/employer-details': { 
+      h1: 'Employer Details', 
+      li1: 'Employer', 
+      li2: 'Employer Details', 
+      li1Link: '/employers' // Add the link here
+    },
+
+    '/candidate-details': { 
+      h1: 'Candidate Details', 
+      li1: 'Candidate', 
+      li2: 'Candidate Details', 
+      li1Link: '/candidate' // Add the link here
+    },
     // Add more routes and titles as needed
   };
 

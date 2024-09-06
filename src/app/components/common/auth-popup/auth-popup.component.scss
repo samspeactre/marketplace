@@ -302,3 +302,141 @@
         z-index: -1;
     }
 }
+
+/* Max width 767px */
+@media only screen and (max-width : 767px) {
+
+    // Modal
+    .loginRegisterModal {
+        .modal-content {
+            .modal-body {
+                padding: 5vw;
+
+                .nav {
+                    &.nav-tabs {
+                        margin-bottom: 17px !important;
+
+                        .nav-item {
+                            margin-left: 20px;
+
+                            .nav-link {
+                                padding-bottom: 1vw;
+                                font-size: 3.5vw;
+                            }
+
+                        }
+                    }
+
+
+                }
+
+                .tab-content {
+                    .tab-pane {
+                        .info {
+                            margin-bottom: 20px;
+                            padding: 12px 15px;
+
+                            p {
+                                font-size: 3.5vw;
+
+                                span {
+                                    font-size: 3.5vw;
+                                }
+                            }
+                        }
+
+                        .authentication-form {
+                            .form-group {
+                                margin-bottom: 12px;
+
+                                label {
+                                    margin-bottom: 5px;
+                                    font-size: 3.5vw;
+                                }
+
+                                .form-control {
+                                    height: 30px;
+                                    font-size: 12px;
+
+                                    padding: {
+                                        right: 15px;
+                                        left: 15px;
+                                    }
+
+                                    ;
+                                }
+
+                                &.forgot-password {
+                                    margin-top: 0px;
+                                    font-size: 3vw;
+                                }
+                            }
+
+                            .form-check {
+                                margin: {
+                                    bottom: 18px;
+                                    top: 0;
+                                }
+
+                                ;
+
+                                label {
+                                    font-size: 3vw;
+
+                                }
+                            }
+
+                            .login-with-socials {
+                                margin-top: 20px;
+
+                                a {
+                                    width: 38px;
+                                    height: 38px;
+                                    font-size: 17px;
+                                }
+                            }
+
+                            .default-popup-btn,
+                            .default-btn {
+                                padding: 2vw;
+                                font-size: 4vw !important;
+                                border-radius: 1.5vw;
+                                font-family: 'mon-bold' !important;
+                            }
+                        }
+
+                        .nav {
+                            &.nav-tabs {
+                                margin-bottom: 12px !important;
+
+                                .nav-item {
+                                    margin: {
+                                        right: 5px;
+                                        left: 5px;
+                                    }
+
+                                    ;
+
+                                    .nav-link {
+                                        font-size: 12px;
+                                        padding: 5px 25px;
+
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
+                .close-btn {
+                    top: 18px;
+                    width: 30px;
+                    right: 20px;
+                    height: 30px;
+                    font-size: 20px;
+                }
+            }
+        }
+    }
+
+}

@@ -1011,6 +1011,10 @@
 
                     ;
 
+                    a{
+                        font-size: 3vw !important;
+                    }
+
                     .nav-link {
                         font-size: 16px;
 
@@ -1026,7 +1030,7 @@
                     .dropdown-toggle {
                         &::before {
                             top: 4px;
-                            font-size: 17px;
+                            font-size: 22px;
                         }
                     }
 
@@ -1115,6 +1119,12 @@
 
                     .login-register {
                         font-size: 16px;
+                    }
+
+                    .default-btn{
+                        font-size: 4vw !important;
+                        padding: 2vw 6vw;
+                        border-radius: 1vw;
                     }
 
                     .hotline {
@@ -1404,15 +1414,15 @@
 }
 
 /* Min width 576px to Max width 767px */
-@media only screen and (min-width : 576px) and (max-width : 767px) {
+// @media only screen and (min-width : 576px) and (max-width : 767px) {
 
-    .navbar-area {
-        .container-fluid {
-            max-width: 540px;
-        }
-    }
+//     .navbar-area {
+//         .container-fluid {
+//             max-width: 540px;
+//         }
+//     }
 
-}
+// }
 
 /* Min width 768px to Max width 991px */
 @media only screen and (min-width : 768px) and (max-width : 991px) {

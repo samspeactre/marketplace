@@ -156,27 +156,40 @@
 @media only screen and (max-width : 767px) {
 
     .about-area {
+        padding: 6vw 4vw;
         &.bg-e9e7e7 {
             &::before {
                 height: 100px;
             }
         }
+
+        .main{
+            padding: 0;
+            .flex-wrap{
+                flex-wrap: wrap;
+
+                .left,
+                .right{
+                    width: 100%;
+                }
+            }
+        }
     }
 
     .about-image {
-        padding-right: 0;
         margin-bottom: 25px;
     }
 
     .about-content {
         h2 {
-            font-size: 20px;
-            margin-bottom: 10px;
+            font-size: 5vw;
+            margin-bottom: 2vw;
         }
 
         p {
-            font-size: 14px;
-            margin-bottom: 20px;
+            font-size: 3vw;
+            line-height: 4.5vw;
+            margin-bottom: 0vw;
         }
 
         .box {
@@ -188,16 +201,18 @@
                 top: 0;
                 left: 0;
                 position: relative;
+                width: 9vw;
                 margin-bottom: 15px;
             }
 
             h3 {
-                font-size: 16px;
-                margin-bottom: 8px;
+                font-size: 4vw;
+                margin-bottom: 2vw;
             }
 
             p {
-                font-size: 14px;
+                font-size: 3vw;
+                line-height: 4.5vw;
                 margin-bottom: 0;
             }
         }
@@ -247,81 +262,81 @@
 }
 
 /* Min width 768px to Max width 991px */
-@media only screen and (min-width : 768px) and (max-width : 991px) {
+// @media only screen and (min-width : 768px) and (max-width : 991px) {
 
-    .about-image {
-        padding-right: 0;
-        margin-bottom: 25px;
-    }
+//     .about-image {
+//         padding-right: 0;
+//         margin-bottom: 25px;
+//     }
 
-    .about-content {
-        h2 {
-            font-size: 22px;
-            margin-bottom: 11px;
-        }
+//     .about-content {
+//         h2 {
+//             font-size: 22px;
+//             margin-bottom: 11px;
+//         }
 
-        p {
-            font-size: 15px;
-            margin-bottom: 25px;
-        }
+//         p {
+//             font-size: 15px;
+//             margin-bottom: 25px;
+//         }
 
-        .box {
-            border-radius: 10px;
-            padding: 25px 25px 25px 95px;
+//         .box {
+//             border-radius: 10px;
+//             padding: 25px 25px 25px 95px;
 
-            img {
-                top: 25px;
-                left: 25px;
-            }
+//             img {
+//                 top: 25px;
+//                 left: 25px;
+//             }
 
-            p {
-                font-size: 15px;
-            }
-        }
-    }
+//             p {
+//                 font-size: 15px;
+//             }
+//         }
+//     }
 
-    .about-img {
-        margin: {
-            right: 0;
-            top: 25px;
-        }
+//     .about-img {
+//         margin: {
+//             right: 0;
+//             top: 25px;
+//         }
 
-        ;
+//         ;
 
-        .shape {
-            display: none;
-        }
-    }
+//         .shape {
+//             display: none;
+//         }
+//     }
 
-    .about-text {
-        height: auto;
-        display: unset;
+//     .about-text {
+//         height: auto;
+//         display: unset;
 
-        .funfacts-box {
-            margin-top: 25px;
+//         .funfacts-box {
+//             margin-top: 25px;
 
-            .funfact-box {
-                h2 {
-                    font-size: 45px;
+//             .funfact-box {
+//                 h2 {
+//                     font-size: 45px;
 
-                    margin: {
-                        bottom: 8px;
-                        top: 0;
-                    }
+//                     margin: {
+//                         bottom: 8px;
+//                         top: 0;
+//                     }
 
-                    ;
+//                     ;
 
-                    sup {
-                        top: 10px;
-                        right: -25px;
-                        font-size: 35px;
-                    }
-                }
-            }
-        }
-    }
+//                     sup {
+//                         top: 10px;
+//                         right: -25px;
+//                         font-size: 35px;
+//                     }
+//                 }
+//             }
+//         }
+//     }
 
-}
+// }
 
 /* Min width 992px to Max width 1199px */
 // @media only screen and (min-width : 992px) and (max-width : 1199px) {

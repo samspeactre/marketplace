@@ -117,7 +117,7 @@
     }
 }
 
-.candidates-area{
+.candidates-area {
     padding: 7.5vw 0 3vw;
 }
 
@@ -126,25 +126,57 @@
 
     .jove-grid-sorting {
         text-align: center;
+        padding: 2vw 0;
+
+        .result-count {
+            p {
+                font-size: 2.5vw;
+            }
+
+        }
 
         .ordering {
             text-align: center;
-            margin-top: 12px;
+            margin-top: 2vw;
+
+            .select-box {
+                text-align: center;
+
+                label {
+                    font-size: 2.5vw;
+                }
+
+                .form-select {
+                    height: 10vw;
+                    width: 43vw;
+                    font-size: 2.8vw;
+                }
+            }
         }
+
+
+
     }
 
     .single-candidate-box {
-        padding: 15px;
-        border-radius: 5px;
+        padding: 4vw 4vw 6vw;
+        border-radius: 1vw;
         text-align: center;
 
         .image {
+            width: 18vw;
+
             margin: {
                 left: auto;
                 right: auto;
             }
 
             ;
+
+            img {
+                height: 18vw;
+                object-fit: cover;
+            }
         }
 
         .content {
@@ -156,19 +188,33 @@
             ;
 
             h3 {
-                font-size: 16px;
+                font-size: 5vw;
+            }
+
+            .designation,
+            .location,
+            span {
+                font-size: 3.5vw;
             }
         }
 
         .view-profile {
             span {
+                font-size: 3.5vw;
+
                 margin: {
                     right: 0;
-                    top: 10px;
-                    bottom: 10px;
+                    top: 2vw;
+                    bottom: 4vw;
                 }
 
                 ;
+            }
+
+            .default-btn {
+                padding: 2vw 7vw;
+                font-size: 3.5vw !important;
+                font-family: "mon-reg";
             }
         }
     }
@@ -176,34 +222,34 @@
 }
 
 /* Min width 576px to Max width 767px */
-@media only screen and (min-width : 576px) and (max-width : 767px) {
+// @media only screen and (min-width : 576px) and (max-width : 767px) {
 
-    .single-candidate-box {
-        text-align: start;
+//     .single-candidate-box {
+//         text-align: start;
 
-        .content {
-            margin: {
-                left: 15px;
-                top: 0;
-            }
+//         .content {
+//             margin: {
+//                 left: 15px;
+//                 top: 0;
+//             }
 
-            ;
-        }
+//             ;
+//         }
 
-        .view-profile {
-            span {
-                margin: {
-                    right: 15px;
-                    bottom: 0;
-                    top: 0;
-                }
+//         .view-profile {
+//             span {
+//                 margin: {
+//                     right: 15px;
+//                     bottom: 0;
+//                     top: 0;
+//                 }
 
-                ;
-            }
-        }
-    }
+//                 ;
+//             }
+//         }
+//     }
 
-}
+// }
 
 /* Min width 768px to Max width 991px */
 @media only screen and (min-width : 768px) and (max-width : 991px) {

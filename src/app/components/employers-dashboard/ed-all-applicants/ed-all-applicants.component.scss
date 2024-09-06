@@ -178,25 +178,77 @@
 
         .recent-applicants {
             margin-bottom: -15px;
-        }
 
-        .single-candidate-box {
-            padding: 15px;
-            border-radius: 5px;
-            text-align: center;
-            margin-bottom: 15px;
-
-            .image {
-                margin: {
-                    left: auto;
-                    right: auto;
-                }
-
-                ;
-
-
+            .applicant-box{
+                width: 100%;
+                margin-left: 3%;
             }
 
+            .single-candidate-box {
+                padding: 15px;
+                border-radius: 5px;
+                text-align: center;
+                margin-bottom: 15px;
+    
+                .image {
+                    width: 20vw;
+                    margin: {
+                        left: auto;
+                        right: auto;
+                    };
+    
+                    img{
+                        height: 20vw;
+                        object-fit: cover;
+                    }
+                }
+    
+                .content {
+                    margin: {
+                        left: 0;
+                        top: 15px;
+                    }
+    
+                    ;
+    
+                    h3 {
+                        font-size: 16px;
+                        margin-bottom: 5px;
+                    }
+    
+                    .designation {
+                        font-size: 3vw;
+                        margin-bottom: 5px;
+                    }
+    
+                    .location {
+                        font-size: 3vw;
+                    }
+                }
+    
+                .view-profile {
+                    span {
+                        font-size: 3vw;
+                        margin: {
+                            bottom: 7px;
+                            top: 5px;
+                            right: 0;
+                        }
+    
+                        ;
+                    }
+    
+                    ul {
+                        li {
+                            button {
+                                width: 34px;
+                                height: 34px;
+                                font-size: 16px;
+                            }
+                        }
+                    }
+                }
+            }
         }
 
         .content {
