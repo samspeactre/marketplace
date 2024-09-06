@@ -23,6 +23,11 @@
 
     ;
 
+    transition: left 0.5s ease,
+    transform 0.5s ease;
+    transform: translateX(-100%);
+    opacity: 0;
+
     ul {
         li {
             a {
@@ -73,6 +78,11 @@
         background: #f2f2f2;
         border-radius: 15px;
     }
+}
+
+.sidebar-area.active {
+    transform: translateX(0); /* Slide into view */
+    opacity: 1; /* Fully visible */
 }
 
 // Sidebar Button
