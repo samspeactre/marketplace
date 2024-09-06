@@ -342,34 +342,45 @@
 
     // Breadcrumb Title
     .breadcrumb-title {
+        margin-bottom: 4vw;
+
         h1 {
             font-size: 20px;
         }
     }
 
     // Stats
-    .single-stats-box {
-        padding: 20px 15px;
-        border-radius: 5px;
-        text-align: center;
+    .employee-tab {
+        width: 48%;
+        margin-bottom: 2.5%;
 
-        .icon {
-            width: 60px;
-            height: 60px;
-            font-size: 30px;
+        .single-stats-box {
+            padding: 20px 15px;
+            border-radius: 5px;
+            text-align: center;
 
-            margin: {
-                left: auto;
-                right: auto;
-                bottom: 15px;
+            .icon {
+                width: 60px;
+                height: 60px;
+                font-size: 30px;
+
+                margin: {
+                    left: auto;
+                    right: auto;
+                    bottom: 15px;
+                }
+
+                ;
             }
 
-            ;
-        }
+            h3 {
+                font-size: 18px;
+                margin-bottom: 2px;
+            }
 
-        h3 {
-            font-size: 18px;
-            margin-bottom: 2px;
+            span {
+                font-size: 3.5vw;
+            }
         }
     }
 
@@ -399,8 +410,10 @@
         }
 
         .notifications-list {
+            margin-left: 0;
+
             li {
-                max-width: 260px;
+                width: 100%;
                 margin-bottom: 12px;
 
                 padding: {
@@ -427,26 +440,39 @@
                         font-size: 14px;
                     }
                 }
+
+                .job-apply {
+                    font-size: 3vw;
+                    padding: 0 1.2vw;
+                }
             }
         }
 
         .recent-applicants {
             margin-bottom: -15px;
-        }
 
-        .single-candidate-box {
+            .applicant-box{
+                width: 100%;
+                margin-left: 3%;
+            }
+
+             .single-candidate-box {
             padding: 15px;
             border-radius: 5px;
             text-align: center;
             margin-bottom: 15px;
 
             .image {
+                width: 20vw;
                 margin: {
                     left: auto;
                     right: auto;
-                }
+                };
 
-                ;
+                img{
+                    height: 20vw;
+                    object-fit: cover;
+                }
             }
 
             .content {
@@ -463,12 +489,18 @@
                 }
 
                 .designation {
+                    font-size: 3vw;
                     margin-bottom: 5px;
+                }
+
+                .location {
+                    font-size: 3vw;
                 }
             }
 
             .view-profile {
                 span {
+                    font-size: 3vw;
                     margin: {
                         bottom: 7px;
                         top: 5px;
@@ -489,6 +521,9 @@
                 }
             }
         }
+        }
+
+       
 
         .chart {
             margin: {
@@ -516,6 +551,11 @@
                 }
             }
         }
+    }
+
+    .Notifications-box,
+    .profile-box {
+        width: 100%;
     }
 
 }

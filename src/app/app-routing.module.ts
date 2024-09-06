@@ -45,6 +45,7 @@ import { CdManageJobsComponent } from './components/candidates-dashboard/cd-mana
 import { CdAllApplicantsComponent } from './components/candidates-dashboard/cd-all-applicants/cd-all-applicants.component';
 import { CdEditAccountComponent } from './components/candidates-dashboard/cd-edit-account/cd-edit-account.component';
 import { CdPostANewJobComponent } from './components/candidates-dashboard/cd-post-a-new-job/cd-post-a-new-job.component';
+import { ResetEmailSendComponent } from './components/forget-pass/reset-email-send/reset-email-send.component';
 
 const routes: Routes = [
     // {path: '', component: HomeDemoOneComponent},
@@ -67,6 +68,7 @@ const routes: Routes = [
     // {path: 'blog', component: BlogPageComponent},
     // {path: 'blog-details', component: BlogDetailsPageComponent},
     {path: 'contact', component: ContactPageComponent},
+    {path: 'reset-pass', component: ResetEmailSendComponent},
     {
         path: 'dashboard',
         component: EmployersDashboardComponent,

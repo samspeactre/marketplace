@@ -237,6 +237,61 @@
             ;
         }
 
+        form {
+            .form-group {
+                margin-bottom: 3vw;
+
+                label{
+                    font-size: 3vw !important;
+                    margin-bottom: 2vw;
+                }
+
+                .form-control {
+                    height: 48px;
+                    font-size: 3vw;
+                    padding: 10px 15px;
+                }
+                .form-select {
+                    height: 48px;
+                    font-size: 3vw;
+                    padding: 10px 15px;
+                    background: {
+                        position: right 18px center;
+                    };
+                }
+                textarea.form-control {
+                    padding-top: 18px;
+                }
+            }
+
+            .default-btn{
+                font-size: 3vw !important;
+            }
+
+            .add-btn{
+                font-size: 3vw;
+                padding: 3vw 4vw;
+                border-radius: 1vw;
+                float: right;
+
+                i{
+                    font-size: 3vw;
+                    margin-right: 1vw;
+                }
+            }
+
+            .remove-btn{
+                right: 29.5%;
+                padding: 3.75vw 4vw;
+                border-radius: 1vw;
+
+                i{
+                    font-size: 3vw;
+                    margin-left: 8%;
+                }
+            }
+        }
+
         .recent-applicants {
             margin-bottom: -15px;
         }

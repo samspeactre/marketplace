@@ -492,7 +492,7 @@ export class HomeComponent {
 
   accordionItems = [
     {
-      title: 'How do i create a profile on this job site?',
+      title: 'How can I upload my video?',
       content: 'Content for Accordion 1',
       open: false
     },

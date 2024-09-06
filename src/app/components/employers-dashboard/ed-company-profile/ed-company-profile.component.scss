@@ -132,19 +132,20 @@
         }
         form {
             .form-group {
-                margin-bottom: 1vw;
+                margin-bottom: 3vw;
     
                 label {
+                    font-size: 3vw !important;
                     margin-bottom: 7px;
                 }
                 .form-control {
                     height: 48px;
-                    font-size: 1vw;
+                    font-size: 3vw;
                     padding: 10px 1vw;
                 }
                 .form-select {
                     height: 48px;
-                    font-size: 1vw;
+                    font-size: 3vw;
                     padding: 10px 1vw;
                     background: {
                         position: right 20px center;
@@ -160,6 +161,10 @@
                         font-size: 13px;
                     }
                 }
+            }
+
+            .default-btn{
+                font-size: 3vw !important;
             }
         }
     }
