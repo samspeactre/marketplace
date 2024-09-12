@@ -107,6 +107,7 @@ export class AuthPopupComponent {
   createUserAccount() {
     this.RegisterCandidate = true;
     // Mark all fields as touched
+    console.log('candidate creating')
     if (this.CandidateloginForm.valid) {
         const formData = this.CandidateloginForm.value;
         this.http.post('auth/signup', formData, false).subscribe(
@@ -128,11 +129,13 @@ export class AuthPopupComponent {
 createEmployerAccount() {
   this.RegisterEmployee = true;
   if (this.EmployerloginForm.valid) {
+    console.log('employee creating')
     const formData = this.EmployerloginForm.value;
     this.http.post('auth/signup', formData, false).subscribe(
       (res: any) => {
         const userId = res.user.id; // Extract user id from response
         localStorage.setItem('user_id',  userId );
+        this.currentTab = 'tab1'
         this.router.navigate(['/pricing']);  // Navigate to the pricing page
       },
       (error: any) => {
@@ -184,5 +187,5 @@ createEmployerAccount() {
     );
   }
 
- 
+
 }

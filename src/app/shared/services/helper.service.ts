@@ -28,9 +28,9 @@ export class HelperService {
           formData.append('images', files[0]);
         }
       }
-
+        console.log(files)
       this.http
-        .post(
+        .postMedia(
           'file/upload',
           formData,
           true,

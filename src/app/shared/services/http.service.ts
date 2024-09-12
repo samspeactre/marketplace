@@ -25,12 +25,27 @@ header = {
     'Content-Type': 'application/json'
   }),
 };
+headerMedia = {
+  headers: new HttpHeaders({
+    // 'Content-Type': 'multipart/form-data'
+  }),
+};
 
 get headerToken() {
   const token:any = localStorage.getItem('token');
   return {
     headers: new HttpHeaders({
       'Content-Type': 'application/json',
+      Authorization: `Bearer ${(token)}`,
+    }),
+  };
+}
+
+get headerTokenMedia() {
+  const token:any = localStorage.getItem('token');
+  return {
+    headers: new HttpHeaders({
+      // 'Content-Type': 'multipart/form-data',
       Authorization: `Bearer ${(token)}`,
     }),
   };
@@ -58,7 +73,29 @@ get headerToken() {
         })
       );
   }
-  
+  postMedia(url: string, data: any, token: boolean) {
+    LoaderService.loader.next(true);
+    return this.http
+      .post(
+        environment.baseUrl + url,
+        data,
+        token ? this.headerTokenMedia : this.headerMedia
+      )
+      .pipe(
+        finalize(() => LoaderService.loader.next(false)),
+        tap((res: any) => {
+          if (res?.message || res?.messsage) {
+            this.toastr.success(res?.message ? res?.message : res?.messsage);
+          }
+        }),
+        catchError((error: HttpErrorResponse) => {
+          LoaderService.loader.next(false);
+          this.toastr.error(error.error?.message || 'Server error'); // Show error toastr as well
+          return throwError(error.message || 'Server error');
+        })
+      );
+  }
+
 
   get(url: string, token: boolean) {
     LoaderService.loader.next(true)
