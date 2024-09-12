@@ -92,6 +92,9 @@ import { SubPageBannerComponent } from './components/common/sub-page-banner/sub-
 import { EdEditAccountComponent } from './components/employers-dashboard/ed-edit-account/ed-edit-account.component';
 import { CdEditAccountComponent } from './components/candidates-dashboard/cd-edit-account/cd-edit-account.component';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
+import { ResetOtpComponent } from './components/forget-pass/reset-otp/reset-otp.component';
+import { ResetEmailSendComponent } from './components/forget-pass/reset-email-send/reset-email-send.component';
+import { ResetPassComponent } from './components/forget-pass/reset-pass/reset-pass.component';
 
 
 
@@ -177,7 +180,10 @@ import { FormsModule,ReactiveFormsModule } from '@angular/forms';
         AuthPopupComponent,
         SubPageBannerComponent,
         EdEditAccountComponent,
-        CdEditAccountComponent
+        CdEditAccountComponent,
+        ResetOtpComponent,
+        ResetEmailSendComponent,
+        ResetPassComponent
         
     ],
     imports: [

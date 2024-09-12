@@ -133,6 +133,11 @@
 
         ;
 
+        transition: left 0.5s ease,
+        transform 0.5s ease;
+        transform: translateX(-100%);
+        opacity: 0;
+
         ul {
             li {
                 a {
@@ -150,6 +155,11 @@
             opacity: 1;
             visibility: visible;
         }
+    }
+
+    .sidebar-area.active {
+        transform: translateX(0); /* Slide into view */
+        opacity: 1; /* Fully visible */
     }
 
 }

@@ -115,19 +115,19 @@
     // Card
     .jove-card {
         border-radius: 5px;
-        padding: 20px 1vw;
+        padding: 20px 15px;
     
         .title {
             font-size: 16px;
             margin-bottom: 1vw;
             padding: {
-                left: 1vw;
-                right: 1vw;
+                left: 4vw;
+                right: 4vw;
                 bottom: 10px;
             };
             margin: {
-                left: -1vw;
-                right: -1vw;
+                left: -4vw;
+                right: -4vw;
             };
         }
         form {
