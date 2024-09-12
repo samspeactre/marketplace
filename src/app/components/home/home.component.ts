@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { trigger, style, animate, transition } from '@angular/animations';
+import { HttpService } from 'src/app/shared/services/http.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -8,487 +10,40 @@ import { trigger, style, animate, transition } from '@angular/animations';
 })
 export class HomeComponent {
   selectedTab: number | null = 0;
+  AllJob: any;
+
   tabs = [
     {
       label: 'Recents Jobs',
-      cards: [
-        {
-          image: '../../../assets/images/nextech.png',
-          mainHead: 'NexTech Solutions',
-          address: 'New York, USA',
-          heading: 'Software Developer',
-          cardTag: 'Full Time',
-          skills: 'CSS3, HTML5, Javascript, Bootstrap.',
-          amount: '5000',
-          buttonText: 'Apply Now'
-        },
-        {
-          image: '../../../assets/images/greenfield.png',
-          mainHead: 'GreenField Organics',
-          address: 'New York, USA',
-          heading: 'Agricultural Scientist',
-          cardTag: 'Full Time',
-          skills: 'CSS3, HTML5, Javascript, Bootstrap.',
-          amount: '5000',
-          buttonText: 'Apply Now'
-        },
-        {
-          image: '../../../assets/images/urbanedge.png',
-          mainHead: 'UrbanEdge',
-          address: 'New York, USA',
-          heading: 'Junior Architect',
-          cardTag: 'Full Time',
-          skills: 'CSS3, HTML5, Javascript, Bootstrap.',
-          amount: '5000',
-          buttonText: 'Apply Now'
-        },
-        {
-          image: '../../../assets/images/nextech.png',
-          mainHead: 'NexTech Solutions',
-          address: 'New York, USA',
-          heading: 'Software Developer',
-          cardTag: 'Full Time',
-          skills: 'CSS3, HTML5, Javascript, Bootstrap.',
-          amount: '5000',
-          buttonText: 'Apply Now'
-        },
-        {
-          image: '../../../assets/images/greenfield.png',
-          mainHead: 'GreenField Organics',
-          address: 'New York, USA',
-          heading: 'Agricultural Scientist',
-          cardTag: 'Full Time',
-          skills: 'CSS3, HTML5, Javascript, Bootstrap.',
-          amount: '5000',
-          buttonText: 'Apply Now'
-        },
-        {
-          image: '../../../assets/images/urbanedge.png',
-          mainHead: 'UrbanEdge',
-          address: 'New York, USA',
-          heading: 'Junior Architect',
-          cardTag: 'Full Time',
-          skills: 'CSS3, HTML5, Javascript, Bootstrap.',
-          amount: '5000',
-          buttonText: 'Apply Now'
-        },
-        {
-          image: '../../../assets/images/nextech.png',
-          mainHead: 'NexTech Solutions',
-          address: 'New York, USA',
-          heading: 'Software Developer',
-          cardTag: 'Full Time',
-          skills: 'CSS3, HTML5, Javascript, Bootstrap.',
-          amount: '5000',
-          buttonText: 'Apply Now'
-        },
-        {
-          image: '../../../assets/images/greenfield.png',
-          mainHead: 'GreenField Organics',
-          address: 'New York, USA',
-          heading: 'Agricultural Scientist',
-          cardTag: 'Full Time',
-          skills: 'CSS3, HTML5, Javascript, Bootstrap.',
-          amount: '5000',
-          buttonText: 'Apply Now'
-        },
-        {
-          image: '../../../assets/images/urbanedge.png',
-          mainHead: 'UrbanEdge',
-          address: 'New York, USA',
-          heading: 'Junior Architect',
-          cardTag: 'Full Time',
-          skills: 'CSS3, HTML5, Javascript, Bootstrap.',
-          amount: '5000',
-          buttonText: 'Apply Now'
-        },
-      ]
+
     },
     {
       label: 'Featured Jobs',
-      cards: [
-        {
-          image: '../../../assets/images/greenfield.png',
-          mainHead: 'GreenField Organics',
-          address: 'New York, USA',
-          heading: 'Agricultural Scientist',
-          cardTag: 'Full Time',
-          skills: 'CSS3, HTML5, Javascript, Bootstrap.',
-          amount: '5000',
-          buttonText: 'Apply Now'
-        },
-        {
-          image: '../../../assets/images/nextech.png',
-          mainHead: 'NexTech Solutions',
-          address: 'New York, USA',
-          heading: 'Software Developer',
-          cardTag: 'Full Time',
-          skills: 'CSS3, HTML5, Javascript, Bootstrap.',
-          amount: '5000',
-          buttonText: 'Apply Now'
-        },
-        {
-          image: '../../../assets/images/urbanedge.png',
-          mainHead: 'UrbanEdge',
-          address: 'New York, USA',
-          heading: 'Junior Architect',
-          cardTag: 'Full Time',
-          skills: 'CSS3, HTML5, Javascript, Bootstrap.',
-          amount: '5000',
-          buttonText: 'Apply Now'
-        },
-        {
-          image: '../../../assets/images/nextech.png',
-          mainHead: 'NexTech Solutions',
-          address: 'New York, USA',
-          heading: 'Software Developer',
-          cardTag: 'Full Time',
-          skills: 'CSS3, HTML5, Javascript, Bootstrap.',
-          amount: '5000',
-          buttonText: 'Apply Now'
-        },
-        {
-          image: '../../../assets/images/greenfield.png',
-          mainHead: 'GreenField Organics',
-          address: 'New York, USA',
-          heading: 'Agricultural Scientist',
-          cardTag: 'Full Time',
-          skills: 'CSS3, HTML5, Javascript, Bootstrap.',
-          amount: '5000',
-          buttonText: 'Apply Now'
-        },
-        {
-          image: '../../../assets/images/urbanedge.png',
-          mainHead: 'UrbanEdge',
-          address: 'New York, USA',
-          heading: 'Junior Architect',
-          cardTag: 'Full Time',
-          skills: 'CSS3, HTML5, Javascript, Bootstrap.',
-          amount: '5000',
-          buttonText: 'Apply Now'
-        },
-        {
-          image: '../../../assets/images/nextech.png',
-          mainHead: 'NexTech Solutions',
-          address: 'New York, USA',
-          heading: 'Software Developer',
-          cardTag: 'Full Time',
-          skills: 'CSS3, HTML5, Javascript, Bootstrap.',
-          amount: '5000',
-          buttonText: 'Apply Now'
-        },
-        {
-          image: '../../../assets/images/greenfield.png',
-          mainHead: 'GreenField Organics',
-          address: 'New York, USA',
-          heading: 'Agricultural Scientist',
-          cardTag: 'Full Time',
-          skills: 'CSS3, HTML5, Javascript, Bootstrap.',
-          amount: '5000',
-          buttonText: 'Apply Now'
-        },
-        {
-          image: '../../../assets/images/urbanedge.png',
-          mainHead: 'UrbanEdge',
-          address: 'New York, USA',
-          heading: 'Junior Architect',
-          cardTag: 'Full Time',
-          skills: 'CSS3, HTML5, Javascript, Bootstrap.',
-          amount: '5000',
-          buttonText: 'Apply Now'
-        },
-      ]
+
     },
     {
       label: 'Freelancer',
-      cards: [
-        {
-          image: '../../../assets/images/nextech.png',
-          mainHead: 'NexTech Solutions',
-          address: 'New York, USA',
-          heading: 'Software Developer',
-          cardTag: 'Full Time',
-          skills: 'CSS3, HTML5, Javascript, Bootstrap.',
-          amount: '5000',
-          buttonText: 'Apply Now'
-        },
-        {
-          image: '../../../assets/images/greenfield.png',
-          mainHead: 'GreenField Organics',
-          address: 'New York, USA',
-          heading: 'Agricultural Scientist',
-          cardTag: 'Full Time',
-          skills: 'CSS3, HTML5, Javascript, Bootstrap.',
-          amount: '5000',
-          buttonText: 'Apply Now'
-        },
-        {
-          image: '../../../assets/images/urbanedge.png',
-          mainHead: 'UrbanEdge',
-          address: 'New York, USA',
-          heading: 'Junior Architect',
-          cardTag: 'Full Time',
-          skills: 'CSS3, HTML5, Javascript, Bootstrap.',
-          amount: '5000',
-          buttonText: 'Apply Now'
-        },
-        {
-          image: '../../../assets/images/nextech.png',
-          mainHead: 'NexTech Solutions',
-          address: 'New York, USA',
-          heading: 'Software Developer',
-          cardTag: 'Full Time',
-          skills: 'CSS3, HTML5, Javascript, Bootstrap.',
-          amount: '5000',
-          buttonText: 'Apply Now'
-        },
-        {
-          image: '../../../assets/images/greenfield.png',
-          mainHead: 'GreenField Organics',
-          address: 'New York, USA',
-          heading: 'Agricultural Scientist',
-          cardTag: 'Full Time',
-          skills: 'CSS3, HTML5, Javascript, Bootstrap.',
-          amount: '5000',
-          buttonText: 'Apply Now'
-        },
-        {
-          image: '../../../assets/images/urbanedge.png',
-          mainHead: 'UrbanEdge',
-          address: 'New York, USA',
-          heading: 'Junior Architect',
-          cardTag: 'Full Time',
-          skills: 'CSS3, HTML5, Javascript, Bootstrap.',
-          amount: '5000',
-          buttonText: 'Apply Now'
-        },
-        {
-          image: '../../../assets/images/nextech.png',
-          mainHead: 'NexTech Solutions',
-          address: 'New York, USA',
-          heading: 'Software Developer',
-          cardTag: 'Full Time',
-          skills: 'CSS3, HTML5, Javascript, Bootstrap.',
-          amount: '5000',
-          buttonText: 'Apply Now'
-        },
-        {
-          image: '../../../assets/images/greenfield.png',
-          mainHead: 'GreenField Organics',
-          address: 'New York, USA',
-          heading: 'Agricultural Scientist',
-          cardTag: 'Full Time',
-          skills: 'CSS3, HTML5, Javascript, Bootstrap.',
-          amount: '5000',
-          buttonText: 'Apply Now'
-        },
-        {
-          image: '../../../assets/images/urbanedge.png',
-          mainHead: 'UrbanEdge',
-          address: 'New York, USA',
-          heading: 'Junior Architect',
-          cardTag: 'Full Time',
-          skills: 'CSS3, HTML5, Javascript, Bootstrap.',
-          amount: '5000',
-          buttonText: 'Apply Now'
-        },
-      ]
+
     },
     {
       label: 'Part Time',
-      cards: [
-        {
-          image: '../../../assets/images/nextech.png',
-          mainHead: 'NexTech Solutions',
-          address: 'New York, USA',
-          heading: 'Software Developer',
-          cardTag: 'Full Time',
-          skills: 'CSS3, HTML5, Javascript, Bootstrap.',
-          amount: '5000',
-          buttonText: 'Apply Now'
-        },
-        {
-          image: '../../../assets/images/greenfield.png',
-          mainHead: 'GreenField Organics',
-          address: 'New York, USA',
-          heading: 'Agricultural Scientist',
-          cardTag: 'Full Time',
-          skills: 'CSS3, HTML5, Javascript, Bootstrap.',
-          amount: '5000',
-          buttonText: 'Apply Now'
-        },
-        {
-          image: '../../../assets/images/urbanedge.png',
-          mainHead: 'UrbanEdge',
-          address: 'New York, USA',
-          heading: 'Junior Architect',
-          cardTag: 'Full Time',
-          skills: 'CSS3, HTML5, Javascript, Bootstrap.',
-          amount: '5000',
-          buttonText: 'Apply Now'
-        },
-        {
-          image: '../../../assets/images/nextech.png',
-          mainHead: 'NexTech Solutions',
-          address: 'New York, USA',
-          heading: 'Software Developer',
-          cardTag: 'Full Time',
-          skills: 'CSS3, HTML5, Javascript, Bootstrap.',
-          amount: '5000',
-          buttonText: 'Apply Now'
-        },
-        {
-          image: '../../../assets/images/greenfield.png',
-          mainHead: 'GreenField Organics',
-          address: 'New York, USA',
-          heading: 'Agricultural Scientist',
-          cardTag: 'Full Time',
-          skills: 'CSS3, HTML5, Javascript, Bootstrap.',
-          amount: '5000',
-          buttonText: 'Apply Now'
-        },
-        {
-          image: '../../../assets/images/urbanedge.png',
-          mainHead: 'UrbanEdge',
-          address: 'New York, USA',
-          heading: 'Junior Architect',
-          cardTag: 'Full Time',
-          skills: 'CSS3, HTML5, Javascript, Bootstrap.',
-          amount: '5000',
-          buttonText: 'Apply Now'
-        },
-        {
-          image: '../../../assets/images/nextech.png',
-          mainHead: 'NexTech Solutions',
-          address: 'New York, USA',
-          heading: 'Software Developer',
-          cardTag: 'Full Time',
-          skills: 'CSS3, HTML5, Javascript, Bootstrap.',
-          amount: '5000',
-          buttonText: 'Apply Now'
-        },
-        {
-          image: '../../../assets/images/greenfield.png',
-          mainHead: 'GreenField Organics',
-          address: 'New York, USA',
-          heading: 'Agricultural Scientist',
-          cardTag: 'Full Time',
-          skills: 'CSS3, HTML5, Javascript, Bootstrap.',
-          amount: '5000',
-          buttonText: 'Apply Now'
-        },
-        {
-          image: '../../../assets/images/urbanedge.png',
-          mainHead: 'UrbanEdge',
-          address: 'New York, USA',
-          heading: 'Junior Architect',
-          cardTag: 'Full Time',
-          skills: 'CSS3, HTML5, Javascript, Bootstrap.',
-          amount: '5000',
-          buttonText: 'Apply Now'
-        },
-      ]
+
     },
     {
       label: 'Full Time',
-      cards: [
-        {
-          image: '../../../assets/images/nextech.png',
-          mainHead: 'NexTech Solutions',
-          address: 'New York, USA',
-          heading: 'Software Developer',
-          cardTag: 'Full Time',
-          skills: 'CSS3, HTML5, Javascript, Bootstrap.',
-          amount: '5000',
-          buttonText: 'Apply Now'
-        },
-        {
-          image: '../../../assets/images/greenfield.png',
-          mainHead: 'GreenField Organics',
-          address: 'New York, USA',
-          heading: 'Agricultural Scientist',
-          cardTag: 'Full Time',
-          skills: 'CSS3, HTML5, Javascript, Bootstrap.',
-          amount: '5000',
-          buttonText: 'Apply Now'
-        },
-        {
-          image: '../../../assets/images/urbanedge.png',
-          mainHead: 'UrbanEdge',
-          address: 'New York, USA',
-          heading: 'Junior Architect',
-          cardTag: 'Full Time',
-          skills: 'CSS3, HTML5, Javascript, Bootstrap.',
-          amount: '5000',
-          buttonText: 'Apply Now'
-        },
-        {
-          image: '../../../assets/images/nextech.png',
-          mainHead: 'NexTech Solutions',
-          address: 'New York, USA',
-          heading: 'Software Developer',
-          cardTag: 'Full Time',
-          skills: 'CSS3, HTML5, Javascript, Bootstrap.',
-          amount: '5000',
-          buttonText: 'Apply Now'
-        },
-        {
-          image: '../../../assets/images/greenfield.png',
-          mainHead: 'GreenField Organics',
-          address: 'New York, USA',
-          heading: 'Agricultural Scientist',
-          cardTag: 'Full Time',
-          skills: 'CSS3, HTML5, Javascript, Bootstrap.',
-          amount: '5000',
-          buttonText: 'Apply Now'
-        },
-        {
-          image: '../../../assets/images/urbanedge.png',
-          mainHead: 'UrbanEdge',
-          address: 'New York, USA',
-          heading: 'Junior Architect',
-          cardTag: 'Full Time',
-          skills: 'CSS3, HTML5, Javascript, Bootstrap.',
-          amount: '5000',
-          buttonText: 'Apply Now'
-        },
-        {
-          image: '../../../assets/images/nextech.png',
-          mainHead: 'NexTech Solutions',
-          address: 'New York, USA',
-          heading: 'Software Developer',
-          cardTag: 'Full Time',
-          skills: 'CSS3, HTML5, Javascript, Bootstrap.',
-          amount: '5000',
-          buttonText: 'Apply Now'
-        },
-        {
-          image: '../../../assets/images/greenfield.png',
-          mainHead: 'GreenField Organics',
-          address: 'New York, USA',
-          heading: 'Agricultural Scientist',
-          cardTag: 'Full Time',
-          skills: 'CSS3, HTML5, Javascript, Bootstrap.',
-          amount: '5000',
-          buttonText: 'Apply Now'
-        },
-        {
-          image: '../../../assets/images/urbanedge.png',
-          mainHead: 'UrbanEdge',
-          address: 'New York, USA',
-          heading: 'Junior Architect',
-          cardTag: 'Full Time',
-          skills: 'CSS3, HTML5, Javascript, Bootstrap.',
-          amount: '5000',
-          buttonText: 'Apply Now'
-        },
-      ]
+
     },
   ];
 
   selectTab(index: number): void {
     this.selectedTab = index;
   }
+
+  constructor(
+    private http: HttpService,
+    private router: Router,
+    private route: ActivatedRoute
+  ) {}
 
   accordionItems = [
     {
@@ -528,5 +83,24 @@ export class HomeComponent {
 
     // Toggle the current accordion
     this.accordionItems[index].open = !this.accordionItems[index].open;
+  }
+
+
+  ngOnInit() {
+    this.loadData();
+  }
+
+  async loadData() {
+    await Promise.all([this.getJobs()]);
+  }
+
+  async getJobs() {
+    try {
+      const res: any = await this.http.get('jobs/get_all_jobs', true).toPromise();
+      console.log(res);
+      this.AllJob = res?.jobs;
+    } catch (error) {
+      console.error('Error fetching contractors:', error);
+    }
   }
 }

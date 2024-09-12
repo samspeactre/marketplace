@@ -55,8 +55,6 @@ export class HelperService {
     return new Promise((resolve, reject) => {
       const formData = new FormData();
       formData.append('video', file);
-  
-      // Remove the formData and use the video file directly in the request body
       this.http.post('video_upload', file, true).subscribe(
         (response: any) => {
           console.log('API response:', response);

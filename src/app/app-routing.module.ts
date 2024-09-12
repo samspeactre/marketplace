@@ -74,6 +74,8 @@ const routes: Routes = [
         path: 'dashboard',
         component: EmployersDashboardComponent,
         canActivate: [AuthGuard],
+        data: { expectedRole: 'employer' },
+
 
         children: [
             {path: '', component: EDashboardComponent},
@@ -92,6 +94,8 @@ const routes: Routes = [
         path: 'candidates-dashboard',
         component: CandidatesDashboardComponent,
         canActivate: [AuthGuard],
+        data: { expectedRole: 'candidate' } ,
+
 
         children: [
             {path: '', component: CDashboardComponent},

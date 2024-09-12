@@ -23,7 +23,7 @@
 
 <section class="sec-2">
     <div class="popular-jobs">
-        <h1 class="textCenter">Local Opportunities</h1>
+        <h1 class="textCenter">Popular Jobs</h1>
 
         <div class="tabs-container">
             <div class="tabs">
@@ -37,24 +37,24 @@
         <div class="content-container">
             <ng-container *ngIf="selectedTab !== null">
                 <div class="card-container d-flex">
-                    <div class="card" *ngFor="let card of tabs[selectedTab].cards">
+                    <div class="card" *ngFor="let job of AllJob">
                         <div class="d-flex justify-content-between img-content">
-                            <img [src]="card.image" alt="Card Image" class="card-image" />
+                            <img [src]="job?.user?.employer_details?.main_logo" alt="Card Image" class="card-image" />
                             <div class="head-para">
-                                <div class="main-head">{{card.mainHead}}</div>
-                                <div class="para">{{card.address}}</div>
+                                <div class="main-head">{{job?.user?.employer_details?.company_name}}</div>
+                                <div class="para">{{job?.completeAddress}}</div>
                             </div>
                         </div>
-                        <div class="card-heading">{{ card.heading }}</div>
+                        <div class="card-heading">{{ job?.title }}</div>
 
-                        <div class="card-tag">{{ card.cardTag }}</div>
+                        <div class="card-tag">{{ job?.jobType }}</div>
 
 
-                        <p class="card-skill">{{ card.skills }}</p>
+                        <p class="card-skill">{{ job.specialism }}</p>
 
                         <div class="d-flex justify-content-between ss-btn" style="align-items: center;">
-                            <div class="card-amount"><span>${{card.amount}}/</span>monthly</div>
-                            <button class="card-button">{{ card.buttonText }}</button>
+                            <div class="card-amount"><span>{{job?.salary}}/</span>monthly</div>
+                            <button class="card-button">Apply Now</button>
 
                         </div>
                     </div>

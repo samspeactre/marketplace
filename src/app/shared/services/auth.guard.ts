@@ -9,8 +9,16 @@ export class AuthGuard implements CanActivate {
 
   constructor(private authService: AuthService, private router: Router) {}
 
-  canActivate(): boolean {
+  canActivate(route: any): boolean {
+    const expectedRole = route.data.expectedRole;
+    const userRole = this.authService.getUserRole();
+
     if (this.authService.isLoggedIn()) {
+      if (expectedRole && userRole !== expectedRole) {
+        // Redirect based on role
+        this.router.navigate(['/access-denied']); // Redirect to an "Access Denied" page or appropriate route
+        return false;
+      }
       return true;
     } else {
       this.router.navigate(['/']); // Redirect to the login page if not logged in
