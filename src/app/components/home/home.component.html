@@ -23,85 +23,102 @@
 
 <section class="sec-2">
     <div class="popular-jobs">
-        <h1 class="textCenter">Popular Jobs</h1>
+      <h1 class="textCenter">Popular Jobs</h1>
 
-        <div class="tabs-container">
-            <div class="tabs">
-                <div class="tab" *ngFor="let tab of tabs; let i = index" [ngClass]="{ 'active': selectedTab === i }"
-                    (click)="selectTab(i)">
-                    {{ tab.label }}
-                </div>
-            </div>
+      <div class="tabs-container">
+        <div class="tabs">
+          <div class="tab" *ngFor="let tab of tabs; let i = index" [ngClass]="{ 'active': selectedTab === i }"
+              (click)="selectTab(i)">
+            {{ tab.label }}
+          </div>
         </div>
+      </div>
 
-        <div class="content-container">
-            <ng-container *ngIf="selectedTab !== null">
-                <div class="card-container d-flex">
-                    <div class="card" *ngFor="let job of AllJob">
-                        <div class="d-flex justify-content-between img-content">
-                            <img [src]="job?.user?.employer_details?.main_logo" alt="Card Image" class="card-image" />
-                            <div class="head-para">
-                                <div class="main-head">{{job?.user?.employer_details?.company_name}}</div>
-                                <div class="para">{{job?.completeAddress}}</div>
-                            </div>
-                        </div>
-                        <div class="card-heading">{{ job?.title }}</div>
+      <div class="content-container">
+        <ng-container *ngIf="selectedTab !== null">
+          <div class="card-container d-flex" *ngIf="filteredJobs.length > 0; else noJobs">
+            <div class="card" *ngFor="let job of filteredJobs">
+              <!-- Bookmark icon with click event -->
+              <i class="fas fa-bookmark bookmark-icon"
+                  [ngClass]="{ 'bookmarked': isBookmarked(job.id) }"
+                  (click)="toggleBookmark(job.id)"
+                  style="cursor: pointer;">
+              </i>
 
-                        <div class="card-tag">{{ job?.jobType }}</div>
-
-
-                        <p class="card-skill">{{ job.specialism }}</p>
-
-                        <div class="d-flex justify-content-between ss-btn" style="align-items: center;">
-                            <div class="card-amount"><span>{{job?.salary}}/</span>monthly</div>
-                            <button class="card-button">Apply Now</button>
-
-                        </div>
-                    </div>
-                    <div class="see-more">
-                        <button>See More
-                            <i class="fa-solid fa-chevron-right"></i>
-                        </button>
-                    </div>
+              <div class="d-flex justify-content-between img-content">
+                <img [src]="job?.user?.employer_details?.main_logo" alt="Card Image" class="card-image" />
+                <div class="head-para">
+                  <div class="main-head">{{ job?.user?.employer_details?.company_name }}</div>
+                  <div class="para">{{ job?.completeAddress }}</div>
                 </div>
-            </ng-container>
-        </div>
+              </div>
 
-    </div>
-</section>
+              <div class="card-heading">{{ job?.title }}</div>
+              <div class="card-tag">{{ job?.jobType }}</div>
+              <p class="card-skill">{{ job.specialism }}</p>
 
-<section class="sec-3">
-    <div class="radical">
-        <h1 class="acc-head textCenter">
-            Frequently Asked Questions
-        </h1>
-        <div class="acc-box">
-            <div class="accordion-container">
-                <div class="accordion-item" *ngFor="let item of accordionItems; let i = index">
-                    <div class="accordion-header" (click)="toggleAccordion(i)">
-                        <h2>{{ item.title }}</h2>
-                        <div class="acc-icon">
-                            <img class="icon"
-                                [src]="item.open ? 'assets/images/minus-icon.svg' : 'assets/images/plus-icon.svg'"
-                                alt="Accordion Toggle" />
-                        </div>
-                    </div>
-                    <div class="accordion-content" [ngStyle]="{ 'display': item.open ? 'block' : 'none' }">
-                        <p>{{ item.content }}</p>
-                    </div>
-                </div>
+              <div class="d-flex justify-content-between ss-btn" style="align-items: center;">
+                <div class="card-amount"><span>{{ job?.salary }}/</span>monthly</div>
+
+                <button class="card-button" *ngIf="!isEmployer()"
+                  [disabled]="user?.job_apply?.jobId == job?.id"
+                  (click)="applyJob(job.id)">
+                  {{ user?.job_apply?.jobId == job?.id ? 'Applied' : 'Apply Now' }}
+                </button>
+              </div>
             </div>
 
             <div class="see-more">
-                <button>
-                    See More
-                    <i class="fa-solid fa-chevron-right"></i>
-                </button>
+              <button routerLink="/jobs-grid">See More
+                <i class="fa-solid fa-chevron-right"></i>
+              </button>
             </div>
+          </div>
+
+          <!-- No jobs found message -->
+          <ng-template #noJobs>
+            <div class="no-jobs-message">No {{ tabs[selectedTab].label }} jobs found.</div>
+          </ng-template>
+        </ng-container>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="sec-3">
+    <div class="radical">
+      <h1 class="acc-head textCenter">
+        Frequently Asked Questions
+      </h1>
+      <div class="acc-box">
+        <div class="accordion-container">
+          <!-- Loop through FAQs and display each question and answer -->
+          <div class="accordion-item" *ngFor="let item of faqs; let i = index">
+            <div class="accordion-header" (click)="toggleAccordion(i)">
+              <h2>{{ item.question }}</h2>
+              <div class="acc-icon">
+                <img class="icon" [src]="item.open ? 'assets/images/minus-icon.svg' : 'assets/images/plus-icon.svg'"
+                     alt="Accordion Toggle" />
+              </div>
+            </div>
+            <div class="accordion-content" [ngStyle]="{ 'display': item.open ? 'block' : 'none' }">
+              <p [innerHTML]="item.answer"></p>
+            </div>
+
+          </div>
         </div>
 
+        <!-- See More button (functionality can be added as needed) -->
+        <div class="see-more">
+          <button>
+            See More
+            <i class="fa-solid fa-chevron-right"></i>
+          </button>
+        </div>
+      </div>
     </div>
-</section>
+  </section>
+
 
 <section class="sec-4">
     <div class="vector-bg">

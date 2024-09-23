@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Title } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
 import { HttpService } from 'src/app/shared/services/http.service';
@@ -10,16 +11,23 @@ import { HttpService } from 'src/app/shared/services/http.service';
 })
 export class JobDetailsPageComponent {
     public jobDetail: any;
- 
-    constructor(private titleService:Title, 
+  public applyForm: FormGroup;
+  userRole: string | null = null;
+
+    constructor(private titleService:Title,
         private router: Router,
          private route: ActivatedRoute,
          private http: HttpService,
+         private fb: FormBuilder
 
 
 
-    ) {}
-    
+    ) {
+      this.applyForm = this.fb.group({
+        jobId: [null, [Validators.required]],
+      });
+    }
+
     ngOnInit() {
         const title = 'Job Details';
         this.titleService.setTitle(`Jove | ${title}`);
@@ -29,10 +37,15 @@ export class JobDetailsPageComponent {
             this.loadData(jobId);
           }
         });
+        this.userRole = this.getUserRole();
       }
 
     async loadData(id: any) {
         await Promise.all([this.getJobDetail(id)]);
+      }
+
+      getUserRole(): string | null {
+        return localStorage.getItem('role');
       }
 
       async getJobDetail(id: any) {
@@ -45,6 +58,30 @@ export class JobDetailsPageComponent {
         } catch (error) {
           console.error('Error fetching users:', error);
         }
+      }
+
+
+      applyJob(jobId: string) {
+        this.applyForm.patchValue({ jobId });
+
+        if (this.applyForm.valid) {
+          const formData = { ...this.applyForm.value };
+          this.http.post('jobs/apply_job', formData, true).subscribe(
+            (res: any) => {
+              console.log('Job application successful');
+              window.location.reload();
+            },
+            (error: any) => {
+              console.error('Error applying for job:', error);
+            }
+          );
+        } else {
+          console.log('Form is not valid');
+        }
+      }
+
+      isEmployer(): boolean {
+        return this.userRole === 'employer';
       }
 
 }

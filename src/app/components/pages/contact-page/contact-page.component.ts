@@ -9,40 +9,44 @@ import { HttpService } from 'src/app/shared/services/http.service';
   styleUrls: ['./contact-page.component.scss']
 })
 export class ContactPageComponent {
-
   title = 'Contact Us - Jove';
-  submit:boolean = false;
-  settings: any; 
-  // Name = new FormControl('');
+  submit: boolean = false;
+  settings: any;
 
   ContactPageForm = new FormGroup({
-    Name: new FormControl(null, [Validators.required, Validators.minLength(3)]),
-    Email: new FormControl(null, [Validators.required, Validators.email]),
+    name: new FormControl(null, [Validators.required, Validators.minLength(3)]),
+    email: new FormControl(null, [Validators.required, Validators.email]),
     phone: new FormControl(null, [Validators.required]),
-    Subject: new FormControl(null, [Validators.required]),
-    yourMessage: new FormControl(null, [Validators.required, Validators.minLength(10)]),
-  })
+    subject: new FormControl(null, [Validators.required]),
+    msg: new FormControl(null, [Validators.required, Validators.minLength(10)]),
+    user_id: new FormControl(null),
+  });
 
-
-  //   onSubmit() {
-  //     // TODO: Use EventEmitter with form value
-  //     console.warn(this.ContactPageForm.value);
-  //   }
-
-  onSubmit() {
-    this.submit = true
-    if (this.ContactPageForm.valid) {
-      console.log(this.ContactPageForm.value);
-    } else {
-      console.log('Form is invalid');
-    }
-  }
-
-  constructor(private titleService: Title,  private http: HttpService) { }
+  constructor(private titleService: Title, private http: HttpService) {}
 
   ngOnInit() {
     this.titleService.setTitle(this.title);
-    this.fetchSettings();
+    this.fetchSettings(); // Call the fetchSettings method here
+  }
+
+  onSubmit() {
+    this.submit = true;
+    if (this.ContactPageForm.valid) {
+      const formData = this.ContactPageForm.value;
+      this.http.post('contact/create-contact', formData, true).subscribe(
+        (res: any) => {
+          console.log('Response:', res);
+          this.ContactPageForm.reset();
+          this.submit = false; // Reset submit flag
+        },
+        (error: any) => {
+          console.error('Error:', error);
+          this.submit = false;
+        }
+      );
+    } else {
+      console.log('Form is invalid');
+    }
   }
 
   fetchSettings() {
@@ -56,6 +60,4 @@ export class ContactPageComponent {
       }
     );
   }
-  
-
 }

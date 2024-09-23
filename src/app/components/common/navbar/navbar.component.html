@@ -198,7 +198,7 @@
                             </span>
                           </ng-container>
                           <!-- Placeholder for employer or other user roles -->
-                          <ng-container *ngIf="userRole === 'employer';">
+                          <ng-container *ngIf="userRole === 'employer' && userActiveStatus === 1">
                             <span class="d-block dashboard-btn">
                               <a [routerLink]="['/dashboard']">
                                 <i class="ri-dashboard-line"></i>

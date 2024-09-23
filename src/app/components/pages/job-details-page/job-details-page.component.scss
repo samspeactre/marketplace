@@ -85,6 +85,16 @@
     }
 }
 
+.apply_button{
+    font-size: 0.91vw;
+    font-family: "mon-bold";
+    color: var(--whiteColor);
+    padding: 0.48vw 0.65vw;
+    border-radius: 0.3vw;
+    background-color: var(--pinkColor);
+    border: 0;
+}
+
 .job-details-description {
     h3 {
         font-size: 1.2vw;
@@ -442,7 +452,7 @@
             }
         }
 
-        .apply-btn {
+        .apply_button {
             margin-bottom: 4vw;
 
             a {
@@ -451,6 +461,8 @@
             }
         }
     }
+
+    
     .job-details-description {
         h3 {
             font-size: 4vw;

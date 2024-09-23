@@ -105,7 +105,7 @@ get headerTokenMedia() {
         finalize(() => LoaderService.loader.next(false)),
         tap((res: any) => {
           if (res?.message || res?.messsage) {
-            this.toastr.success(res?.message ? res?.message : res?.messsage);
+            console.log('response', res?.message);
           }
         }),
         catchError((error: HttpErrorResponse) => {

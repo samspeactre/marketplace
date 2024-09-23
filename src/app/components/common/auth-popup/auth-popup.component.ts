@@ -52,7 +52,6 @@ export class AuthPopupComponent {
     this.candidateLogin = this.fb.group({
       email: [null, [Validators.required, Validators.email]],
       password: [null, [Validators.required]],
-      role: ['candidate', [Validators.required]],
     });
 
     this.EmployerloginForm = this.fb.group({
@@ -148,19 +147,46 @@ createEmployerAccount() {
 }
 
 
+  // loginCandidate() {
+  //   this.LoginCandidate =true;
+  //   this.http.post('auth/login', this.candidateLogin.value, false).subscribe(
+  //     (res: any) => {
+  //       console.log(res, "login response");
+  //       localStorage.setItem('token', res?.token); // Save token to local storage
+  //       localStorage.setItem('role', res?.role); // Save role to local storage
+  //       this.closePopup(); // Close the popup after successful login
+  //       window.location.reload();
+  //     },
+  //     (err: any) => {
+  //       console.log(err.status, "sdfs");
+  //       if (err.status == 403) {
+  //         localStorage.setItem('email', this.candidateLogin.controls['email'].value);
+  //         localStorage.setItem('role', this.candidateLogin.controls['role'].value);
+  //       }
+  //     }
+  //   );
+  // }
+
   loginCandidate() {
-    this.LoginCandidate =true;
     this.http.post('auth/login', this.candidateLogin.value, false).subscribe(
       (res: any) => {
         console.log(res, "login response");
-        localStorage.setItem('token', res?.token); // Save token to local storage
-        localStorage.setItem('role', res?.role); // Save role to local storage
-        this.closePopup(); // Close the popup after successful login
-        window.location.reload();
+
+        localStorage.setItem('token', res?.token);
+        localStorage.setItem('role', res?.role);
+        localStorage.setItem('active_status', res?.user?.active_status);
+        localStorage.setItem('user_id', res?.user?.id);
+
+        if (res?.user?.active_status === "0") {
+          this.router.navigate(['/pricing']);
+        } else {
+          this.closePopup();
+          window.location.reload();
+        }
       },
       (err: any) => {
-        console.log(err.status, "sdfs");
-        if (err.status == 403) {
+        console.log(err.status, "error");
+        if (err.status === 403) {
           localStorage.setItem('email', this.candidateLogin.controls['email'].value);
           localStorage.setItem('role', this.candidateLogin.controls['role'].value);
         }
@@ -168,24 +194,25 @@ createEmployerAccount() {
     );
   }
 
-  loginEmployer() {
-    this.http.post('auth/login', this.employerLogin.value, false).subscribe(
-      (res: any) => {
-        console.log(res, "login response");
-        localStorage.setItem('token', res?.token); // Save token to local storage
-        localStorage.setItem('role', res?.role); // Save role to local storage
-        this.closePopup(); // Close the popup after successful login
-        window.location.reload();
-      },
-      (err: any) => {
-        console.log(err.status, "sdfs");
-        if (err.status == 403) {
-          localStorage.setItem('email', this.employerLogin.controls['email'].value);
-          localStorage.setItem('role', this.employerLogin.controls['role'].value);
-        }
-      }
-    );
-  }
+
+  // loginEmployer() {
+  //   this.http.post('auth/login', this.employerLogin.value, false).subscribe(
+  //     (res: any) => {
+  //       console.log(res, "login response");
+  //       localStorage.setItem('token', res?.token); // Save token to local storage
+  //       localStorage.setItem('role', res?.role); // Save role to local storage
+  //       this.closePopup(); // Close the popup after successful login
+  //       window.location.reload();
+  //     },
+  //     (err: any) => {
+  //       console.log(err.status, "sdfs");
+  //       if (err.status == 403) {
+  //         localStorage.setItem('email', this.employerLogin.controls['email'].value);
+  //         localStorage.setItem('role', this.employerLogin.controls['role'].value);
+  //       }
+  //     }
+  //   );
+  // }
 
 
 }

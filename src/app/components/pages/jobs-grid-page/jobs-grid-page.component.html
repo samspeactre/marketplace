@@ -12,13 +12,13 @@
 
                 <app-search-bar></app-search-bar>
 
-                <div class="jove-grid-sorting row align-items-center">
+                <div class="jove-grid-sorting row align-items-center" *ngIf="filteredJobs.length > 0">
                     <div class="col-lg-6 col-md-6 result-count">
                         <p>
-                            Showing <span class="count">1 – 10</span> of 58,612 results
+                            Showing <span class="count">1 – {{ filteredJobs.length }}</span> of {{ totalJobs }} results
                         </p>
                     </div>
-                    <div class="col-lg-6 col-md-6 ordering">
+                    <!-- <div class="col-lg-6 col-md-6 ordering">
                         <div class="select-box">
                             <label>Sort By:</label>
                             <select class="form-select">
@@ -29,615 +29,100 @@
                                 <option value="4">Price: high to low</option>
                             </select>
                         </div>
+                    </div> -->
+                </div>
+
+                <!-- Show "No Data Found" if filteredJobs is empty -->
+                <div class="row justify-content-center" *ngIf="filteredJobs.length === 0">
+                    <div class="col-12 text-center" style="    margin-top: 62px;">
+                        <h3>No jobs found matching your filters.</h3>
+                        <p>Try adjusting your search criteria.</p>
                     </div>
                 </div>
 
-                <div class="row justify-content-center">
+                <!-- Job List -->
+                <div class="row justify-content-center" *ngIf="filteredJobs.length > 0">
 
-                    <div class="col-lg-6 col-md-6">
+                    <div *ngFor="let job of filteredJobs" class="col-lg-6 col-md-6">
+                    
                         <div class="job-item text-center overflow-hidden position-relative">
                             <div class="content">
                                 <div class="company-logo">
-                                    <img src="../../../../assets/images/candidate-dash-logo.png" alt="company-image">
+                                    <img [src]="job?.user?.employer_details?.main_logo || 'default-logo.png'" alt="company-image">
                                 </div>
                                 <h3 class="fw-semibold">
-                                    <a routerLink="/job-details">
-                                        Mechanical Engineer
+                                    <a (click)="openJobDetail(job.id)">
+                                        {{ job.title }}
                                     </a>
                                 </h3>
                                 <span class="location d-block">
-                                    Topoint in London
+                                    {{ job?.user?.employer_details?.company_name }} in {{ job.city }}
                                 </span>
                                 <div class="d-flex justify-content-center align-items-center">
                                     <span class="job-type d-block">
-                                        Full Time
+                                        {{ job.jobType }}
                                     </span>
                                     <span class="deadline d-block">
                                         <span class="fw-medium">Deadline:</span>
-                                        Oct 30, 2023
+                                        {{ job.deadline | date:'MMM d, yyyy' }}
                                     </span>
                                 </div>
                             </div>
                             <div class="info d-flex align-items-center justify-content-between">
                                 <span class="salary d-block">
                                     <span class="fw-semibold">Salary:</span>
-                                    <span>$1K - $3K</span>
+                                    <span>{{ job.salary }}</span>
                                     /monthly
                                 </span>
                                 <span class="deadline d-block">
-                                    <a routerLink="/job-details" class="link-btn d-inline-block position-relative">
+                                    <a (click)="openJobDetail(job.id)" class="link-btn d-inline-block position-relative">
                                         Apply Now <i class="ri-arrow-right-line"></i>
                                     </a>
                                 </span>
                             </div>
                             <button type="button" class="fav">
-                                <i class="ri-heart-line"></i>
+                                <i class="fas fa-bookmark bookmark-icon"
+                        [ngClass]="{ 'bookmarked': isBookmarked(job.id) }"
+                        (click)="toggleBookmark(job.id)"
+                        style="cursor: pointer;">
+                    </i>
                             </button>
                             <span class="tag">Featured</span>
                         </div>
                     </div>
-
-                    <div class="col-lg-6 col-md-6">
-                        <div class="job-item text-center overflow-hidden position-relative">
-                            <div class="content">
-                                <div class="company-logo">
-                                    <img src="../../../../assets/images/candidate-dash-logo-2.png">
-                                </div>
-                                <h3 class="fw-semibold">
-                                    <a routerLink="/job-details">
-                                        Senior Support Engineer
-                                    </a>
-                                </h3>
-                                <span class="location d-block">
-                                    Zayper in Barcelona
-                                </span>
-                                <div class="d-flex justify-content-center align-items-center">
-                                    <span class="job-type d-block">
-                                        Part Time
-                                    </span>
-                                    <span class="deadline d-block">
-                                        <span class="fw-medium">Deadline:</span>
-                                        Nov 10, 2023
-                                    </span>
-                                </div>
-                            </div>
-                            <div class="info d-flex align-items-center justify-content-between">
-                                <span class="salary d-block">
-                                    <span class="fw-semibold">Salary:</span>
-                                    <span>$10 - $50</span>
-                                    /hourly
-                                </span>
-                                <span class="deadline d-block">
-                                    <a routerLink="/job-details" class="link-btn d-inline-block position-relative">
-                                        Apply Now <i class="ri-arrow-right-line"></i>
-                                    </a>
-                                </span>
-                            </div>
-                            <button type="button" class="fav">
-                                <i class="ri-heart-line"></i>
-                            </button>
-                            <span class="tag urgent">Urgent</span>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-6 col-md-6">
-                        <div class="job-item text-center overflow-hidden position-relative">
-                            <div class="content">
-                                <div class="company-logo">
-                                    <img src="../../../../assets/images/candidate-dash-logo.png" alt="company-image">
-                                </div>
-                                <h3 class="fw-semibold">
-                                    <a routerLink="/job-details">
-                                        Mechanical Engineer
-                                    </a>
-                                </h3>
-                                <span class="location d-block">
-                                    Topoint in London
-                                </span>
-                                <div class="d-flex justify-content-center align-items-center">
-                                    <span class="job-type d-block">
-                                        Full Time
-                                    </span>
-                                    <span class="deadline d-block">
-                                        <span class="fw-medium">Deadline:</span>
-                                        Oct 30, 2023
-                                    </span>
-                                </div>
-                            </div>
-                            <div class="info d-flex align-items-center justify-content-between">
-                                <span class="salary d-block">
-                                    <span class="fw-semibold">Salary:</span>
-                                    <span>$1K - $3K</span>
-                                    /monthly
-                                </span>
-                                <span class="deadline d-block">
-                                    <a routerLink="/job-details" class="link-btn d-inline-block position-relative">
-                                        Apply Now <i class="ri-arrow-right-line"></i>
-                                    </a>
-                                </span>
-                            </div>
-                            <button type="button" class="fav">
-                                <i class="ri-heart-line"></i>
-                            </button>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-6 col-md-6">
-                        <div class="job-item text-center overflow-hidden position-relative">
-                            <div class="content">
-                                <div class="company-logo">
-                                    <img src="../../../../assets/images/candidate-dash-logo-2.png">
-                                </div>
-                                <h3 class="fw-semibold">
-                                    <a routerLink="/job-details">
-                                        Senior Support Engineer
-                                    </a>
-                                </h3>
-                                <span class="location d-block">
-                                    Zayper in Barcelona
-                                </span>
-                                <div class="d-flex justify-content-center align-items-center">
-                                    <span class="job-type d-block">
-                                        Part Time
-                                    </span>
-                                    <span class="deadline d-block">
-                                        <span class="fw-medium">Deadline:</span>
-                                        Nov 10, 2023
-                                    </span>
-                                </div>
-                            </div>
-                            <div class="info d-flex align-items-center justify-content-between">
-                                <span class="salary d-block">
-                                    <span class="fw-semibold">Salary:</span>
-                                    <span>$10 - $50</span>
-                                    /hourly
-                                </span>
-                                <span class="deadline d-block">
-                                    <a routerLink="/job-details" class="link-btn d-inline-block position-relative">
-                                        Apply Now <i class="ri-arrow-right-line"></i>
-                                    </a>
-                                </span>
-                            </div>
-                            <button type="button" class="fav">
-                                <i class="ri-heart-line"></i>
-                            </button>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-6 col-md-6">
-                        <div class="job-item text-center overflow-hidden position-relative">
-                            <div class="content">
-                                <div class="company-logo">
-                                    <img src="../../../../assets/images/candidate-dash-logo.png" alt="company-image">
-                                </div>
-                                <h3 class="fw-semibold">
-                                    <a routerLink="/job-details">
-                                        Mechanical Engineer
-                                    </a>
-                                </h3>
-                                <span class="location d-block">
-                                    Topoint in London
-                                </span>
-                                <div class="d-flex justify-content-center align-items-center">
-                                    <span class="job-type d-block">
-                                        Full Time
-                                    </span>
-                                    <span class="deadline d-block">
-                                        <span class="fw-medium">Deadline:</span>
-                                        Oct 30, 2023
-                                    </span>
-                                </div>
-                            </div>
-                            <div class="info d-flex align-items-center justify-content-between">
-                                <span class="salary d-block">
-                                    <span class="fw-semibold">Salary:</span>
-                                    <span>$1K - $3K</span>
-                                    /monthly
-                                </span>
-                                <span class="deadline d-block">
-                                    <a routerLink="/job-details" class="link-btn d-inline-block position-relative">
-                                        Apply Now <i class="ri-arrow-right-line"></i>
-                                    </a>
-                                </span>
-                            </div>
-                            <button type="button" class="fav">
-                                <i class="ri-heart-line"></i>
-                            </button>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-6 col-md-6">
-                        <div class="job-item text-center overflow-hidden position-relative">
-                            <div class="content">
-                                <div class="company-logo">
-                                    <img src="../../../../assets/images/candidate-dash-logo-2.png">
-                                </div>
-                                <h3 class="fw-semibold">
-                                    <a routerLink="/job-details">
-                                        Senior Support Engineer
-                                    </a>
-                                </h3>
-                                <span class="location d-block">
-                                    Zayper in Barcelona
-                                </span>
-                                <div class="d-flex justify-content-center align-items-center">
-                                    <span class="job-type d-block">
-                                        Part Time
-                                    </span>
-                                    <span class="deadline d-block">
-                                        <span class="fw-medium">Deadline:</span>
-                                        Nov 10, 2023
-                                    </span>
-                                </div>
-                            </div>
-                            <div class="info d-flex align-items-center justify-content-between">
-                                <span class="salary d-block">
-                                    <span class="fw-semibold">Salary:</span>
-                                    <span>$10 - $50</span>
-                                    /hourly
-                                </span>
-                                <span class="deadline d-block">
-                                    <a routerLink="/job-details" class="link-btn d-inline-block position-relative">
-                                        Apply Now <i class="ri-arrow-right-line"></i>
-                                    </a>
-                                </span>
-                            </div>
-                            <button type="button" class="fav">
-                                <i class="ri-heart-line"></i>
-                            </button>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-6 col-md-6">
-                        <div class="job-item text-center overflow-hidden position-relative">
-                            <div class="content">
-                                <div class="company-logo">
-                                    <img src="../../../../assets/images/candidate-dash-logo.png" alt="company-image">
-                                </div>
-                                <h3 class="fw-semibold">
-                                    <a routerLink="/job-details">
-                                        Mechanical Engineer
-                                    </a>
-                                </h3>
-                                <span class="location d-block">
-                                    Topoint in London
-                                </span>
-                                <div class="d-flex justify-content-center align-items-center">
-                                    <span class="job-type d-block">
-                                        Full Time
-                                    </span>
-                                    <span class="deadline d-block">
-                                        <span class="fw-medium">Deadline:</span>
-                                        Oct 30, 2023
-                                    </span>
-                                </div>
-                            </div>
-                            <div class="info d-flex align-items-center justify-content-between">
-                                <span class="salary d-block">
-                                    <span class="fw-semibold">Salary:</span>
-                                    <span>$1K - $3K</span>
-                                    /monthly
-                                </span>
-                                <span class="deadline d-block">
-                                    <a routerLink="/job-details" class="link-btn d-inline-block position-relative">
-                                        Apply Now <i class="ri-arrow-right-line"></i>
-                                    </a>
-                                </span>
-                            </div>
-                            <button type="button" class="fav">
-                                <i class="ri-heart-line"></i>
-                            </button>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-6 col-md-6">
-                        <div class="job-item text-center overflow-hidden position-relative">
-                            <div class="content">
-                                <div class="company-logo">
-                                    <img src="../../../../assets/images/candidate-dash-logo-2.png">
-                                </div>
-                                <h3 class="fw-semibold">
-                                    <a routerLink="/job-details">
-                                        Senior Support Engineer
-                                    </a>
-                                </h3>
-                                <span class="location d-block">
-                                    Zayper in Barcelona
-                                </span>
-                                <div class="d-flex justify-content-center align-items-center">
-                                    <span class="job-type d-block">
-                                        Part Time
-                                    </span>
-                                    <span class="deadline d-block">
-                                        <span class="fw-medium">Deadline:</span>
-                                        Nov 10, 2023
-                                    </span>
-                                </div>
-                            </div>
-                            <div class="info d-flex align-items-center justify-content-between">
-                                <span class="salary d-block">
-                                    <span class="fw-semibold">Salary:</span>
-                                    <span>$10 - $50</span>
-                                    /hourly
-                                </span>
-                                <span class="deadline d-block">
-                                    <a routerLink="/job-details" class="link-btn d-inline-block position-relative">
-                                        Apply Now <i class="ri-arrow-right-line"></i>
-                                    </a>
-                                </span>
-                            </div>
-                            <button type="button" class="fav">
-                                <i class="ri-heart-line"></i>
-                            </button>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-6 col-md-6">
-                        <div class="job-item text-center overflow-hidden position-relative">
-                            <div class="content">
-                                <div class="company-logo">
-                                    <img src="../../../../assets/images/candidate-dash-logo.png" alt="company-image">
-                                </div>
-                                <h3 class="fw-semibold">
-                                    <a routerLink="/job-details">
-                                        Mechanical Engineer
-                                    </a>
-                                </h3>
-                                <span class="location d-block">
-                                    Topoint in London
-                                </span>
-                                <div class="d-flex justify-content-center align-items-center">
-                                    <span class="job-type d-block">
-                                        Full Time
-                                    </span>
-                                    <span class="deadline d-block">
-                                        <span class="fw-medium">Deadline:</span>
-                                        Oct 30, 2023
-                                    </span>
-                                </div>
-                            </div>
-                            <div class="info d-flex align-items-center justify-content-between">
-                                <span class="salary d-block">
-                                    <span class="fw-semibold">Salary:</span>
-                                    <span>$1K - $3K</span>
-                                    /monthly
-                                </span>
-                                <span class="deadline d-block">
-                                    <a routerLink="/job-details" class="link-btn d-inline-block position-relative">
-                                        Apply Now <i class="ri-arrow-right-line"></i>
-                                    </a>
-                                </span>
-                            </div>
-                            <button type="button" class="fav">
-                                <i class="ri-heart-line"></i>
-                            </button>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-6 col-md-6">
-                        <div class="job-item text-center overflow-hidden position-relative">
-                            <div class="content">
-                                <div class="company-logo">
-                                    <img src="../../../../assets/images/candidate-dash-logo-2.png">
-                                </div>
-                                <h3 class="fw-semibold">
-                                    <a routerLink="/job-details">
-                                        Senior Support Engineer
-                                    </a>
-                                </h3>
-                                <span class="location d-block">
-                                    Zayper in Barcelona
-                                </span>
-                                <div class="d-flex justify-content-center align-items-center">
-                                    <span class="job-type d-block">
-                                        Part Time
-                                    </span>
-                                    <span class="deadline d-block">
-                                        <span class="fw-medium">Deadline:</span>
-                                        Nov 10, 2023
-                                    </span>
-                                </div>
-                            </div>
-                            <div class="info d-flex align-items-center justify-content-between">
-                                <span class="salary d-block">
-                                    <span class="fw-semibold">Salary:</span>
-                                    <span>$10 - $50</span>
-                                    /hourly
-                                </span>
-                                <span class="deadline d-block">
-                                    <a routerLink="/job-details" class="link-btn d-inline-block position-relative">
-                                        Apply Now <i class="ri-arrow-right-line"></i>
-                                    </a>
-                                </span>
-                            </div>
-                            <button type="button" class="fav">
-                                <i class="ri-heart-line"></i>
-                            </button>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-6 col-md-6">
-                        <div class="job-item text-center overflow-hidden position-relative">
-                            <div class="content">
-                                <div class="company-logo">
-                                    <img src="../../../../assets/images/candidate-dash-logo.png" alt="company-image">
-                                </div>
-                                <h3 class="fw-semibold">
-                                    <a routerLink="/job-details">
-                                        Mechanical Engineer
-                                    </a>
-                                </h3>
-                                <span class="location d-block">
-                                    Topoint in London
-                                </span>
-                                <div class="d-flex justify-content-center align-items-center">
-                                    <span class="job-type d-block">
-                                        Full Time
-                                    </span>
-                                    <span class="deadline d-block">
-                                        <span class="fw-medium">Deadline:</span>
-                                        Oct 30, 2023
-                                    </span>
-                                </div>
-                            </div>
-                            <div class="info d-flex align-items-center justify-content-between">
-                                <span class="salary d-block">
-                                    <span class="fw-semibold">Salary:</span>
-                                    <span>$1K - $3K</span>
-                                    /monthly
-                                </span>
-                                <span class="deadline d-block">
-                                    <a routerLink="/job-details" class="link-btn d-inline-block position-relative">
-                                        Apply Now <i class="ri-arrow-right-line"></i>
-                                    </a>
-                                </span>
-                            </div>
-                            <button type="button" class="fav">
-                                <i class="ri-heart-line"></i>
-                            </button>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-6 col-md-6">
-                        <div class="job-item text-center overflow-hidden position-relative">
-                            <div class="content">
-                                <div class="company-logo">
-                                    <img src="../../../../assets/images/candidate-dash-logo-2.png">
-                                </div>
-                                <h3 class="fw-semibold">
-                                    <a routerLink="/job-details">
-                                        Senior Support Engineer
-                                    </a>
-                                </h3>
-                                <span class="location d-block">
-                                    Zayper in Barcelona
-                                </span>
-                                <div class="d-flex justify-content-center align-items-center">
-                                    <span class="job-type d-block">
-                                        Part Time
-                                    </span>
-                                    <span class="deadline d-block">
-                                        <span class="fw-medium">Deadline:</span>
-                                        Nov 10, 2023
-                                    </span>
-                                </div>
-                            </div>
-                            <div class="info d-flex align-items-center justify-content-between">
-                                <span class="salary d-block">
-                                    <span class="fw-semibold">Salary:</span>
-                                    <span>$10 - $50</span>
-                                    /hourly
-                                </span>
-                                <span class="deadline d-block">
-                                    <a routerLink="/job-details" class="link-btn d-inline-block position-relative">
-                                        Apply Now <i class="ri-arrow-right-line"></i>
-                                    </a>
-                                </span>
-                            </div>
-                            <button type="button" class="fav">
-                                <i class="ri-heart-line"></i>
-                            </button>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-6 col-md-6">
-                        <div class="job-item text-center overflow-hidden position-relative">
-                            <div class="content">
-                                <div class="company-logo">
-                                    <img src="../../../../assets/images/candidate-dash-logo.png" alt="company-image">
-                                </div>
-                                <h3 class="fw-semibold">
-                                    <a routerLink="/job-details">
-                                        Mechanical Engineer
-                                    </a>
-                                </h3>
-                                <span class="location d-block">
-                                    Topoint in London
-                                </span>
-                                <div class="d-flex justify-content-center align-items-center">
-                                    <span class="job-type d-block">
-                                        Full Time
-                                    </span>
-                                    <span class="deadline d-block">
-                                        <span class="fw-medium">Deadline:</span>
-                                        Oct 30, 2023
-                                    </span>
-                                </div>
-                            </div>
-                            <div class="info d-flex align-items-center justify-content-between">
-                                <span class="salary d-block">
-                                    <span class="fw-semibold">Salary:</span>
-                                    <span>$1K - $3K</span>
-                                    /monthly
-                                </span>
-                                <span class="deadline d-block">
-                                    <a routerLink="/job-details" class="link-btn d-inline-block position-relative">
-                                        Apply Now <i class="ri-arrow-right-line"></i>
-                                    </a>
-                                </span>
-                            </div>
-                            <button type="button" class="fav">
-                                <i class="ri-heart-line"></i>
-                            </button>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-6 col-md-6">
-                        <div class="job-item text-center overflow-hidden position-relative">
-                            <div class="content">
-                                <div class="company-logo">
-                                    <img src="../../../../assets/images/candidate-dash-logo-2.png">
-                                </div>
-                                <h3 class="fw-semibold">
-                                    <a routerLink="/job-details">
-                                        Senior Support Engineer
-                                    </a>
-                                </h3>
-                                <span class="location d-block">
-                                    Zayper in Barcelona
-                                </span>
-                                <div class="d-flex justify-content-center align-items-center">
-                                    <span class="job-type d-block">
-                                        Part Time
-                                    </span>
-                                    <span class="deadline d-block">
-                                        <span class="fw-medium">Deadline:</span>
-                                        Nov 10, 2023
-                                    </span>
-                                </div>
-                            </div>
-                            <div class="info d-flex align-items-center justify-content-between">
-                                <span class="salary d-block">
-                                    <span class="fw-semibold">Salary:</span>
-                                    <span>$10 - $50</span>
-                                    /hourly
-                                </span>
-                                <span class="deadline d-block">
-                                    <a routerLink="/job-details" class="link-btn d-inline-block position-relative">
-                                        Apply Now <i class="ri-arrow-right-line"></i>
-                                    </a>
-                                </span>
-                            </div>
-                            <button type="button" class="fav">
-                                <i class="ri-heart-line"></i>
-                            </button>
-                        </div>
-                    </div>
-
-
                 </div>
-                <div class="pagination-area">
-                    <a routerLink="/jobs-grid" class="next page-numbers">
-                        <i class="ri-arrow-left-line"></i>
-                    </a>
-                    <span class="page-numbers current" aria-current="page">1</span>
-                    <a routerLink="/jobs-grid" class="page-numbers">2</a>
-                    <a routerLink="/jobs-grid" class="page-numbers">3</a>
-                    <a routerLink="/jobs-grid" class="next page-numbers">
-                        <i class="ri-arrow-right-line"></i>
-                    </a>
-                </div>
+
+                <!-- Pagination -->
+<!-- Pagination -->
+<div *ngIf="filteredJobs.length > 0" class="pagination-area">
+  <a (click)="changePage(currentPage - 1)" class="next page-numbers" [class.disabled]="currentPage === 1">
+      <i class="ri-arrow-left-line"></i>
+  </a>
+
+  <!-- Show page numbers -->
+    <ng-container *ngFor="let page of [].constructor(totalPages); let i = index">
+        <ng-container *ngIf="(i + 1 === currentPage) || (i + 1 >= currentPage - 1 && i + 1 <= currentPage + 1) || (i + 1 === totalPages)">
+            <a *ngIf="i + 1 !== currentPage; else currentPageTemplate"
+                (click)="changePage(i + 1)" 
+                class="page-numbers" 
+                [class.active]="currentPage === (i + 1)">
+                {{ i + 1 }}
+            </a>
+            <ng-template #currentPageTemplate>
+                <span class="page-numbers current" aria-current="page">{{ currentPage }}</span>
+            </ng-template>
+        </ng-container>
+    </ng-container>
+
+    <a (click)="changePage(currentPage + 1)" class="next page-numbers" [class.disabled]="currentPage === totalPages">
+        <i class="ri-arrow-right-line"></i>
+    </a>
+    </div>
+
+
+
             </div>
+
             <div class="col-lg-4 col-md-12">
                 <app-jobs-sidebar></app-jobs-sidebar>
             </div>
@@ -646,8 +131,5 @@
 </div>
 
 <app-custom-footer></app-custom-footer>
-
-<!-- <app-subscribe></app-subscribe>
-<app-footer></app-footer> -->
 
 <ngx-scrolltop></ngx-scrolltop>

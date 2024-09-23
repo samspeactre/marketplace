@@ -14,17 +14,17 @@
 
             <div class="col-lg-8 col-md-12">
                 <div class="contact-form">
-                    <form [formGroup]="ContactPageForm" (ngSubmit)="onSubmit()">
+                    <form [formGroup]="ContactPageForm" >
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="Name">
                                         Name
                                     </label>
-                                    <input id= 'Name' type="text" class="form-control" formControlName="Name">
-                                    <div *ngIf="(ContactPageForm.get('Name')?.invalid || ContactPageForm.get('Name')?.touched) && submit" class="text-danger">
-                                        <small *ngIf="ContactPageForm.get('Name')?.errors?.['required']">Name is required </small>
-                                        <small *ngIf="ContactPageForm.get('Name')?.errors?.['minlength']">Name must be atleast 3 characters long.</small>
+                                    <input id= 'name' type="text" class="form-control" formControlName="name">
+                                    <div *ngIf="(ContactPageForm.get('name')?.invalid || ContactPageForm.get('Name')?.touched) && submit" class="text-danger">
+                                        <small *ngIf="ContactPageForm.get('name')?.errors?.['required']">name is required </small>
+                                        <small *ngIf="ContactPageForm.get('name')?.errors?.['minlength']">name must be atleast 3 characters long.</small>
                                     </div>
                                 </div>
                             </div>
@@ -33,10 +33,10 @@
                                     <label for="Email">
                                         Email
                                     </label>
-                                    <input id="Email" type="email" class="form-control" formControlName="Email">
-                                    <div *ngIf="(ContactPageForm.get('Email')?.invalid || ContactPageForm.get('Email')?.touched) && submit" class="text-danger">
-                                        <small *ngIf="ContactPageForm.get('Email')?.errors?.['required']">Email is required.</small>
-                                        <small *ngIf="ContactPageForm.get('Email')?.errors?.['email']">Please enter valid email address.</small>
+                                    <input id="email" type="email" class="form-control" formControlName="email">
+                                    <div *ngIf="(ContactPageForm.get('email')?.invalid || ContactPageForm.get('email')?.touched) && submit" class="text-danger">
+                                        <small *ngIf="ContactPageForm.get('email')?.errors?.['required']">email is required.</small>
+                                        <small *ngIf="ContactPageForm.get('email')?.errors?.['email']">Please enter valid email address.</small>
                                     </div>
                                 </div>
                             </div>
@@ -58,9 +58,9 @@
                                     <label for="Subject">
                                         Subject
                                     </label>
-                                    <input id="Subject" type="text" class="form-control" formControlName="Subject">
-                                    <div *ngIf="(ContactPageForm.get('Subject')?.invalid || ContactPageForm.get('Subject')?.touched) && submit" class="text-danger">
-                                        <small *ngIf="ContactPageForm.get('Subject')?.errors?.['required']">Subject is required</small>
+                                    <input id="subject" type="text" class="form-control" formControlName="subject">
+                                    <div *ngIf="(ContactPageForm.get('subject')?.invalid || ContactPageForm.get('subject')?.touched) && submit" class="text-danger">
+                                        <small *ngIf="ContactPageForm.get('subject')?.errors?.['required']">subject is required</small>
                                     </div>
                                 </div>
                             </div>
@@ -69,10 +69,10 @@
                                     <label for="yourMessage">
                                         Your message
                                     </label>
-                                    <textarea id="yourMessage" class="form-control" cols="30" rows="5" formControlName="yourMessage"></textarea>
-                                    <div *ngIf="(ContactPageForm.get('yourMessage')?.invalid || ContactPageForm.get('yourMessage')?.touched) && submit" class="text-danger">
-                                        <small *ngIf="ContactPageForm.get('yourMessage')?.errors?.['required']">Message is required.</small>
-                                        <small *ngIf="ContactPageForm.get('yourMessage')?.errors?.['minlength']">Message must be at least 10 characters long.</small>
+                                    <textarea id="msg" class="form-control" cols="30" rows="5" formControlName="msg"></textarea>
+                                    <div *ngIf="(ContactPageForm.get('msg')?.invalid || ContactPageForm.get('msg')?.touched) && submit" class="text-danger">
+                                        <small *ngIf="ContactPageForm.get('msg')?.errors?.['required']">Message is required.</small>
+                                        <small *ngIf="ContactPageForm.get('msg')?.errors?.['minlength']">Message must be at least 10 characters long.</small>
                                       </div>
                                 </div>
                             </div>

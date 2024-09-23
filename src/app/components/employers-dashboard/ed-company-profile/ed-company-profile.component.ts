@@ -13,13 +13,14 @@ export class EdCompanyProfileComponent {
   saveSocialMedia: boolean = false;
   saveContact: boolean = false;
   public id: any;  // Store the user ID here
+  public resUrl: any;
 
   constructor(private fb: FormBuilder, private http: HttpService, private helper: HelperService) {}
 
   ngOnInit() {
     this.getCompnayProfile(); // Call getCompnayProfile directly
   }
-  
+
   companyProfile = new FormGroup({
     main_logo: new FormControl(null, [Validators.required]),
     user_id: new FormControl(null), // Initialize user_id as null
@@ -81,12 +82,17 @@ export class EdCompanyProfileComponent {
     }
   }
 
-  onLogoSelected(event: any) {
-    this.helper.fileUploadHttp(event)
+
+
+  onImageSelected(event: any) {
+    this.helper
+      .fileUploadHttp(event)
       .then((result: any) => {
+
         this.companyProfile.patchValue({
-          main_logo: result.data.fileUrls[0], // Assuming result.data.fileUrls is the URL of the uploaded image
+          main_logo: result?.fileUrls?.[0],
         });
+        console.log(this.companyProfile.value);
       })
       .catch((error) => {
         console.error(error);
@@ -101,6 +107,6 @@ export class EdCompanyProfileComponent {
       } catch (error) {
         console.error('Error updating company profile:', error);
       }
-   
+
   }
 }

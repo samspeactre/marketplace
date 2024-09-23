@@ -1,31 +1,37 @@
 import { Injectable } from '@angular/core';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthService {
+  constructor() {}
 
-  constructor() { }
-
-  // This method checks if the user is logged in
+  // Check if the user is logged in
   isLoggedIn(): boolean {
-    // For simplicity, we're just checking if there's a token in local storage
-    // You can replace this with a more sophisticated check as needed
     return !!localStorage.getItem('token');
   }
 
+  // Get user role
   getUserRole(): string | null {
-    // Logic to retrieve user role from local storage or your auth system
     return localStorage.getItem('role');
   }
 
-  // This method would typically be called when the user logs in
-  login(token: string): void {
-    localStorage.setItem('token', token);
+  // Get the user's active status from local storage
+  getUserActiveStatus(): number {
+    return parseInt(localStorage.getItem('active_status') || '0', 10);
   }
 
-  // This method would typically be called when the user logs out
+  // Login method to store token and active_status
+  login(token: string, role: string, activeStatus: number): void {
+    localStorage.setItem('token', token);
+    localStorage.setItem('role', role);
+    localStorage.setItem('active_status', activeStatus.toString());
+  }
+
+  // Logout method to clear token and role
   logout(): void {
     localStorage.removeItem('token');
+    localStorage.removeItem('role');
+    localStorage.removeItem('active_status');
   }
 }

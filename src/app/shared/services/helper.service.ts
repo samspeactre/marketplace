@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { HttpService } from './http.service';
 import { LoaderService } from './loader.service';
+import { HttpParams } from '@angular/common/http';
+import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root',
 })
@@ -50,21 +52,60 @@ export class HelperService {
   }
 
 
+  videoUploadHttp(files: FileList): Promise<any> {
+    LoaderService.loader.next(true);
 
-  videoUploadHttp(file: File): Promise<string> {
     return new Promise((resolve, reject) => {
       const formData = new FormData();
-      formData.append('video', file);
-      this.http.post('video_upload', file, true).subscribe(
+
+      // Append each file to the formData
+      for (let i = 0; i < files.length; i++) {
+        formData.append('video', files[i]);
+      }
+
+      this.http.postMedia('file/upload_video', formData, true).subscribe(
         (response: any) => {
-          console.log('API response:', response);
-          resolve(response.data.video_url);
+          this.toastr.success('File Uploaded Successfully');
+          LoaderService.loader.next(false);
+          resolve(response); // Assuming the response contains video_url
         },
         (error) => {
-          console.error('API error:', error);
+          LoaderService.loader.next(false);
           reject(error);
         }
       );
     });
   }
+
+
+  searchJobs(filters: any): Observable<any> {
+    let params = new HttpParams();
+
+    for (const key in filters) {
+      if (filters[key]) {
+        params = params.set(key, filters[key]);
+      }
+    }
+
+    return this.http.post('jobs/search', { params }, false);
+  }
+
+
+
+  // videoUploadHttp(video: File): Promise<string> {
+  //   return new Promise((resolve, reject) => {
+  //     const formData = new FormData();
+  //     formData.append('video', video);
+  //     this.http.postMedia('file/upload_video', video, true).subscribe(
+  //       (response: any) => {
+  //         console.log('API response:', response);
+  //         resolve(response.data.video_url);
+  //       },
+  //       (error) => {
+  //         console.error('API error:', error);
+  //         reject(error);
+  //       }
+  //     );
+  //   });
+  // }
 }

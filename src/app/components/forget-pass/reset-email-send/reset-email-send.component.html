@@ -6,15 +6,23 @@
         <h1>Forget Password?</h1>
         <p>No worries. We'll send you reset instructions.</p>
 
-        <form>
+        <form [formGroup]="forgetPassword">
             <div class="form-group">
                 <label>
                     Email:
                 </label>
-                <input type="text" class="form-control shadow-none" placeholder="Email">
+                <input class="form-control shadow-none"  type="email" required="" formControlName="email" placeholder="Email">
+                <div *ngIf="forgetPassword.controls['email'].touched && forgetPassword.controls['email'].errors?.['required']"
+                class="text-danger">
+                Email is required
+            </div>
+            <div *ngIf="forgetPassword.controls['email'].touched && forgetPassword.controls['email'].errors?.['email']"
+            class="text-danger">
+            Invalid Email
+        </div>
             </div>
 
-            <button class="default-btn" routerLink="/reset-otp">Reset</button>
+            <button class="default-btn" (click)="sendOtp()">Reset</button>
 
         </form>
 

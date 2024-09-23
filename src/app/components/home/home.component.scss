@@ -150,6 +150,22 @@ h2 {
   border-radius: 0.85vw;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   margin-bottom: 3.5vw;
+  position: relative;
+
+}
+
+
+.bookmark-icon {
+  position: absolute;
+  top: 21px;
+  margin-right: 12px;
+  right: 10px;
+  font-size: 24px;
+  // color: #c78b97; 
+}
+
+.bookmark-icon.bookmarked {
+  color: #c78b97; 
 }
 
 .card:nth-child(3n) {

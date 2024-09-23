@@ -3,6 +3,8 @@
     margin: auto;
 }
 
+
+
 .job-item {
     border-radius: 10px;
     margin-bottom: 25px;
@@ -124,10 +126,11 @@
             position: absolute;
             transform: translateY(-50%);
         }
-        &:hover {
-            color: var(--whiteColor);
-            background-color: var(--primaryColor);
-        }
+
+        .bookmark-icon.bookmarked {
+            color: #c78b97; 
+          }
+
     }
     .tag {
         background-color: var(--primaryColor);
@@ -150,6 +153,9 @@
         transform: translateY(-5px);
     }
 }
+
+
+
 
 .jobs-area {
     padding: 7.5vw 0 3vw;

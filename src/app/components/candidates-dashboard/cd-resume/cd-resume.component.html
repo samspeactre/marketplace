@@ -133,36 +133,41 @@
 <!-- video form -->
 
 <div class="jove-card">
-  <h3 class="title">Video</h3>
+  <h3 class="title">Upload Video</h3>
   <form [formGroup]="videoUploadForm" (ngSubmit)="onSubmitVideo()">
-      <div class="form-group">
-          <label for="video">Upload Video:</label>
-          <input type="file" id="video" accept="video/*" />
-          <div *ngIf="(videoUploadForm.get('video')?.invalid || videoUploadForm.get('video')?.touched) && saveDetails" class="text-danger">
-              <small *ngIf="videoUploadForm.get('video')?.errors?.['required']">Video is required.</small>
-          </div>
+    <div class="form-group">
+      <label for="video">Upload Video:</label>
+      <input type="file" id="video" formControlName="video" accept="video/*" />
+      <div *ngIf="(videoUploadForm.get('video')?.invalid || videoUploadForm.get('video')?.touched) && saveDetails" class="text-danger">
+        <small *ngIf="videoUploadForm.get('video')?.errors?.['required']">Video is required.</small>
       </div>
-      <button type="submit" class="default-btn">Save</button>
+    </div>
+    <button type="submit" class="default-btn">Save</button>
   </form>
+
+  <!-- Display uploaded video -->
+  <div *ngIf="candidate_video">
+    <h3 class="title">Uploaded Video</h3>
+    <video width="200" height="200" controls>
+      <source [src]="candidate_video" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
+  </div>
 </div>
 
 
+
 <!--CV form-->
-
 <div class="jove-card">
-    <h3 class="title">
-        CV
-    </h3>
+  <h3 class="title">CV</h3>
 
-    <form >
-        <div class="form-group">
-            <label for="pdfFile">Upload CV:</label>
-            <input type="file" id="pdfFile" accept=".pdf" required />
-        </div>
-        <button type="submit" class="default-btn">
-            Save
-        </button>
-    </form>
+  <form [formGroup]="cvForm" (ngSubmit)="onSubmitResume()">
+    <div class="form-group">
+      <label for="pdfFile">Upload CV:</label>
+      <input type="file" id="resume" formControlName="cv" accept=".pdf" required />
+    </div>
+    <button type="submit" class="default-btn">Save</button>
+  </form>
 </div>
 
 

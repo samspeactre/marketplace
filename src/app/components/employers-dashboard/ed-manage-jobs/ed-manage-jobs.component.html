@@ -14,7 +14,7 @@
                 <div class="d-sm-flex align-items-center justify-content-between">
                     <div class="d-sm-flex align-items-center">
                         <div class="image">
-                            <img src="../../../../assets/images/candidate-dash-logo-2.png" alt="company-image">
+                            <img [src]="item?.user?.employer_details?.main_logo || '../../../../assets/images/profile-pic.jpg'" alt="company-image">
                         </div>
                         <div class="content">
                             <h3>
@@ -36,7 +36,7 @@
                         </span>
                         <ul class="ps-0 mb-0 list-unstyled">
                             <li class="d-inline-block">
-                                <button type="button" class="d-inline-block rounded-circle">
+                                <button type="button" (click)="openJobDetail(item?.id)" class="d-inline-block rounded-circle">
                                     <i class="ri-eye-line"></i>
                                 </button>
                             </li>
@@ -71,7 +71,7 @@
                 </div>
             </div>
         </div>
-   
+
 
     </div>
 </div>

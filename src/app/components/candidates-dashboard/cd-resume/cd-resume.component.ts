@@ -13,6 +13,8 @@ export class CdResumeComponent implements OnInit {
   experienceForm!: FormGroup;
   personalDetailsForm!: FormGroup;
   videoUploadForm!: FormGroup;
+  cvForm: FormGroup;
+  candidate_video: any;
   saveDetails: boolean = false;
   saveVideo: boolean = false;
   public id: any;
@@ -25,7 +27,7 @@ export class CdResumeComponent implements OnInit {
     this.experienceForm = this.fb.group({
       experience: this.fb.array([])
     });
-    
+
 
     this.personalDetailsForm = this.fb.group({
       first_name: [null, [Validators.required, Validators.minLength(3)]],
@@ -40,13 +42,16 @@ export class CdResumeComponent implements OnInit {
       user_id: [null]  // Initialize user_id as null
     });
 
-    this.videoUploadForm = this.fb.group({
-      video: [null, [Validators.required]]
+    this.cvForm = this.fb.group({
+      cv: [null, [Validators.required]]
     });
   }
 
   ngOnInit(): void {
     this.loadData();
+    this.videoUploadForm = this.fb.group({
+      video: [null, Validators.required], // Ensure form control is set up for video
+    });
   }
 
   get education(): FormArray {
@@ -112,22 +117,21 @@ export class CdResumeComponent implements OnInit {
           user_id: this.id  // Explicitly set the user_id in the form
         });
       }
-    } 
+    }
     catch (error) {
       console.error('Error fetching user profile:', error);
     }
-  
+
     try {
       const res: any = await this.http.get('experience/get_experience', true).toPromise();
-      
+
       if (res && res.experiences) {
         const experienceArray = this.experienceForm.get('experience') as FormArray;
-  
-        // Clear any existing form groups in the FormArray
+
         while (experienceArray.length) {
           experienceArray.removeAt(0);
         }
-  
+
         // Add the experiences from the API response
         res.experiences.forEach((exp: any) => {
           experienceArray.push(this.fb.group({
@@ -139,23 +143,23 @@ export class CdResumeComponent implements OnInit {
           }));
         });
       }
-      
+
       console.log(res);
-    } 
+    }
     catch (error) {
       console.error('Error fetching experience data:', error);
     }
 
     try {
       const res: any = await this.http.get('education/get_education', true).toPromise();
-      
+
       if (res && res.education) {
         const educationArray = this.educationForm.get('education') as FormArray;
-  
+
         while (educationArray.length) {
           educationArray.removeAt(0);
         }
-  
+
         res.education.forEach((edu: any) => {
           educationArray.push(this.fb.group({
             degree_name: [edu.degree_name, Validators.required],
@@ -166,14 +170,26 @@ export class CdResumeComponent implements OnInit {
           }));
         });
       }
-      
+
       console.log(res);
-    } 
+    }
     catch (error) {
       console.error('Error fetching experience data:', error);
     }
+
+    try {
+      const res: any = await this.http.get('file/get_uploaded_video', true).toPromise();
+      this.candidate_video = res?.candiateVideo?.[0]?.video_url;
+      console.log('fsdfd', this.candidate_video)
+    }
+    catch (error) {
+      console.error('Error fetching user profile:', error);
+    }
+
+
+
   }
-  
+
 
   async candidateUpdate() {
     try {
@@ -188,10 +204,10 @@ export class CdResumeComponent implements OnInit {
 
   async EducationCreate() {
     try {
-        const userId = this.id; 
+        const userId = this.id;
         const educationData = this.educationForm.value.education.map((edu: any) => ({
             ...edu,
-            user_id: userId 
+            user_id: userId
         }));
 
         const res = await this.http.post('education/create', { data: educationData }, true).toPromise();
@@ -201,22 +217,22 @@ export class CdResumeComponent implements OnInit {
     }
 }
 
-async ExperienceCreate() {
-  try {
-      const userId = this.id; 
-      const experienceData = this.experienceForm.value.experience.map((exp: any) => ({
-          ...exp,
-          user_id: userId 
-      }));
+  async ExperienceCreate() {
+    try {
+        const userId = this.id;
+        const experienceData = this.experienceForm.value.experience.map((exp: any) => ({
+            ...exp,
+            user_id: userId
+        }));
 
-      const res = await this.http.post('experience/create-experience', { data: experienceData }, true).toPromise();
-      console.log(res);
-  } catch (error) {
-      console.error('Error creating education entries:', error);
+        const res = await this.http.post('experience/create-experience', { data: experienceData }, true).toPromise();
+        console.log(res);
+    } catch (error) {
+        console.error('Error creating education entries:', error);
+    }
   }
-}
 
-  
+
 
   onSubmit(): void {
     this.candidateUpdate();
@@ -224,24 +240,47 @@ async ExperienceCreate() {
 
   onSubmitVideo(): void {
     const fileInput = document.getElementById('video') as HTMLInputElement;
-    const file = fileInput?.files?.[0];
-    
-    if (file) {
-      this.helper
-    .videoUploadHttp(file)
+    const files = fileInput?.files; // Get all the files
+
+    if (files && files.length > 0) {
+      // Pass the FileList to the upload handler
+      this.helper.videoUploadHttp(files)
         .then((result: any) => {
           this.videoUploadForm.patchValue({
-            video: result.data.video_url,
+            video: result.data.video_url, // Assuming response returns video_url
           });
-          console.log(this.videoUploadForm.value);
+          console.log('Video uploaded:', this.videoUploadForm.value);
         })
         .catch((error) => {
-          console.error(error);
+          console.error('Error during video upload:', error);
         });
     } else {
       console.error('No file selected.');
     }
   }
+
+
+
+  onSubmitResume(): void {
+    const fileInput = document.getElementById('resume') as HTMLInputElement;
+    const resume = fileInput?.files?.[0];
+
+    if (resume) {
+      this.helper.fileUploadHttp(resume)
+        .then((result: any) => {
+          this.cvForm.patchValue({
+            cv: result.data.fileUrls,  // Update with appropriate response structure
+          });
+          console.log(this.cvForm.value);
+        })
+        .catch((error) => {
+          console.error('Error uploading resume:', error);
+        });
+    } else {
+      console.error('No file selected.');
+    }
+  }
+
 
 
   // onSubmitVideo(event: any) {

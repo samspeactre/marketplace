@@ -95,6 +95,7 @@ import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { ResetOtpComponent } from './components/forget-pass/reset-otp/reset-otp.component';
 import { ResetEmailSendComponent } from './components/forget-pass/reset-email-send/reset-email-send.component';
 import { ResetPassComponent } from './components/forget-pass/reset-pass/reset-pass.component';
+import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 
 
 
@@ -184,7 +185,7 @@ import { ResetPassComponent } from './components/forget-pass/reset-pass/reset-pa
         ResetOtpComponent,
         ResetEmailSendComponent,
         ResetPassComponent
-        
+
     ],
     imports: [
         BrowserModule,
@@ -199,9 +200,10 @@ import { ResetPassComponent } from './components/forget-pass/reset-pass/reset-pa
         FormsModule,
         ReactiveFormsModule,
         HttpClientModule,
+        CKEditorModule,
         ToastrModule.forRoot(),
 
-        CommonModule 
+        CommonModule
 
     ],
     providers: [],

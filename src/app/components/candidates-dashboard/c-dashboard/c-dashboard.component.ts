@@ -1,4 +1,5 @@
 import { Component, ViewChild } from "@angular/core";
+import { ActivatedRoute, Router } from "@angular/router";
 import {
     ChartComponent,
     ApexAxisChartSeries,
@@ -10,6 +11,7 @@ import {
     ApexStroke,
     ApexGrid
 } from "ng-apexcharts";
+import { HttpService } from "src/app/shared/services/http.service";
 
 export type ChartOptions = {
     series: ApexAxisChartSeries;
@@ -30,10 +32,19 @@ export type ChartOptions = {
 })
 export class CDashboardComponent {
 
+    public user:any;
+    appliedJobs: any[] = [];
+
+
     @ViewChild("chart") chart: ChartComponent | undefined;
     public chartOptions: Partial<ChartOptions>;
 
-    constructor() {
+    constructor(private http: HttpService,
+
+        private router: Router,
+        private route: ActivatedRoute,
+    ) {
+
         this.chartOptions = {
             series: [
                 {
@@ -108,4 +119,36 @@ export class CDashboardComponent {
         };
     }
 
+
+    ngOnInit() {
+        this.loadData();
+        this.route.queryParams.subscribe((params) => {
+            const id = params['id'];
+          });
+      }
+      
+      
+      
+      async loadData() {
+        await Promise.all([this.getUser()]);
+      }
+      async getUser() {
+        try {
+          const res: any = await this.http.get('auth/me', true).toPromise();
+          this.user = res?.user;
+    
+          // Extract applied jobs from the response
+          if (this.user && this.user.job_apply) {
+            this.appliedJobs.push(this.user.job_apply.job); // Assuming job_apply contains only one job
+          }
+        } catch (error) {
+          console.error('Error fetching users:', error);
+        }
+      }
+
+      async openJobDetail(id: string) {
+        this.router.navigate(['/job-details'], {
+          queryParams: { id: id },
+        });
+      }
 }

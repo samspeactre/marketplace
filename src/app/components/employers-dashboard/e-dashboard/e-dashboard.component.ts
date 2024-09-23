@@ -1,4 +1,5 @@
 import { Component, ViewChild } from "@angular/core";
+import { Route, Router } from "@angular/router";
 import {
     ChartComponent,
     ApexAxisChartSeries,
@@ -37,8 +38,9 @@ export class EDashboardComponent {
     public chartOptions: Partial<ChartOptions>;
     public user: any;
     public Job: number = 0;
+    public getAppliedJob: any;
 
-    constructor(private http: HttpService) {
+    constructor(private http: HttpService, private router: Router) {
         this.chartOptions = {
             series: [
                 {
@@ -116,11 +118,11 @@ export class EDashboardComponent {
     ngOnInit() {
         this.loadData();
       }
-      
-      
-      
+
+
+
       async loadData() {
-        await Promise.all([this.getUser()]);
+        await Promise.all([this.getUser(), this.getApplyJob()]);
       }
 
     async getUser() {
@@ -139,6 +141,24 @@ export class EDashboardComponent {
             console.error('Error fetching contractors:', error);
           }
       }
-      
+
+
+
+  async getApplyJob() {
+    try {
+      const res: any = await this.http.get('jobs/get_apply_job', true).toPromise();
+      console.log(res);
+      this.getAppliedJob = res?.appliedJobs;
+    } catch (error) {
+      console.error('Error fetching contractors:', error);
+    }
+  }
+
+  async openCandidateDetail(id: string) {
+    this.router.navigate(['/candidate-details'], {
+      queryParams: { id: id },
+    });
+  }
+
 
 }

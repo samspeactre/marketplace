@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ValidatorFn, AbstractControl, ValidationErrors } from '@angular/forms';
+import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import { HttpService } from 'src/app/shared/services/http.service';
 
 @Component({
@@ -11,6 +12,7 @@ import { HttpService } from 'src/app/shared/services/http.service';
 
 
 export class EdPostANewJobComponent {
+  public Editor = ClassicEditor;
   next: boolean = false;
 
   constructor( private http: HttpService,) {}
@@ -44,7 +46,7 @@ export class EdPostANewJobComponent {
     return (control: AbstractControl): ValidationErrors | null => {
       const dateValue = control.value;
       const date = new Date(dateValue);
-    
+
       if (isNaN(date.getTime())) {
         return { invalidDate: true };
       }
@@ -52,9 +54,11 @@ export class EdPostANewJobComponent {
       if (date < today) {
         return { pastDate: true };
       }
-      return null; 
+      return null;
     };
   }
+
+
 
   postJobForm = new FormGroup({
     title: new FormControl(null, [Validators.required, Validators.minLength(5)]),
@@ -99,6 +103,11 @@ export class EdPostANewJobComponent {
     } else {
       console.log(this.postJobForm.value, 'Form is invalid');
     }
+  }
+
+  onEditorChange({ editor }: any) {
+    const data = editor.getData();
+    // this.postJobForm.get('description')?.setValue(data);
   }
 
 

@@ -11,12 +11,12 @@
                 <div class="single-candidate-box d-sm-flex align-items-center justify-content-between">
                     <div class="d-sm-flex align-items-center">
                         <div class="image">
-                            <img src="../../../../assets/images/profile-pic.jpg" class="rounded-circle"
+                            <img  [src]="candidateDetail?.profile_image "class="rounded-circle"
                                 alt="candidate-image">
                         </div>
                         <div class="content">
                             <h3 class="fw-semibold">
-                                Donald Darnell
+                               {{ candidateDetail?.first_name }}
                             </h3>
                             <span class="designation d-block">
                                 Software Engineer
@@ -38,7 +38,7 @@
                         About me
                     </h3>
                     <div class="video-player">
-                        <video #videoPlayer [src]="videoUrls[currentVideoIndex]" controls>
+                        <video #videoPlayer [src]="candidateDetail?.candidate_videos?.[0]?.video_url" controls>
                             Your browser does not support the video tag.
                         </video>
                     </div>
@@ -46,111 +46,36 @@
                         Education
                     </h3>
                     <ul class="ps-0 list-unstyled">
-                        <li class="position-relative">
-                            <div class="number">
-                                1
-                            </div>
-                            <h4>
-                                Masters in Fine Arts
-                            </h4>
-                            <span class="d-block designation">
-                                <span>Walters University</span> - (2020-2021)
-                            </span>
-                            <p>
-                                Commodo volutpat euismod nec duis iaculis mattis quam diam. Sollicitudin eu mi aliquet
-                                at tellus sed pellentesque. Id non in pharetra massa urna ullamcorper tempor. Leo tempus
-                                pharetra mi mattis ut porttitor viverra. Suspendisse massa eros pulvinar eu tortor
-                                semper sit.
-                            </p>
+                        <li *ngFor="let education of candidateDetail?.employee_education; let i = index" class="position-relative">
+                          <div class="number">{{ i + 1 }}</div>
+                          <h4>{{ education.degree_name }}</h4>
+                          <span class="d-block designation">
+                              <span>{{ education.school }}</span> - ({{ education.start_year }} - {{ education.end_year }})
+                          </span>
+                          <p>{{ education.description }}</p>
                         </li>
-                        <li class="position-relative">
-                            <div class="number">
-                                2
-                            </div>
-                            <h4>
-                                Bachelors in Fine Arts
-                            </h4>
-                            <span class="d-block designation">
-                                <span>University of California</span> - (2016-2020)
-                            </span>
-                            <p>
-                                Viverra tortor sit volutpat elementum nibh leo rhoncus viverra vestibulum. At non nunc
-                                fames vulputate nibh pharetra eu nulla aenean. Fusce pretium purus pellentesque faucibus
-                                sed neque diam a maecenas.
-                            </p>
-                        </li>
+
                     </ul>
                     <h3>
                         Background and expertise
                     </h3>
                     <ul class="ps-0 list-unstyled">
-                        <li class="position-relative">
-                            <div class="number">
-                                1
-                            </div>
-                            <h4>
-                                Sr. Software Engineer
-                            </h4>
-                            <span class="d-block designation">
-                                <span>Jove</span> - (2020-2023)
-                            </span>
-                            <p>
-                                Commodo volutpat euismod nec duis iaculis mattis quam diam. Sollicitudin eu mi aliquet
-                                at tellus sed pellentesque. Id non in pharetra massa urna ullamcorper tempor. Leo tempus
-                                pharetra mi mattis ut porttitor viverra. Suspendisse massa eros pulvinar eu tortor
-                                semper sit.
-                            </p>
-                        </li>
-                        <li class="position-relative">
-                            <div class="number">
-                                2
-                            </div>
-                            <h4>
-                                Product Designer
-                            </h4>
-                            <span class="d-block designation">
-                                <span>Cirku</span> - (2018-2020)
-                            </span>
-                            <p>
-                                Sollicitudin eu mi aliquet at tellus sed pellentesque. Id non in pharetra massa urna
-                                ullamcorper tempor. Leo tempus pharetra mi mattis ut porttitor viverra. Suspendisse
-                                massa eros pulvinar eu tortor semper sit. In tempus euismod id scelerisque convallis
-                                praesent.
-                            </p>
-                        </li>
-                        <li class="position-relative">
-                            <div class="number">
-                                3
-                            </div>
-                            <h4>
-                                Web Designer
-                            </h4>
-                            <span class="d-block designation">
-                                <span>HiBootstrap</span> - (2016-2018)
-                            </span>
-                            <p>
-                                Sollicitudin eu mi aliquet at tellus sed pellentesque. Id non in pharetra massa urna
-                                ullamcorper tempor. Leo tempus pharetra mi mattis ut porttitor viverra. Suspendisse
-                                massa eros pulvinar eu tortor semper sit. In tempus euismod id scelerisque convallis
-                                praesent.
-                            </p>
-                        </li>
+                      <li *ngFor="let experience of candidateDetail?.candidate_experience; let i = index" class="position-relative">
+                        <div class="number">{{ i + 1 }}</div>
+                        <h4>{{ experience.position }}</h4>
+                        <span class="d-block designation">
+                            <span>{{ experience.company_name }}</span> - ({{ experience.start_year }} - {{ experience.end_year }})
+                        </span>
+                        <p>{{ experience.description }}</p>
+                    </li>
                     </ul>
                     <h3>
                         Passion and future goals
                     </h3>
                     <p>
-                        Enim urna pulvinar orci leo viverra. A augue nisl convallis amet pellentesque sollicitudin.
-                        Commodo volutpat euismod nec duis iaculis mattis quam diam. Sollicitudin eu mi aliquet at tellus
-                        sed pellentesque. Id non in pharetra massa urna ullamcorper tempor. Leo tempus pharetra mi
-                        mattis ut porttitor viverra. Suspendisse massa eros pulvinar eu tortor semper sit. In tempus
-                        euismod id scelerisque convallis praesent.
+                      {{ candidateDetail?.dataValues?.passion_and_future_goals }}
                     </p>
-                    <p>
-                        Viverra tortor sit volutpat elementum nibh leo rhoncus viverra vestibulum. At non nunc fames
-                        vulputate nibh pharetra eu nulla aenean. Fusce pretium purus pellentesque faucibus sed neque
-                        diam a maecenas.
-                    </p>
+
                 </div>
             </div>
 
@@ -163,32 +88,31 @@
                         </h3>
                         <ul class="contact-information ps-0 mb-0 list-unstyled">
                             <li>
-                                <span>Email:</span> <a href="mailto:hello@jove.com">hello&#64;jove.com</a>
+                                <span>Email:</span> <a href="mailto:  {{ candidateDetail?.email }}">  {{ candidateDetail?.email }}</a>
                             </li>
                             <li>
-                                <span>Phone:</span> <a href="tel:+1 (514) 312-5678">+1 (514)
-                                    312-5678</a>
+                                <span>Phone:</span> <a href="tel:{{ candidateDetail?.phone_number }}">{{ candidateDetail?.phone_number }}</a>
                             </li>
                             <li>
-                                <span>Offered Salary:</span> $50/ hour
+                                <span>Offered Salary:</span> {{ candidateDetail?.dataValues?.offered_salary }} /monthly
                             </li>
                             <li>
-                                <span>Experience:</span> 4 Years
+                                <span>Experience:</span> {{ candidateDetail?.dataValues?.Experience }}
                             </li>
                             <li>
-                                <span>Gender:</span> Male
+                                <span>Gender:</span> {{ candidateDetail?.dataValues?.gender }}
                             </li>
                             <li>
-                                <span>Age:</span> 30
+                                <span>Age:</span> {{ candidateDetail?.dataValues?.Age }}
                             </li>
                             <li>
-                                <span>Qualification:</span> Doctorate Degree
+                                <span>Qualification:</span>{{ candidateDetail?.dataValues?.Qualification }}
                             </li>
                             <li>
-                                <span>Languages:</span> English
+                                <span>Languages:</span> {{ candidateDetail?.dataValues?.language }}
                             </li>
                             <li>
-                                <span>Professional Skills:</span> Angular and TypeScript
+                                <span>Professional Skills:</span> {{ candidateDetail?.dataValues?.Professional_Skills }}
                             </li>
                         </ul>
                     </div>
