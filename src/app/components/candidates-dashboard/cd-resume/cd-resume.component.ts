@@ -15,6 +15,7 @@ export class CdResumeComponent implements OnInit {
   videoUploadForm!: FormGroup;
   cvForm: FormGroup;
   candidate_video: any;
+  pdf: any;
   saveDetails: boolean = false;
   saveVideo: boolean = false;
   public id: any;
@@ -39,6 +40,18 @@ export class CdResumeComponent implements OnInit {
       maritalStatus: [null, Validators.required],
       nationality: [null, Validators.required],
       address: [null, Validators.required],
+      language: [null, Validators.required],
+      city: [null, Validators.required],
+      state: [null, Validators.required],
+      country: [null, Validators.required],
+      lat: [null, Validators.required],
+      lng: [null, Validators.required],
+      offered_salary: [null, Validators.required],
+      Experience: [null, Validators.required],
+      Qualification: [null, Validators.required],
+      Professional_Skills: [null, Validators.required],
+      passion_and_future_goals: [null, Validators.required],
+
       user_id: [null]  // Initialize user_id as null
     });
 
@@ -186,6 +199,15 @@ export class CdResumeComponent implements OnInit {
       console.error('Error fetching user profile:', error);
     }
 
+    try {
+      const res: any = await this.http.get('file/get_uploaded_pdf', true).toPromise();
+      this.pdf = res?.pdf?.[0]?.resume;
+      console.log('fsdfd', this.pdf)
+    }
+    catch (error) {
+      console.error('Error fetching user profile:', error);
+    }
+
 
 
   }
@@ -260,26 +282,29 @@ export class CdResumeComponent implements OnInit {
   }
 
 
-
   onSubmitResume(): void {
     const fileInput = document.getElementById('resume') as HTMLInputElement;
-    const resume = fileInput?.files?.[0];
+    const files = fileInput?.files; // Get all the files
 
-    if (resume) {
-      this.helper.fileUploadHttp(resume)
+    if (files && files.length > 0) {
+      // Pass the FileList to the upload handler
+      this.helper.pdfUploadHttp(files)
         .then((result: any) => {
           this.cvForm.patchValue({
-            cv: result.data.fileUrls,  // Update with appropriate response structure
+            resume: result.data.cv_url, // Assuming response returns video_url
           });
-          console.log(this.cvForm.value);
+          console.log('Video uploaded:', this.cvForm.value);
         })
         .catch((error) => {
-          console.error('Error uploading resume:', error);
+          console.error('Error during video upload:', error);
         });
     } else {
       console.error('No file selected.');
     }
   }
+
+
+
 
 
 

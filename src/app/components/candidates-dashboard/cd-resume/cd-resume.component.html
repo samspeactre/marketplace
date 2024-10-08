@@ -45,14 +45,24 @@
                 </div>
             </div>
             <div class="col-lg-6 col-md-6">
-                <div class="form-group">
-                    <label>Phone</label>
-                    <input type="text" formControlName="phone_number" class="form-control shadow-none" placeholder="+1 (514) 312-5678">
-                    <div *ngIf="(personalDetailsForm.get('phone_number')?.invalid || personalDetailsForm.get('phone_number')?.touched) && saveDetails" class="text-danger">
-                        <small *ngIf="personalDetailsForm.get('phone_number')?.errors?.['required']">Phone number is required.</small>
-                    </div>
+              <div class="form-group">
+                <label for="phone">Phone</label>
+                <div class="input-group">
+                  <span class="input-group-text">+1</span> <!-- Prepend +1 as hardcoded value -->
+                  <input
+                    type="text"
+                    formControlName="phone_number"
+                    class="form-control shadow-none"
+                    placeholder="(514) 312-5678"
+                    maxlength="15"
+                  >
                 </div>
+                <div *ngIf="personalDetailsForm.get('phone_number')?.invalid && saveDetails" class="text-danger">
+                  <small *ngIf="personalDetailsForm.get('phone_number')?.errors?.['required']">Phone number is required.</small>
+                </div>
+              </div>
             </div>
+
             <div class="col-lg-6 col-md-6">
                 <div class="form-group">
                     <label>Date of birth</label>
@@ -116,12 +126,190 @@
                     </div>
                 </div>
             </div>
+
+            <div class="col-lg-6 col-md-6">
+              <div class="form-group">
+                  <label>Language</label>
+                  <input type="text" formControlName="language" class="form-control shadow-none" placeholder="Language">
+
+                  <div *ngIf="(personalDetailsForm.get('language')?.invalid || personalDetailsForm.get('language')?.touched) && saveDetails" class="text-danger">
+                      <small *ngIf="personalDetailsForm.get('language')?.errors?.['required']">Language is required.</small>
+                  </div>
+              </div>
+            </div>
+
+            <div class="col-lg-6 col-md-6">
+                <div class="form-group">
+                    <label>City</label>
+                    <select id="city" class="form-select shadow-none" formControlName="city">
+                      <option value="Tokyo" selected>Tokyo</option>
+                      <option value="New York">New York</option>
+                      <option value="London">London</option>
+                      <option value="Beijing">Beijing</option>
+                      <option value="Toronto">Toronto</option>
+                      <option value="Chicago">Chicago</option>
+
+                  </select>
+                    <div *ngIf="(personalDetailsForm.get('city')?.invalid || personalDetailsForm.get('city')?.touched) && saveDetails" class="text-danger">
+                        <small *ngIf="personalDetailsForm.get('city')?.errors?.['required']">City is required.</small>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6 col-md-6">
+              <div class="form-group">
+                  <label>State</label>
+                  <select formControlName="state" class="form-select shadow-none">
+                      <option value="">Select</option>
+                      <option value="japan">Japan</option>
+                      <option value="usa">USA</option>
+                      <option value="england">England</option>
+                      <option value="china">China</option>
+                      <option value="canada">Canada</option>
+                      <option value="brazil">Brazil</option>
+                      <option value="south_korea">South Korea</option>
+                      <option value="spain">Spain</option>
+                      <option value="turkey">Turkey</option>
+                      <option value="denmark">Denmark</option>
+                      <option value="thailand">Thailand</option>
+                      <option value="uae">UAE</option>
+                      <option value="australia">Australia</option>
+                      <option value="netherlands">Netherlands</option>
+                      <option value="france">France</option>
+                  </select>
+                  <div *ngIf="(personalDetailsForm.get('city')?.invalid || personalDetailsForm.get('city')?.touched) && saveDetails" class="text-danger">
+                      <small *ngIf="personalDetailsForm.get('city')?.errors?.['required']">City is required.</small>
+                  </div>
+              </div>
+            </div>
+
+            <div class="col-lg-6 col-md-6">
+              <div class="form-group">
+                  <label>Country</label>
+                  <select id="country" class="form-select shadow-none" formControlName="country">
+                    <option value="Japan" selected>Japan</option>
+                    <option value="USA">USA</option>
+                    <option value="England">England</option>
+                    <option value="China">China</option>
+                    <option value="Canada">Canada</option>
+                    <option value="Brazil">Brazil</option>
+                </select>
+                  <div *ngIf="(personalDetailsForm.get('country')?.invalid || personalDetailsForm.get('country')?.touched) && saveDetails" class="text-danger">
+                      <small *ngIf="personalDetailsForm.get('country')?.errors?.['required']">Country is required.</small>
+                  </div>
+              </div>
+            </div>
+
+            <div class="col-lg-6 col-md-6">
+              <div class="form-group">
+                  <label>Latitude</label>
+                  <input type="number" formControlName="lat" class="form-control shadow-none" placeholder="Latitude">
+
+
+                  <div *ngIf="(personalDetailsForm.get('lat')?.invalid || personalDetailsForm.get('lat')?.touched) && saveDetails" class="text-danger">
+                      <small *ngIf="personalDetailsForm.get('lat')?.errors?.['required']">Lat is required.</small>
+                  </div>
+              </div>
+            </div>
+
+            <div class="col-lg-6 col-md-6">
+              <div class="form-group">
+                  <label>Longitude</label>
+                  <input type="number" formControlName="lng" class="form-control shadow-none" placeholder="Longitude">
+
+                  <div *ngIf="(personalDetailsForm.get('lng')?.invalid || personalDetailsForm.get('lng')?.touched) && saveDetails" class="text-danger">
+                      <small *ngIf="personalDetailsForm.get('lng')?.errors?.['required']">Lng is required.</small>
+                  </div>
+              </div>
+            </div>
+
+            <div class="col-lg-6 col-md-6">
+              <div class="form-group">
+                  <label>Offered Salary</label>
+                  <select id="salary" class="form-select shadow-none" formControlName="offered_salary">
+                    <option selected>Select</option>
+                    <option value="$1000">$1000</option>
+                    <option value="$2000">$2000</option>
+                    <option value="$3000">$3000</option>
+                    <option value="$4000">$4000</option>
+                    <option value="$5000">$5000</option>
+                    <option value="$6000">$6000</option>
+                </select>
+
+                  <div *ngIf="(personalDetailsForm.get('offered_salary')?.invalid || personalDetailsForm.get('offered_salary')?.touched) && saveDetails" class="text-danger">
+                      <small *ngIf="personalDetailsForm.get('offered_salary')?.errors?.['required']">Offered Salary is required.</small>
+                  </div>
+              </div>
+            </div>
+
+            <div class="col-lg-6 col-md-6">
+              <div class="form-group">
+                  <label>Experience</label>
+                  <select id="experience" class="form-select shadow-none" formControlName="Experience">
+                    <option selected>Select</option>
+                    <option value="Fresher">Fresher</option>
+                    <option value="1 year">1 year</option>
+                    <option value="2 years">2 years</option>
+                    <option value="3 years">3 years</option>
+                    <option value="4 years">4 years</option>
+                </select>
+                  <div *ngIf="(personalDetailsForm.get('Experience')?.invalid || personalDetailsForm.get('Experience')?.touched) && saveDetails" class="text-danger">
+                      <small *ngIf="personalDetailsForm.get('Experience')?.errors?.['required']">Experience is required.</small>
+                  </div>
+              </div>
+            </div>
+
+
+            <div class="col-lg-6 col-md-6">
+              <div class="form-group">
+                  <label for="Qualification">
+                      Qualification
+                  </label>
+                  <select id="Qualification" class="form-select shadow-none" formControlName="Qualification">
+                      <option selected>Select</option>
+                      <option value="Certificate">Certificate</option>
+                      <option value="Diploma">Diploma</option>
+                      <option value="Bachelor Degree">Bachelor Degree</option>
+                      <option value="Master’s Degree">Master’s Degree</option>
+                      <option value="Associate">Associate</option>
+                  </select>
+                  <div *ngIf="(personalDetailsForm.get('Qualification')?.invalid || personalDetailsForm.get('Qualification')?.touched) && saveDetails" class="text-danger">
+                    <small *ngIf="personalDetailsForm.get('Qualification')?.errors?.['required']">Qualification is required.</small>
+                </div>
+              </div>
+           </div>
+
+            <div class="col-lg-6 col-md-6">
+              <div class="form-group">
+                  <label>Professional Skills </label>
+                  <input type="text" formControlName="Professional_Skills" class="form-control shadow-none" placeholder="Professional Skills">
+
+                  <div *ngIf="(personalDetailsForm.get('Professional_Skills')?.invalid || personalDetailsForm.get('Professional_Skills')?.touched) && saveDetails" class="text-danger">
+                      <small *ngIf="personalDetailsForm.get('Professional_Skills')?.errors?.['required']">Professional Skills is required.</small>
+                  </div>
+              </div>
+            </div>
+
+
+            <div class="col-lg-12 col-md-12">
+              <div class="form-group">
+                  <label>Address details</label>
+                  <textarea formControlName="address" class="form-control shadow-none" cols="30" rows="8"></textarea>
+                  <div *ngIf="(personalDetailsForm.get('address')?.invalid || personalDetailsForm.get('address')?.touched) && saveDetails" class="text-danger">
+                      <small *ngIf="personalDetailsForm.get('address')?.errors?.['required']">Address is required.</small>
+                  </div>
+              </div>
+          </div>
+
+
+
+
             <div class="col-lg-12 col-md-12">
                 <div class="form-group">
-                    <label>Address details</label>
-                    <textarea formControlName="address" class="form-control shadow-none" cols="30" rows="8"></textarea>
-                    <div *ngIf="(personalDetailsForm.get('address')?.invalid || personalDetailsForm.get('address')?.touched) && saveDetails" class="text-danger">
-                        <small *ngIf="personalDetailsForm.get('address')?.errors?.['required']">Address is required.</small>
+                    <label>Passion And Future Goals</label>
+                    <textarea formControlName="passion_and_future_goals" class="form-control shadow-none" cols="30" rows="8"></textarea>
+                    <div *ngIf="(personalDetailsForm.get('passion_and_future_goals')?.invalid || personalDetailsForm.get('passion_and_future_goals')?.touched) && saveDetails" class="text-danger">
+                        <small *ngIf="personalDetailsForm.get('passion_and_future_goals')?.errors?.['required']">Passion And Future Goals is required.</small>
                     </div>
                 </div>
             </div>
@@ -146,14 +334,17 @@
   </form>
 
   <!-- Display uploaded video -->
-  <div *ngIf="candidate_video">
+  <div *ngIf="candidate_video" class="video-preview">
     <h3 class="title">Uploaded Video</h3>
-    <video width="200" height="200" controls>
-      <source [src]="candidate_video" type="video/mp4" />
-      Your browser does not support the video tag.
-    </video>
+    <div class="video-container">
+      <video controls>
+        <source [src]="candidate_video" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+    </div>
   </div>
 </div>
+
 
 
 
@@ -168,7 +359,20 @@
     </div>
     <button type="submit" class="default-btn">Save</button>
   </form>
+  <div *ngIf="pdf" class="pdf-preview">
+    <h3 class="title">Uploaded PDF</h3>
+
+    <div class="download-cv">
+      <a [href]="pdf" target="_blank" class="d-block position-relative" download>
+        <span class="d-block">{{ 'resume_pdf' }}</span>
+        PDF
+        <i class="ri-file-download-line"></i>
+      </a>
+    </div>
+  </div>
+
 </div>
+
 
 
 <!--Education Form-->

@@ -12,7 +12,7 @@
             <div class="single-candidate-box d-sm-flex align-items-center justify-content-between">
                 <div class="d-sm-flex align-items-center">
                     <div class="image">
-                      <img [src]="applicant?.user?.profile_image || '../../../../assets/images/profile-pic.jpg'" class="rounded-circle" alt="candidate-image">                    </div>
+                      <img [src]="applicant?.user?.profile_image || 'assets/images/profile-pic.jpg'" class="rounded-circle" alt="candidate-image">                    </div>
                     <div class="content">
                         <h3 class="fw-semibold">
                             <a (click)="openCandidateDetail(applicant?.user?.id)" >
@@ -29,9 +29,7 @@
                 </div>
                 <div class="view-profile d-sm-flex align-items-center">
                     <span class="d-block">
-                        <a href="javascript:void(0);" class="fw-medium">
-                            Download CV
-                        </a>
+
                     </span>
                     <ul class="ps-0 mb-0 list-unstyled">
                         <li class="d-inline-block">
@@ -39,7 +37,7 @@
                                 <i class="ri-eye-line"></i>
                             </button>
                         </li>
-                        <li class="d-inline-block">
+                        <!-- <li class="d-inline-block">
                             <button type="button" class="d-inline-block rounded-circle">
                                 <i class="ri-check-line"></i>
                             </button>
@@ -48,7 +46,7 @@
                             <button type="button" class="d-inline-block rounded-circle">
                                 <i class="ri-close-line"></i>
                             </button>
-                        </li>
+                        </li> -->
                     </ul>
                 </div>
             </div>

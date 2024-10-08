@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ValidatorFn, AbstractControl, ValidationErrors } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import { HttpService } from 'src/app/shared/services/http.service';
 
@@ -13,9 +14,12 @@ import { HttpService } from 'src/app/shared/services/http.service';
 
 export class EdPostANewJobComponent {
   public Editor = ClassicEditor;
+  public categories: any;
   next: boolean = false;
+  jobId: string | null = null; // To store the job id
 
-  constructor( private http: HttpService,) {}
+
+  constructor( private http: HttpService,private route: ActivatedRoute) {}
 
 
   // Custom Validator for dropdowns
@@ -64,7 +68,6 @@ export class EdPostANewJobComponent {
     title: new FormControl(null, [Validators.required, Validators.minLength(5)]),
     description: new FormControl(null, [Validators.required, Validators.minLength(10)]),
     email: new FormControl(null, [Validators.required, Validators.email]),
-    username: new FormControl(null, [Validators.required, Validators.minLength(4)]),
     specialism: new FormControl(null, [Validators.required,this.dropdownValidator()]),    //dropdown
     category_id: new FormControl(null, [Validators.required,this.dropdownValidator()]),    //dropdown
     jobType: new FormControl(null, [Validators.required, this.dropdownValidator()]),       //dropdown
@@ -93,17 +96,100 @@ export class EdPostANewJobComponent {
       }
   }
 
-  async jobPost() {
-    this.next = true;
+  ngOnInit() {
+    this.jobId = this.route.snapshot.queryParamMap.get('id'); // Get job id from URL
+    this.loadData();
 
-    if (this.postJobForm.valid) {
-    await this.http.post('jobs/create', this.postJobForm.value, true).subscribe((res: any) => {
-        this.postJobForm.reset();
-      });
-    } else {
-      console.log(this.postJobForm.value, 'Form is invalid');
+  }
+  async loadData(){
+    await Promise.all([this.getCategories()]);
+    if (this.jobId) {
+      this.getJobDetails(this.jobId); // Load job details if editing
     }
   }
+
+  // async jobPost() {
+  //   this.next = true;
+
+  //   if (this.postJobForm.valid) {
+  //   await this.http.post('jobs/create', this.postJobForm.value, true).subscribe((res: any) => {
+  //       this.postJobForm.reset();
+  //     });
+  //   } else {
+  //     console.log(this.postJobForm.value, 'Form is invalid');
+  //   }
+  // }
+
+  async jobPost() {
+    if (this.postJobForm.valid) {
+      if (this.jobId) {
+        await this.http.post(`jobs/update?id=${this.jobId}`, this.postJobForm.value, true).subscribe(
+          (res: any) => {
+            console.log('Job updated successfully', res);
+          },
+          error => {
+            console.error('Error updating job:', error);
+          }
+        );
+      } else {
+        await this.http.post('jobs/create', this.postJobForm.value, true).subscribe(
+          (res: any) => {
+            console.log('Job created successfully', res);
+            this.postJobForm.reset();
+          },
+          error => {
+            console.error('Error creating job:', error);
+          }
+        );
+      }
+
+    }else {
+          console.log(this.postJobForm.value, 'Form is invalid');
+        }
+  }
+
+  async getJobDetails(id: string) {
+    try {
+      const res: any = await this.http.get(`jobs/get-by-id?id=${id}`, true).toPromise();
+      if (res && res.job) {
+        this.postJobForm.patchValue({
+          title: res.job.title,
+          description: res.job.description,
+          email: res.job.email,
+          specialism: res.job.specialism,
+          category_id: res.job.category_id,
+          jobType: res.job.jobType,
+          salary: res.job.salary,
+          careerLevel: res.job.careerLevel,
+          experience: res.job.experience,
+          gender: res.job.gender,
+          industry: res.job.industry,
+          qualification: res.job.qualification,
+          deadline: res.job.deadline,
+          country: res.job.country,
+          city: res.job.city,
+          completeAddress: res.job.completeAddress,
+          latitude: res.job.latitude,
+          longitude: res.job.longitude,
+          company: res.job.company
+        });
+      }
+    } catch (error) {
+      console.error('Error fetching job details:', error);
+    }
+  }
+
+
+  async getCategories() {
+    try {
+      const res: any = await this.http.get('category/get_category', true).toPromise();
+      console.log(res);
+      this.categories = res?.categories;
+    } catch (error) {
+      console.error('Error fetching contractors:', error);
+    }
+  }
+
 
   onEditorChange({ editor }: any) {
     const data = editor.getData();

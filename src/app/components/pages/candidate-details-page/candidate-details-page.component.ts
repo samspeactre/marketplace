@@ -1,6 +1,6 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { Title } from '@angular/platform-browser';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { HttpService } from 'src/app/shared/services/http.service';
 
 @Component({
@@ -17,6 +17,7 @@ export class CandidateDetailsPageComponent {
   constructor(private titleService: Title,
     private route: ActivatedRoute,
     private http: HttpService,
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -31,7 +32,7 @@ export class CandidateDetailsPageComponent {
 
   @ViewChild('videoPlayer') videoPlayer!: ElementRef<HTMLVideoElement>;
 
-  videoUrls = ['../../../../assets/video/community-Popup.mp4', '../../../../assets/video/Rent-Popup.mp4', '../../../../assets/video/sell-Popup.mp4'];
+  videoUrls = ['assets/video/community-Popup.mp4', 'assets/video/Rent-Popup.mp4', 'assets/video/sell-Popup.mp4'];
   currentVideoIndex = 0;
 
 
@@ -51,4 +52,30 @@ export class CandidateDetailsPageComponent {
       console.error('Error fetching users:', error);
     }
   }
+
+  downloadCV() {
+    if (this.candidateDetail?.resumes?.length > 0) {
+      const resumeUrl = this.candidateDetail.resumes[0].resume; // Get the first resume URL
+
+      // Create a hidden link element and programmatically trigger a click to download the file
+      const link = document.createElement('a');
+      link.href = resumeUrl;
+      link.target = '_blank'; // Open in a new tab
+      link.download = `cv_${this.candidateDetail.first_name}_${this.candidateDetail.last_name}.pdf`; // Set the download file name
+      link.click(); // Trigger the click event
+    } else {
+      console.error('No resume available to download.');
+    }
+  }
+
+
+  onChatButtonClick() {
+    // Navigates to 'candidates-dashboard/message' with employer's user ID in query params
+    if (this.candidateDetail?.id) {
+      this.router.navigate(['/dashboard/message'], {
+        queryParams: { id: this.candidateDetail.id }
+      });
+    }
+  }
+
 }

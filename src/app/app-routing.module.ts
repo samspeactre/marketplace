@@ -61,9 +61,15 @@ const routes: Routes = [
     {path: 'jobs-listing', component: JobsListingPageComponent},
     {path: 'job-details', component: JobDetailsPageComponent},
     // {path: 'categories', component: CategoriesPageComponent},
-    {path: 'candidates', component: CandidatesPageComponent},
+    {path: 'candidates', component: CandidatesPageComponent,
+      canActivate: [AuthGuard],
+      data: { expectedRole: 'employer' },
+    },
     {path: 'candidate-details', component: CandidateDetailsPageComponent},
-    {path: 'employers', component: EmployersPageComponent},
+    {path: 'employers', component: EmployersPageComponent,
+      canActivate: [AuthGuard],
+      data: { expectedRole: 'candidate' },
+    },
     {path: 'employer-details', component: EmployerDetailsPageComponent},
     // {path: 'faq', component: FaqPageComponent},
     {path: 'privacy-policy', component: PrivacyPolicyPageComponent},
@@ -92,6 +98,7 @@ const routes: Routes = [
             {path: 'message', component: EdMessageComponent},
             {path: 'change-password', component: EdChangePasswordComponent},
             {path: 'edit-account', component: EdEditAccountComponent},
+
         ]
     },
     {
@@ -106,6 +113,7 @@ const routes: Routes = [
             {path: 'company-profile', component: CdCompanyProfileComponent},
             {path: 'bookmarks', component: CdBookmarksComponent},
             {path: 'applied_jobs', component: CdAppliedJobsComponent},
+            {path: 'message', component: CdMessageComponent},
 
             {path: 'post-a-new-job', component: CdPostANewJobComponent},
             {path: 'manage-jobs', component: CdManageJobsComponent},

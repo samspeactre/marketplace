@@ -4,11 +4,46 @@ import { HttpService } from './http.service';
 import { LoaderService } from './loader.service';
 import { HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { Socket, io } from 'socket.io-client';
+
 @Injectable({
   providedIn: 'root',
 })
 export class HelperService {
+  private socket: Socket;
+
   constructor(private http: HttpService, private toastr: ToastrService) {
+    this.socket = io('http://jobtowners.com:4000', {
+      withCredentials: true,
+      transports: ['websocket', 'polling']
+    });
+  }
+
+  listenForMessages(): Observable<any> {
+    return new Observable((observer) => {
+      this.socket.on('message', (data: any) => {
+        observer.next(data);  // Push incoming message data to the observer
+      });
+    });
+  }
+
+  // Send a message to the server
+  sendMessage(messageData: any) {
+    this.socket.emit('message', messageData);
+  }
+
+  getMessages(): Observable<{ user: string, message: string }> {
+    return new Observable<{ user: string, message: string }>(observer => {
+      this.socket.on('message', (data) => {
+
+        console.log(data, 'dfdf0000')
+        observer.next(data);
+      });
+
+      return () => {
+        this.socket.disconnect();
+      };
+    });
   }
 
 
@@ -50,6 +85,33 @@ export class HelperService {
         );
     });
   }
+
+
+  pdfUploadHttp(files: FileList): Promise<any> {
+    LoaderService.loader.next(true);
+
+    return new Promise((resolve, reject) => {
+      const formData = new FormData();
+
+      // Append each file to the formData
+      for (let i = 0; i < files.length; i++) {
+        formData.append('cv', files[i]);
+      }
+
+      this.http.postMedia('file/upload_cv', formData, true).subscribe(
+        (response: any) => {
+          this.toastr.success('File Uploaded Successfully');
+          LoaderService.loader.next(false);
+          resolve(response); // Assuming the response contains video_url
+        },
+        (error) => {
+          LoaderService.loader.next(false);
+          reject(error);
+        }
+      );
+    });
+  }
+
 
 
   videoUploadHttp(files: FileList): Promise<any> {

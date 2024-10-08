@@ -1,10 +1,18 @@
 // Breadcrumb Title
 .breadcrumb-title {
     margin-bottom: 25px;
-    
+
     h1 {
         font-size: 24px;
     }
+}
+.unread-count {
+  background-color: red;
+  color: white;
+  border-radius: 50%;
+  padding: 2px 5px;
+  margin-left: 5px;
+  font-size: 12px;
 }
 
 // Card
@@ -224,7 +232,7 @@
             direction: rtl;
             padding: 20px;
             height: 50vh;
-            
+
             ul {
                 flex-direction: column-reverse;
                 justify-content: flex-end;
@@ -283,7 +291,7 @@
                         }
                         .message {
                             text-align: end;
-    
+
                             p {
                                 color: var(--whiteColor);
                                 border-radius: 10px 0 10px 10px;
@@ -338,7 +346,7 @@
                     }
                 }
             }
-            form {
+            .position-relative {
                 flex: 1 1 auto;
                 margin: {
                     right: 50px;
@@ -355,14 +363,14 @@
                     background-color: #f9fafb;
                     border: 1px solid #e0e6e9;
                     transition: var(--transition);
-        
+
                     &::placeholder {
                         color: var(--bodyColor);
                         transition: var(--transition);
                     }
                     &:focus {
                         border-color: var(--primaryColor);
-        
+
                         &::placeholder {
                             color: transparent;
                         }
@@ -380,7 +388,7 @@
                     transform: translateY(-50%);
                     transition: var(--transition);
                     background-color: transparent;
-        
+
                     &:hover {
                         color: var(--headingColor);
                     }
@@ -407,7 +415,7 @@
 
         .search-box {
             margin-bottom: 15px;
-    
+
             .input-search {
                 height: 48px;
                 font-size: 14px;
@@ -421,11 +429,11 @@
             li {
                 margin-bottom: 12px;
                 padding-bottom: 12px;
-                
+
                 .content {
                     .title {
                         margin-left: 12px;
-    
+
                         h5 {
                             font-size: 14px;
                         }
@@ -454,11 +462,11 @@
             .chat-header {
                 border-radius: 5px 5px 0 0;
                 padding: 15px;
-    
+
                 .user {
                     .title {
                         margin-left: 12px;
-    
+
                         h5 {
                             font-size: 14px;
                         }
@@ -471,13 +479,13 @@
             }
             .chat-body {
                 padding: 15px;
-                
+
                 ul {
                     li {
                         width: 100%;
                         padding-left: 0;
                         text-align: start;
-    
+
                         .user {
                             position: relative;
                             margin-bottom: 12px;
@@ -499,13 +507,13 @@
             .chat-footer {
                 padding: 15px;
                 border-radius: 0 0 10px 10px;
-    
+
                 .list {
                     button {
                         font-size: 22px;
                     }
                 }
-                form {
+                .position-relative {
                     margin: {
                         right: 35px;
                         top: 15px;

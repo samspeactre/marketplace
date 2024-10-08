@@ -207,22 +207,29 @@
                             </span>
                           </ng-container>
                         </ng-container>
-                        
+
                         <!-- Login/Register option for users who are not logged in -->
                         <ng-template #loginRegister>
-                          <span class="d-block login-register"  (click)="authPopup.openPopup()">
+                          <span class="d-block login-register default-btn"  (click)="authPopup.openPopup()">
                             <i class="ri-user-line"></i>
                             Login/Register
                           </span>
                         </ng-template>
                       </div>
-                      
-                      
-                    <div class="option-item">
+
+
+                    <div class="option-item"  *ngIf="userRole === 'employer' ">
                         <a routerLink="/dashboard/post-a-new-job" class="default-btn">
                             Post A Job
                         </a>
                     </div>
+
+                    <div class="option-item"  *ngIf="userRole === 'candidate'"
+                    >
+                      <a routerLink="/dashboard/post-a-new-job" class="default-btn">
+                          Logout
+                      </a>
+                  </div>
 
                 </div>
             </div>

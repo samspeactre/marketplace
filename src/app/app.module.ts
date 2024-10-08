@@ -96,6 +96,7 @@ import { ResetOtpComponent } from './components/forget-pass/reset-otp/reset-otp.
 import { ResetEmailSendComponent } from './components/forget-pass/reset-email-send/reset-email-send.component';
 import { ResetPassComponent } from './components/forget-pass/reset-pass/reset-pass.component';
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
+import { CandidateFilterComponent } from './components/common/candidate-filter-sidebar/candidate-filter.component';
 
 
 
@@ -131,6 +132,7 @@ import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
         HomethreeBannerComponent,
         JobsGridPageComponent,
         JobsSidebarComponent,
+        CandidateFilterComponent,
         JobsListingPageComponent,
         JobDetailsPageComponent,
         CandidatesPageComponent,

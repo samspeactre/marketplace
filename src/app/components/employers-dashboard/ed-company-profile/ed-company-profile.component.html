@@ -54,16 +54,20 @@
                 </div>
             </div>
             <div class="col-lg-6 col-md-6">
-                <div class="form-group">
-                    <label for="phone_number">
-                        Phone No
-                    </label>
-                    <input id="phone_number" type="text" class="form-control shadow-none"  formControlName="phone_number">
-                    <div *ngIf="(companyProfile.get('phone_number')?.touched || companyProfile.get('phone_number')?.invalid) && save">
-                      <small *ngIf="companyProfile.get('phone_number')?.errors?.['required']" class="text-danger">phone_number number is required</small>
-                    </div>
+              <div class="form-group">
+                <label for="phone_number">
+                  Phone No
+                </label>
+                <div class="input-group">
+                  <span class="input-group-text">+1</span> <!-- Hardcoded +1 country code -->
+                  <input id="phone_number" type="text" class="form-control shadow-none" formControlName="phone_number" maxlength="15">
                 </div>
+                <div *ngIf="(companyProfile.get('phone_number')?.touched || companyProfile.get('phone_number')?.invalid) && save">
+                  <small *ngIf="companyProfile.get('phone_number')?.errors?.['required']" class="text-danger">Phone number is required</small>
+                </div>
+              </div>
             </div>
+
             <div class="col-lg-6 col-md-6">
                 <div class="form-group">
                     <label for="website">

@@ -27,10 +27,11 @@
                         </div>
                     </div>
                     <div class="download-cv">
-                        <a href="javascript:void(0);" class="default-btn">
-                            Download CV
-                        </a>
+                      <a class="default-btn" (click)="onChatButtonClick()">
+                        Chat
+                      </a>
                     </div>
+
                 </div>
 
                 <div class="candidate-details-description">
@@ -102,9 +103,7 @@
                             <li>
                                 <span>Gender:</span> {{ candidateDetail?.dataValues?.gender }}
                             </li>
-                            <li>
-                                <span>Age:</span> {{ candidateDetail?.dataValues?.Age }}
-                            </li>
+
                             <li>
                                 <span>Qualification:</span>{{ candidateDetail?.dataValues?.Qualification }}
                             </li>
@@ -149,27 +148,21 @@
                         </ul>
                     </div>
 
-                    <div class="box">
-                        <h3>
-                            Download CV
-                        </h3>
-                        <div class="download-cv">
-                            <a href="javascript:void(0);" class="d-block position-relative">
-                                <span class="d-block">
-                                    cv_Donald_Darnell
-                                </span>
-                                PDF
-                                <i class="ri-file-download-line"></i>
-                            </a>
-                            <a href="javascript:void(0);" class="d-block position-relative">
-                                <span class="d-block">
-                                    cv_Donald_Darnell123
-                                </span>
-                                XML
-                                <i class="ri-file-download-line"></i>
-                            </a>
-                        </div>
+                    <div class="box" *ngIf="candidateDetail?.resumes?.length > 0">
+                      <h3>Download CV</h3>
+                      <div class="download-cv">
+                        <a
+                          [href]="candidateDetail?.resumes[0]?.resume"
+                          target="_blank"
+                          class="d-block position-relative"
+                          download>
+                          <span class="d-block">{{ 'cv_' + candidateDetail.first_name + '_' + candidateDetail.last_name }}</span>
+                          PDF
+                          <i class="ri-file-download-line"></i>
+                        </a>
+                      </div>
                     </div>
+
 
                     <!-- <div class="box">
                         <h3>

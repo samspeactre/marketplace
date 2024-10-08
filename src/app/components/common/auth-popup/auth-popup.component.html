@@ -20,15 +20,7 @@
                 <div class="tab-content">
 
                     <div class="tab-pane fade d-block opacity-100" *ngIf="currentTab === 'tab1'">
-                        <div class="info">
-                            <p>
-                                Username: <span class="fw-semibold">employer</span> or <span
-                                    class="fw-semibold">candidate</span>
-                            </p>
-                            <p>
-                                Password: <span class="fw-semibold">jove</span>
-                            </p>
-                        </div>
+
                         <form class="authentication-form" [formGroup]="candidateLogin"  (ngSubmit)="loginCandidate()">
                             <div class="form-group">
                                 <label>
@@ -131,7 +123,7 @@
                                         <label>
                                             Phone number
                                         </label>
-                                        <input type="text" class="form-control shadow-none" formControlName="phone_number" placeholder="Enter phone number">
+                                        <input type="number" class="form-control shadow-none" formControlName="phone_number" placeholder="Enter phone number">
                                         <div *ngIf="(CandidateloginForm.get('phone_number')?.invalid || CandidateloginForm.get('phone_number')?.touched) && RegisterCandidate" class="text-danger">
                                             <small *ngIf="CandidateloginForm.get('phone_number')?.errors?.['required']">Phone number is required.</small>
                                         </div>
@@ -216,7 +208,7 @@
                                         <label>
                                             Phone number
                                         </label>
-                                        <input type="text" class="form-control shadow-none"
+                                        <input type="number" class="form-control shadow-none"
                                             placeholder="Enter phone number" formControlName="phone_number">
                                             <div *ngIf="(EmployerloginForm.get('phone_number')?.invalid || EmployerloginForm.get('phone_number')?.touched) && RegisterEmployee" class="text-danger">
                                                 <small *ngIf="EmployerloginForm.get('phone_number')?.errors?.['required']">Phone number is required.</small>
@@ -226,7 +218,7 @@
                                         <label>
                                             Password
                                         </label>
-                                        <input type="text" class="form-control shadow-none"
+                                        <input type="password" class="form-control shadow-none"
                                             placeholder="Enter password" formControlName="password">
                                             <div *ngIf="(EmployerloginForm.get('password')?.invalid || EmployerloginForm.get('password')?.touched) && RegisterEmployee" class="text-danger">
                                                 <small *ngIf="EmployerloginForm.get('password')?.errors?.['required']">Password is required.</small>

@@ -12,6 +12,8 @@ export class JobsGridPageComponent implements OnInit {
     public AllJob: any[] = [];
     public filteredJobs: any[] = [];
     public totalJobs: number = 0;
+  userRole: string | null = null; // Variable to store user role
+
     public totalPages: number = 0;
   bookmarkedJobs = new Set<number>();
     public currentPage: number = 1;
@@ -26,10 +28,12 @@ export class JobsGridPageComponent implements OnInit {
         this.route.queryParams.subscribe((params) => {
             this.loadData(params);
         });
+        this.userRole = this.getUserRole(); // Get the user role
+
     }
 
     async loadData(queryParams: any) {
-        this.getBookmarkedJobs(); 
+        this.getBookmarkedJobs();
         await this.getJobs(queryParams);
         this.filteredJobs = this.AllJob; // Initialize with all jobs
         this.totalJobs = this.AllJob.length;
@@ -58,8 +62,13 @@ export class JobsGridPageComponent implements OnInit {
         console.error('Error fetching bookmarked jobs:', error);
       }
     }
-  
-    
+
+    getUserRole(): string | null {
+      return localStorage.getItem('role');
+    }
+
+
+
 
     async changePage(page: number) {
         if (page < 1 || page > this.totalPages) return; // Prevent invalid page
@@ -75,9 +84,13 @@ export class JobsGridPageComponent implements OnInit {
     isBookmarked(jobId: number): boolean {
         return this.bookmarkedJobs.has(jobId);
       }
-      
-      
-    
+
+      isEmployer(): boolean {
+        return this.userRole === 'employer';
+      }
+
+
+
       // Toggle bookmark status
       async toggleBookmark(jobId: number): Promise<void> {
         try {

@@ -29,15 +29,15 @@ export class CdHeaderComponent {
      }
      closePopup(): void {
          this.isOpen = false;
-     } 
- 
+     }
+
      // Tabs 1
      currentTab = 'tab1';
      switchTab(event: MouseEvent, tab: string) {
          event.preventDefault();
          this.currentTab = tab;
      }
- 
+
      // Tabs 2
      currentInnerTab = 'innerTab1';
      switchInnerTab(event: MouseEvent, tab: string) {
@@ -45,4 +45,8 @@ export class CdHeaderComponent {
          this.currentInnerTab = tab;
      }
 
+     logout() {
+      localStorage.clear();
+        window.location.reload();
+    }
 }
